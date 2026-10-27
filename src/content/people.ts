@@ -1,0 +1,107 @@
+import { portrait } from "./media";
+import type { GroupId, Person } from "./types";
+
+/** Alle medarbejdere. Kilde: tekster-team.md (bios fra Webflow, skrevet om). */
+const raw: Omit<Person, "portrait">[] = [
+  // Rådgivning
+  {
+    slug: "anders-bentholm", name: "Anders Bentholm", title: "CEO / Partner", group: "raadgivning",
+    phone: "+45 28 18 84 27", email: "ab@tobaadvice.com",
+    short: "Leder rådgivergruppen og har mange års erfaring med investerings- og formuerådgivning.",
+    bio: ["Anders er CEO og har ansvaret for TOBA Advices rådgivergruppe. Han har arbejdet med investerings- og formuerådgivning i mange år og har tidligere været ansat i Nordea Private Banking og Formuepleje A/S."],
+  },
+  {
+    slug: "bent-hymoeller", name: "Bent Hymøller", title: "Senior Relationship Manager / Partner", group: "raadgivning",
+    phone: "+45 28 56 54 21", email: "hymoller@tobaadvice.com",
+    short: "Over 36 års erfaring med investeringer.",
+    bio: ["Bent er HD(F), certificeret investeringsrådgiver og partner i TOBA Advice. Han har over 36 års erfaring med investeringer og rådgiver især kunder med store formuer. Bent har tidligere været Sales Director i BankInvest, teamleder i Nordea Private Banking og investeringsrådgiver i SEB."],
+  },
+  {
+    slug: "lars-dessau", name: "Lars Dessau", title: "Senior Relationship Manager / Partner", group: "raadgivning",
+    phone: "+45 93 98 43 33", email: "dessau@tobaadvice.com",
+    short: "Erfaren rådgiver og forfatter til bogen “Kundeheltene”.",
+    bio: [
+      "Lars har været en del af TOBA Advice siden december 2024. Han har en solid baggrund inden for strategisk planlægning og projektstyring og har tidligere haft ledende stillinger i Selected Group Gibraltar og Trusted Novus Bank med ansvar for formueforvaltning og personaleledelse.",
+      "Lars har skrevet bogen “Kundeheltene” om, hvordan virksomheder kan give deres kunder en bedre oplevelse.",
+    ],
+  },
+  {
+    slug: "martin-svendsen", name: "Martin Svendsen", title: "Senior Relationship Manager / Partner", group: "raadgivning",
+    phone: "+45 28 72 97 20", email: "svendsen@tobaadvice.com",
+    short: "Cand.merc. og investeringsrådgiver siden 2006.",
+    bio: [
+      "Martin har den daglige kontakt med kunderne. Han er cand.merc. i økonomistyring og har arbejdet med porteføljesammensætning og investeringsrådgivning siden 2006. Før TOBA Advice var han 12 år i Jyske Bank, hvor han rådgav bankens private banking-kunder.",
+      "Martin bor med sin familie lige syd for Aarhus. Fritiden går med familie og venner – gerne omkring et godt måltid, for madlavning er hans store interesse.",
+    ],
+  },
+  {
+    slug: "patrick-czyz", name: "Patrick Czyz", title: "Senior Relationship Manager / Partner", group: "raadgivning",
+    phone: "+45 40 13 84 54", email: "pc@tobaadvice.com",
+    short: "Uddannet formuerådgiver med over 12 års erfaring fra banksektoren.",
+    bio: [
+      "Patrick er uddannet formuerådgiver og har over 12 års erfaring fra banksektoren, senest i Private Banking i Aarhus-området. Hos Patrick går formue- og investeringsrådgivning hånd i hånd. Han lægger vægt på at finde den løsning, der passer til netop dig og din situation.",
+      "Når han ikke rådgiver, er Patrick formand for Mollerup Golf Club.",
+    ],
+  },
+  // Analyse
+  {
+    slug: "bertel-roslev-rasmussen", name: "Bertel Roslev Rasmussen", title: "CIO / Partner", group: "analyse",
+    phone: "+45 29 92 95 32", email: "roslev@tobaadvice.com",
+    bio: ["Bertel står i spidsen for TOBA Advices analyseafdeling. Han har tidligere været partner og chef for investeringsafdelingen i konsulenthuset Kirstein A/S, hvor han rådgav institutionelle investorer om investeringsstrategi og udvælgelse af kapitalforvaltere."],
+  },
+  {
+    slug: "anton-soerensen", name: "Anton Sørensen", title: "Head of Investment Operations / Partner", group: "analyse",
+    phone: "+45 28 68 65 70", email: "antonsorensen@tobaadvice.com",
+    bio: ["Anton arbejder i analyseafdelingen med produkt-, portefølje- og makroøkonomiske analyser og med rapporteringen til kunderne. Han kom til TOBA Advice direkte fra Aarhus Universitet, hvor han læste med speciale i finans. Før det var han Assistant Portfolio Manager hos Markedskraft."],
+  },
+  {
+    slug: "christian-hechmann", name: "Christian Hechmann", title: "Investment Analyst", group: "analyse",
+    phone: "+45 88 88 82 06", email: "ch@tobaadvice.com",
+    bio: ["Christian arbejder i analyseafdelingen, hvor han står for rapportering, opstart af nye kunder og omlægning af eksisterende kunders porteføljer. Han har en bachelor i finans fra Erhvervsakademi Aarhus."],
+  },
+  { slug: "kristian-blaesbjerg-larsen", name: "Kristian Blæsbjerg Larsen", title: "Investment Analyst", group: "analyse", bio: [] },
+  { slug: "mads-harder", name: "Mads Harder", title: "Investment Analyst", group: "analyse", bio: [] },
+  { slug: "alexander-holm", name: "Alexander Holm", title: "Studentermedhjælper", group: "analyse", bio: [], noProfile: true },
+  { slug: "mathias-braas-skytte", name: "Mathias Braas Skytte", title: "Studentermedhjælper", group: "analyse", bio: [], noProfile: true },
+  // Administration
+  {
+    slug: "tonny-elsberg", name: "Tonny Elsberg", title: "COO / Partner", group: "administration",
+    email: "elsberg@tobaadvice.com",
+    short: "Medstifter af TOBA Advice med over 25 års erfaring fra den finansielle sektor.",
+    bio: ["Tonny er medstifter af TOBA Advice og COO. Han har over 25 års erfaring fra den finansielle sektor og har tidligere været partner i Clearhaus og finans- og fondschef i Sparekassen Kronjylland."],
+  },
+  // TODO: Mettes e-mail bruger det gamle efternavn – bekræft før den tilføjes.
+  { slug: "mette-jo-rehn-hermansen", name: "Mette Jo Rehn Hermansen", title: "CFO / Partner", group: "administration", phone: "+45 26 83 81 11", bio: [] },
+  {
+    slug: "sofia-lund-elsberg", name: "Sofia Lund Elsberg", title: "Frontend Developer", group: "administration",
+    email: "se@tobaadvice.com",
+    short: "Udvikler TOBA Advices hjemmeside.",
+    bio: ["Sofia står for udviklingen af TOBA Advices hjemmeside. Hun har en baggrund inden for både design og programmering."],
+  },
+  // Bestyrelse
+  {
+    slug: "peter-bager", name: "Peter Bager", title: "Formand for bestyrelsen", group: "bestyrelse",
+    short: "Professionelt bestyrelsesmedlem med baggrund i salg, marketing og digital udvikling.",
+    bio: ["Peter er formand for bestyrelsen i TOBA Advice. Han er professionelt bestyrelsesmedlem i en række virksomheder – typisk privatejede med en aktiv ejerkreds – og er bl.a. formand i Tvilum A/S og Proshop Europe A/S. Peter har en baggrund inden for salg og marketing og arbejder især med digital udvikling."],
+  },
+  {
+    // TODO: afklar om advokatfirmaet skal nævnes (beslutning om ingen specifikke virksomheder).
+    slug: "dennis-birkeholm-larsen", name: "Dennis Birkeholm Larsen", title: "Bestyrelsesmedlem", group: "bestyrelse",
+    bio: ["Dennis er medlem af bestyrelsen i TOBA Advice. Han er advokat (L) og partner i advokatfirmaet Clemens Law."],
+  },
+];
+
+export const people: Person[] = raw.map((p) => ({ ...p, portrait: portrait(p.slug, p.name) }));
+
+export const groups: { id: GroupId; name: string; note?: string }[] = [
+  { id: "raadgivning", name: "Rådgivning", note: "Din faste kontakt" },
+  { id: "analyse", name: "Analyse", note: "Strategi, forvaltere og rapportering" },
+  { id: "administration", name: "Administration" },
+  { id: "bestyrelse", name: "Bestyrelse" },
+];
+
+export const advisers = people.filter((p) => p.group === "raadgivning");
+
+export function getPerson(slug: string): Person | undefined {
+  return people.find((p) => p.slug === slug);
+}

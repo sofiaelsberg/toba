@@ -1,26 +1,172 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
+/*
+ * TOBA Advice – designtokens.
+ * Kilde: designsystemet "TOBA Advice – Web" (tokens.json). Ret her, ikke i komponenterne.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand */
+  --navy: #253747;
+  --navy-deep: #1b2a37;
+  --gold: #b38845;          /* accent: streger, ikoner, store tal */
+  --gold-light: #b58347;    /* hårstreger på navy */
+  --gold-text: #8a6630;     /* guld til tekst på lyse flader (4,6:1 på cream) */
+  --gold-soft: #d7c3a0;     /* sekundær datafarve */
+  --cream: #f5f1ea;
+  --white: #ffffff;
+  --ink: #2a2a2a;
+  --ink-muted: #666666;     /* sekundær tekst (5,1:1 på cream) */
+  --grey: #999999;          /* aldrig til tekst */
+  --grey-light: #cccccc;
+  --line: #e3dcd0;
+  --line-strong: #8a8a8a;
+  --on-navy: #ffffff;
+  --on-navy-muted: #cccccc;
+  --positive: #2e7d5b;
+  --negative: #b83a3a;
+  --warning: #d4852f;
+
+  /* Lagkagens lag (yderst → inderst) */
+  --layer-1: #253747;
+  --layer-2: #4a5d6e;
+  --layer-3: #7d8a95;
+  --layer-4: #c9cfd4;
+
+  /* shadcn-semantik mappet til TOBA */
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: var(--white);
+  --card-foreground: var(--ink);
+  --popover: var(--white);
+  --popover-foreground: var(--ink);
+  --primary: var(--navy);
+  --primary-foreground: var(--white);
+  --secondary: var(--white);
+  --secondary-foreground: var(--navy);
+  --muted: var(--line);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--cream);
+  --accent-foreground: var(--navy);
+  --destructive: var(--negative);
+  --border: var(--line);
+  --input: var(--line-strong);
+  --ring: var(--navy);
+  --radius: 2px;
 }
 
 @theme inline {
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-text: var(--gold-text);
+  --color-gold-soft: var(--gold-soft);
+  --color-cream: var(--cream);
+  --color-white: var(--white);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-grey: var(--grey);
+  --color-grey-light: var(--grey-light);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-on-navy: var(--on-navy);
+  --color-on-navy-muted: var(--on-navy-muted);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+  --color-warning: var(--warning);
+  --color-layer-1: var(--layer-1);
+  --color-layer-2: var(--layer-2);
+  --color-layer-3: var(--layer-3);
+  --color-layer-4: var(--layer-4);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+
+  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-source-sans), Calibri, "Segoe UI", Arial, sans-serif;
+
+  /* Typeskala fra tokens.json (størrelse / linjehøjde) */
+  --text-display: 3.5rem;
+  --text-display--line-height: 3.875rem;
+  --text-h2: 2.5rem;
+  --text-h2--line-height: 3rem;
+  --text-h3: 1.75rem;
+  --text-h3--line-height: 2.25rem;
+  --text-stat: 3rem;
+  --text-stat--line-height: 3.25rem;
+  --text-quote: 1.5rem;
+  --text-quote--line-height: 2.125rem;
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.75rem;
+  --text-lead: 1.5rem;
+  --text-lead--line-height: 2.125rem;
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.75rem;
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.375rem;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.125rem;
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1rem;
+
+  --container-site: 75rem;   /* 1200px */
+  --container-measure: 42.5rem; /* 680px */
+
+  --shadow-raised: 0 8px 24px rgba(37, 55, 71, 0.08);
+  --ease-toba: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    @apply bg-background text-foreground font-sans text-body antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--navy);
+    outline-offset: 2px;
+  }
+  .on-navy :focus-visible {
+    outline-color: var(--cream);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .wrap {
+    @apply mx-auto w-full max-w-site px-6;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
 }
