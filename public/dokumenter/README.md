@@ -1,8 +1,9 @@
-Læg politik-PDF'erne her (fra `TOBA/kommunikation/hjemmeside-opdatering-og-redesign-202611/politikker/`):
+Politik-PDF'erne, som /politikker linker til (stier i `src/content/pages/legal.ts`).
+Kilde: `TOBA/kommunikation/hjemmeside-opdatering-og-redesign-202611/politikker/`.
 
 - politik-interessekonflikter.pdf
 - privatlivspolitik.pdf
 - politik-loen.pdf
-- politik-baeredygtighed.pdf  ← afventer compliance (PDF'en tilhører TOBA Investments)
+- politik-baeredygtighed.pdf  ← OBS: tilhører Investeringsforeningen TOBA Investments – afklar med compliance før lancering.
 
-Stierne bruges i `src/content/pages/legal.ts`.
+Opdatér en politik ved at erstatte filen med samme navn – så ændres linket ikke. Ret datoen i legal.ts.
