@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# tobaadvice.com
 
-## Getting Started
+Ny hjemmeside for TOBA Advice. Next.js 16 (App Router), React 19, TypeScript, Tailwind v4, shadcn/ui (Radix) og Motion.
 
-First, run the development server:
+Design: Claude Design-filen "TOBA forside" og designsystemet "TOBA Advice – Web". Komponentoversigten står i [`docs/komponentplan.md`](docs/komponentplan.md).
+
+## Kom i gang
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # produktionsbuild (fejler, hvis en side læser request-data uden <Suspense>)
+npx eslint src
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Kopiér `.env.example` til `.env.local` og udfyld ActiveCampaign-nøglerne. Uden nøgler virker formularerne lokalt, men intet sendes.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Sådan er projektet bygget op
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Mappe | Indhold |
+|---|---|
+| `src/content/` | **Al tekst.** Én fil pr. side i `pages/`, plus fælles filer (`site.ts`, `facts.ts`, `forms.ts`, `people.ts`, `media.ts`, `ui.ts`, `cake.ts`). |
+| `src/components/ui/` | shadcn-primitiver (button, input, checkbox, switch, accordion, sheet …) i TOBA-stil. |
+| `src/components/sections/` | Sektioner, der går igen: `Section`, `SectionHeading`, `Hero`, `CtaCards`, `CtaBand`, `StatsRow`, `PointList`, `PeopleGrid`, `TeamDirectory` … |
+| `src/components/blocks/` | Små byggeklodser: `RichText`, `ButtonLink`, `TextLink`, `Media`, `VideoBlock`, `IconBadge`. |
+| `src/components/interactive/` | Signatur-elementerne: `LayerCake`, `CostCalculator`, `ShareBar`, `ReturnComparison`, `DepotExample`, `StepTimeline`, tjeklister, `MoneyFlow`, `VolcanoStory`, `AnchorNav`, `SegmentTabs`. |
+| `src/components/forms/` | Én formularmotor (`LeadForm`) + `ContactForm`, `GuideForm`, `OverviewForm`. |
+| `src/components/motion/` | `Reveal`, `CountUp`, `useProgressInView` og bevægelsestokens. |
+| `src/app/(site)/` | Sider med fuld header/sidefod. |
+| `src/app/(landing)/` | Landingssider med forenklet header/sidefod. |
+| `src/app/actions/` | Server action, der sender formularer til ActiveCampaign. |
 
-## Learn More
+### Regler
 
-To learn more about Next.js, take a look at the following resources:
+1. **Ingen tekst i komponenter.** Ret tekster i `src/content/`. `*ord*` = fremhævet (kursiv guld), `**ord**` = fed. `{navn}` udfyldes af koden, fx i beregneren.
+2. **Tal, der går igen, står ét sted:** `src/content/facts.ts` (rabatbeløb, antal forvaltere, satser til beregneren …).
+3. **Farver og typografi** kommer fra tokens i `src/app/globals.css` – brug `text-navy`, `bg-cream`, `text-gold-text`, `text-h2` osv., aldrig hex-koder i komponenterne.
+4. **Bevægelse** følger brandbogen: én kurve (`ease-toba`), 150/300/700 ms, kører én gang og respekterer "reducer bevægelse". Alt står færdigt uden JavaScript.
+5. **Fonte** (Playfair Display, Source Sans 3) er selvhostede i `src/fonts/` – ingen kald til Google.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Status
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- ✅ Designtokens, layout (header, sidefod, cookiebanner), alle komponenter og alle indholdsfiler.
+- ✅ Forsiden og 404-siden er sat sammen.
+- ⏭ De øvrige sider sættes sammen på samme måde som `src/app/(site)/page.tsx` – indholdet ligger klar i `src/content/pages/`.
+- ⏭ Rigtige videoer og fotos (`src/content/media.ts`), politik-PDF'er i `public/dokumenter/`, redirects fra den gamle side i `next.config.ts`, sitemap og ActiveCampaign-felter.
