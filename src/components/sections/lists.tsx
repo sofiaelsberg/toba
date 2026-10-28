@@ -87,17 +87,19 @@ export function NumberedSteps({ steps, pad = false, columns = 4 }: { steps: Step
   );
 }
 
-/** Spørgsmål/trin der foldes ud. */
+/** Spørgsmål/trin der foldes ud. Tom linje (\n\n) i svaret = nyt afsnit. */
 export function AccordionList({ items, defaultOpen }: { items: FaqItem[]; defaultOpen?: number }) {
   return (
     <Accordion type="single" collapsible defaultValue={defaultOpen !== undefined ? `item-${defaultOpen}` : undefined}>
       {items.map((item, i) => (
         <AccordionItem key={item.question} value={`item-${i}`}>
           <AccordionTrigger>{item.question}</AccordionTrigger>
-          <AccordionContent>
-            <p>
-              <RichText text={item.answer} />
-            </p>
+          <AccordionContent className="flex flex-col gap-3">
+            {item.answer.split("\n\n").map((para) => (
+              <p key={para.slice(0, 32)}>
+                <RichText text={para} />
+              </p>
+            ))}
           </AccordionContent>
         </AccordionItem>
       ))}

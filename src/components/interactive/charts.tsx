@@ -26,7 +26,7 @@ export function ShareBar({ value, lead, segments, source, className }: { value: 
         <span aria-hidden>{Math.round(Math.min(value, filled))} %</span>
         <span className="sr-only">{value} %</span>
       </p>
-      <p className="text-[1.25rem] leading-[1.875rem] md:text-lead md:font-light">{lead}</p>
+      <p className="text-[1.25rem] leading-[1.875rem] md:text-lead md:leading-(--text-lead--line-height) md:font-light">{lead}</p>
       <div role="img" aria-label={aria} className="mt-2 flex h-4 w-full bg-white/10">
         {segments.map((s, i) => {
           const w = Math.max(0, Math.min(s.value, filled - offsets[i]));
