@@ -18,13 +18,14 @@ export const videos = {
 
 export const images = {
   guideCover: { src: "/media/guide-forside.jpg", alt: "Forsiden af guiden Hvem spiser din lagkage?", width: 720, height: 1018 },
+  /** Stillbillede fra V10 (26,2 s), beskåret over underteksterne. */
+  v10Still: { src: "/media/stills/tonny-uafhaengighed.jpg", alt: "Tonny Elsberg, COO og partner i TOBA Advice, på kontoret", width: 1280, height: 800 },
 } satisfies Record<string, ImageRef>;
 
 /** Medier der mangler. Teksten vises i pladsholderen. */
 export const placeholders = {
   heroLoop: { placeholder: "Lydløs loop · rådgivere ved skrivebordet på Store Torv (b-roll fra V09 og V05)", aspect: "4/5" },
   overviewExcerpt: { placeholder: "Udsnit af omkostningsoverblikket", aspect: "16/10" },
-  v10Still: { placeholder: "Stillbillede fra V10 · Tonny", aspect: "16/10" },
   clientEvent: { placeholder: "Foto: kundearrangement med oplæg", aspect: "4/3" },
   meetingTable: { placeholder: "Foto: rådgiver og kunde ved mødebordet på Store Torv", aspect: "4/5" },
   teamOffice: { placeholder: "Foto: holdet på kontoret på Store Torv", aspect: "4/5" },
