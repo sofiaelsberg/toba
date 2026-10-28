@@ -22,7 +22,7 @@ export const home = {
   ctaCards: [
     { title: "Hvem spiser din lagkage?", text: "Download guiden og se, hvor værdien i din portefølje ender – og hvem der får rabatterne.", linkLabel: "Hent guiden gratis →", href: routes.guide, media: images.guideCover },
     { title: "Få gratis omkostningsoverblik", text: "Få ét samlet billede af, hvad din formue koster – og hvem der får pengene. Gratis og uforpligtende.", linkLabel: "Bestil dit overblik →", href: routes.overview, media: placeholders.overviewExcerpt },
-    { title: "Afhængig eller uafhængig?", text: "Der findes tre slags rådgivere – med tre forskellige interesser. Ved du, hvilken du har?", linkLabel: "Se forskellen →", href: routes.independent, media: placeholders.v10Still },
+    { title: "Afhængig eller uafhængig?", text: "Der findes tre slags rådgivere – med tre forskellige interesser. Ved du, hvilken du har?", linkLabel: "Se forskellen →", href: routes.independent, media: images.v10Still },
   ] satisfies CtaCardContent[],
 
   sameSide: {
