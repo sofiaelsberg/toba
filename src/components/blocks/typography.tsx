@@ -25,8 +25,8 @@ type HeadingProps = {
 };
 
 const sizes = {
-  display: "text-[2rem] leading-[2.5rem] min-[400px]:text-[2.375rem] min-[400px]:leading-[2.75rem] md:text-display tracking-[-0.01em]",
-  h2: "text-[1.875rem] leading-[2.375rem] md:text-h2",
+  display: "text-[2rem] leading-[2.5rem] min-[400px]:text-[2.375rem] min-[400px]:leading-[2.75rem] md:text-display md:leading-(--text-display--line-height) tracking-[-0.01em]",
+  h2: "text-[1.875rem] leading-[2.375rem] md:text-h2 md:leading-(--text-h2--line-height)",
   h3: "text-h3",
 };
 
@@ -41,7 +41,7 @@ export function Heading({ title, as: Tag = "h2", size = "h2", className, id }: H
 
 export function Lead({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <p className={cn("text-[1.25rem] leading-[1.875rem] md:text-lead md:font-light", className)}>{children}</p>
+    <p className={cn("text-[1.25rem] leading-[1.875rem] md:text-lead md:leading-(--text-lead--line-height) md:font-light", className)}>{children}</p>
   );
 }
 

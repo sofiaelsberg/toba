@@ -41,6 +41,7 @@ Kopiér `.env.example` til `.env.local` og udfyld ActiveCampaign-nøglerne. Uden
 ## Status
 
 - ✅ Designtokens, layout (header, sidefod, cookiebanner), alle komponenter og alle indholdsfiler.
-- ✅ Forsiden og 404-siden er sat sammen.
-- ⏭ De øvrige sider sættes sammen på samme måde som `src/app/(site)/page.tsx` – indholdet ligger klar i `src/content/pages/`.
-- ⏭ Rigtige videoer og fotos (`src/content/media.ts`), politik-PDF'er i `public/dokumenter/`, redirects fra den gamle side i `next.config.ts`, sitemap og ActiveCampaign-felter.
+- ✅ Alle sider er sat sammen: forside, Sådan investerer vi, Uafhængig rådgivning, Om TOBA, Team, Kontakt, de to kampagnesider (`/lagkage`, `/omkostningsoverblik`), politikker, Finanstilsynet, klage, cookies og 404.
+- ✅ Politik-PDF'er ligger i `public/dokumenter/` (bæredygtighedspolitikken afventer compliance).
+- ⏭ Rigtige videoer og fotos (`src/content/media.ts`), LinkedIn-URL (`company.linkedin` i `src/content/site.ts`), redirects fra den gamle side i `next.config.ts`, sitemap, favicon og ActiveCampaign-nøgler og -felter (`.env.example`).
+- ⏭ Egne profilsider pr. rådgiver (`/team/[slug]`) – i dag åbner profilen i et panel på teamsiden.

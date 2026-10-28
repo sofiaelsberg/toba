@@ -1,0 +1,123 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+
+import { ButtonLink, ButtonRow } from "@/components/blocks/links";
+import { GoldRule, Heading, Lead } from "@/components/blocks/typography";
+import { VideoBlock } from "@/components/blocks/video-block";
+import { GuideForm } from "@/components/forms/forms";
+import { LockedChecklist, LockedChecklistIntro, UnlockProvider } from "@/components/interactive/checklists";
+import { LayerCake } from "@/components/interactive/layer-cake";
+import { LandingHeader } from "@/components/layout/landing-header";
+import { Disclaimer } from "@/components/sections/legal";
+import { FeatureList, PointList } from "@/components/sections/lists";
+import { Section, SectionHeading, Split } from "@/components/sections/section";
+import { FactBox, StatsRow } from "@/components/sections/stats";
+import { cake } from "@/content/cake";
+import { guide as c } from "@/content/pages/guide";
+import { disclaimers } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: c.seo.title,
+  description: c.seo.description,
+  openGraph: { description: c.seo.ogDescription },
+};
+
+/** Landingsside 1 – LinkedIn-kampagnen: hent guiden. */
+export default function GuidePage() {
+  return (
+    <UnlockProvider>
+      <LandingHeader action={c.headerAction} />
+      <main id="indhold">
+        <section className="bg-cream py-16 md:pt-22 md:pb-24">
+          <div className="wrap grid grid-cols-1 items-center gap-12 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-16">
+            <div className="flex flex-col gap-6">
+              <p className="text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase">{c.hero.eyebrow}</p>
+              <Heading as="h1" size="display" title={c.hero.title} className="md:text-[4rem] md:leading-[4.375rem]" />
+              <Lead className="max-w-150">{c.hero.lead}</Lead>
+              <ButtonRow actions={c.hero.actions} className="mt-2" />
+            </div>
+            {/* Guidens forside som fysisk rapport – retter sig op ved hover */}
+            <div className="mx-auto w-full max-w-80 [perspective:1200px] md:max-w-100">
+              <Image
+                src={c.cover.src}
+                alt={c.cover.alt}
+                width={c.cover.width}
+                height={c.cover.height}
+                priority
+                sizes="(min-width: 900px) 400px, 320px"
+                className="h-auto w-full shadow-[0_30px_60px_rgba(37,55,71,0.25),0_8px_24px_rgba(37,55,71,0.08)] transition-transform duration-700 ease-toba [transform:rotateY(-10deg)_rotateX(3deg)] hover:[transform:rotateY(-3deg)_rotateX(1deg)_translateY(-4px)] motion-reduce:[transform:none]"
+              />
+            </div>
+          </div>
+        </section>
+
+        <Section surface="white">
+          <Split>
+            <div className="flex flex-col gap-5">
+              <SectionHeading rule title={c.intro.title} />
+              {c.intro.text.map((t) => (
+                <p key={t}>{t}</p>
+              ))}
+              <FactBox fact={c.intro.fact} className="mt-2" />
+            </div>
+            <div className="flex flex-col gap-3">
+              <LayerCake content={{ ...cake, footnote: c.intro.cakeNote }} autoplay />
+            </div>
+          </Split>
+        </Section>
+
+        <Section>
+          <Split>
+            <VideoBlock video={c.video.video} className="max-w-120" />
+            <SectionHeading rule title={c.video.title} lead={c.video.text} />
+          </Split>
+        </Section>
+
+        <section id="guide" className="scroll-mt-20 bg-white py-16 md:py-24">
+          <div className="wrap grid grid-cols-1 items-start gap-10 md:grid-cols-2 md:gap-16">
+            <div className="flex flex-col gap-6">
+              <GoldRule />
+              <Heading title={c.benefits.title} />
+              <PointList points={c.benefits.points} />
+            </div>
+            <div className="border-t-2 border-gold bg-cream p-8 shadow-raised md:p-10">
+              <GuideForm />
+            </div>
+          </div>
+        </section>
+
+        <Section>
+          <Split align="start">
+            <div className="flex flex-col gap-5">
+              <SectionHeading rule title={c.checklist.title} lead={c.checklist.lead} />
+              <LockedChecklistIntro teaser={c.checklist.teaser} teaserAction={c.checklist.teaserAction} unlockedText={c.checklist.unlocked} />
+            </div>
+            <LockedChecklist questions={c.checklist.questions} freeIndexes={c.checklist.freeIndexes} />
+          </Split>
+        </Section>
+
+        <Section surface="navy">
+          <div className="flex flex-col gap-12">
+            <SectionHeading rule title={c.about.title} lead={c.about.lead} leadClassName="text-on-navy-muted" />
+            <FeatureList features={c.about.features} />
+            <StatsRow stats={c.about.stats} />
+          </div>
+        </Section>
+
+        <Section surface="white">
+          <Split>
+            <SectionHeading rule title={c.secondary.title} />
+            <div className="flex flex-col gap-4">
+              {c.secondary.text.map((t) => (
+                <p key={t}>{t}</p>
+              ))}
+              <ButtonLink action={c.secondary.action} className="self-start" />
+            </div>
+          </Split>
+        </Section>
+
+        <Disclaimer content={disclaimers.guide} />
+      </main>
+    </UnlockProvider>
+  );
+}
