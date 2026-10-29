@@ -1,7 +1,7 @@
 import { facts } from "../facts";
 import { images, placeholders, videos } from "../media";
 import { routes, bookMeeting } from "../site";
-import type { FaqItem, HeroContent, Point, QuoteContent, Seo, Stat, StepContent } from "../types";
+import type { FaqItem, HeroContent, ManagerMapContent, Point, QuoteContent, Seo, Stat, StepContent } from "../types";
 
 export const howWeInvest = {
   seo: {
@@ -77,7 +77,30 @@ export const howWeInvest = {
       { question: "Opfølgning", answer: "Vi mødes med forvalterne og følger dem kvartal for kvartal." },
       { question: "Udskiftning", answer: "Leverer en forvalter ikke, skifter vi." },
     ] satisfies FaqItem[],
-    map: placeholders.worldMap,
+    /** Kilde: M1-slides, slide 13 (forvalternes hovedkontorer). */
+    map: {
+      label: "Kort over, hvor vores forvaltere har hovedkontor",
+      regions: [
+        { label: "Danmark", managers: 6 },
+        { label: "Norden", managers: 2 },
+        { label: "Nordamerika", managers: 7 },
+        { label: "Europa", managers: 4 },
+      ],
+      locations: [
+        { label: "København", lat: 55.68, lon: 12.57, managers: ["HP Fonds", "Accunia", "Great Dane", "CABA Capital", "Thylander", "Winest"] },
+        { label: "Oslo", lat: 59.91, lon: 10.75, managers: ["Storebrand"] },
+        { label: "Stockholm", lat: 59.33, lon: 18.07, managers: ["Coeli"] },
+        { label: "London", lat: 51.51, lon: -0.13, managers: ["ICG", "Apax", "Twelve Securis"] },
+        { label: "Frankfurt", lat: 50.11, lon: 8.68, managers: ["Xtrackers (DWS)"] },
+        { label: "USA · østkysten", lat: 40.71, lon: -74.0, managers: ["Baron Capital", "J.P. Morgan", "StepStone Group", "Vanguard"] },
+        { label: "Florida", lat: 26.12, lon: -80.14, managers: ["GQG Partners"] },
+        { label: "Texas", lat: 30.27, lon: -97.74, managers: ["Vista"] },
+        { label: "Californien", lat: 33.54, lon: -117.78, managers: ["WCM"] },
+      ],
+      managerSingular: "forvalter",
+      managerPlural: "forvaltere",
+      caption: "Forvalternes hovedkontorer. Peg på eller tryk på en prik for at se, hvem der sidder hvor.",
+    } satisfies ManagerMapContent,
     video: videos.v07,
     link: { label: "Læs om uafhængig rådgivning →", href: routes.independent },
   },

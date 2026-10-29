@@ -6,6 +6,7 @@ import { RichText } from "@/components/blocks/rich-text";
 import { Caption, GoldRule, Heading } from "@/components/blocks/typography";
 import { VideoBlock } from "@/components/blocks/video-block";
 import { ReturnComparison } from "@/components/interactive/charts";
+import { ManagerMap } from "@/components/interactive/manager-map";
 import { AnchorNav, SegmentTabs } from "@/components/interactive/navigation";
 import { StepTimeline } from "@/components/interactive/step-timeline";
 import { CtaStrip } from "@/components/sections/cta";
@@ -65,7 +66,7 @@ export default function HowWeInvestPage() {
           <Split align="start">
             <AccordionList items={c.managers.process} defaultOpen={0} />
             <div className="flex flex-col gap-6">
-              <Media media={c.managers.map} />
+              <ManagerMap content={c.managers.map} />
               <div className="grid grid-cols-[10rem_minmax(0,1fr)] items-center gap-5">
                 <VideoBlock video={{ ...c.managers.video, caption: undefined }} compact />
                 <div className="flex flex-col gap-3">

@@ -41,7 +41,6 @@ export const images = {
 
 /** Medier der mangler. Teksten vises i pladsholderen. */
 export const placeholders = {
-  worldMap: { placeholder: "Verdenskort med forvalternes 9 lande – uden fondsnavne", aspect: "16/10" },
   privateCredit: { placeholder: "AI-billede · private credit", aspect: "4/3" },
   infrastructure: { placeholder: "AI-billede · infrastruktur", aspect: "4/3" },
   realAssets: { placeholder: "AI-billede · real assets", aspect: "4/3" },
