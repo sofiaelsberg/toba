@@ -13,7 +13,8 @@ const securityHeaders = [
 const legacyRedirects: { source: string; destination: string }[] = [
   { source: "/hvem-spiser-din-lagkage", destination: "/lagkage" },
   { source: "/gratis-omkostningsoverblik", destination: "/omkostningsoverblik" },
-  { source: "/team/:slug", destination: "/team" },
+  // Kun gamle profiladresser uden filendelse – ellers fanges portrætterne i /public/team.
+  { source: "/team/:slug([^./]+)", destination: "/team" },
   { source: "/search", destination: "/" },
   { source: "/401", destination: "/" },
   { source: "/404", destination: "/" },

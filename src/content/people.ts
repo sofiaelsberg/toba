@@ -111,7 +111,6 @@ const raw: Omit<Person, "portrait">[] = [
   },
   {
     slug: "mads-harder",
-    portraitFile: "mads-harder-2026-10.jpg",
     name: "Mads Harder",
     title: "Investment Analyst",
     group: "analyse",
@@ -170,7 +169,6 @@ const raw: Omit<Person, "portrait">[] = [
   {
     // TODO: afklar om advokatfirmaet skal nævnes (beslutning om ingen specifikke virksomheder).
     slug: "dennis-birkeholm-larsen",
-    portraitFile: "dennis-birkeholm-larsen-2026-10.jpg",
     name: "Dennis Birkeholm Larsen",
     title: "Bestyrelsesmedlem",
     group: "bestyrelse",
@@ -178,7 +176,7 @@ const raw: Omit<Person, "portrait">[] = [
   },
 ];
 
-export const people: Person[] = raw.map((p) => ({ ...p, portrait: portrait(p.portraitFile ?? `${p.slug}.jpg`, p.name) }));
+export const people: Person[] = raw.map((p) => ({ ...p, portrait: portrait(p.portraitFile ?? `${p.slug}-gs.jpg`, p.name) }));
 
 export const groups: { id: GroupId; name: string; note?: string }[] = [
   { id: "raadgivning", name: "Rådgivning", note: "Din faste kontakt" },
