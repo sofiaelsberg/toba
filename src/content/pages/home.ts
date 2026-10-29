@@ -90,6 +90,7 @@ export const home = {
     rangeMaxLabel: "100 mio.",
     todayLabel: "Valgfrit: Hvad betaler du i dag? (% om året)",
     todayPlaceholder: "fx 1,2",
+    todayHint: "Ved du det ikke? Det finder vi ud af for dig i omkostningsoverblikket.",
     feeLabel: "Rådgivningshonorar",
     rebateLabel: "Rabatter, vi forhandler hjem",
     netLabel: "Du betaler netto",

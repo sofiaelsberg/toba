@@ -66,7 +66,12 @@ export function CostCalculator({ content }: { content: Content }) {
         </div>
         <div className="flex flex-col gap-2">
           <Label htmlFor={`${id}-idag`}>{content.todayLabel}</Label>
-          <Input id={`${id}-idag`} inputMode="decimal" placeholder={content.todayPlaceholder} value={today} onChange={(e) => setToday(e.target.value)} className="w-40" />
+          {/* Knappen står ved feltet: kender man ikke sin pris, er overblikket næste skridt. */}
+          <div className="flex flex-wrap items-center gap-3">
+            <Input id={`${id}-idag`} inputMode="decimal" placeholder={content.todayPlaceholder} value={today} onChange={(e) => setToday(e.target.value)} className="w-24" />
+            <ButtonLink action={{ ...content.action, href: withFormue(content.action.href, mio) }} />
+          </div>
+          <p className="text-small text-ink-muted">{content.todayHint}</p>
         </div>
       </div>
 
@@ -103,7 +108,6 @@ export function CostCalculator({ content }: { content: Content }) {
             </p>
           )}
         </div>
-        <ButtonLink action={{ ...content.action, href: withFormue(content.action.href, mio) }} className="self-start" />
       </div>
       <p className="max-w-measure text-caption text-ink-muted md:col-span-2">{content.footnote}</p>
     </div>
