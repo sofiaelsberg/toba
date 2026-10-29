@@ -22,8 +22,8 @@ export default function NotFound() {
             <p className="max-w-140 text-[1.25rem] leading-[1.875rem] md:text-[1.375rem] md:leading-8 md:font-light">{c.lead}</p>
             <ButtonLink action={c.homeAction} className="mt-2 self-start" />
             <p className="mt-4 text-small text-on-navy-muted">
-              {c.help.before} <a href={telHref(c.help.phone)} className="text-white">{c.help.phone}</a> {c.help.middle}{" "}
-              <Link href={c.help.href} className="text-white">
+              {c.help.before} <a href={telHref(c.help.phone)} className="text-white underline underline-offset-2">{c.help.phone}</a> {c.help.middle}{" "}
+              <Link href={c.help.href} className="text-white underline underline-offset-2">
                 {c.help.linkLabel}
               </Link>
               {c.help.after}

@@ -14,6 +14,7 @@ export const routes = {
   fsa: "/finanstilsynet",
   complaints: "/klage",
   cookies: "/cookies",
+  accessibility: "/tilgaengelighed",
   clientPortal: "https://client.tobaadvice.onperformativ.com",
 } as const;
 
@@ -83,6 +84,7 @@ export const footer = {
         { label: "Politikker", href: routes.policies },
         { label: "Klageadgang", href: routes.complaints },
         { label: "Cookies", href: routes.cookies },
+        { label: "Tilgængelighed", href: routes.accessibility },
       ],
     },
   ] satisfies { title: string; links: LinkItem[] }[],
@@ -95,6 +97,7 @@ export const landingChrome = {
   footerLinks: [
     { label: "Persondatapolitik", href: routes.policies },
     { label: "Cookies", href: routes.cookies },
+    { label: "Tilgængelighed", href: routes.accessibility },
     { label: "tobaadvice.com", href: routes.home },
   ] satisfies LinkItem[],
 } as const;

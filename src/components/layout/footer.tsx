@@ -65,7 +65,7 @@ export function LandingFooter() {
         <span>
           {footer.companyLine} · {company.address.line1}, {company.address.line2}
         </span>
-        <span className="flex gap-4">
+        <span className="flex flex-wrap gap-x-4 gap-y-2">
           {landingChrome.footerLinks.map((l) => (
             <Link key={l.href} href={l.href} className="text-white no-underline">
               {l.label}

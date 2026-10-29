@@ -42,14 +42,15 @@ export function Header() {
       <a href="#indhold" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-white focus:p-2">
         {navLabels.skipToContent}
       </a>
-      <div className="wrap flex h-20 items-center gap-8">
+      <div className="wrap flex h-20 items-center gap-3 sm:gap-6 lg:gap-8">
         <Logo className="mr-auto" />
         <nav aria-label={navLabels.main} className="hidden items-center gap-7 min-[1020px]:flex">
           {items.map((i) => (
             <NavLink key={i.href} item={i} active={isActive(i.href)} />
           ))}
         </nav>
-        <ButtonLink action={bookMeeting} />
+        {/* Under 380 px er der ikke plads til både logo, knap og menu – så står knappen i menuen. */}
+        <ButtonLink action={bookMeeting} className="whitespace-nowrap max-[379px]:hidden" />
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
             aria-label={navLabels.openMenu}
@@ -63,6 +64,10 @@ export function Header() {
               {items.map((i) => (
                 <NavLink key={i.href} item={i} active={isActive(i.href)} onClick={() => setOpen(false)} className="py-3" />
               ))}
+              {/* Lukker menuen, når knappen bruges. */}
+              <div className="mt-4 min-[380px]:hidden" onClick={() => setOpen(false)}>
+                <ButtonLink action={bookMeeting} />
+              </div>
             </nav>
           </SheetContent>
         </Sheet>

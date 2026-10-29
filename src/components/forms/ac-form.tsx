@@ -37,6 +37,9 @@ function addLabels(host: HTMLElement) {
   host.querySelectorAll<HTMLElement>("._form_element").forEach((el) => {
     const label = el.querySelector<HTMLLabelElement>("label._form-label");
     const input = el.querySelector<HTMLInputElement>("input:not([type=hidden]):not([type=radio]):not([type=checkbox]), textarea, select");
+    if (input && AUTOCOMPLETE[input.name] && input.getAttribute("autocomplete") !== AUTOCOMPLETE[input.name]) input.setAttribute("autocomplete", AUTOCOMPLETE[input.name]);
+    if (input?.name === "email") input.setAttribute("inputmode", "email");
+    if (input?.name === "phone") input.setAttribute("inputmode", "tel");
     if (!label || !input || label.textContent?.trim()) return;
     const text = input.getAttribute("placeholder")?.trim();
     if (!text) return;
@@ -44,6 +47,33 @@ function addLabels(host: HTMLElement) {
     label.htmlFor = input.id;
     label.textContent = text;
     input.removeAttribute("placeholder");
+  });
+}
+
+/** Autoudfyldning (WCAG 1.3.5) – ActiveCampaign sætter ikke autocomplete på felterne. */
+const AUTOCOMPLETE: Record<string, string> = {
+  fullname: "name",
+  firstname: "given-name",
+  lastname: "family-name",
+  email: "email",
+  phone: "tel",
+};
+
+/** Kobler ActiveCampaigns fejlbeskeder til felterne, så skærmlæsere læser dem op. */
+function linkErrors(host: HTMLElement) {
+  host.querySelectorAll<HTMLElement>("._form_element").forEach((el) => {
+    const input = el.querySelector<HTMLInputElement>("input:not([type=hidden]), textarea, select");
+    if (!input) return;
+    const error = el.querySelector<HTMLElement>("._error-inner");
+    if (error && error.textContent?.trim()) {
+      if (!error.id) error.id = `${input.id || input.name}-fejl`;
+      error.setAttribute("role", "alert");
+      input.setAttribute("aria-invalid", "true");
+      input.setAttribute("aria-describedby", error.id);
+    } else if (input.hasAttribute("aria-invalid")) {
+      input.removeAttribute("aria-invalid");
+      input.removeAttribute("aria-describedby");
+    }
   });
 }
 
@@ -78,6 +108,7 @@ export function ActiveCampaignForm({ id, label, title, intro, microcopy, onSubmi
     const observer = new MutationObserver(() => {
       removeStrays(id);
       addLabels(host);
+      linkErrors(host);
       if (done) return;
       const thanks = host.querySelector<HTMLElement>("._form-thank-you");
       if (thanks && thanks.offsetParent !== null && thanks.textContent?.trim()) {

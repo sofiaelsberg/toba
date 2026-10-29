@@ -150,6 +150,14 @@
   body {
     @apply bg-background text-foreground font-sans text-body antialiased;
   }
+  /* Lange danske sammensatte ord (fx "omkostningsoverblik") må knække, når teksten forstørres eller skærmen er smal (WCAG 1.4.4 og 1.4.10). */
+  h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+  p, li, dd, dt, td, th, label, legend, figcaption, blockquote {
+    overflow-wrap: break-word;
+  }
   :focus-visible {
     outline: 2px solid var(--navy);
     outline-offset: 2px;

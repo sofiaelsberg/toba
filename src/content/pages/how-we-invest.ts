@@ -88,8 +88,9 @@ export const howWeInvest = {
       ],
       locations: [
         { label: "København", lat: 55.68, lon: 12.57, managers: ["HP Fonds", "Accunia", "Great Dane", "CABA Capital", "Thylander", "Winest"] },
-        { label: "Oslo", lat: 59.91, lon: 10.75, managers: ["Storebrand"] },
-        { label: "Stockholm", lat: 59.33, lon: 18.07, managers: ["Coeli"] },
+        // Oslo og Stockholm er rykket en anelse, så prikkerne ikke overlapper København (min. 24 px mellem prikkerne, WCAG 2.5.8).
+        { label: "Oslo", lat: 61.4, lon: 9.5, managers: ["Storebrand"] },
+        { label: "Stockholm", lat: 61.3, lon: 18.5, managers: ["Coeli"] },
         { label: "London", lat: 51.51, lon: -0.13, managers: ["ICG", "Apax", "Twelve Securis"] },
         { label: "Frankfurt", lat: 50.11, lon: 8.68, managers: ["Xtrackers (DWS)"] },
         { label: "USA · østkysten", lat: 40.71, lon: -74.0, managers: ["Baron Capital", "J.P. Morgan", "StepStone Group", "Vanguard"] },
@@ -99,6 +100,7 @@ export const howWeInvest = {
       ],
       managerSingular: "forvalter",
       managerPlural: "forvaltere",
+      listLabel: "Se alle forvaltere og byer",
       caption: "Forvalternes hovedkontorer. Peg på eller tryk på en prik for at se, hvem der sidder hvor.",
     } satisfies ManagerMapContent,
     video: videos.v07,

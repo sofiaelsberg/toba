@@ -1,5 +1,5 @@
 import { company, routes } from "../site";
-import type { HeroContent, Seo, StepContent } from "../types";
+import type { HeroContent, Point, Seo, StepContent } from "../types";
 
 /** Politikker, Finanstilsynet, Klageadgang, Cookies + cookiebanner. Compliance skal læse alt. */
 
@@ -113,4 +113,71 @@ export const cookieConsent = {
   states: { always: "Altid aktive", on: "Til", off: "Fra" },
   buttons: { onlyNecessary: "Kun nødvendige", acceptAll: "Accepter alle", customize: "Tilpas", save: "Gem mit valg" },
   dialogLabel: "Cookies",
+};
+
+/**
+ * Oplysninger om tilgængelighed (tilgængelighedsloven, § 35 og bilag 4):
+ * a) en beskrivelse af tjenesten, b) hvordan den bruges, c) hvordan den lever op til kravene.
+ * Gennemgås mindst én gang om året – og når hjemmesiden, kundeportalen eller rådgivningsforløbet ændres.
+ */
+export const accessibilityPage = {
+  seo: {
+    title: "Tilgængelighed | TOBA Advice",
+    description: "Sådan arbejder vi for, at alle kan bruge tobaadvice.com og vores rådgivning – og hvor du kan henvende dig, hvis noget ikke virker for dig.",
+  } satisfies Seo,
+  hero: {
+    eyebrow: "Tilgængelighed",
+    title: "Rådgivning, alle kan bruge",
+    lead: "Vi vil gerne, at alle kan bruge vores hjemmeside og vores rådgivning – også hvis du ser, hører, læser eller bevæger dig anderledes end de fleste. Her kan du læse, hvordan vi gør, og hvad du kan gøre, hvis noget ikke virker for dig.",
+  } satisfies HeroContent,
+
+  service: {
+    title: "Vores tjeneste",
+    text: `${company.name} er investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver personer med en investérbar formue på mindst 5 mio. kr. om, hvordan formuen skal investeres. Din formue står i din egen bank – vi rådgiver om den. Du har en fast rådgiver, som du taler med på møder, på telefon og på e-mail.`,
+    stepsTitle: "Sådan foregår det",
+    steps: [
+      { title: "Du kontakter os", text: `Ring på ${company.phone}, skriv til os via kontaktformularen, eller book et møde. Du kan også kontakte en af vores rådgivere direkte.` },
+      { title: "Et første møde", text: "Vi taler om dine mål, din tidshorisont og hvad du betaler i dag. Har du brug for, at mødet foregår på en bestemt måde – fx med mere tid, med en pårørende eller som videomøde – så sig til, så finder vi en løsning." },
+      { title: "Et forslag", text: "Du får et skriftligt forslag til en strategi og et overblik over, hvad det koster. Din rådgiver gennemgår det med dig, så du kan stille spørgsmål." },
+      { title: "Løbende overblik", text: "Du kan følge din formue i vores kundeportal og app, og du får en rapport hvert kvartal. Kan du ikke bruge kundeportalen, så sig til – så sender vi rapporterne til dig eller gennemgår dem på et møde." },
+    ] satisfies StepContent[],
+  },
+
+  website: {
+    title: "Sådan lever hjemmesiden op til kravene",
+    lead: "tobaadvice.com er bygget efter den europæiske standard EN 301 549 og retningslinjerne WCAG 2.1 på niveau AA. Vi tester siden med automatiske værktøjer og manuelt, bl.a. med tastatur og forstørret tekst. Det betyder blandt andet:",
+    points: [
+      { title: "Tastatur.", text: "Hele siden kan bruges med tastatur alene, og det er tydeligt, hvor du er. Øverst på hver side kan du springe direkte til indholdet." },
+      { title: "Skærmlæsere.", text: "Siden har en klar opbygning med overskrifter. Billeder har tekstbeskrivelser, og knapper og felter har navne, som en skærmlæser kan læse op." },
+      { title: "Større tekst og små skærme.", text: "Du kan forstørre teksten til 200 %, og siden tilpasser sig skærme helt ned til 320 pixels i bredden – uden at du skal scrolle til siden." },
+      { title: "Kontrast.", text: "Tekst og knapper har tilstrækkelig kontrast til baggrunden." },
+      { title: "Video.", text: "Alle vores videoer har undertekster. Videoerne starter ikke af sig selv med lyd." },
+      { title: "Bevægelse.", text: "Animationer kører kun én gang og slås fra, hvis du har valgt “reducer bevægelse” på din computer eller telefon. Stemningsvideoen på forsiden kan sættes på pause." },
+      { title: "Formularer.", text: "Alle felter har en synlig etiket, og fejl bliver beskrevet i tekst – ikke kun med farve." },
+      { title: "Klart sprog.", text: "Vi skriver så enkelt, vi kan, og forklarer fagudtryk, når vi bruger dem." },
+    ] satisfies Point[],
+  },
+
+  limits: {
+    title: "Det arbejder vi stadig på",
+    points: [
+      { title: "Nogle politikker er PDF-filer.", text: "Enkelte af vores politikker findes kun som PDF, som ikke er fuldt tilgængelig for skærmlæsere. Kontakt os, så sender vi indholdet i et format, der passer dig." },
+      { title: "Kundeportalen og appen.", text: "Kundeportalen og appen leveres af en samarbejdspartner, og vi har ikke selv fuld kontrol over, hvor tilgængelige de er. Har du problemer med dem, så kontakt din rådgiver." },
+      { title: "Indhold fra andre.", text: "Indlejret indhold fra andre tjenester, fx LinkedIn-opslag, lever ikke nødvendigvis op til de samme krav." },
+    ] satisfies Point[],
+  },
+
+  contact: {
+    title: "Virker noget ikke for dig?",
+    text: `Så vil vi gerne høre det. Ring til os på ${company.phone}, eller skriv via kontaktformularen. Fortæl, hvad du prøvede at gøre, og hvad der ikke virkede – så hjælper vi dig og retter fejlen. Vi svarer inden for 24 timer.`,
+    action: { label: "Skriv til os", href: routes.contact, variant: "primary" as const },
+  },
+
+  complaint: {
+    title: "Klage over tilgængelighed",
+    text: "Får du ikke en løsning hos os, kan du kontakte Erhvervsstyrelsen, som fører tilsyn med reglerne om tilgængelighed for produkter og tjenester. Du kan give dem et tip om tjenester, der ikke er tilgængelige.",
+    link: { label: "Tip Erhvervsstyrelsen på sik.dk →", href: "https://www.sik.dk/tip" },
+  },
+
+  updated: "Senest gennemgået 29. oktober 2026. Vi gennemgår oplysningerne mindst én gang om året.",
 };

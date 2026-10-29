@@ -18,6 +18,7 @@ const pages: { path: string; priority: number }[] = [
   { path: routes.fsa, priority: 0.3 },
   { path: routes.complaints, priority: 0.3 },
   { path: routes.cookies, priority: 0.2 },
+  { path: routes.accessibility, priority: 0.2 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

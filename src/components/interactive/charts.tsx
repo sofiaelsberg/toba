@@ -104,7 +104,7 @@ export function ReturnComparison({
                 </span>
               </div>
               <div className="h-10 bg-white/10">
-                <div className={cn("h-full", last ? "bg-gold" : "bg-grey-light")} style={{ width: `${(v / max) * 100}%` }} />
+                <div className={cn("h-full", last ? "bg-gold" : "bg-grey-light")} style={{ width: `${((v / max) * 100).toFixed(2)}%` }} />
               </div>
             </div>
           );

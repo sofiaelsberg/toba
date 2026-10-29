@@ -37,6 +37,7 @@ Kopiér `.env.example` til `.env.local` og udfyld ActiveCampaign-nøglerne. Uden
 3. **Farver og typografi** kommer fra tokens i `src/app/globals.css` – brug `text-navy`, `bg-cream`, `text-gold-text`, `text-h2` osv., aldrig hex-koder i komponenterne.
 4. **Bevægelse** følger brandbogen: én kurve (`ease-toba`), 150/300/700 ms, kører én gang og respekterer "reducer bevægelse". Alt står færdigt uden JavaScript.
 5. **Fonte** (Playfair Display, Source Sans 3) er selvhostede i `src/fonts/` – ingen kald til Google.
+6. **Tilgængelighed** (tilgængelighedsloven): siden skal overholde WCAG 2.1 AA / EN 301 549. Nye komponenter skal kunne bruges med tastatur, have synligt fokus, tekstalternativer og virke ved 320 px bredde og 200 % tekst. Oplysningerne på `/tilgaengelighed` (`accessibilityPage` i `src/content/pages/legal.ts`) skal gennemgås mindst én gang om året og ved større ændringer.
 
 ## Launch og drift
 

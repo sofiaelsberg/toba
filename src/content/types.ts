@@ -43,6 +43,8 @@ export type ManagerMapContent = {
   locations: { label: string; lat: number; lon: number; managers: string[] }[];
   managerSingular: string;
   managerPlural: string;
+  /** Overskrift på den udfoldelige liste under kortet (samme oplysninger som prikkerne – til tastatur, skærmlæser og små skærme). */
+  listLabel: string;
   caption?: string;
 };
 

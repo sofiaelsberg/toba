@@ -36,7 +36,7 @@ export function ManagerMap({ content, className }: { content: ManagerMapContent;
                   onFocus={() => setActive(l.label)}
                   onBlur={() => setActive(null)}
                   onClick={() => setActive(open ? null : l.label)}
-                  className="group absolute flex size-7 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full"
+                  className="group absolute flex size-6 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full"
                 >
                   <span className="sr-only">{l.label}</span>
                   <span
@@ -75,6 +75,22 @@ export function ManagerMap({ content, className }: { content: ManagerMapContent;
           </li>
         ))}
       </ul>
+      <details className="group border-t border-line pt-4">
+        <summary className="inline-flex min-h-11 cursor-pointer items-center gap-2 font-semibold text-navy">
+          {content.listLabel}
+          <span aria-hidden className="transition-transform duration-200 group-open:rotate-180">
+            ▾
+          </span>
+        </summary>
+        <dl className="mt-3 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
+          {content.locations.map((l) => (
+            <div key={l.label}>
+              <dt className="text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase">{l.label}</dt>
+              <dd className="text-small text-ink">{l.managers.join(" · ")}</dd>
+            </div>
+          ))}
+        </dl>
+      </details>
       {content.caption && <figcaption className="text-caption text-ink-muted">{content.caption}</figcaption>}
     </figure>
   );

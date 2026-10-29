@@ -88,7 +88,7 @@ export function CostCalculator({ content }: { content: Content }) {
               </span>
             </div>
             <div className="h-2.5 bg-white">
-              <div className={`h-full ${r.color} transition-[width] duration-700 ease-toba`} style={{ width: `${(r.value / maxFee) * 100}%` }} />
+              <div className={`h-full ${r.color} transition-[width] duration-700 ease-toba`} style={{ width: `${((r.value / maxFee) * 100).toFixed(2)}%` }} />
             </div>
           </div>
         ))}
