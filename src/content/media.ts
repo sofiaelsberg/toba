@@ -1,4 +1,4 @@
-import type { ImageRef, PlaceholderRef, VideoRef } from "./types";
+import type { AmbientVideoRef, ImageRef, PlaceholderRef, VideoRef } from "./types";
 
 /**
  * Kampagnevideoerne (1:1, brændte undertekster). Webversioner (1080×1080, H.264) og
@@ -16,21 +16,27 @@ export const videos = {
   v11: { id: "V11", title: "Hvorfor TOBA?", durationLabel: "0:31", src: "/media/video/v11.mp4", poster: "/media/video/v11.jpg", caption: "Tonny Elsberg, COO / Partner, TOBA Advice" },
 } satisfies Record<string, VideoRef>;
 
+/** Stemningsvideo fra kontoret (TOBA/kommunikation/utils/video/stemning), beskåret til 4:5 pr. klip.
+ *  Klippene med kundeliste (12,8–15,8 s) og fondsnavne (29,7 s–) er klippet fra. */
+export const ambient = {
+  office: { src: "/media/stemning/kontoret-loop.mp4", poster: "/media/stemning/kontoret-loop.jpg", aspect: "4/5" },
+} satisfies Record<string, AmbientVideoRef>;
+
 export const images = {
   guideCover: { src: "/media/guide-forside.jpg", alt: "Forsiden af guiden Hvem spiser din lagkage?", width: 720, height: 1018 },
   /** Stillbillede fra V10 (26,2 s), beskåret over underteksterne. */
   v10Still: { src: "/media/stills/tonny-uafhaengighed.jpg", alt: "Tonny Elsberg, COO og partner i TOBA Advice, på kontoret", width: 1280, height: 800 },
+  /** Stemningsbilleder fra kontoret (TOBA/kommunikation/utils/img/stills). */
+  meetingTable: { src: "/media/stills/moedebordet.jpg", alt: "Rådgiver underskriver papirer ved mødebordet", width: 864, height: 1080 },
+  officeWindow: { src: "/media/stills/kontoret-vinduet.jpg", alt: "Kontoret på Store Torv med udsigt over byen", width: 864, height: 1080 },
+  sameSide: { src: "/media/stills/paa-samme-side.jpg", alt: "To rådgivere gennemgår en portefølje side om side ved skærmen", width: 1200, height: 900 },
+  clientPortal: { src: "/media/stills/kundeportal.jpg", alt: "Kundeportalen på skærmen med fordeling af porteføljen", width: 1280, height: 800 },
 } satisfies Record<string, ImageRef>;
 
 /** Medier der mangler. Teksten vises i pladsholderen. */
 export const placeholders = {
-  heroLoop: { placeholder: "Lydløs loop · rådgivere ved skrivebordet på Store Torv (b-roll fra V09 og V05)", aspect: "4/5" },
   overviewExcerpt: { placeholder: "Udsnit af omkostningsoverblikket", aspect: "16/10" },
-  clientEvent: { placeholder: "Foto: kundearrangement med oplæg", aspect: "4/3" },
-  meetingTable: { placeholder: "Foto: rådgiver og kunde ved mødebordet på Store Torv", aspect: "4/5" },
-  teamOffice: { placeholder: "Foto: holdet på kontoret på Store Torv", aspect: "4/5" },
   worldMap: { placeholder: "Verdenskort med forvalternes 9 lande – uden fondsnavne", aspect: "16/10" },
-  clientPortal: { placeholder: "Skærmbilleder fra kundeportalen og appen", aspect: "16/10" },
   linkedinPost: { placeholder: "Indlejret LinkedIn-opslag fra Tonny – vælges senere", aspect: "4/3" },
   privateCredit: { placeholder: "AI-billede · private credit", aspect: "4/3" },
   infrastructure: { placeholder: "AI-billede · infrastruktur", aspect: "4/3" },

@@ -1,5 +1,5 @@
 import { facts } from "../facts";
-import { placeholders, videos } from "../media";
+import { images, placeholders, videos } from "../media";
 import { routes, bookMeeting } from "../site";
 import type { FaqItem, HeroContent, Point, QuoteContent, Seo, Stat, StepContent } from "../types";
 
@@ -26,7 +26,7 @@ export const howWeInvest = {
     lead: "En klar plan, de bedste forvaltere og en rådgiver, der følger med hele vejen. Her kan du se, hvordan vi arbejder med din formue.",
     actions: [bookMeeting, { label: "Se hvordan", href: "#strategi", variant: "secondary" }],
   } satisfies HeroContent,
-  heroMedia: placeholders.meetingTable,
+  heroMedia: images.meetingTable,
 
   strategy: {
     title: "En plan, du kan holde fast i – også i modvind",
@@ -124,7 +124,7 @@ export const howWeInvest = {
     overview: {
       title: "Overblik, når det passer dig",
       text: "Følg hele din formue online – på web og i app. Du ser de vigtigste nøgletal, og hvad der har drevet dit afkast. Hvert kvartal får du en rapport.",
-      media: placeholders.clientPortal,
+      media: images.clientPortal,
       caption: "Illustration – ikke en faktisk kundeportefølje.",
     },
     price: {

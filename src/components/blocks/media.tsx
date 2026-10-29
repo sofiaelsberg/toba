@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { ImageRef, PlaceholderRef } from "@/content/types";
 import { cn } from "@/lib/utils";
 
-const aspects = { "1/1": "aspect-square", "4/5": "aspect-[4/5]", "4/3": "aspect-[4/3]", "16/10": "aspect-[16/10]" };
+export const aspects = { "1/1": "aspect-square", "4/5": "aspect-[4/5]", "4/3": "aspect-[4/3]", "16/10": "aspect-[16/10]" };
 
 export function isPlaceholder(m: ImageRef | PlaceholderRef): m is PlaceholderRef {
   return "placeholder" in m;

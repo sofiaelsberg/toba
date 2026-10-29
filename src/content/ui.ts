@@ -4,6 +4,10 @@ export const ui = {
     play: "Se video",
     placeholderNote: "Plakatbillede fra videoen",
   },
+  ambientVideo: {
+    pause: "Sæt stemningsvideoen på pause",
+    play: "Afspil stemningsvideoen",
+  },
   layerCake: {
     next: "Næste lag",
     restart: "Start forfra",
