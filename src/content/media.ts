@@ -1,4 +1,4 @@
-import type { AmbientVideoRef, ImageRef, PlaceholderRef, VideoRef } from "./types";
+import type { AmbientVideoRef, ImageRef, LinkedInPostRef, PlaceholderRef, VideoRef } from "./types";
 
 /**
  * Kampagnevideoerne (1:1, brændte undertekster). Webversioner (1080×1080, H.264) og
@@ -22,6 +22,14 @@ export const ambient = {
   office: { src: "/media/stemning/kontoret-loop.mp4", poster: "/media/stemning/kontoret-loop.jpg", aspect: "4/5" },
 } satisfies Record<string, AmbientVideoRef>;
 
+/**
+ * LinkedIn-opslag på Om TOBA. Indtil LinkedIns API er godkendt, skiftes opslaget her:
+ * kopiér "urn:li:…" og højden fra opslagets indlejringskode (… → Indlejr dette opslag).
+ */
+export const linkedin = {
+  latestPost: { urn: "urn:li:ugcPost:7506249940982046720", height: 567 },
+} satisfies Record<string, LinkedInPostRef>;
+
 export const images = {
   guideCover: { src: "/media/guide-forside.jpg", alt: "Forsiden af guiden Hvem spiser din lagkage?", width: 720, height: 1018 },
   /** Stemningsbilleder fra kontoret (TOBA/kommunikation/utils/img/stills). */
@@ -34,7 +42,6 @@ export const images = {
 /** Medier der mangler. Teksten vises i pladsholderen. */
 export const placeholders = {
   worldMap: { placeholder: "Verdenskort med forvalternes 9 lande – uden fondsnavne", aspect: "16/10" },
-  linkedinPost: { placeholder: "Indlejret LinkedIn-opslag fra Tonny – vælges senere", aspect: "4/3" },
   privateCredit: { placeholder: "AI-billede · private credit", aspect: "4/3" },
   infrastructure: { placeholder: "AI-billede · infrastruktur", aspect: "4/3" },
   realAssets: { placeholder: "AI-billede · real assets", aspect: "4/3" },
