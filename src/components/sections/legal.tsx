@@ -21,9 +21,10 @@ type Doc = { title: string; text: string; date?: string; href: string; cta: stri
 /** Politikker: ikon, titel, tekst, dato og download. */
 export function DocumentList({ documents }: { documents: Doc[] }) {
   return (
-    <ul className="border-b border-line">
+    // Rækkerne går lidt ud over tekstspalten, så den hvide hover-flade får luft om ikon og knap.
+    <ul className="-mx-4 border-b border-line md:-mx-8">
       {documents.map((d) => (
-        <li key={d.title} className="grid grid-cols-[2.75rem_minmax(0,1fr)] items-center gap-5 border-t border-line py-6 transition-colors duration-300 hover:bg-white md:grid-cols-[2.75rem_minmax(0,1fr)_auto]">
+        <li key={d.title} className="grid grid-cols-[2.75rem_minmax(0,1fr)] items-center gap-5 border-t border-line px-4 py-6 transition-colors duration-300 hover:bg-white md:px-8 md:grid-cols-[2.75rem_minmax(0,1fr)_auto]">
           <IconBadge name="document" />
           <div className="min-w-0">
             <h2 className="font-serif text-[1.5rem] leading-8 font-medium text-navy">{d.title}</h2>
