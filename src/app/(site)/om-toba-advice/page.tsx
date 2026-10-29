@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { LinkedInPost } from "@/components/blocks/linkedin-post";
 import { TextLink } from "@/components/blocks/links";
 import { Media } from "@/components/blocks/media";
 import { Eyebrow } from "@/components/blocks/typography";
@@ -86,7 +87,7 @@ export default function AboutPage() {
               </TextLink>
             )}
           </div>
-          <Media media={c.linkedin.media} />
+          <LinkedInPost post={c.linkedin.post} className="justify-self-center md:justify-self-end" />
         </Split>
       </Section>
 

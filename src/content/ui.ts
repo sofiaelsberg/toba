@@ -4,6 +4,13 @@ export const ui = {
     play: "Se video",
     placeholderNote: "Plakatbillede fra videoen",
   },
+  linkedinPost: {
+    iframeTitle: "Seneste opslag fra TOBA Advice på LinkedIn",
+    consentTitle: "Se vores seneste opslag",
+    consentText: "Opslaget hentes fra LinkedIn, som sætter cookies. Det vises, når du siger ja til marketing-cookies.",
+    consentButton: "Tilpas cookies",
+    openOnLinkedin: "Se opslaget på LinkedIn →",
+  },
   ambientVideo: {
     pause: "Sæt stemningsvideoen på pause",
     play: "Afspil stemningsvideoen",

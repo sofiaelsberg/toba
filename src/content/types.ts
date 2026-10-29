@@ -29,6 +29,13 @@ export type PlaceholderRef = {
   aspect?: "1/1" | "4/5" | "4/3" | "16/10";
 };
 
+/** Indlejret LinkedIn-opslag. `urn` findes i LinkedIns indlejringskode ("urn:li:ugcPost:…" / "urn:li:share:…"). */
+export type LinkedInPostRef = {
+  urn: string;
+  /** Højde fra LinkedIns indlejringskode (afhænger af opslaget). */
+  height: number;
+};
+
 /** Lydløs stemningsvideo i loop. */
 export type AmbientVideoRef = {
   src: string;
