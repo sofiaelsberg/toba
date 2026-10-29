@@ -6,9 +6,10 @@ import { TextLink } from "@/components/blocks/links";
 import { Disclaimer, DocumentList } from "@/components/sections/legal";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { policies as c } from "@/content/pages/legal";
-import { disclaimers } from "@/content/site";
+import { disclaimers, routes } from "@/content/site";
 
-export const metadata: Metadata = { title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = {
+  alternates: { canonical: routes.policies }, title: c.seo.title, description: c.seo.description };
 
 export default function PoliciesPage() {
   return (

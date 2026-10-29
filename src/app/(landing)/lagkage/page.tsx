@@ -14,9 +14,10 @@ import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { FactBox, StatsRow } from "@/components/sections/stats";
 import { cake } from "@/content/cake";
 import { guide as c } from "@/content/pages/guide";
-import { disclaimers } from "@/content/site";
+import { disclaimers, routes } from "@/content/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: routes.guide },
   title: c.seo.title,
   description: c.seo.description,
   openGraph: { description: c.seo.ogDescription },
@@ -43,7 +44,7 @@ export default function GuidePage() {
                 alt={c.cover.alt}
                 width={c.cover.width}
                 height={c.cover.height}
-                priority
+                preload
                 sizes="(min-width: 900px) 400px, 320px"
                 className="h-auto w-full shadow-[0_30px_60px_rgba(37,55,71,0.25),0_8px_24px_rgba(37,55,71,0.08)] transition-transform duration-700 ease-toba [transform:rotateY(-10deg)_rotateX(3deg)] hover:[transform:rotateY(-3deg)_rotateX(1deg)_translateY(-4px)] motion-reduce:[transform:none]"
               />

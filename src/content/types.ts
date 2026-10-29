@@ -4,7 +4,7 @@
  */
 
 /** Tekst hvor *ord* vises fremhævet (kursiv guld) og **ord** vises fed. */
-export type Rich = string;
+type Rich = string;
 
 export type ButtonVariant = "primary" | "secondary" | "light" | "ghost-light";
 

@@ -5,7 +5,7 @@ import { RichText } from "./rich-text";
 
 export function Eyebrow({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <p className={cn("text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase [.on-navy_&]:text-gold", className)}>
+    <p className={cn("text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase [.on-navy_&]:text-gold-on-navy", className)}>
       {children}
     </p>
   );

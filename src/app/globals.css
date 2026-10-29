@@ -12,6 +12,7 @@
   --gold: #b38845;          /* accent: streger, ikoner, store tal */
   --gold-light: #b58347;    /* hårstreger på navy */
   --gold-text: #8a6630;     /* guld til tekst på lyse flader (4,6:1 på cream) */
+  --gold-on-navy: #c89b55;  /* guld til lille tekst på navy (4,8:1) */
   --gold-soft: #d7c3a0;     /* sekundær datafarve */
   --cream: #f5f1ea;
   --white: #ffffff;
@@ -61,6 +62,7 @@
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
   --color-gold-text: var(--gold-text);
+  --color-gold-on-navy: var(--gold-on-navy);
   --color-gold-soft: var(--gold-soft);
   --color-cream: var(--cream);
   --color-white: var(--white);

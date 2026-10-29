@@ -12,9 +12,10 @@ import { Section, SectionHeading } from "@/components/sections/section";
 import { contactForm } from "@/content/forms";
 import { contact as c } from "@/content/pages/contact";
 import { advisers } from "@/content/people";
-import { disclaimers } from "@/content/site";
+import { disclaimers, routes } from "@/content/site";
 
-export const metadata: Metadata = { title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = {
+  alternates: { canonical: routes.contact }, title: c.seo.title, description: c.seo.description };
 
 export default function ContactPage() {
   return (

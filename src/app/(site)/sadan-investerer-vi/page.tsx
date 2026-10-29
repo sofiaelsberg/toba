@@ -17,14 +17,15 @@ import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { StatsRow } from "@/components/sections/stats";
 import { facts } from "@/content/facts";
 import { howWeInvest as c } from "@/content/pages/how-we-invest";
-import { disclaimers } from "@/content/site";
+import { disclaimers, routes } from "@/content/site";
 
-export const metadata: Metadata = { title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = {
+  alternates: { canonical: routes.howWeInvest }, title: c.seo.title, description: c.seo.description };
 
 export default function HowWeInvestPage() {
   return (
     <>
-      <Hero content={c.hero} aside={<Media media={c.heroMedia} />} />
+      <Hero content={c.hero} aside={<Media media={c.heroMedia} priority />} />
       <AnchorNav items={c.anchors} label={c.anchorNavLabel} />
 
       <Section surface="white" id="strategi">

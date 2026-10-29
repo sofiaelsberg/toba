@@ -26,7 +26,6 @@ export const ui = {
   team: {
     filterLabel: "Vis afdeling",
     readMore: (first: string) => `Læs mere om ${first} →`,
-    readMoreAria: (name: string) => `Læs mere om ${name}`,
     closeProfile: "Luk profil",
     profileLabel: (name: string) => `Profil: ${name}`,
     bioMissing: "Profiltekst kommer snart.",

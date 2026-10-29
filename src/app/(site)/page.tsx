@@ -22,18 +22,22 @@ import { home as c } from "@/content/pages/home";
 import { independent } from "@/content/pages/independent";
 import { overview } from "@/content/pages/overview";
 import { advisers } from "@/content/people";
-import { disclaimers } from "@/content/site";
+import { disclaimers, routes } from "@/content/site";
+import { jsonLd, organizationJsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = { title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = {
+  alternates: { canonical: routes.home }, title: c.seo.title, description: c.seo.description };
 
 /** Forside – referencen for, hvordan sider sættes sammen af sektioner + indhold. */
 export default function HomePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(organizationJsonLd)} />
       <Hero content={c.hero} aside={<AmbientVideo video={c.heroMedia} />} />
 
       <Section spacing="none" className="pb-16 md:pb-24">
         <CtaCards
+          headingLevel="h2"
           cards={c.ctaCards}
           visuals={{
             cake: <CakeVisual content={cake} />,

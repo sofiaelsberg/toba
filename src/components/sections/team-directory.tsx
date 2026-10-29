@@ -100,7 +100,7 @@ function TeamCard({ person, onOpen }: { person: Person; onOpen: () => void }) {
   );
   if (person.noProfile) return <div>{inner}</div>;
   return (
-    <button type="button" onClick={onOpen} aria-label={ui.team.readMoreAria(person.name)} className="group block w-full cursor-pointer text-left">
+    <button type="button" onClick={onOpen} className="group block w-full cursor-pointer text-left">
       {inner}
     </button>
   );

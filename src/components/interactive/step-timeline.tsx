@@ -21,7 +21,7 @@ export function StepTimeline({ steps, numbering = "padded" }: { steps: StepConte
                 aria-hidden
                 className={cn(
                   "flex size-7 items-center justify-center rounded-full border-2 border-gold text-caption font-semibold transition-colors duration-300",
-                  lit ? "bg-gold text-white" : "bg-white text-gold-text",
+                  lit ? "border-gold-text bg-gold-text text-white" : "bg-white text-gold-text",
                 )}
               >
                 {numbering === "padded" ? String(i + 1).padStart(2, "0") : i + 1}

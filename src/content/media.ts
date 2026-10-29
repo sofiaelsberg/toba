@@ -1,4 +1,4 @@
-import type { AmbientVideoRef, ImageRef, LinkedInPostRef, PlaceholderRef, VideoRef } from "./types";
+import type { AmbientVideoRef, ImageRef, LinkedInPostRef, VideoRef } from "./types";
 
 /**
  * Kampagnevideoerne (1:1, brændte undertekster). Webversioner (1080×1080, H.264) og
@@ -44,8 +44,6 @@ export const images = {
   clientPortal: { src: "/media/stills/kundeportal.jpg", alt: "Kundeportalen på skærmen med fordeling af porteføljen", width: 1280, height: 800 },
 } satisfies Record<string, ImageRef>;
 
-/** Medier der mangler. Teksten vises i pladsholderen. */
-export const placeholders = {} satisfies Record<string, PlaceholderRef>;
 
 /** Portrætter 4:5 (480×600). */
 export function portrait(file: string, name: string): ImageRef {

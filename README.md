@@ -38,10 +38,33 @@ Kopiér `.env.example` til `.env.local` og udfyld ActiveCampaign-nøglerne. Uden
 4. **Bevægelse** følger brandbogen: én kurve (`ease-toba`), 150/300/700 ms, kører én gang og respekterer "reducer bevægelse". Alt står færdigt uden JavaScript.
 5. **Fonte** (Playfair Display, Source Sans 3) er selvhostede i `src/fonts/` – ingen kald til Google.
 
+## Launch og drift
+
+| Hvad | Hvor |
+|---|---|
+| Sitemap og robots | `src/app/sitemap.ts`, `src/app/robots.ts` (preview-deploys på Vercel indekseres ikke) |
+| Viderestillinger fra den gamle Webflow-side | `legacyRedirects` i `next.config.ts` |
+| Sikkerhedsheadere | `securityHeaders` i `next.config.ts` |
+| Ikoner og delingsbilleder | `src/app/icon.svg`, `apple-icon.png`, `opengraph-image.png` (+ egne på kampagnesiderne) |
+| Strukturerede data (Google) | `src/lib/structured-data.ts`, bruges på forsiden |
+| Formularer → ActiveCampaign | `src/app/actions/submit-lead.ts` + `src/lib/activecampaign.ts`. Besked og øvrige felter gemmes som note på kontakten. Spamfælde: skjult felt `website`. |
+| Fejlsider | `src/app/not-found.tsx` (404), `src/app/error.tsx` (uventet fejl) |
+| Hastighed | Vercel Speed Insights i `src/app/layout.tsx` |
+
+### Før launch
+
+- [ ] Sæt miljøvariablerne fra `.env.example` i Vercel (Production). ActiveCampaign-nøglen findes i ActiveCampaign → Settings → Developer.
+- [ ] Aktivér automationen "Hvem spiser din lagkage? (Leadgen)" i ActiveCampaign og tjek, at den starter på listen Leads (id 6).
+- [ ] Lav en automation, der giver besked til en rådgiver, når en kontakt får tagget "Website Formular" eller "omkostningsoverblik".
+- [ ] Beslut, hvad der skal ske med de gamle sider `/toba-investments`, `/toba-investment-bonds`, `/toba-investment-equities`, `/dokument/*` (fondsbørsmeddelelser), `/nyheder` og `/blog/*`.
+- [ ] Peg domænet (www.tobaadvice.com og tobaadvice.com) på Vercel, og send sitemap til Google Search Console.
+- [ ] Compliance: TODO-kommentarerne i `src/content/` (afkastsammenligning, bæredygtighedspolitik, forvalternavne på kortet, "9 lande").
+- [ ] Test formularerne på produktion (kontakt, guide, omkostningsoverblik).
+
 ## Status
 
-- ✅ Designtokens, layout (header, sidefod, cookiebanner), alle komponenter og alle indholdsfiler.
-- ✅ Alle sider er sat sammen: forside, Sådan investerer vi, Uafhængig rådgivning, Om TOBA, Team, Kontakt, de to kampagnesider (`/lagkage`, `/omkostningsoverblik`), politikker, Finanstilsynet, klage, cookies og 404.
-- ✅ Politik-PDF'er ligger i `public/dokumenter/` (bæredygtighedspolitikken afventer compliance).
-- ⏭ Rigtige videoer og fotos (`src/content/media.ts`), LinkedIn-URL (`company.linkedin` i `src/content/site.ts`), redirects fra den gamle side i `next.config.ts`, sitemap, favicon og ActiveCampaign-nøgler og -felter (`.env.example`).
+- ✅ Alle sider, komponenter og indhold er færdige: forside, Sådan investerer vi, Uafhængig rådgivning, Om TOBA, Team, Kontakt, `/lagkage`, `/omkostningsoverblik`, politikker, Finanstilsynet, klage, cookies, 404 og fejlside.
+- ✅ Videoer, stemningsvideo, fotos, AI-billeder til private markets, portrætter, forvalterkort og LinkedIn-opslag.
+- ✅ Lighthouse (mobil): tilgængelighed 97–100, SEO 100, ingen layoutskift. Desktop-performance 98 på forsiden.
+- ⏭ LinkedIn-API'et (automatisk nyeste opslag) – afventer godkendelse. Indtil da skiftes opslaget i `src/content/media.ts`.
 - ⏭ Egne profilsider pr. rådgiver (`/team/[slug]`) – i dag åbner profilen i et panel på teamsiden.

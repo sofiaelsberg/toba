@@ -12,7 +12,7 @@ import { useIsClient } from "@/lib/use-is-client";
 const COOKIE = "toba_consent";
 const OPEN_EVENT = "toba:cookie-settings";
 
-export type Consent = Record<CookieCategoryId, boolean>;
+type Consent = Record<CookieCategoryId, boolean>;
 
 function readConsent(): Consent | null {
   const m = document.cookie.match(new RegExp(`(?:^|; )${COOKIE}=([^;]*)`));

@@ -14,3 +14,13 @@ export const notFound = {
   ],
   help: { before: "Kan du ikke finde det, du leder efter? Ring på", phone: company.phone, middle: "eller", linkLabel: "skriv til os", href: routes.contact, after: "." },
 };
+
+/** Vises, hvis en side fejler uventet (src/app/error.tsx). */
+export const serverError = {
+  eyebrow: "Noget gik galt",
+  title: "Siden kunne ikke vises",
+  lead: "Der skete en fejl hos os. Prøv igen om et øjeblik – eller ring til os, så hjælper vi dig videre.",
+  retry: "Prøv igen",
+  homeAction: { label: "Gå til forsiden", href: routes.home, variant: "ghost-light" as const },
+  phone: company.phone,
+};

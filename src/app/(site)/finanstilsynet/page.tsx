@@ -5,9 +5,10 @@ import { Disclaimer, KeyValueTable } from "@/components/sections/legal";
 import { PointList } from "@/components/sections/lists";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { fsa as c } from "@/content/pages/legal";
-import { disclaimers } from "@/content/site";
+import { disclaimers, routes } from "@/content/site";
 
-export const metadata: Metadata = { title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = {
+  alternates: { canonical: routes.fsa }, title: c.seo.title, description: c.seo.description };
 
 export default function FsaPage() {
   return (

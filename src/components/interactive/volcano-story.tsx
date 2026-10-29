@@ -21,7 +21,7 @@ export function VolcanoStory({ stages, label }: { stages: { title: string; text:
       </svg>
       <ol className="grid grid-cols-3 gap-4 text-small text-on-navy-muted">
         {stages.map((s, i) => (
-          <li key={s.title} className="transition-opacity duration-500" style={{ opacity: lit[i] ? 1 : 0.3 }}>
+          <li key={s.title} className="transition-opacity duration-500" style={{ opacity: lit[i] ? 1 : 0.7 }}>
             <strong className="block font-semibold text-white">{s.title}</strong>
             {s.text}
           </li>

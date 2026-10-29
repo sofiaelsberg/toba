@@ -27,7 +27,7 @@ function ContactLinks({ person, className, linkClassName }: { person: Person; cl
  * `hover`: kontakt glider op over billedet ved hover/fokus på desktop og står under navnet på mobil.
  * `always`: kontakt står altid under navnet.
  */
-export function PersonCard({ person, contact = "hover" }: { person: Person; contact?: "hover" | "always" }) {
+function PersonCard({ person, contact = "hover" }: { person: Person; contact?: "hover" | "always" }) {
   return (
     <div className="group flex min-w-0 flex-col gap-1">
       <div className="relative aspect-[4/5] overflow-hidden bg-line">

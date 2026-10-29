@@ -78,8 +78,8 @@ export function LayerCake({ content, withToba = false, showStory = false, autopl
           {content.layers.map((l, i) => {
             const active = isToba ? l.tobaThickness > 0 : step > i;
             return (
-              <li key={l.label} className={cn("flex items-center gap-2 transition-opacity duration-300", active ? "opacity-100" : "opacity-35")}>
-                <span aria-hidden className="size-3 shrink-0 outline outline-line-strong/40" style={{ background: LAYER_COLORS[i] }} />
+              <li key={l.label} className={cn("flex items-center gap-2 transition-colors duration-300", active ? "text-ink" : "text-ink-muted")}>
+                <span aria-hidden className={cn("size-3 shrink-0 outline outline-line-strong/40 transition-opacity duration-300", !active && "opacity-35")} style={{ background: LAYER_COLORS[i] }} />
                 {l.legend}
               </li>
             );

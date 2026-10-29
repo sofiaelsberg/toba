@@ -6,7 +6,7 @@ import { Reveal } from "@/components/motion/reveal";
 import type { Action } from "@/content/types";
 import { cn } from "@/lib/utils";
 
-export type Surface = "cream" | "white" | "navy";
+type Surface = "cream" | "white" | "navy";
 
 const surfaces: Record<Surface, string> = {
   cream: "bg-cream",

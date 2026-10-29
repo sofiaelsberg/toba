@@ -102,6 +102,3 @@ export const groups: { id: GroupId; name: string; note?: string }[] = [
 
 export const advisers = people.filter((p) => p.group === "raadgivning");
 
-export function getPerson(slug: string): Person | undefined {
-  return people.find((p) => p.slug === slug);
-}

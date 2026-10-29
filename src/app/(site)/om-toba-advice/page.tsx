@@ -15,14 +15,15 @@ import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { StatsRow } from "@/components/sections/stats";
 import { about as c } from "@/content/pages/about";
 import { advisers } from "@/content/people";
-import { disclaimers } from "@/content/site";
+import { disclaimers, routes } from "@/content/site";
 
-export const metadata: Metadata = { title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = {
+  alternates: { canonical: routes.about }, title: c.seo.title, description: c.seo.description };
 
 export default function AboutPage() {
   return (
     <>
-      <Hero content={c.hero} aside={<Media media={c.heroMedia} />} />
+      <Hero content={c.hero} aside={<Media media={c.heroMedia} priority />} />
 
       <Section surface="navy">
         <Split align="start">

@@ -8,7 +8,7 @@ export function Logo({ tone = "dark", className, height = 28 }: { tone?: "dark" 
   const logo = tone === "dark" ? brand.logoDark : brand.logoLight;
   return (
     <Link href={routes.home} aria-label={brand.homeLabel} className={cn("inline-flex shrink-0 items-center", className)}>
-      <Image src={logo.src} alt={brand.logoAlt} width={logo.width} height={logo.height} style={{ height, width: "auto" }} priority={tone === "dark"} />
+      <Image src={logo.src} alt={brand.logoAlt} width={logo.width} height={logo.height} style={{ height, width: "auto" }} loading="eager" />
     </Link>
   );
 }

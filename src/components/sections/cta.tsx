@@ -14,12 +14,16 @@ export function CtaCards({
   visuals,
   className,
   tone = "white",
+  headingLevel = "h3",
 }: {
   cards: CtaCardContent[];
+  /** h2, når kortene står lige under sidens h1 (forsiden). */
+  headingLevel?: "h2" | "h3";
   visuals?: Partial<Record<CardVisualKey, ReactNode>>;
   className?: string;
   tone?: "white" | "cream";
 }) {
+  const CardHeading = headingLevel;
   return (
     <ul className={cn("grid grid-cols-1 gap-6", cards.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2", className)}>
       {cards.map((c) => (
@@ -34,7 +38,7 @@ export function CtaCards({
             {c.visual && visuals?.[c.visual]}
             {!c.visual && c.media && <Media media={c.media} sizes="(min-width: 900px) 33vw, 100vw" className="aspect-[16/10] object-cover object-top" />}
             {c.eyebrow && <Eyebrow>{c.eyebrow}</Eyebrow>}
-            <h3 className="font-serif text-h3 font-medium text-navy">{c.title}</h3>
+            <CardHeading className="font-serif text-h3 font-medium text-navy">{c.title}</CardHeading>
             <p className="flex-1">{c.text}</p>
             <span className="self-start border-b border-gold pb-0.5 font-semibold text-navy transition-colors group-hover:text-gold-text">{c.linkLabel}</span>
           </Link>

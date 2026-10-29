@@ -13,10 +13,11 @@ import { AccordionList, FeatureList, PointList } from "@/components/sections/lis
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { FactBox } from "@/components/sections/stats";
 import { independent as c } from "@/content/pages/independent";
-import { disclaimers } from "@/content/site";
+import { disclaimers, routes } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
+  alternates: { canonical: routes.independent },
   title: c.seo.title,
   description: c.seo.description,
   openGraph: { description: c.seo.ogDescription },

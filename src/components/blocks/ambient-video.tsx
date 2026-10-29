@@ -1,6 +1,7 @@
 "use client";
 
 import { Pause, Play } from "lucide-react";
+import Image from "next/image";
 import { useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
@@ -17,6 +18,7 @@ export function AmbientVideo({ video, className }: { video: AmbientVideoRef; cla
   const ref = useRef<HTMLVideoElement>(null);
   const reduce = useReducedMotion();
   const [userPaused, setUserPaused] = useState<boolean | null>(null);
+  const [playing, setPlaying] = useState(false);
   const paused = userPaused ?? Boolean(reduce);
 
   useEffect(() => {
@@ -28,10 +30,12 @@ export function AmbientVideo({ video, className }: { video: AmbientVideoRef; cla
 
   return (
     <div className={cn("relative max-w-full overflow-hidden bg-navy", aspects[video.aspect], className)}>
+      {/* Plakaten er et prioriteret billede, så den vises med det samme (LCP). Videoen toner ind ovenpå. */}
+      <Image src={video.poster} alt="" fill preload sizes="(min-width: 900px) 40vw, 100vw" className="object-cover" />
       <video
         ref={ref}
-        className="absolute inset-0 size-full object-cover"
-        poster={video.poster}
+        className={cn("absolute inset-0 size-full object-cover transition-opacity duration-700 ease-toba", playing ? "opacity-100" : "opacity-0")}
+        onPlaying={() => setPlaying(true)}
         preload="metadata"
         muted
         loop

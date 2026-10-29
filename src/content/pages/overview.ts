@@ -3,8 +3,8 @@ import { videos } from "../media";
 import { routes } from "../site";
 import type { FaqItem, HeroContent, Point, Seo, StepContent } from "../types";
 
-export type DepotLine = { label: string; pct: number; kind: "service" | "product" | "total" };
-export type Depot = { name: string; amount: number; share: string; lines: DepotLine[]; total: number; yearlyKr: number; source: string };
+type DepotLine = { label: string; pct: number; kind: "service" | "product" | "total" };
+type Depot = { name: string; amount: number; share: string; lines: DepotLine[]; total: number; yearlyKr: number; source: string };
 
 /** Landingsside 2: /omkostningsoverblik */
 export const overview = {

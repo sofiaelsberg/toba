@@ -1,4 +1,4 @@
-Politik-PDF'erne, som /politikker linker til (stier i `src/content/pages/legal.ts`).
+Politik-PDF'erne i `public/dokumenter/`, som /politikker linker til (stier i `src/content/pages/legal.ts`).
 Kilde: `TOBA/kommunikation/hjemmeside-opdatering-og-redesign-202611/politikker/`.
 
 - politik-interessekonflikter.pdf

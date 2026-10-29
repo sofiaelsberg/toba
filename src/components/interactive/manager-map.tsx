@@ -57,7 +57,7 @@ export function ManagerMap({ content, className }: { content: ManagerMapContent;
                     open ? "opacity-100" : "sr-only opacity-0",
                   )}
                 >
-                  <span className="mb-1 block text-[0.6875rem] font-semibold tracking-[0.12em] text-gold uppercase">{l.label}</span>
+                  <span className="mb-1 block text-[0.6875rem] font-semibold tracking-[0.12em] text-gold-on-navy uppercase">{l.label}</span>
                   {l.managers.join(" · ")}
                 </div>
               </li>

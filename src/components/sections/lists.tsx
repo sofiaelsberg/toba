@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export function PointList({ points, className, title }: { points: Point[]; className?: string; title?: string }) {
   return (
     <div className={cn("flex flex-col", className)}>
-      {title && <p className="mb-2 text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase [.on-navy_&]:text-gold">{title}</p>}
+      {title && <p className="mb-2 text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase [.on-navy_&]:text-gold-on-navy">{title}</p>}
       <ul className="border-b border-line [.on-navy_&]:border-gold-light">
         {points.map((p) => (
           <li key={p.title} className="border-t border-line py-4 [.on-navy_&]:border-gold-light">
@@ -72,7 +72,7 @@ export function NumberedSteps({ steps, pad = false, columns = 4 }: { steps: Step
             columns === 4 ? "flex-col gap-2.5" : "grid grid-cols-[3.5rem_minmax(0,1fr)] py-5 last:border-b",
           )}
         >
-          <span className="font-serif text-[2.25rem] leading-10 font-medium text-gold-text [.on-navy_&]:text-gold">
+          <span className="font-serif text-[2.25rem] leading-10 font-medium text-gold-text [.on-navy_&]:text-gold-on-navy">
             {pad ? String(i + 1).padStart(2, "0") : i + 1}
           </span>
           <div className="flex flex-col gap-1">

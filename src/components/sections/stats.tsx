@@ -3,7 +3,7 @@ import type { FactContent, Stat } from "@/content/types";
 import { cn } from "@/lib/utils";
 
 /** Et tal: tæller op, hvis `value` er sat, ellers vises `display`. */
-export function StatValue({ stat, className }: { stat: Stat; className?: string }) {
+function StatValue({ stat, className }: { stat: Stat; className?: string }) {
   return (
     <span className={cn("font-serif font-medium", className)}>
       {stat.value !== undefined ? (

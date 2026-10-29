@@ -9,7 +9,8 @@ import { team as c } from "@/content/pages/team";
 import { groups, people } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
 
-export const metadata: Metadata = { title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = {
+  alternates: { canonical: routes.team }, title: c.seo.title, description: c.seo.description };
 
 export default function TeamPage() {
   return (

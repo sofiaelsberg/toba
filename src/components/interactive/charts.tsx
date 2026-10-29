@@ -98,7 +98,7 @@ export function ReturnComparison({
                 <span>
                   {s.label} · {formatPercent(s.rate)} {rateLabel}
                 </span>
-                <span className={cn("tabular font-semibold", last && "text-gold")}>
+                <span className={cn("tabular font-semibold", last && "text-gold-on-navy")}>
                   {formatNumber(v, 1)}
                   {valueSuffix}
                 </span>

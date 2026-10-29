@@ -5,12 +5,12 @@ import { cn } from "@/lib/utils";
 
 export const aspects = { "1/1": "aspect-square", "4/5": "aspect-[4/5]", "4/3": "aspect-[4/3]", "16/10": "aspect-[16/10]" };
 
-export function isPlaceholder(m: ImageRef | PlaceholderRef): m is PlaceholderRef {
+function isPlaceholder(m: ImageRef | PlaceholderRef): m is PlaceholderRef {
   return "placeholder" in m;
 }
 
 /** Navngivet pladsholder for medier, der endnu ikke findes. */
-export function MediaPlaceholder({ media, className, tone = "light" }: { media: PlaceholderRef; className?: string; tone?: "light" | "navy" }) {
+function MediaPlaceholder({ media, className, tone = "light" }: { media: PlaceholderRef; className?: string; tone?: "light" | "navy" }) {
   return (
     <div
       className={cn(
@@ -47,7 +47,7 @@ export function Media({
       width={media.width}
       height={media.height}
       sizes={sizes}
-      priority={priority}
+      preload={priority}
       className={cn("h-auto w-full", className)}
     />
   );

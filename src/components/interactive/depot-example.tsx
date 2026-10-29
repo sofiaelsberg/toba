@@ -61,7 +61,7 @@ export function DepotExample({ content }: { content: Content }) {
 
       <div ref={sumRef} className="on-navy grid grid-cols-1 items-center gap-10 bg-navy p-8 text-on-navy md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-12 md:p-10">
         <div className="flex flex-col gap-4">
-          <p className="text-eyebrow font-semibold tracking-[0.12em] text-gold uppercase">{content.summary.eyebrow}</p>
+          <p className="text-eyebrow font-semibold tracking-[0.12em] text-gold-on-navy uppercase">{content.summary.eyebrow}</p>
           {content.depots.map((d, i) => (
             <div key={d.name} className="grid gap-1.5">
               <div className="flex justify-between gap-3 text-base">
