@@ -36,6 +36,16 @@ export type LinkedInPostRef = {
   height: number;
 };
 
+/** Kort over forvalternes hovedkontorer: antal pr. region, navne vises ved hover/tryk på prikkerne. */
+export type ManagerMapContent = {
+  label: string;
+  regions: { label: string; managers: number }[];
+  locations: { label: string; lat: number; lon: number; managers: string[] }[];
+  managerSingular: string;
+  managerPlural: string;
+  caption?: string;
+};
+
 /** Lydløs stemningsvideo i loop. */
 export type AmbientVideoRef = {
   src: string;
@@ -128,6 +138,8 @@ export type Person = {
   title: string;
   group: GroupId;
   portrait: ImageRef;
+  /** Filnavn i /public/team, hvis det ikke er `<slug>.jpg`. Giv et nyt billede et nyt navn, så caches ikke viser det gamle. */
+  portraitFile?: string;
   phone?: string;
   email?: string;
   linkedin?: string;

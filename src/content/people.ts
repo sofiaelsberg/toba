@@ -60,7 +60,7 @@ const raw: Omit<Person, "portrait">[] = [
     bio: ["Christian arbejder i analyseafdelingen, hvor han står for rapportering, opstart af nye kunder og omlægning af eksisterende kunders porteføljer. Han har en bachelor i finans fra Erhvervsakademi Aarhus."],
   },
   { slug: "kristian-blaesbjerg-larsen", name: "Kristian Blæsbjerg Larsen", title: "Investment Analyst", group: "analyse", bio: [] },
-  { slug: "mads-harder", name: "Mads Harder", title: "Investment Analyst", group: "analyse", bio: [] },
+  { slug: "mads-harder", portraitFile: "mads-harder-2026-10.jpg", name: "Mads Harder", title: "Investment Analyst", group: "analyse", bio: [] },
   { slug: "alexander-holm", name: "Alexander Holm", title: "Studentermedhjælper", group: "analyse", bio: [], noProfile: true },
   { slug: "mathias-braas-skytte", name: "Mathias Braas Skytte", title: "Studentermedhjælper", group: "analyse", bio: [], noProfile: true },
   // Administration
@@ -86,12 +86,12 @@ const raw: Omit<Person, "portrait">[] = [
   },
   {
     // TODO: afklar om advokatfirmaet skal nævnes (beslutning om ingen specifikke virksomheder).
-    slug: "dennis-birkeholm-larsen", name: "Dennis Birkeholm Larsen", title: "Bestyrelsesmedlem", group: "bestyrelse",
+    slug: "dennis-birkeholm-larsen", portraitFile: "dennis-birkeholm-larsen-2026-10.jpg", name: "Dennis Birkeholm Larsen", title: "Bestyrelsesmedlem", group: "bestyrelse",
     bio: ["Dennis er medlem af bestyrelsen i TOBA Advice. Han er advokat (L) og partner i advokatfirmaet Clemens Law."],
   },
 ];
 
-export const people: Person[] = raw.map((p) => ({ ...p, portrait: portrait(p.slug, p.name) }));
+export const people: Person[] = raw.map((p) => ({ ...p, portrait: portrait(p.portraitFile ?? `${p.slug}.jpg`, p.name) }));
 
 export const groups: { id: GroupId; name: string; note?: string }[] = [
   { id: "raadgivning", name: "Rådgivning", note: "Din faste kontakt" },
