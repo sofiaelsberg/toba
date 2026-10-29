@@ -20,7 +20,14 @@ export type FieldContent = {
   half?: boolean;
 };
 
-export type ConsentContent = { name: string; label: string; required?: boolean; error?: string };
+export type ConsentContent = {
+  name: string;
+  label: string;
+  required?: boolean;
+  error?: string;
+  /** Samtykket dækker nyhedsbrev/markedsføring → nyhedsbrevslisten og samtykke-tag i ActiveCampaign. */
+  marketing?: boolean;
+};
 
 export type FormContent = {
   id: "kontakt" | "guide" | "omkostningsoverblik";
@@ -57,7 +64,7 @@ export const contactForm: FormContent = {
   ],
   consents: [
     { name: "samtykke", required: true, label: "Ja tak, TOBA Advice må kontakte mig på e-mail og telefon om min henvendelse.", error: "Sæt kryds, så vi må kontakte dig om din henvendelse." },
-    { name: "nyhedsbrev", label: "Send mig også TOBA Advices nyhedsbrev. Jeg kan altid afmelde mig igen." },
+    { name: "nyhedsbrev", marketing: true, label: "Send mig også TOBA Advices nyhedsbrev. Jeg kan altid afmelde mig igen." },
   ],
   submit: "Send besked",
   submitting: "Sender …",
@@ -77,7 +84,7 @@ export const guideForm: FormContent = {
   ],
   consents: [
     {
-      name: "samtykke", required: true,
+      name: "samtykke", required: true, marketing: true,
       label: "Ja tak, send mig guiden. Jeg accepterer samtidig, at TOBA Advice sender mig sit nyhedsbrev og må kontakte mig på e-mail og – hvis jeg har oplyst det – telefon med tilbud om et gratis omkostningsoverblik og anden information om investeringsrådgivning. Jeg kan til enhver tid trække mit samtykke tilbage.",
       error: "Sæt kryds, så vi må sende dig guiden.",
     },
@@ -120,7 +127,7 @@ export const overviewForm: FormContent = {
   ],
   consents: [
     {
-      name: "samtykke", required: true,
+      name: "samtykke", required: true, marketing: true,
       label: "Ja tak, kontakt mig om et gratis omkostningsoverblik. Jeg accepterer, at TOBA Advice kontakter mig på telefon og e-mail om overblikket, sender mig sit nyhedsbrev og anden information om investeringsrådgivning. Jeg kan til enhver tid trække mit samtykke tilbage.",
       error: "Sæt kryds, så vi må kontakte dig om overblikket.",
     },

@@ -16,7 +16,7 @@ import { Label } from "@/components/ui/label";
 import { NativeSelect } from "@/components/ui/native-select";
 import { Textarea } from "@/components/ui/textarea";
 import type { FieldContent, FormContent } from "@/content/forms";
-import { buildLeadSchema } from "@/lib/lead-schema";
+import { buildLeadSchema, HONEYPOT } from "@/lib/lead-schema";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -48,10 +48,11 @@ export function LeadForm({ form, defaults, onSuccess, className }: Props) {
     formState: { errors },
   } = useForm<FieldValues>({ resolver: zodResolver(buildLeadSchema(form)), defaultValues: initial, shouldFocusError: true });
 
-  const onSubmit = handleSubmit((values) => {
+  const onSubmit = handleSubmit((values, event) => {
     setFailed(false);
+    const trap = event?.target instanceof HTMLFormElement ? String(new FormData(event.target).get(HONEYPOT) ?? "") : "";
     startTransition(async () => {
-      const res = await submitLead(form.id, values);
+      const res = await submitLead(form.id, { ...values, [HONEYPOT]: trap });
       if (res.ok) {
         setSent(true);
         onSuccess?.();
@@ -92,6 +93,8 @@ export function LeadForm({ form, defaults, onSuccess, className }: Props) {
   const half = form.fields.filter((f) => f.half);
   return (
     <form noValidate onSubmit={onSubmit} className={cn("flex flex-col gap-6", className)}>
+      {/* Spamfælde: skjult for mennesker og skærmlæsere. */}
+      <input type="text" name={HONEYPOT} tabIndex={-1} autoComplete="off" aria-hidden className="absolute -left-[9999px] size-px opacity-0" />
       <div className="flex flex-col gap-2">
         <h2 className="font-serif text-[2rem] leading-10 font-medium text-navy">{form.title}</h2>
         {form.intro && <p>{form.intro}</p>}
