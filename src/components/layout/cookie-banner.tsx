@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, useSyncExternalStore, type ReactNode } from "react";
 
 import { EASE } from "@/components/motion/tokens";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,23 @@ function readConsent(): Consent | null {
   }
 }
 
+/** Har den besøgende sagt ja til kategorien? `false` på serveren og før et valg. Opdateres, når valget gemmes. */
+export function useConsent(category: CookieCategoryId): boolean {
+  return useSyncExternalStore(
+    (onChange) => {
+      window.addEventListener("toba:consent", onChange);
+      return () => window.removeEventListener("toba:consent", onChange);
+    },
+    () => readConsent()?.[category] ?? false,
+    () => false,
+  );
+}
+
+/** Åbn cookieindstillingerne (samme som knappen i sidefoden). */
+export function openCookieSettings() {
+  window.dispatchEvent(new Event(OPEN_EVENT));
+}
+
 function writeConsent(c: Consent) {
   document.cookie = `${COOKIE}=${encodeURIComponent(JSON.stringify(c))}; path=/; max-age=${60 * 60 * 24 * 180}; SameSite=Lax`;
   // TODO: indlæs GTM / LinkedIn-pixel / ActiveCampaign-sporing først her, ud fra samtykket.
@@ -33,7 +50,7 @@ function writeConsent(c: Consent) {
 /** Åbner cookiebanneret igen (bruges i sidefoden og på /cookies). */
 export function CookieSettingsButton({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <button type="button" className={`cursor-pointer text-left ${className ?? ""}`} onClick={() => window.dispatchEvent(new Event(OPEN_EVENT))}>
+    <button type="button" className={`cursor-pointer text-left ${className ?? ""}`} onClick={openCookieSettings}>
       {children}
     </button>
   );
