@@ -1,5 +1,6 @@
 import { facts } from "../facts";
 import { images, videos } from "../media";
+import { activeCampaignForms, guideForm } from "../forms";
 import { routes } from "../site";
 import type { FeatureContent, HeroContent, Point, Seo, Stat } from "../types";
 
@@ -8,25 +9,35 @@ export const guide = {
   seo: {
     title: "Hvem spiser din lagkage? Gratis guide | TOBA Advice",
     description:
-      "Se, hvad din formue koster – og hvem der får pengene. Download vores gratis guide til omkostninger, rabatter og interessekonflikter i din investeringsportefølje.",
+      "Ved du, hvad din investeringsportefølje egentlig koster? Hent TOBA Advices gratis guide til omkostninger, rabatter og interessekonflikter.",
     ogDescription: "Omkostninger er ikke problemet. Usynlige omkostninger er. Hent den gratis guide.",
   } satisfies Seo,
 
   headerAction: { label: "Hent guiden gratis", href: "#guide", variant: "primary" as const },
 
   hero: {
-    eyebrow: "Gratis guide",
+    eyebrow: "Gratis whitepaper",
     title: "Hvem spiser din *lagkage*?",
-    lead: "Se, hvad din formue koster – og hvem der får pengene. Hent vores guide til omkostninger, rabatter og interessekonflikter i din investeringsportefølje.",
-    actions: [{ label: "Hent guiden gratis", href: "#guide", variant: "primary" }],
+    lead: "Ved du, hvor meget af dit investeringsafkast der ender hos dig?",
   } satisfies HeroContent,
+  heroText: [
+    "Banken, fondene og rådgiveren kan alle tage en bid af afkastet. Men ved du, hvad du samlet betaler, hvem der får pengene, og om du får reel værdi for dem?",
+    "Download vores gratis guide og få indsigt i omkostninger, rabatter og interessekonflikter i din investeringsportefølje.",
+  ],
+  /** ActiveCampaign-formular #8 (tak-beskeden står i ActiveCampaign). */
+  form: {
+    id: activeCampaignForms.guide,
+    label: "Formular: Hent guiden gratis",
+    microcopy: guideForm.microcopy,
+  },
   cover: images.guideCover,
 
   intro: {
     title: "Omkostninger er ikke problemet. *Usynlige* omkostninger er.",
     text: [
-      "Din formue er som en lagkage. Den vokser forhåbentlig hvert år – men banken, fondene og rådgiveren tager hver deres lag. Nogle lag kan du se på en regning. Andre trækkes direkte i dit afkast, uden at du opdager det.",
-      "Og så er der rabatterne. Når en bank eller rådgiver samler mange investorer, kan de forhandle sig til lavere omkostninger hos forvalterne. Spørgsmålet er, om rabatten lander hos dig – eller hos en anden.",
+      "Når du investerer, handler det ikke kun om at skabe afkast. Det handler også om, hvor meget du beholder efter omkostninger.",
+      "Nogle omkostninger er synlige, mens andre trækkes løbende fra fondenes afkast. Derudover kan rabatter og økonomiske interessekonflikter have betydning for den samlede værdi af din investeringsløsning.",
+      "Og selv små forskelle i omkostninger kan få stor betydning over tid.",
     ],
     fact: {
       value: facts.cakeExample.extraMio, decimals: 1, suffix: " mio. kr.",
@@ -37,25 +48,27 @@ export const guide = {
   },
 
   video: {
-    title: "Hvor ender værdien i din portefølje?",
-    text: "Martin Svendsen forklarer, hvorfor det ofte er de omkostninger, du ikke kan se, der koster mest.",
+    title: "Hvem spiser egentlig af dit afkast?",
+    text: "I videoen forklarer Martin Svendsen fra TOBA Advice, hvorfor det er vigtigt at kende de forskellige omkostninger – og hvad du som investor bør være opmærksom på.",
     video: videos.v02,
+    action: { label: "Hent guiden gratis", href: "#guide", variant: "primary" as const },
   },
 
   benefits: {
-    title: "Det får du ud af guiden",
+    title: "Få et bedre overblik over dine investeringer",
+    lead: "I vores gratis whitepaper får du blandt andet:",
     points: [
-      { title: "De fire lag i din lagkage.", text: "Hvilke omkostninger der gemmer sig i din portefølje – og hvilket lag der typisk er det største." },
-      { title: "Hvem får rabatten?", text: "Hvad en forvalterrabat er, hvor den kommer fra – og hvorfor det betyder noget for dig, hvem der beholder den." },
-      { title: "Hvad Finanstilsynet fandt.", text: "Hvor stor en del af danskernes fondsbeholdninger i de største banker der ligger i bankens egne fonde eller fonde med provision." },
-      { title: "Hele tjeklisten.", text: "Alle 7 spørgsmål, du bør stille din rådgiver – klar til at tage med til dit næste møde." },
-      { title: "En ægte case.", text: "Hvad en kunde med 18 mio. kr. i en af de store banker reelt betalte om året, da alle lag blev lagt sammen." },
+      { title: "Overblik over omkostningerne.", text: "Forstå, hvor omkostningerne ligger, og hvordan de påvirker dit afkast." },
+      { title: "Indsigt i rabatter.", text: "Lær, hvad forvalterrabatter er, og hvorfor det betyder noget, hvem der modtager dem." },
+      { title: "Rådgiver eller sælger?", text: "Bliv klogere på økonomiske interessekonflikter og betydningen af uafhængig rådgivning." },
+      { title: "En konkret kundecase.", text: "Se, hvordan en gennemgang af en formue på over 18 mio. kr. afdækkede samlede årlige omkostninger på cirka 246.000 kr." },
+      { title: "7 spørgsmål til din rådgiver.", text: "Få en konkret tjekliste, du kan tage med til dit næste møde." },
     ] satisfies Point[],
   },
 
   checklist: {
     title: "7 spørgsmål du bør stille din rådgiver",
-    lead: "Gode svar er korte og konkrete. Bliver svarene lange og uklare, er det i sig selv et svar. Her er tre af dem:",
+    lead: "Du bør kunne få klare og forståelige svar på, hvad din investeringsløsning koster, og hvorfor dine investeringer er valgt. Her er tre af de spørgsmål, du finder i guiden:",
     /** Indeks der altid vises (spørgsmål 1, 3 og 5). Resten låses op efter tilmelding. */
     freeIndexes: [0, 2, 4],
     questions: [
@@ -67,13 +80,13 @@ export const guide = {
       "Er min portefølje sammensat ud fra hele markedet eller et begrænset produktudvalg?",
       "Hvad er begrundelsen for hvert produkt i min portefølje?",
     ],
-    teaser: "**+ 4 spørgsmål mere i guiden.** Hent hele tjeklisten, og tag den med til dit næste møde med banken eller din rådgiver.",
+    teaser: "I whitepaperet får du alle syv spørgsmål, som du kan bruge til at få et bedre grundlag for dine investeringsbeslutninger.",
     teaserAction: { label: "Hent hele tjeklisten", href: "#guide", variant: "secondary" as const },
     unlocked: "**Låst op.** Her er hele listen – den står også i guiden i din indbakke.",
   },
 
   about: {
-    title: "Rådgivning, hvor du ved, hvem vi arbejder for",
+    title: "Uafhængig rådgivning. Uden skjulte interesser",
     lead: "Hos TOBA Advice er der ingen skjulte interesser. Derfor kan vi vælge frit – og altid ud fra, hvad der er bedst for dig.",
     features: [
       { icon: "globe", title: "Uafhængig rådgivning.", text: `Vi vælger frit på tværs af markedet – i dag blandt ${facts.managers} forvaltere i ${facts.countries} lande.` },
@@ -81,7 +94,7 @@ export const guide = {
       { icon: "rebate", title: "Rabatterne går til dig.", text: "Vi forhandler rabatter hjem på vegne af alle vores kunder samlet – og sender dem ubeskåret videre til dig." },
     ] satisfies FeatureContent[],
     stats: [
-      { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalte vi til vores kunder i forvalterrabatter for ${facts.rebatesPaid.year}. Hver krone gik ubeskåret videre.` },
+      { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalte vi til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}. Hver krone gik ubeskåret videre.` },
       { value: facts.yearsSelectingManagers, suffix: "+ år", label: "med udvælgelse af kapitalforvaltere" },
       { value: facts.assetsUnderAdviceMia, suffix: " mia. kr.", label: "under rådgivning" },
       { display: "Ejet", label: "af medarbejderne" },

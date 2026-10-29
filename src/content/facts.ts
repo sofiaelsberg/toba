@@ -3,8 +3,8 @@
  * Ret her – så opdateres forside, landingssider, Om TOBA m.fl. på én gang.
  */
 export const facts = {
-  /** Forvalterrabatter udbetalt til kunderne. Opdatér når 2026-rabatten udbetales (foråret 2027). */
-  rebatesPaid: { amountMio: 2.8, year: 2025 },
+  /** Forvalterrabatter udbetalt til kunderne (vises som "udbetalt i 2026"). Opdatér, når næste rabat udbetales i foråret 2027. */
+  rebatesPaid: { amountMio: 2.8, paidYear: 2026 },
   assetsUnderAdviceMia: 3,
   founded: 2016,
   employeesPlus: 10,
@@ -13,8 +13,8 @@ export const facts = {
   yearsSelectingManagers: 20,
   minimumWealthMio: 5,
 
-  /** Finanstilsynet, "Bankernes salg af egne fonde", maj 2026. */
-  bankShares: { ownFunds: 71, externalWithCommission: 24, externalWithout: 5 },
+  /** Finanstilsynet, "Bankernes salg af egne fonde", maj 2026: andel af detailinvestorernes fondsbeholdninger i egne fonde hos de fem største banker. */
+  ownFundsTop5Pct: 92,
 
   /** Regneeksempel fra guiden: 10 mio. over 20 år, 6,0 % mod 5,5 %. */
   cakeExample: { pointDifference: 0.5, extraMio: 2.9, wealthMio: 10, years: 20 },

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { RichText } from "@/components/blocks/rich-text";
-import { Eyebrow } from "@/components/blocks/typography";
+import { Caption, Eyebrow } from "@/components/blocks/typography";
 import { VideoBlock } from "@/components/blocks/video-block";
 import { ShareBar } from "@/components/interactive/charts";
 import { ChecklistReveal } from "@/components/interactive/checklists";
@@ -9,7 +9,7 @@ import { MoneyFlow } from "@/components/interactive/money-flow";
 import { CtaCards } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
-import { AccordionList, FeatureList, PointList } from "@/components/sections/lists";
+import { AccordionList, FeatureList } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { FactBox } from "@/components/sections/stats";
 import { independent as c } from "@/content/pages/independent";
@@ -30,12 +30,27 @@ export default function IndependentPage() {
         surface="navy"
         content={c.hero}
         aside={
-          <div className="flex flex-col gap-3">
-            <p className="text-small text-on-navy-muted">{c.videoIntro}</p>
-            <VideoBlock video={c.video} />
+          <div className="flex flex-col gap-4 border-l border-gold-light pl-6 md:mb-3 md:self-end">
+            {c.heroText.map((t) => (
+              <p key={t} className="text-on-navy-muted">
+                {t}
+              </p>
+            ))}
           </div>
         }
       />
+
+      <Section surface="white">
+        <Split>
+          <div className="flex flex-col gap-5">
+            <SectionHeading rule title={c.intro.title} />
+            {c.intro.text.map((t) => (
+              <p key={t}>{t}</p>
+            ))}
+          </div>
+          <VideoBlock video={c.intro.video} />
+        </Split>
+      </Section>
 
       <Section id="tre">
         <div className="flex flex-col gap-12">
@@ -66,10 +81,13 @@ export default function IndependentPage() {
         <Split align="start">
           <div className="flex flex-col gap-5">
             <SectionHeading eyebrow={c.law.eyebrow} title={c.law.title} lead={c.law.lead} />
-            <p className="border-t-2 border-gold bg-cream p-6">{c.law.factBox}</p>
+            <p className="border-t-2 border-gold bg-cream p-6">
+              <RichText text={c.law.factBox} />
+            </p>
             <p className="border-l border-gold-light pl-4 text-navy">
               <RichText text={c.law.tip} />
             </p>
+            <Caption>{c.law.source}</Caption>
           </div>
           <ChecklistReveal items={c.law.requirements} />
         </Split>
@@ -78,10 +96,18 @@ export default function IndependentPage() {
       <Section surface="navy">
         <Split align="start">
           <div className="flex flex-col gap-5">
-            <SectionHeading eyebrow={c.why.eyebrow} title={c.why.title} />
-            <ShareBar value={c.why.value} lead={c.why.lead} segments={c.why.segments} source={c.why.source} className="mt-2" />
+            <SectionHeading rule title={c.why.title} />
+            {c.why.text.map((t) => (
+              <p key={t}>{t}</p>
+            ))}
           </div>
-          <PointList title={c.why.benefitsTitle} points={c.why.benefits} />
+          <div className="flex flex-col gap-5">
+            <ShareBar value={c.why.value} lead={c.why.lead} segments={c.why.segments} />
+            {c.why.after.map((t) => (
+              <p key={t}>{t}</p>
+            ))}
+            <Caption>{c.why.source}</Caption>
+          </div>
         </Split>
       </Section>
 

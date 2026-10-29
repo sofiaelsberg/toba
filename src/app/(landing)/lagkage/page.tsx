@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import { ButtonLink, ButtonRow } from "@/components/blocks/links";
-import { GoldRule, Heading, Lead } from "@/components/blocks/typography";
+import { ButtonLink } from "@/components/blocks/links";
+import { Heading, Lead } from "@/components/blocks/typography";
 import { VideoBlock } from "@/components/blocks/video-block";
-import { GuideForm } from "@/components/forms/forms";
+import { GuideEmbedForm } from "@/components/forms/ac-form";
 import { LockedChecklist, LockedChecklistIntro, UnlockProvider } from "@/components/interactive/checklists";
 import { LayerCake } from "@/components/interactive/layer-cake";
 import { LandingHeader } from "@/components/layout/landing-header";
@@ -37,19 +37,15 @@ export default function GuidePage() {
               <p className="text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase">{c.hero.eyebrow}</p>
               <Heading as="h1" size="display" title={c.hero.title} className="md:text-[4rem] md:leading-[4.375rem]" />
               <Lead className="max-w-150">{c.hero.lead}</Lead>
-              <ButtonRow actions={c.hero.actions} className="mt-2" />
+              {c.heroText.map((t) => (
+                <p key={t} className="max-w-150">
+                  {t}
+                </p>
+              ))}
             </div>
-            {/* Guidens forside som fysisk rapport – retter sig op ved hover */}
-            <div className="mx-auto w-full max-w-80 [perspective:1200px] md:max-w-100">
-              <Image
-                src={c.cover.src}
-                alt={c.cover.alt}
-                width={c.cover.width}
-                height={c.cover.height}
-                preload
-                sizes="(min-width: 900px) 400px, 320px"
-                className="h-auto w-full shadow-[0_30px_60px_rgba(37,55,71,0.25),0_8px_24px_rgba(37,55,71,0.08)] transition-transform duration-700 ease-toba [transform:rotateY(-10deg)_rotateX(3deg)] hover:[transform:rotateY(-3deg)_rotateX(1deg)_translateY(-4px)] motion-reduce:[transform:none]"
-              />
+            {/* Formularen står i hero på desktop og lige under introen på mobil. */}
+            <div id="guide" className="scroll-mt-24">
+              <GuideEmbedForm id={c.form.id} label={c.form.label} microcopy={c.form.microcopy} />
             </div>
           </div>
         </section>
@@ -72,22 +68,32 @@ export default function GuidePage() {
         <Section>
           <Split>
             <VideoBlock video={c.video.video} className="max-w-120" />
-            <SectionHeading rule title={c.video.title} lead={c.video.text} />
+            <div className="flex flex-col gap-6">
+              <SectionHeading rule title={c.video.title} lead={c.video.text} />
+              <ButtonLink action={c.video.action} className="self-start" />
+            </div>
           </Split>
         </Section>
 
-        <section id="guide" className="scroll-mt-20 bg-white py-16 md:py-24">
-          <div className="wrap grid grid-cols-1 items-start gap-10 md:grid-cols-2 md:gap-16">
+        <Section surface="white">
+          <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-16">
             <div className="flex flex-col gap-6">
-              <GoldRule />
-              <Heading title={c.benefits.title} />
+              <SectionHeading rule title={c.benefits.title} lead={c.benefits.lead} />
               <PointList points={c.benefits.points} />
             </div>
-            <div className="border-t-2 border-gold bg-cream p-8 shadow-raised md:p-10">
-              <GuideForm />
+            {/* Guidens forside som fysisk rapport – retter sig op ved hover */}
+            <div className="mx-auto w-full max-w-80 [perspective:1200px] md:max-w-100">
+              <Image
+                src={c.cover.src}
+                alt={c.cover.alt}
+                width={c.cover.width}
+                height={c.cover.height}
+                sizes="(min-width: 900px) 400px, 320px"
+                className="h-auto w-full shadow-[0_30px_60px_rgba(37,55,71,0.25),0_8px_24px_rgba(37,55,71,0.08)] transition-transform duration-700 ease-toba [transform:rotateY(-10deg)_rotateX(3deg)] hover:[transform:rotateY(-3deg)_rotateX(1deg)_translateY(-4px)] motion-reduce:[transform:none]"
+              />
             </div>
           </div>
-        </section>
+        </Section>
 
         <Section>
           <Split align="start">

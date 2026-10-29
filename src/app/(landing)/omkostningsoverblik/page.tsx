@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
-import { ButtonRow } from "@/components/blocks/links";
+import { ButtonLink } from "@/components/blocks/links";
 import { Eyebrow, GoldRule, Heading, Lead } from "@/components/blocks/typography";
 import { VideoBlock } from "@/components/blocks/video-block";
-import { OverviewForm } from "@/components/forms/forms";
+import { ActiveCampaignForm } from "@/components/forms/ac-form";
 import { SelfCheck } from "@/components/interactive/checklists";
 import { CostCalculator } from "@/components/interactive/cost-calculator";
 import { DepotExample } from "@/components/interactive/depot-example";
@@ -14,7 +13,7 @@ import { CtaStrip } from "@/components/sections/cta";
 import { Disclaimer } from "@/components/sections/legal";
 import { AccordionList, PointList } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
-import { FactBox } from "@/components/sections/stats";
+import { FactBox, StatsRow } from "@/components/sections/stats";
 import { overview as c } from "@/content/pages/overview";
 import { disclaimers, routes } from "@/content/site";
 
@@ -33,20 +32,23 @@ export default function OverviewPage() {
       <LandingHeader action={c.headerAction} />
       <main id="indhold">
         <section className="bg-cream py-16 md:pt-22 md:pb-24">
-          <div className="wrap grid grid-cols-1 items-center gap-12 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-16">
-            <div className="flex flex-col gap-6">
+          <div className="wrap grid grid-cols-1 items-start gap-12 md:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] md:gap-16">
+            <div className="flex flex-col gap-6 md:pt-6">
               <Eyebrow>{c.hero.eyebrow}</Eyebrow>
               <Heading as="h1" size="display" title={c.hero.title} className="md:text-[3.75rem] md:leading-[4.125rem]" />
               <Lead className="max-w-150">{c.hero.lead}</Lead>
-              <ButtonRow actions={c.hero.actions} className="mt-2" />
+              {c.heroText.map((t) => (
+                <p key={t} className="max-w-150">
+                  {t}
+                </p>
+              ))}
             </div>
-            <Link href={c.heroTeaser.href} className="flex flex-col gap-3 border-t-2 border-gold bg-white p-8 text-ink no-underline shadow-raised">
-              <Eyebrow className="text-ink-muted">{c.heroTeaser.eyebrow}</Eyebrow>
-              <p className="font-serif text-[4.5rem] leading-none font-medium text-navy">{c.heroTeaser.value}</p>
-              <p>{c.heroTeaser.label}</p>
-              <p className="mt-2 font-serif text-h3 font-medium text-gold-text">{c.heroTeaser.yearly}</p>
-              <span className="mt-2 self-start border-b border-gold pb-0.5 font-semibold text-navy">{c.heroTeaser.link}</span>
-            </Link>
+            {/* Formularen står i hero, så den er det første, man møder. */}
+            <div id="bestil" className="flex scroll-mt-24 flex-col gap-4">
+              <h2 className="font-serif text-h3 font-medium text-navy">{c.form.title}</h2>
+              <p>{c.form.intro}</p>
+              <ActiveCampaignForm id={c.form.id} label={c.form.label} microcopy={c.form.microcopy} />
+            </div>
           </div>
         </section>
 
@@ -57,6 +59,8 @@ export default function OverviewPage() {
               {c.what.text.map((t) => (
                 <p key={t}>{t}</p>
               ))}
+              <p className="border-l border-gold-light pl-4 text-navy">{c.what.note}</p>
+              <ButtonLink action={c.what.action} className="mt-2 self-start" />
             </div>
             <PointList title={c.what.answersTitle} points={c.what.answers} />
           </Split>
@@ -64,33 +68,30 @@ export default function OverviewPage() {
 
         <Section id="eksempel">
           <div className="flex flex-col gap-10">
-            <Split align="end">
-              <SectionHeading rule title={c.example.title} />
-              <p>{c.example.lead}</p>
+            <Split align="start">
+              <div className="flex flex-col gap-5">
+                <SectionHeading rule title={c.example.title} />
+                {c.example.text.map((t) => (
+                  <p key={t}>{t}</p>
+                ))}
+              </div>
+              <StatsRow stats={c.example.keyFigures} className="md:mt-14 md:grid-cols-2" />
             </Split>
             <DepotExample content={c.example} />
-            <ul className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {c.example.howToRead.map((p) => (
-                <li key={p.title} className="border-t border-line pt-4">
-                  <p className="font-semibold text-navy">{p.title}</p>
-                  <p className="text-base">{p.text}</p>
-                </li>
-              ))}
-            </ul>
             <p className="text-caption text-ink-muted">{c.example.caption}</p>
-          </div>
-        </Section>
-
-        <Section surface="white">
-          <Split align="start">
-            <div className="flex flex-col gap-5">
-              <SectionHeading rule title={c.clarity.title} />
-              {c.clarity.text.map((t) => (
-                <p key={t}>{t}</p>
-              ))}
+            <div className="flex flex-col gap-6">
+              <h3 className="font-serif text-h3 font-medium text-navy">{c.example.findingsTitle}</h3>
+              <ol className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                {c.example.findings.map((p, i) => (
+                  <li key={p.title} className="flex flex-col gap-1 border-t border-line pt-4">
+                    <span className="font-serif text-h3 font-medium text-gold-text">{i + 1}</span>
+                    <p className="font-semibold text-navy">{p.title}</p>
+                    <p className="text-base">{p.text}</p>
+                  </li>
+                ))}
+              </ol>
             </div>
-            <SelfCheck title={c.clarity.fitTitle} items={c.clarity.fits} result={c.clarity.fitResult} action={c.clarity.fitAction} />
-          </Split>
+          </div>
         </Section>
 
         <Section surface="navy">
@@ -115,19 +116,22 @@ export default function OverviewPage() {
         </Section>
 
         <Section>
+          <Split align="start">
+            <div className="flex flex-col gap-5">
+              <SectionHeading rule title={c.relevant.title} />
+              <p>{c.relevant.closing}</p>
+            </div>
+            <SelfCheck title={c.relevant.fitTitle} items={c.relevant.fits} result={c.relevant.fitResult} action={c.relevant.fitAction} />
+          </Split>
+        </Section>
+
+        <Section surface="white">
           <div className="flex flex-col gap-12">
             <SectionHeading rule title={c.how.title} />
             <StepTimeline steps={c.how.steps} numbering="plain" />
+            <ButtonLink action={c.how.action} className="self-start" />
           </div>
         </Section>
-
-        <section id="bestil" className="scroll-mt-20 bg-white py-16 md:py-24">
-          <div className="wrap max-w-[53.75rem]">
-            <div className="border-t-2 border-gold bg-cream p-8 shadow-raised md:p-12">
-              <OverviewForm />
-            </div>
-          </div>
-        </section>
 
         <Section>
           <Split align="start">

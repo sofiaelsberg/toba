@@ -35,19 +35,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(organizationJsonLd)} />
       <Hero content={c.hero} aside={<AmbientVideo video={c.heroMedia} />} />
 
-      <Section spacing="none" className="pb-16 md:pb-24">
-        <CtaCards
-          headingLevel="h2"
-          cards={c.ctaCards}
-          visuals={{
-            cake: <CakeVisual content={cake} />,
-            overview: <OverviewVisual content={overview.example} />,
-            advisers: <AdvisersVisual content={independent.kinds} />,
-          }}
-        />
-      </Section>
-
-      <Section surface="white">
+      <Section>
         <Split>
           <div className="flex flex-col gap-6">
             <SectionHeading rule title={c.sameSide.title} lead={c.sameSide.lead} />
@@ -56,6 +44,22 @@ export default function HomePage() {
           </div>
           <VideoBlock video={c.sameSide.video} />
         </Split>
+      </Section>
+
+      <Section surface="white">
+        <div className="flex flex-col gap-10">
+          <SectionHeading rule title={c.ctaIntro.title} lead={c.ctaIntro.lead} />
+          <CtaCards
+            headingLevel="h3"
+            cards={c.ctaCards}
+            tone="cream"
+            visuals={{
+              cake: <CakeVisual content={cake} />,
+              overview: <OverviewVisual content={overview.example} />,
+              advisers: <AdvisersVisual content={independent.kinds} />,
+            }}
+          />
+        </div>
       </Section>
 
       <Section surface="navy" id="bank">
@@ -91,6 +95,9 @@ export default function HomePage() {
         <div className="flex flex-col gap-12">
           <SectionHeading rule title={c.values.title} />
           <ValueGrid items={c.values.items} />
+          <TextLink href={c.values.link.href} className="self-start">
+            {c.values.link.label}
+          </TextLink>
         </div>
       </Section>
 
@@ -149,6 +156,10 @@ export default function HomePage() {
             <TextLink href={c.advisers.link.href}>{c.advisers.link.label}</TextLink>
           </div>
           <PeopleGrid people={advisers} />
+          <div className="flex flex-col items-start gap-5 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
+            <p className="max-w-150">{c.advisers.text}</p>
+            <ButtonLink action={c.advisers.contact} />
+          </div>
         </div>
       </Section>
 

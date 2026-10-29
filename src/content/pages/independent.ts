@@ -16,18 +16,29 @@ export const independent = {
   hero: {
     eyebrow: "Uafhængig investeringsrådgivning",
     title: "Hvem arbejder din rådgiver *for*?",
-    lead: "Der findes tre slags investeringsrådgivere. Forskellen afgør, om rådgivningen handler om dine interesser – eller om at sælge produkter.",
+    lead: "Når du modtager investeringsrådgivning, bør dine interesser altid komme først. Men ved du, hvordan din rådgiver bliver betalt, og om der er økonomiske interesser knyttet til de produkter, du bliver anbefalet?",
     actions: [
       { label: "Se forskellen", href: "#tre", variant: "light" },
       { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "ghost-light" },
     ],
   } satisfies HeroContent,
-  videoIntro: "Tonny Elsberg forklarer på under et minut forskellen på de tre slags rådgivere.",
-  video: videos.v10,
+  heroText: [
+    "Der er forskel på afhængig, ikke uafhængig og uafhængig investeringsrådgivning.",
+    "Bliv klogere på forskellene – og hvad de betyder for dig og dine investeringer.",
+  ],
+
+  intro: {
+    title: "Hvad betyder uafhængig rådgivning *egentlig*?",
+    text: [
+      "Uafhængighed handler ikke kun om, hvilke investeringsprodukter en rådgiver kan tilbyde. Det handler også om, hvordan rådgiveren bliver betalt, og hvilke økonomiske interesser der kan påvirke anbefalingerne.",
+      "I videoen forklarer Tonny Elsberg forskellen på de tre rådgivningsformer – og hvorfor det er vigtigt at kende forskellen.",
+    ],
+    video: videos.v10,
+  },
 
   kinds: {
     title: "Tre slags rådgivere – tre forskellige interesser",
-    lead: "Følg pengene: Hvem betaler rådgiveren, og hvor ender rabatterne?",
+    lead: "Ikke alle investeringsrådgivere arbejder efter den samme model. Forskellen handler blandt andet om, hvilke produkter de kan anbefale, hvordan de bliver betalt, og hvilke økonomiske interesser der kan være forbundet med rådgivningen.",
     forYouLabel: "For dig:",
     cards: [
       {
@@ -37,8 +48,8 @@ export const independent = {
           { from: "Bankens egne fonde", to: "Banken", tone: "bad" },
         ] satisfies FlowRow[],
         flowAria: "Du køber bankens egne fonde, og banken tjener på produktet.",
-        text: "Rådgiveren sælger kun sine egne produkter – typisk bankens egne fonde. Indtjeningen kommer fra de produkter, du bliver anbefalet.",
-        forYou: "Du får kun valget mellem ét hus’ produkter.",
+        text: "Rådgivningen er knyttet til et bestemt produktunivers, typisk bankens egne investeringsprodukter.",
+        forYou: "Dine valgmuligheder er begrænset til de produkter, rådgiveren tilbyder.",
         highlight: false,
       },
       {
@@ -48,8 +59,8 @@ export const independent = {
           { from: "Fondene", to: "Rådgiver", label: "provision", tone: "bad" },
         ] satisfies FlowRow[],
         flowAria: "Du køber egne og andres fonde, og rådgiveren får provision fra fondene.",
-        text: "Rådgiveren sælger typisk egne produkter plus et udvalg af andres, som der modtages provision for. Rådgiveren tjener altså penge, uanset hvilket produkt du vælger.",
-        forYou: "Du kan ikke være sikker på, om anbefalingen er den bedste for dig – eller den bedst betalte.",
+        text: "Rådgiveren kan anbefale både egne og eksterne produkter, men kan have økonomiske interesser knyttet til bestemte anbefalinger.",
+        forYou: "Du bør undersøge, hvordan rådgiveren bliver betalt, og hvilke produkter der indgår i udvalget.",
         highlight: false,
       },
       {
@@ -59,8 +70,8 @@ export const independent = {
           { from: "Fondene", to: "Dig", label: "rabat", tone: "good", toIsYou: true },
         ] satisfies FlowRow[],
         flowAria: "Du betaler rådgiveren et honorar, og rabatter fra fondene går videre til dig.",
-        text: "Rådgiveren har ingen produkter at sælge og modtager ingen provision. Skulle der alligevel komme en, går hele beløbet videre til dig med det samme.",
-        forYou: "Rådgivningen tager udelukkende udgangspunkt i, hvad der er bedst for dig.",
+        text: "Rådgivningen bygger på et bredt udvalg af relevante investeringsprodukter og er ikke baseret på provision fra de produkter, der anbefales.",
+        forYou: "Rådgivningen tager kun udgangspunkt i, hvad der er bedst for dig.",
         highlight: true,
       },
     ],
@@ -69,47 +80,48 @@ export const independent = {
   law: {
     eyebrow: "Det siger loven",
     title: "Det skal der til for at kalde sig uafhængig",
-    lead: "“Uafhængig” er ikke bare et ord. Ifølge loven om investeringsrådgivere (§ 9) må en rådgiver kun kalde sig uafhængig – eller noget, der ligner – hvis tre ting er opfyldt.",
+    lead: "“Uafhængig” er ikke bare et løfte. Det er en betegnelse, der stiller konkrete krav til, hvordan en investeringsrådgiver arbejder. Ifølge lovgivningen skal en uafhængig investeringsrådgiver blandt andet leve op til tre centrale krav.",
     requirements: [
-      { title: "Ingen provision", text: "Rådgiveren må ikke få betaling fra dem, der laver eller sælger investeringsprodukterne. Kommer der alligevel en betaling, skal hele beløbet gå videre til dig – med det samme." },
-      { title: "Ingen tætte bånd", text: "Rådgiveren må ikke være tæt forbundet med en bank, et forvaltningsselskab, et forsikringsselskab eller lignende." },
-      { title: "Et bredt udvalg", text: "Rådgiveren skal se på et tilstrækkeligt antal produkter på markedet – ikke kun nogle få huses." },
+      { title: "Ingen provision til rådgiveren", text: "Rådgiveren må ikke beholde provision eller andre økonomiske fordele fra de investeringsprodukter, der anbefales. Modtages sådanne betalinger, skal de videregives til kunden efter gældende regler." },
+      { title: "Ingen tætte bånd", text: "Rådgiveren må ikke have bestemte forbindelser til banker, kapitalforvaltere eller andre finansielle virksomheder, som er uforenelige med kravene til uafhængighed." },
+      { title: "Et bredt udvalg af investeringer", text: "Rådgivningen skal bygge på en tilstrækkelig bred vurdering af relevante produkter på markedet – ikke kun et snævert udvalg fra én udbyder." },
     ] satisfies Point[],
-    factBox: "Er din rådgiver ikke uafhængig, skal det stå på rådgiverens hjemmeside – sammen med, hvor meget der modtages i provision, eller hvordan det beregnes.",
+    factBox: "**Vidste du det?** Hvis en investeringsrådgiver ikke er uafhængig, skal det fremgå af virksomhedens hjemmeside. Rådgiveren skal også oplyse størrelsen af – eller beregningsgrundlaget for – eventuel provision.",
     tip: "**Godt råd:** Bruger din rådgiver et ord, der næsten lyder som uafhængig – fx “uvildig” – så spørg, om alle tre krav er opfyldt.",
+    source: "Kilde: Lov om investeringsrådgivere og boligkreditformidlere, § 9 og § 10.",
   },
 
   why: {
-    eyebrow: "Hvorfor betyder det noget for dig?",
-    title: "Så længe en rådgiver tjener mere på nogle produkter end på andre, kan du ikke være helt sikker.",
-    value: 95,
-    lead: "af danskernes fondsbeholdninger i de fem største banker ligger i bankens egne fonde eller i fonde, som banken får provision for at sælge.",
+    title: "Hvorfor betyder uafhængighed noget for dig?",
+    text: [
+      "Når du overlader rådgivningen om din formue til andre, skal du kunne stole på, at anbefalingerne tager udgangspunkt i dine interesser.",
+      "Men hvis rådgiveren også tjener penge på bestemte investeringsprodukter, kan der opstå interessekonflikter.",
+      "Uafhængig rådgivning handler om at sikre, at dine interesser er i centrum – uden økonomiske incitamenter til at anbefale bestemte produkter.",
+    ],
+    value: facts.ownFundsTop5Pct,
+    lead: "Ifølge Finanstilsynets analyse ligger i gennemsnit 92 % af fondsbeholdningerne hos de fem største danske banker i bankernes egne fonde.",
     segments: [
-      { label: "egne fonde", value: facts.bankShares.ownFunds },
-      { label: "eksterne med provision", value: facts.bankShares.externalWithCommission },
-      { label: "eksterne uden provision", value: facts.bankShares.externalWithout },
+      { label: "bankernes egne fonde", value: facts.ownFundsTop5Pct },
+      { label: "andre fonde", value: 100 - facts.ownFundsTop5Pct },
+    ],
+    after: [
+      "Det betyder ikke nødvendigvis, at investeringerne er dårlige. Men det understreger, hvorfor det er vigtigt at forstå, hvordan din rådgiver bliver betalt, og hvilke investeringsmuligheder der bliver taget i betragtning.",
+      "Det afgørende er ikke kun, hvad du investerer i – men også hvorfor netop de investeringer er blevet valgt.",
     ],
     source: "Kilde: Finanstilsynet, “Bankernes salg af egne fonde”, maj 2026.",
-    benefitsTitle: "Det får du med uafhængig rådgivning",
-    benefits: [
-      { title: "Anbefalinger uden bagtanke.", text: "Rådgiveren tjener ikke mere på det ene produkt end på det andet." },
-      { title: "Det bedste til opgaven.", text: "Valget sker på tværs af markedet – ikke kun blandt ét hus’ fonde." },
-      { title: "Lavere omkostninger over tid.", text: "Rabatter og provisioner går til dig, så mere af afkastet bliver hos dig." },
-      { title: "Du ved, hvad du betaler for.", text: "Du betaler for rådgivningen – ikke for at få solgt et produkt." },
-    ] satisfies Point[],
   },
 
   practice: {
     title: "Sådan arbejder vi",
-    lead: "Det at være uafhængig er hele fundamentet for TOBA Advice. Sådan ser det ud i praksis:",
+    lead: "Uafhængighed er fundamentet for TOBA Advice. Vi har ingen egne investeringsprodukter og lever af vores rådgivning – ikke af de fonde, vi anbefaler. Det betyder helt konkret:",
     features: [
-      { icon: "globe", title: "Frit valg på tværs af markedet.", text: `Vi vælger blandt de bedste forvaltere – i dag ${facts.managers} forvaltere i ${facts.countries} lande.` },
-      { icon: "no-commission", title: "Ingen provision.", text: "Vi får ikke betaling for handler, salg eller følgeforretninger." },
-      { icon: "fixed-fee", title: "Et fast honorar.", text: "Du betaler et fast rådgivningshonorar, som ikke afhænger af, hvilke investeringer vi vælger." },
+      { icon: "globe", title: "Frit valg på tværs af markedet.", text: `Vi er ikke bundet til én bank eller én bestemt forvalter. Vi udvælger relevante investeringsløsninger på tværs af markedet og samarbejder i dag med ${facts.managers} forvaltere i ${facts.countries} lande.` },
+      { icon: "no-commission", title: "Ingen provision.", text: "Vi modtager ikke formidlingsprovision for at anbefale bestemte fonde eller investeringsprodukter. Vores indtjening afhænger derfor ikke af, hvilke produkter vi anbefaler." },
+      { icon: "fixed-fee", title: "Et gennemskueligt honorar.", text: "Du betaler et aftalt rådgivningshonorar, der ikke afhænger af, hvilke investeringer vi vælger til din portefølje." },
       { icon: "rebate", title: "Rabatterne går til dig.", text: "Vi forhandler rabatter hjem for alle kunder samlet og sender dem ubeskåret videre." },
-      { icon: "owners", title: "Ejet af medarbejderne.", text: "Vi har ingen ejere, der kræver, at vi sælger bestemte produkter." },
+      { icon: "owners", title: "Ejet af medarbejderne.", text: "TOBA Advice er ejet af medarbejderne selv. Vi arbejder langsigtet og har ingen eksterne ejere, der stiller krav om salg af bestemte investeringsprodukter." },
     ] satisfies FeatureContent[],
-    rebate: { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalte vi til vores kunder i forvalterrabatter for ${facts.rebatesPaid.year}.` },
+    rebate: { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalt til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}. Vi sidder på samme side af bordet som vores kunder.` },
     taFunds: {
       question: "Hvad med TA Globale Aktier og TA Globale Obligationer?",
       answer: [
@@ -122,10 +134,10 @@ export const independent = {
 
   next: {
     title: "Hvilken slags rådgivning får du i dag?",
-    lead: "Start med at blive klogere – eller få et konkret svar på, hvad din formue koster, og hvem der får pengene.",
+    lead: "Ved du, hvad du samlet betaler for din investeringsløsning, og om din rådgiver har økonomiske interesser i de produkter, du bliver anbefalet? Uanset om du ønsker mere viden eller et konkret overblik over din egen portefølje, hjælper vi dig gerne videre.",
     cards: [
-      { eyebrow: "Læs guiden", title: "Hvem spiser din lagkage?", text: "En guide til omkostninger, rabatter og interessekonflikter.", linkLabel: "Hent guiden gratis", href: routes.guide },
-      { eyebrow: "Gratis og uforpligtende", title: "Få gratis omkostningsoverblik", text: "Vi gennemgår alle lag i din portefølje.", linkLabel: "Få gratis omkostningsoverblik", href: routes.overview },
+      { eyebrow: "Hvem spiser din lagkage?", title: "Vil du vide mere?", text: "Download vores gratis guide, og få indsigt i omkostninger, rabatter og interessekonflikter – samt 7 spørgsmål, du bør stille din rådgiver.", linkLabel: "Hent guiden gratis", href: routes.guide },
+      { eyebrow: "Gratis og uforpligtende", title: "Vil du have et overblik?", text: "Få gennemgået dine egne omkostninger. Gratis og uforpligtende.", linkLabel: "Få gratis omkostningsoverblik", href: routes.overview },
     ] satisfies CtaCardContent[],
   },
 };

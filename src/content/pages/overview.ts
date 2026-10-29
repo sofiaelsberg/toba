@@ -1,8 +1,9 @@
 import { facts } from "../facts";
 import { videos } from "../media";
+import { activeCampaignForms, overviewForm } from "../forms";
 import { home } from "./home";
 import { routes } from "../site";
-import type { FaqItem, HeroContent, Point, Seo, StepContent } from "../types";
+import type { FaqItem, HeroContent, Point, Seo, Stat, StepContent } from "../types";
 
 type DepotLine = { label: string; pct: number; kind: "service" | "product" | "total" };
 type Depot = { name: string; amount: number; share: string; lines: DepotLine[]; total: number; yearlyKr: number; source: string };
@@ -21,40 +22,51 @@ export const overview = {
   hero: {
     eyebrow: "Gratis og uforpligtende",
     title: "Få et gratis *omkostningsoverblik*",
-    lead: "Se, hvad din formue reelt koster – og hvem der får pengene. Du behøver ikke skifte bank eller rådgiver for at få klarhed.",
-    actions: [
-      { label: "Bestil dit overblik", href: "#bestil", variant: "primary" },
-      { label: "Se eksempel på omkostningsoverblik", href: "#eksempel", variant: "secondary" },
-    ],
+    lead: "Ved du, hvad din investeringsportefølje samlet koster?",
   } satisfies HeroContent,
-  heroTeaser: {
-    eyebrow: "Eksempel · 3 depoter i én bank",
-    value: "1,36 %",
-    label: "samlede omkostninger om året, alt inklusive",
-    yearly: "≈ 246.000 kr. om året",
-    link: "Se hvordan →",
-    href: "#eksempel",
+  heroText: [
+    "Vi gennemgår dine omkostninger på tværs af rådgivning, bank og investeringsprodukter, så du kan se, hvad du betaler i kroner og procent – og hvor pengene går hen.",
+    "Du får et bedre grundlag for at vurdere, om omkostningerne står mål med den værdi, du får.",
+    "Du behøver ikke skifte bank eller rådgiver for at få klarhed.",
+  ],
+  /** ActiveCampaign-formular #9 (felter og tak-besked står i ActiveCampaign). */
+  form: {
+    id: activeCampaignForms.overview,
+    title: "Bestil dit gratis omkostningsoverblik",
+    intro: "Udfyld formularen, så kontakter vi dig og aftaler det videre forløb.",
+    label: "Formular: Bestil dit gratis omkostningsoverblik",
+    microcopy: overviewForm.microcopy,
   },
 
   what: {
-    title: "Ét samlet billede af, hvad din formue koster",
+    title: "Få hele billedet – ikke kun de synlige omkostninger",
     text: [
-      "Din bank sender dig hvert år en omkostningsopgørelse. Men den er svær at læse – og har du flere depoter, ser du aldrig det samlede billede.",
-      "Et omkostningsoverblik lægger alle lagene sammen: det, du betaler for rådgivning, depot og handel, og det, der trækkes direkte i dit afkast inde i fondene. Du ser det hele i kroner og procent – og hvem der får pengene.",
+      "Din bank udarbejder hvert år en omkostningsopgørelse. Men det kan være vanskeligt at gennemskue den samlede pris, særligt hvis du har investeringer fordelt på flere depoter eller banker.",
+      "Hos TOBA Advice hjælper vi dig med at samle oplysningerne og få overblik over, hvad du reelt betaler.",
     ],
     answersTitle: "Det får du svar på",
     answers: [
-      { title: "Hvad du betaler i alt.", text: "Dine samlede årlige omkostninger – i kroner og procent." },
-      { title: "Hvor pengene går hen.", text: "Fordelingen mellem serviceomkostninger og omkostningerne inde i fondene." },
-      { title: "Hvem der får rabatten.", text: "Om der er rabatter og provisioner i din løsning – og hvem der beholder dem." },
-      { title: "Hvor fri din rådgivning er.", text: "Hvor stor en del af porteføljen der ligger i bankens egne produkter." },
-      { title: "Hvad der er pengene værd.", text: "Hvilke investeringer der giver dig værdi for prisen – og hvilke der ikke gør." },
+      { title: "Dine samlede omkostninger.", text: "Hvad betaler du årligt for din investeringsløsning – opgjort i både kroner og procent?" },
+      { title: "Hvor omkostningerne ligger.", text: "Hvor meget går til rådgivning, depot, handel og de løbende omkostninger inde i fondene?" },
+      { title: "Rabatter og provisioner.", text: "Er der rabatter eller provisioner knyttet til dine investeringer, og hvem får glæde af dem?" },
+      { title: "Bankens egne produkter.", text: "Hvor stor en del af din portefølje består af bankens egne investeringsprodukter?" },
+      { title: "Pris og værdi.", text: "Er der omkostninger eller investeringer, som kan være relevante at undersøge nærmere?" },
     ] satisfies Point[],
+    note: "Målet er ikke nødvendigvis at finde den billigste løsning, men at skabe klarhed over, hvad du betaler, og hvad du får for pengene.",
+    action: { label: "Få et gratis omkostningsoverblik", href: "#bestil", variant: "primary" as const },
   },
 
   example: {
-    title: "Sådan ser et overblik ud",
-    lead: "Her er et rigtigt eksempel. En kunde havde godt 18 mio. kr. fordelt på tre depoter i en af de store danske banker. Hver for sig så depoterne ikke dyre ud. Lagt sammen betalte kunden 1,36 % – godt 246.000 kr. om året.",
+    title: "3 depoter. Én samlet pris",
+    text: [
+      "En kunde kom til TOBA Advice med en investeret formue på godt 18 mio. kr. fordelt på tre depoter i en af de store danske banker.",
+      "Kunden kendte sine serviceomkostninger, men manglede det samlede overblik. Især produktomkostningerne inde i fondene var svære at gennemskue, fordi de løbende trækkes fra afkastet.",
+      "Først da vi gennemgik både service- og produktomkostninger på tværs af alle tre depoter, blev den samlede pris tydelig.",
+    ],
+    keyFigures: [
+      { display: "1,36 %", label: "Samlede årlige omkostninger" },
+      { display: "246.000 kr.", label: "Beregnet årlig omkostning ved en formue på godt 18 mio. kr." },
+    ] satisfies Stat[],
     costsLabel: "Faktiske omkostninger, alt inkl.",
     shareSuffix: "af beløbet",
     depotTotalLabel: "Depot i alt",
@@ -65,28 +77,25 @@ export const overview = {
       { name: "Bankpension", amount: 4160975, share: "23,0 %", lines: [{ label: "Samlede omkostninger", pct: 1.47, kind: "total" }], total: 1.47, yearlyKr: 61166, source: "Kilde: Pensionsselskab – oplyst af rådgiver" },
     ] satisfies Depot[],
     summary: { eyebrow: "Samlet – vægtet på tværs af depoter", label: "Samlet omkostning, alt inkl.", pct: 1.36, yearlyKr: 246122, note: "Det tal stod ingen steder, før alle lag blev lagt sammen." },
-    howToRead: [
-      { title: "Hvert depot for sig.", text: "Omkostningerne er delt op i service – rådgivning, depot og handel – og produkt, der trækkes inde i fondene." },
-      { title: "Det største lag er det usynlige.", text: "På de frie midler udgør produktomkostningerne 0,95 % – mere end det dobbelte af serviceomkostningerne." },
-      { title: "Det samlede tal.", text: "Vægtet på tværs af alle tre depoter: 1,36 % om året. Det tal stod ingen steder, før alle lag blev lagt sammen." },
+    findingsTitle: "Hvad viste gennemgangen?",
+    findings: [
+      { title: "Omkostningerne lå flere steder.", text: "De tre depoter havde både serviceomkostninger til blandt andet rådgivning, depot og handel samt produktomkostninger, der løbende trækkes fra fondenes afkast." },
+      { title: "Produktomkostningerne fyldte mest.", text: "På de frie midler udgjorde produktomkostningerne 0,95 % årligt – mere end det dobbelte af serviceomkostningerne." },
+      { title: "Først det samlede overblik viste hele prisen.", text: "Først da omkostningerne blev samlet og vægtet på tværs af alle tre depoter, blev den samlede årlige pris på 1,36 % tydelig." },
     ] satisfies Point[],
-    caption: "Udsnit af et anonymiseret omkostningsoverblik. Kilde: Bankens omkostningsopgørelse 2025 og oplysninger fra pensionsselskabets rådgiver.",
+    caption: "Kilde: Bankens omkostningsopgørelse 2025 og oplysninger fra pensionsselskabets rådgiver. Kronebeløbet er beregnet ud fra den oplyste formue og afrundet.",
   },
 
-  clarity: {
-    title: "Klarhed uden forpligtelser",
-    text: [
-      "Et omkostningsoverblik er ikke et salgsmøde. Måske viser det, at din nuværende løsning er fin. Så ved du det.",
-      "Konklusionen er ikke nødvendigvis, at alt skal skiftes ud. Men først når du kan se hele billedet, kan du vurdere, hvad der er pengene værd. Du bestemmer selv, hvad du vil gøre bagefter.",
-    ],
-    fitTitle: "Overblikket er for dig, hvis …",
+  relevant: {
+    title: "Er et omkostningsoverblik relevant for dig?",
+    fitTitle: "Et omkostningsoverblik kan være særligt relevant, hvis:",
     fits: [
-      "du har din formue i banken og ikke ved præcis, hvad den koster om året",
-      "du har depoter flere steder og mangler det samlede billede",
-      "du er i tvivl om, hvorvidt din rådgiver tjener på de produkter, du bliver anbefalet",
-      "du har solgt din virksomhed eller fået en større formue og vil være sikker på, at den arbejder for dig",
-      "det er længe siden, nogen har kigget din portefølje grundigt igennem",
+      "Du har en større investerbar formue og er usikker på, hvad din investeringsløsning samlet koster.",
+      "Du har investeringer fordelt på flere banker eller depoter og mangler det samlede overblik.",
+      "Du er i tvivl om, hvordan din rådgiver bliver betalt, og om der er økonomiske interesser knyttet til de produkter, du bliver anbefalet.",
+      "Du har solgt din virksomhed, opbygget en større formue eller blot ønsker et uafhængigt blik på dine nuværende omkostninger.",
     ],
+    closing: "Du behøver ikke være utilfreds med din bank for at få glæde af et ekstra overblik.",
     fitResult: "Så er et overblik relevant for dig.",
     fitAction: { label: "Bestil dit overblik", href: "#bestil", variant: "primary" as const },
   },
@@ -102,21 +111,24 @@ export const overview = {
   rebates: {
     title: "Hvor havner rabatterne?",
     text: [
-      "Når en bank eller rådgiver samler mange investorer, kan de forhandle rabatter hjem hos forvalterne. Rabatten stammer fra omkostninger, der trækkes i dit afkast. Det er dine penge.",
-      "Hos TOBA Advice går rabatterne ubeskåret videre til dig. De påvirker ikke, hvilke fonde vi anbefaler.",
+      "Når banker og rådgivere samler større investeringsbeløb, kan de ofte forhandle bedre vilkår hos kapitalforvalterne.",
+      "Men hvem får egentlig glæde af rabatterne?",
+      "Hos TOBA Advice har vi ingen egne investeringsprodukter og modtager ingen formidlingsprovision. De forvalterrabatter, vi forhandler hjem, sender vi ubeskåret videre til kunderne.",
+      "I videoen forklarer Bent Hymøller, hvorfor det er en vigtig del af vores tilgang til uafhængig investeringsrådgivning.",
     ],
     video: videos.v06,
-    fact: { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalte vi til vores kunder i forvalterrabatter for ${facts.rebatesPaid.year}. Hver krone gik ubeskåret videre.` },
+    fact: { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalt til TOBA Advices kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}.` },
   },
 
   how: {
     title: "Sådan foregår det",
     steps: [
       { title: "Udfyld formularen", text: "Vi kontakter dig inden for 1 hverdag." },
-      { title: "Send os din rapport", text: "Din omkostnings- og afkastrapport er alt, vi skal bruge. Du finder den i din netbank, og din rådgiver aftaler med dig, hvordan du sender den sikkert." },
+      { title: "Du deler dine omkostningsrapporter", text: "Vi aftaler, hvordan du sender dem sikkert. Har du flere depoter, skal vi gerne bruge en rapport fra hvert depot." },
       { title: "Vi gennemgår alle lag", text: "Vi lægger alle omkostninger sammen på tværs af dine depoter." },
       { title: "Du får hele overblikket", text: "På et møde på en time gennemgår vi resultatet med dig." },
     ] satisfies StepContent[],
+    action: { label: "Bestil dit gratis omkostningsoverblik", href: "#bestil", variant: "primary" as const },
   },
 
   faqTitle: "Ofte stillede spørgsmål",

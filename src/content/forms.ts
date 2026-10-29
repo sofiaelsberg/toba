@@ -73,6 +73,12 @@ export const contactForm: FormContent = {
   failure: "Beskeden kunne ikke sendes. Prøv igen, eller ring til os på +45 28 18 84 27.",
 };
 
+/**
+ * ActiveCampaign-formularer, der indlejres direkte på landingssiderne.
+ * Felter, tak-besked og handlinger (liste, tags) redigeres i ActiveCampaign – ikke her.
+ */
+export const activeCampaignForms = { account: "https://tobaadvice24097.activehosted.com", guide: 8, overview: 9 } as const;
+
 export const guideForm: FormContent = {
   id: "guide",
   title: "Hent guiden gratis",

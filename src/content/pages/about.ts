@@ -13,8 +13,7 @@ export const about = {
   hero: {
     eyebrow: "Om TOBA Advice",
     title: "Vi tager os af dine investeringer, så du kan tage dig af *livet*",
-    // Ændret fra "ikke bundet af egne produkter" pga. TA-fondene.
-    lead: "TOBA Advice er en uafhængig investeringsrådgiver, ejet af medarbejderne. Vi har ingen indtægter fra egen forvaltning eller handel – så rådgivningen tager altid udgangspunkt i dig og dine behov.",
+    lead: "TOBA Advice er en uafhængig investeringsrådgiver, ejet af medarbejderne. Vi har ingen egne investeringsprodukter – så rådgivningen tager altid udgangspunkt i dig og dine ønsker.",
     actions: [bookMeeting],
   } satisfies HeroContent,
   heroMedia: images.officeWindow,
@@ -24,12 +23,12 @@ export const about = {
     title: "Hvorfor hedder vi *TOBA*?",
     stages: [
       { title: "Udbruddet", text: "alt lægges øde" },
-      { title: "Bagefter", text: "det hele vokser frem" },
+      { title: "Bagefter", text: "naturen vender tilbage" },
       { title: "En ny start", text: "A’et i vores logo" },
     ],
     illustrationLabel: "Illustration: en vulkan, der bryder ud, og et nyt landskab, der vokser frem – ligesom A’et i logoet.",
     text: [
-      "Toba er navnet på en vulkan på Sumatra. For mange tusinde år siden havde den et kæmpe udbrud, der lagde alt omkring sig øde. Bagefter voksede det hele frem igen – en helt ny start.",
+      "Toba er navnet på en vulkan på Sumatra. For mange tusinde år siden havde den et kæmpe udbrud, der lagde alt omkring sig øde. Efter udbruddet begyndte naturen langsomt at vende tilbage. For os symboliserer det en ny begyndelse – en ny start.",
       "Det er det, vi vil symbolisere med navnet: en ny måde at lave investeringsrådgivning på, hvor vi tager udgangspunkt i dine behov. Derfor er A’et i vores logo en vulkan.",
     ],
     video: videos.v11,
@@ -41,7 +40,7 @@ export const about = {
       {
         icon: "person",
         title: "Rådgivning, der handler om dig",
-        text: "Din strategi bliver skræddersyet til din formue, dine mål og den risiko, du vil tage.",
+        text: "Din strategi bliver skræddersyet til din formue, dine mål og den risiko, du er villig til at tage.",
       },
       {
         icon: "shelves",
@@ -56,7 +55,7 @@ export const about = {
       {
         icon: "rebate",
         title: "Rabatterne går til dig",
-        text: `Vi forhandler rabatter hjem for alle kunder samlet og sender dem ubeskåret videre. For ${facts.rebatesPaid.year} udbetalte vi ${String(facts.rebatesPaid.amountMio).replace(".", ",")} mio. kr.`,
+        text: `Vi forhandler rabatter hjem for alle kunder samlet og sender dem ubeskåret videre. I ${facts.rebatesPaid.paidYear} udbetalte vi ${String(facts.rebatesPaid.amountMio).replace(".", ",")} mio. kr.`,
       },
       {
         icon: "phone-app",
@@ -72,13 +71,14 @@ export const about = {
     title: "Ejet af dem, der *rådgiver* dig",
     text: [
       "TOBA Advice er ejet af medarbejderne. Det betyder, at de mennesker, du taler med, også er dem, der står bag virksomheden.",
-      "Vi har ingen ejere, der kræver, at vi sælger bestemte produkter. Vores interesse er den samme som din: at din formue bliver passet godt på – i mange år.",
+      "Vi har ingen ejere, der kræver, at vi sælger bestemte produkter. Vores interesse er den samme som din: at din formue bliver passet godt på i mange år.",
     ],
   },
 
   forYou: {
-    eyebrow: "Er TOBA Advice noget for dig?",
+    title: "Er TOBA Advice noget for dig?",
     highlight: `Fra ${facts.minimumWealthMio} mio. kr.`,
+    highlightLabel: "i investérbar formue",
     text: "Vi rådgiver kunder med en investérbar formue på mindst 5 mio. kr. Mange af vores kunder er virksomhedsejere, selvstændige og familier, der vil have ro om en formue, de har arbejdet hårdt for – og en rådgiver, der siger tingene, som de er.",
   },
 
@@ -96,7 +96,7 @@ export const about = {
   },
 
   linkedin: {
-    title: "Følg med i vores perspektiv på investeringer",
+    title: "Følg med i vores perspektiver på investering",
     link: { label: "Følg TOBA Advice på LinkedIn →", href: company.linkedin },
     post: linkedin.latestPost,
   },
