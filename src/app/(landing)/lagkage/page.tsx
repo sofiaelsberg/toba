@@ -45,7 +45,7 @@ export default function GuidePage() {
             </div>
             {/* Formularen står i hero på desktop og lige under introen på mobil. */}
             <div id="guide" className="scroll-mt-24">
-              <GuideEmbedForm id={c.form.id} label={c.form.label} microcopy={c.form.microcopy} />
+              <GuideEmbedForm id={c.form.id} label={c.form.label} title={c.form.title} intro={c.form.intro} microcopy={c.form.microcopy} />
             </div>
           </div>
         </section>

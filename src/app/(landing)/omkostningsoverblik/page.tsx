@@ -44,10 +44,14 @@ export default function OverviewPage() {
               ))}
             </div>
             {/* Formularen står i hero, så den er det første, man møder. */}
-            <div id="bestil" className="flex scroll-mt-24 flex-col gap-4">
-              <h2 className="font-serif text-h3 font-medium text-navy">{c.form.title}</h2>
-              <p>{c.form.intro}</p>
-              <ActiveCampaignForm id={c.form.id} label={c.form.label} microcopy={c.form.microcopy} />
+            <div id="bestil" className="scroll-mt-24">
+              <ActiveCampaignForm
+                id={c.form.id}
+                label={c.form.label}
+                title={c.form.title}
+                intro={c.form.intro}
+                microcopy={c.form.microcopy}
+              />
             </div>
           </div>
         </section>

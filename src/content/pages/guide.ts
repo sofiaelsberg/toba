@@ -28,6 +28,8 @@ export const guide = {
   form: {
     id: activeCampaignForms.guide,
     label: "Formular: Hent guiden gratis",
+    title: guideForm.title,
+    intro: guideForm.intro,
     microcopy: guideForm.microcopy,
   },
   cover: images.guideCover,
