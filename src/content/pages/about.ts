@@ -38,11 +38,31 @@ export const about = {
   benefits: {
     title: "Det får du hos TOBA Advice",
     features: [
-      { icon: "person", title: "Rådgivning, der handler om dig", text: "Din strategi bliver skræddersyet til din formue, dine mål og den risiko, du vil tage." },
-      { icon: "shelves", title: "Frit valg på alle hylder", text: `Vi tjener ikke penge på egen forvaltning eller handel. Derfor kan vi vælge frit – i dag blandt ${facts.managers} forvaltere i ${facts.countries} lande.` },
-      { icon: "fixed-fee", title: "Et fast honorar", text: "Du betaler et fast rådgivningshonorar, som ikke afhænger af, hvilke investeringer vi vælger." },
-      { icon: "rebate", title: "Rabatterne går til dig", text: `Vi forhandler rabatter hjem for alle kunder samlet og sender dem ubeskåret videre. For ${facts.rebatesPaid.year} udbetalte vi ${String(facts.rebatesPaid.amountMio).replace(".", ",")} mio. kr.` },
-      { icon: "phone-app", title: "Overblik, når det passer dig", text: "Følg din formue online – på web og i app – og få en rapport hvert kvartal." },
+      {
+        icon: "person",
+        title: "Rådgivning, der handler om dig",
+        text: "Din strategi bliver skræddersyet til din formue, dine mål og den risiko, du vil tage.",
+      },
+      {
+        icon: "shelves",
+        title: "Frit valg på alle hylder",
+        text: `Vi tjener ikke penge på egen forvaltning eller handel. Derfor kan vi vælge frit – i dag blandt ${facts.managers} forvaltere i ${facts.countries} lande.`,
+      },
+      {
+        icon: "fixed-fee",
+        title: "Et fast honorar",
+        text: "Du betaler et fast rådgivningshonorar, som ikke afhænger af, hvilke investeringer vi vælger.",
+      },
+      {
+        icon: "rebate",
+        title: "Rabatterne går til dig",
+        text: `Vi forhandler rabatter hjem for alle kunder samlet og sender dem ubeskåret videre. For ${facts.rebatesPaid.year} udbetalte vi ${String(facts.rebatesPaid.amountMio).replace(".", ",")} mio. kr.`,
+      },
+      {
+        icon: "phone-app",
+        title: "Overblik, når det passer dig",
+        text: "Følg din formue online – på web og i app – og få en rapport hvert kvartal.",
+      },
       { icon: "shield", title: "Tryghed", text: `Vi har tilladelse fra Finanstilsynet og har rådgivet siden ${facts.founded}.` },
     ] satisfies FeatureContent[],
     link: { label: "Læs om uafhængig rådgivning →", href: routes.independent },
@@ -76,7 +96,7 @@ export const about = {
   },
 
   linkedin: {
-    title: "Følg med på LinkedIn",
+    title: "Følg med i vores perspektiv på investeringer",
     link: { label: "Følg TOBA Advice på LinkedIn →", href: company.linkedin },
     post: linkedin.latestPost,
   },
