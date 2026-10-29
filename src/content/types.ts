@@ -138,6 +138,8 @@ export type Person = {
   title: string;
   group: GroupId;
   portrait: ImageRef;
+  /** Filnavn i /public/team, hvis det ikke er `<slug>.jpg`. Giv et nyt billede et nyt navn, så caches ikke viser det gamle. */
+  portraitFile?: string;
   phone?: string;
   email?: string;
   linkedin?: string;

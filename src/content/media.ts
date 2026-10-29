@@ -48,6 +48,6 @@ export const images = {
 export const placeholders = {} satisfies Record<string, PlaceholderRef>;
 
 /** Portrætter 4:5 (480×600). */
-export function portrait(slug: string, name: string): ImageRef {
-  return { src: `/team/${slug}.jpg`, alt: `Portræt af ${name}`, width: 480, height: 600 };
+export function portrait(file: string, name: string): ImageRef {
+  return { src: `/team/${file}`, alt: `Portræt af ${name}`, width: 480, height: 600 };
 }
