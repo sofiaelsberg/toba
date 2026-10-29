@@ -1,6 +1,6 @@
 import { facts } from "../facts";
 import { images, linkedin, videos } from "../media";
-import { routes, bookMeeting } from "../site";
+import { company, routes, bookMeeting } from "../site";
 import type { FeatureContent, HeroContent, Seo, Stat } from "../types";
 
 export const about = {
@@ -77,7 +77,7 @@ export const about = {
 
   linkedin: {
     title: "Følg med på LinkedIn",
-    link: { label: "Følg TOBA Advice på LinkedIn →", href: "" /* TODO: LinkedIn-URL */ },
+    link: { label: "Følg TOBA Advice på LinkedIn →", href: company.linkedin },
     post: linkedin.latestPost,
   },
 

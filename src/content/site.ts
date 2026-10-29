@@ -26,7 +26,7 @@ export const company = {
   address: { line1: "Store Torv 3C, 2. sal", line2: "8000 Aarhus C" },
   mapsUrl: "https://maps.google.com/?q=Store+Torv+3C,+8000+Aarhus+C",
   /** TODO: indsæt TOBA's LinkedIn-URL */
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/company/toba-advice",
 } as const;
 
 export const brand = {
