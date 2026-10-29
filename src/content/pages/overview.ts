@@ -1,5 +1,6 @@
 import { facts } from "../facts";
 import { videos } from "../media";
+import { home } from "./home";
 import { routes } from "../site";
 import type { FaqItem, HeroContent, Point, Seo, StepContent } from "../types";
 
@@ -88,6 +89,14 @@ export const overview = {
     ],
     fitResult: "Så er et overblik relevant for dig.",
     fitAction: { label: "Bestil dit overblik", href: "#bestil", variant: "primary" as const },
+  },
+
+  /** Beregneren genbruger forsidens tekster og satser (facts.calculatorConfig); kun knappen peger på formularen her. */
+  calculator: {
+    eyebrow: "Regn selv efter",
+    title: "Hvad ville din formue koste hos *os*?",
+    lead: "Vælg din formue – og skriv gerne, hvad du betaler i dag. Så ser du, hvad rådgivning hos TOBA Advice koster, når rabatterne er trukket fra. Omkostningsoverblikket giver dig de præcise tal.",
+    content: { ...home.calculator, action: { label: "Bestil dit præcise overblik", href: "#bestil", variant: "primary" as const } },
   },
 
   rebates: {

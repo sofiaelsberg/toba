@@ -6,6 +6,7 @@ import { Eyebrow, GoldRule, Heading, Lead } from "@/components/blocks/typography
 import { VideoBlock } from "@/components/blocks/video-block";
 import { OverviewForm } from "@/components/forms/forms";
 import { SelfCheck } from "@/components/interactive/checklists";
+import { CostCalculator } from "@/components/interactive/cost-calculator";
 import { DepotExample } from "@/components/interactive/depot-example";
 import { StepTimeline } from "@/components/interactive/step-timeline";
 import { LandingHeader } from "@/components/layout/landing-header";
@@ -103,6 +104,13 @@ export default function OverviewPage() {
               <FactBox fact={c.rebates.fact} tone="plain" className="border-t border-gold-light pt-5" />
             </div>
           </Split>
+        </Section>
+
+        <Section surface="white">
+          <div className="flex flex-col gap-10">
+            <SectionHeading eyebrow={c.calculator.eyebrow} title={c.calculator.title} lead={c.calculator.lead} />
+            <CostCalculator content={c.calculator.content} />
+          </div>
         </Section>
 
         <Section>

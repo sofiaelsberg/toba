@@ -8,9 +8,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { calculatorConfig } from "@/content/facts";
 import type { home } from "@/content/pages/home";
+import type { Action } from "@/content/types";
 import { fill, formatKr, formatNumber, formatPercent } from "@/lib/format";
 
-type Content = (typeof home)["calculator"];
+/** Forsidens tekster; knappen kan pege andre steder hen (fx "#bestil" på /omkostningsoverblik). */
+type Content = Omit<(typeof home)["calculator"], "action"> & { action: Action };
 
 /**
  * Omkostningsberegneren. Satser kommer fra `calculatorConfig` (content/facts.ts).
@@ -101,9 +103,15 @@ export function CostCalculator({ content }: { content: Content }) {
             </p>
           )}
         </div>
-        <ButtonLink action={{ ...content.action, href: `${content.action.href}?formue=${mio}` }} className="self-start" />
+        <ButtonLink action={{ ...content.action, href: withFormue(content.action.href, mio) }} className="self-start" />
       </div>
       <p className="max-w-measure text-caption text-ink-muted md:col-span-2">{content.footnote}</p>
     </div>
   );
+}
+
+/** Tilføjer ?formue= til linket – også når det peger på et anker på samme side (fx "#bestil"). */
+function withFormue(href: string, mio: number) {
+  const [base, hash = ""] = href.split("#");
+  return `${base}${base.includes("?") ? "&" : "?"}formue=${mio}${hash ? `#${hash}` : ""}`;
 }
