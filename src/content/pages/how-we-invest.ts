@@ -1,5 +1,5 @@
 import { facts } from "../facts";
-import { images, placeholders, videos } from "../media";
+import { images, videos } from "../media";
 import { routes, bookMeeting } from "../site";
 import type { FaqItem, HeroContent, ManagerMapContent, Point, QuoteContent, Seo, Stat, StepContent } from "../types";
 
@@ -110,10 +110,10 @@ export const howWeInvest = {
     title: "Investeringer, der normalt er forbeholdt de store",
     lead: "Pensionskasser og meget store formuer har i årevis investeret uden for børsen. Det giver spredning og kan beskytte mod inflation. Vi giver dig adgang til de samme muligheder.",
     categories: [
-      { title: "Private credit", text: "Lån til private virksomheder. Stabilt afkast og beskyttelse mod inflation.", media: placeholders.privateCredit },
-      { title: "Infrastruktur", text: "Vedvarende energi, transport og digital infrastruktur. Spredning og stabilt afkast.", media: placeholders.infrastructure },
-      { title: "Real assets", text: "Ejendomme, skov og landbrugsjord. Spredning og beskyttelse mod inflation.", media: placeholders.realAssets },
-      { title: "Private equity", text: "Ejerskab i virksomheder, der ikke er børsnoterede. Mulighed for højere afkast.", media: placeholders.privateEquity },
+      { title: "Private credit", text: "Lån til private virksomheder. Stabilt afkast og beskyttelse mod inflation.", media: images.privateCredit },
+      { title: "Infrastruktur", text: "Vedvarende energi, transport og digital infrastruktur. Spredning og stabilt afkast.", media: images.infrastructure },
+      { title: "Real assets", text: "Ejendomme, skov og landbrugsjord. Spredning og beskyttelse mod inflation.", media: images.realAssets },
+      { title: "Private equity", text: "Ejerskab i virksomheder, der ikke er børsnoterede. Mulighed for højere afkast.", media: images.privateEquity },
     ],
     access: {
       fromLabel: "Institutionelle fonde kræver typisk",

@@ -36,16 +36,16 @@ export const images = {
   meetingTable: { src: "/media/stills/moedebordet.jpg", alt: "Rådgiver underskriver papirer ved mødebordet", width: 864, height: 1080 },
   officeWindow: { src: "/media/stills/kontoret-vinduet.jpg", alt: "Kontoret på Store Torv med udsigt over byen", width: 864, height: 1080 },
   sameSide: { src: "/media/stills/paa-samme-side.jpg", alt: "To rådgivere gennemgår en portefølje side om side ved skærmen", width: 1200, height: 900 },
+  /** Private markets: AI-genererede billeder, beskåret til 4:3. Markeret som illustration i alt-teksten. */
+  privateCredit: { src: "/media/private-markets/private-credit.jpg", alt: "Illustration (AI-genereret): erhvervsbygning i skumring", width: 1024, height: 768 },
+  infrastructure: { src: "/media/private-markets/infrastruktur.jpg", alt: "Illustration (AI-genereret): havvindmøller ved solnedgang, set fra kysten", width: 1024, height: 768 },
+  realAssets: { src: "/media/private-markets/real-assets.jpg", alt: "Illustration (AI-genereret): skov og landbrugsjord set fra luften", width: 1024, height: 768 },
+  privateEquity: { src: "/media/private-markets/private-equity.jpg", alt: "Illustration (AI-genereret): lyst værksted med arbejdsborde og træ", width: 1024, height: 768 },
   clientPortal: { src: "/media/stills/kundeportal.jpg", alt: "Kundeportalen på skærmen med fordeling af porteføljen", width: 1280, height: 800 },
 } satisfies Record<string, ImageRef>;
 
 /** Medier der mangler. Teksten vises i pladsholderen. */
-export const placeholders = {
-  privateCredit: { placeholder: "AI-billede · private credit", aspect: "4/3" },
-  infrastructure: { placeholder: "AI-billede · infrastruktur", aspect: "4/3" },
-  realAssets: { placeholder: "AI-billede · real assets", aspect: "4/3" },
-  privateEquity: { placeholder: "AI-billede · private equity", aspect: "4/3" },
-} satisfies Record<string, PlaceholderRef>;
+export const placeholders = {} satisfies Record<string, PlaceholderRef>;
 
 /** Portrætter 4:5 (480×600). */
 export function portrait(slug: string, name: string): ImageRef {
