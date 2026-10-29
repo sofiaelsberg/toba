@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 import { ButtonLink, TextLink } from "@/components/blocks/links";
-import { MediaPlaceholder, Media } from "@/components/blocks/media";
+import { AmbientVideo } from "@/components/blocks/ambient-video";
+import { Media } from "@/components/blocks/media";
 import { RichText } from "@/components/blocks/rich-text";
 import { Caption, Eyebrow } from "@/components/blocks/typography";
 import { VideoBlock } from "@/components/blocks/video-block";
@@ -26,7 +27,7 @@ export const metadata: Metadata = { title: c.seo.title, description: c.seo.descr
 export default function HomePage() {
   return (
     <>
-      <Hero content={c.hero} aside={<MediaPlaceholder media={c.heroMedia} tone="navy" />} />
+      <Hero content={c.hero} aside={<AmbientVideo video={c.heroMedia} />} />
 
       <Section spacing="none" className="pb-16 md:pb-24">
         <CtaCards cards={c.ctaCards} />

@@ -29,6 +29,13 @@ export type PlaceholderRef = {
   aspect?: "1/1" | "4/5" | "4/3" | "16/10";
 };
 
+/** Lydløs stemningsvideo i loop. */
+export type AmbientVideoRef = {
+  src: string;
+  poster: string;
+  aspect: NonNullable<PlaceholderRef["aspect"]>;
+};
+
 export type VideoRef = {
   id: string;            // "V03"
   title: string;         // vises på plakaten

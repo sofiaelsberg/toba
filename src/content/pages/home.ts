@@ -1,5 +1,5 @@
 import { facts } from "../facts";
-import { placeholders, videos, images } from "../media";
+import { ambient, images, placeholders, videos } from "../media";
 import { routes, bookMeeting } from "../site";
 import type { CtaCardContent, HeroContent, Point, Seo, Stat, ValueItem } from "../types";
 
@@ -17,7 +17,7 @@ export const home = {
     actions: [bookMeeting, { label: "Hvem spiser din lagkage?", href: "#lagkage", variant: "secondary" }],
     trustline: "Uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet · Medarbejderejet · Siden 2016",
   } satisfies HeroContent,
-  heroMedia: placeholders.heroLoop,
+  heroMedia: ambient.office,
 
   ctaCards: [
     { title: "Hvem spiser din lagkage?", text: "Download guiden og se, hvor værdien i din portefølje ender – og hvem der får rabatterne.", linkLabel: "Hent guiden gratis →", href: routes.guide, media: images.guideCover },
@@ -117,7 +117,7 @@ export const home = {
       "Mange af vores kunder er virksomhedsejere, selvstændige og familier, der vil have ro om en formue, de har arbejdet hårdt for – og en rådgiver, der siger tingene, som de er.",
     ],
     link: { label: "Læs om TOBA →", href: routes.about },
-    media: placeholders.clientEvent,
+    media: images.sameSide,
   },
 
   stats: [

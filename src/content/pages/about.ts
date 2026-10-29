@@ -1,5 +1,5 @@
 import { facts } from "../facts";
-import { placeholders, videos } from "../media";
+import { images, placeholders, videos } from "../media";
 import { routes, bookMeeting } from "../site";
 import type { FeatureContent, HeroContent, Seo, Stat } from "../types";
 
@@ -17,7 +17,7 @@ export const about = {
     lead: "TOBA Advice er en uafhængig investeringsrådgiver, ejet af medarbejderne. Vi har ingen indtægter fra egen forvaltning eller handel – så rådgivningen tager altid udgangspunkt i dig og dine behov.",
     actions: [bookMeeting],
   } satisfies HeroContent,
-  heroMedia: placeholders.teamOffice,
+  heroMedia: images.officeWindow,
 
   name: {
     eyebrow: "Navnet",
