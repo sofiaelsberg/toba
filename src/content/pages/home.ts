@@ -95,7 +95,7 @@ export const home = {
     netLabel: "Du betaler netto",
     perYear: "om året",
     /** {today} og {diff} udfyldes af beregneren. */
-    compare: "Med din nuværende pris betaler du ca. **{today}** om året. Forskellen over 10 år er ca. **{diff}**.",
+    compare: "Med din nuværende pris betaler du ca. **{today}** om året. Forskellen over 10 år er ca. **{diff}**",
     action: { label: "Få et præcist omkostningsoverblik", href: routes.overview, variant: "primary" as const },
     footnote: "Eksempel. Portefølje med 35 % aktier, 40 % obligationer og 25 % alternativer, middel risiko. Honorar ekskl. moms. Rabatter udbetales kontant eller som institutionel andelsklasse. Dine faktiske omkostninger afhænger af din portefølje.",
   },

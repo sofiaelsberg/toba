@@ -28,7 +28,8 @@ export const metadata: Metadata = {
 /** Landingsside 2 – primær konvertering: bestil et gratis omkostningsoverblik. */
 export default function OverviewPage() {
   return (
-    <>
+    // Wrapper (ikke fragment): så starter et sideskift i toppen – se (site)/layout.tsx.
+    <div className="flex flex-1 flex-col">
       <LandingHeader action={c.headerAction} />
       <main id="indhold">
         <section className="bg-cream py-16 md:pt-22 md:pb-24">
@@ -143,6 +144,6 @@ export default function OverviewPage() {
 
         <Disclaimer content={disclaimers.overview} />
       </main>
-    </>
+    </div>
   );
 }
