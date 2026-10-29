@@ -1,5 +1,5 @@
 import { facts } from "../facts";
-import { ambient, images, placeholders, videos } from "../media";
+import { ambient, images, videos } from "../media";
 import { routes, bookMeeting } from "../site";
 import type { CtaCardContent, HeroContent, Point, Seo, Stat, ValueItem } from "../types";
 
@@ -20,9 +20,9 @@ export const home = {
   heroMedia: ambient.office,
 
   ctaCards: [
-    { title: "Hvem spiser din lagkage?", text: "Download guiden og se, hvor værdien i din portefølje ender – og hvem der får rabatterne.", linkLabel: "Hent guiden gratis →", href: routes.guide, media: images.guideCover },
-    { title: "Få gratis omkostningsoverblik", text: "Få ét samlet billede af, hvad din formue koster – og hvem der får pengene. Gratis og uforpligtende.", linkLabel: "Bestil dit overblik →", href: routes.overview, media: placeholders.overviewExcerpt },
-    { title: "Afhængig eller uafhængig?", text: "Der findes tre slags rådgivere – med tre forskellige interesser. Ved du, hvilken du har?", linkLabel: "Se forskellen →", href: routes.independent, media: images.v10Still },
+    { title: "Hvem spiser din lagkage?", text: "Download guiden og se, hvor værdien i din portefølje ender – og hvem der får rabatterne.", linkLabel: "Hent guiden gratis →", href: routes.guide, visual: "cake" },
+    { title: "Få gratis omkostningsoverblik", text: "Få ét samlet billede af, hvad din formue koster – og hvem der får pengene. Gratis og uforpligtende.", linkLabel: "Bestil dit overblik →", href: routes.overview, visual: "overview" },
+    { title: "Afhængig eller uafhængig?", text: "Der findes tre slags rådgivere – med tre forskellige interesser. Ved du, hvilken du har?", linkLabel: "Se forskellen →", href: routes.independent, visual: "advisers" },
   ] satisfies CtaCardContent[],
 
   sameSide: {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { ButtonLink, TextLink } from "@/components/blocks/links";
 import { AmbientVideo } from "@/components/blocks/ambient-video";
+import { AdvisersVisual, CakeVisual, OverviewVisual } from "@/components/blocks/card-visuals";
 import { Media } from "@/components/blocks/media";
 import { RichText } from "@/components/blocks/rich-text";
 import { Caption, Eyebrow } from "@/components/blocks/typography";
@@ -18,6 +19,8 @@ import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { StatsRow } from "@/components/sections/stats";
 import { cake } from "@/content/cake";
 import { home as c } from "@/content/pages/home";
+import { independent } from "@/content/pages/independent";
+import { overview } from "@/content/pages/overview";
 import { advisers } from "@/content/people";
 import { disclaimers } from "@/content/site";
 
@@ -30,7 +33,14 @@ export default function HomePage() {
       <Hero content={c.hero} aside={<AmbientVideo video={c.heroMedia} />} />
 
       <Section spacing="none" className="pb-16 md:pb-24">
-        <CtaCards cards={c.ctaCards} />
+        <CtaCards
+          cards={c.ctaCards}
+          visuals={{
+            cake: <CakeVisual content={cake} />,
+            overview: <OverviewVisual content={overview.example} />,
+            advisers: <AdvisersVisual content={independent.kinds} />,
+          }}
+        />
       </Section>
 
       <Section surface="white">

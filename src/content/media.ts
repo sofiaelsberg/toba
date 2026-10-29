@@ -24,8 +24,6 @@ export const ambient = {
 
 export const images = {
   guideCover: { src: "/media/guide-forside.jpg", alt: "Forsiden af guiden Hvem spiser din lagkage?", width: 720, height: 1018 },
-  /** Stillbillede fra V10 (26,2 s), beskåret over underteksterne. */
-  v10Still: { src: "/media/stills/tonny-uafhaengighed.jpg", alt: "Tonny Elsberg, COO og partner i TOBA Advice, på kontoret", width: 1280, height: 800 },
   /** Stemningsbilleder fra kontoret (TOBA/kommunikation/utils/img/stills). */
   meetingTable: { src: "/media/stills/moedebordet.jpg", alt: "Rådgiver underskriver papirer ved mødebordet", width: 864, height: 1080 },
   officeWindow: { src: "/media/stills/kontoret-vinduet.jpg", alt: "Kontoret på Store Torv med udsigt over byen", width: 864, height: 1080 },
@@ -35,7 +33,6 @@ export const images = {
 
 /** Medier der mangler. Teksten vises i pladsholderen. */
 export const placeholders = {
-  overviewExcerpt: { placeholder: "Udsnit af omkostningsoverblikket", aspect: "16/10" },
   worldMap: { placeholder: "Verdenskort med forvalternes 9 lande – uden fondsnavne", aspect: "16/10" },
   linkedinPost: { placeholder: "Indlejret LinkedIn-opslag fra Tonny – vælges senere", aspect: "4/3" },
   privateCredit: { placeholder: "AI-billede · private credit", aspect: "4/3" },

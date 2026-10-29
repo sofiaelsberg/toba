@@ -1,14 +1,25 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 import { ButtonLink, ButtonRow } from "@/components/blocks/links";
 import { Media } from "@/components/blocks/media";
 import { Eyebrow, GoldRule, Heading, Lead } from "@/components/blocks/typography";
 import { Reveal } from "@/components/motion/reveal";
-import type { Action, CtaCardContent } from "@/content/types";
+import type { Action, CardVisualKey, CtaCardContent } from "@/content/types";
 import { cn } from "@/lib/utils";
 
-/** 2–3 klikbare kort med guldstreg. Hele kortet er et link. */
-export function CtaCards({ cards, className, tone = "white" }: { cards: CtaCardContent[]; className?: string; tone?: "white" | "cream" }) {
+/** 2–3 klikbare kort med guldstreg. Hele kortet er et link. `visuals` tegner kortenes illustrationer (fx lagkagen). */
+export function CtaCards({
+  cards,
+  visuals,
+  className,
+  tone = "white",
+}: {
+  cards: CtaCardContent[];
+  visuals?: Partial<Record<CardVisualKey, ReactNode>>;
+  className?: string;
+  tone?: "white" | "cream";
+}) {
   return (
     <ul className={cn("grid grid-cols-1 gap-6", cards.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2", className)}>
       {cards.map((c) => (
@@ -20,7 +31,8 @@ export function CtaCards({ cards, className, tone = "white" }: { cards: CtaCardC
               tone === "white" ? "bg-white" : "bg-cream",
             )}
           >
-            {c.media && <Media media={c.media} sizes="(min-width: 900px) 33vw, 100vw" className="aspect-[16/10] object-cover object-top" />}
+            {c.visual && visuals?.[c.visual]}
+            {!c.visual && c.media && <Media media={c.media} sizes="(min-width: 900px) 33vw, 100vw" className="aspect-[16/10] object-cover object-top" />}
             {c.eyebrow && <Eyebrow>{c.eyebrow}</Eyebrow>}
             <h3 className="font-serif text-h3 font-medium text-navy">{c.title}</h3>
             <p className="flex-1">{c.text}</p>

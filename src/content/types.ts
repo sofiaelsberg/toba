@@ -74,6 +74,9 @@ export type Stat = {
 
 export type FactContent = Stat & { source?: string };
 
+/** Illustrationer, som siden tegner i et CTA-kort i stedet for et billede. */
+export type CardVisualKey = "cake" | "overview" | "advisers";
+
 export type CtaCardContent = {
   eyebrow?: string;
   title: string;
@@ -81,6 +84,7 @@ export type CtaCardContent = {
   linkLabel: string;
   href: string;
   media?: ImageRef | PlaceholderRef;
+  visual?: CardVisualKey;
 };
 
 export type StepContent = { title: string; text: string };
