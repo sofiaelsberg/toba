@@ -1,0 +1,50 @@
+/* Faste vægte (ikke variable fonte), så Chrome indlejrer dem som TrueType – ikke Type 3. */
+@font-face { font-family: "Playfair Display"; src: url("fonts/PlayfairDisplay-Medium.ttf") format("truetype"); font-weight: 400 900; }
+@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-Regular.ttf") format("truetype"); font-weight: 200 500; }
+@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-SemiBold.ttf") format("truetype"); font-weight: 600 900; }
+@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-Italic.ttf") format("truetype"); font-weight: 200 900; font-style: italic; }
+
+:root { --navy: #253747; --gold: #b38845; --gold-text: #8a6630; --ink: #2a2a2a; --muted: #5c5c5c; --line: #d9d2c5; --cream: #f5f1ea; }
+* { box-sizing: border-box; }
+html { font-family: "Source Sans 3", Calibri, Arial, sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--ink); }
+body { margin: 0; }
+h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; font-weight: 500; color: var(--navy); line-height: 1.25; break-after: avoid; }
+h1 { font-size: 24pt; margin: 0 0 6mm; }
+h2 { font-size: 14pt; margin: 8mm 0 2.5mm; }
+h3 { font-size: 11.5pt; margin: 5mm 0 1.5mm; font-family: "Source Sans 3", Arial, sans-serif; font-weight: 600; }
+p { margin: 0 0 2.5mm; }
+.eyebrow { font-size: 8.5pt; font-weight: 600; letter-spacing: 0; text-transform: uppercase; color: var(--gold-text); margin: 0 0 3mm; }
+.rule { width: 12mm; height: 0.6mm; background: var(--gold); margin: 0 0 5mm; border: 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; font-size: 9.5pt; }
+th, td { text-align: left; vertical-align: top; padding: 2mm 2.5mm; border-bottom: 0.3mm solid var(--line); }
+thead th { background: var(--navy); color: #fff; font-weight: 600; border-bottom: 0; }
+tbody th { font-weight: 600; color: var(--navy); }
+tr { break-inside: avoid; }
+td p { margin: 0 0 1.5mm; }
+td p:last-child { margin: 0; }
+
+table.meta { width: auto; min-width: 95mm; font-size: 10pt; margin: 0 0 8mm; }
+table.meta th { width: 38mm; color: var(--muted); font-weight: 400; }
+table.meta td { color: var(--ink); font-weight: 600; }
+
+nav.toc { border-top: 0.6mm solid var(--gold); padding-top: 3mm; margin: 0 0 6mm; break-after: page; }
+nav.toc h2 { margin-top: 0; font-size: 12pt; }
+nav.toc ol { margin: 0; padding-left: 6mm; }
+nav.toc li { margin: 0 0 1mm; }
+nav.toc a { color: var(--navy); text-decoration: underline; text-underline-offset: 0.6mm; }
+
+ol.letters { list-style: lower-alpha; }
+ol, ul { margin: 0 0 3mm; padding-left: 7mm; }
+li { margin: 0 0 1.2mm; }
+.num { color: var(--gold-text); font-variant-numeric: tabular-nums; margin-right: 2mm; }
+a { color: var(--navy); }
+.approved { margin-top: 8mm; padding-top: 3mm; border-top: 0.3mm solid var(--line); }
+caption { caption-side: top; text-align: left; font-size: 8.5pt; font-weight: 600; letter-spacing: 0; text-transform: uppercase; color: var(--gold-text); padding: 0 0 1.5mm; }
+.doc-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 0.3mm solid var(--line); padding-bottom: 4mm; margin-bottom: 12mm; }
+.doc-head .logo { height: 7mm; width: auto; }
+.doc-head .eyebrow { margin: 0; }
+.doc-foot { margin-top: 12mm; padding-top: 3mm; border-top: 0.3mm solid var(--line); font-size: 8.5pt; color: var(--muted); }
+ol.marked { list-style: none; padding-left: 0; }
+ol.marked > li { display: grid; grid-template-columns: 7mm 1fr; gap: 0 1mm; }
+ol.marked > li > .n { color: var(--gold-text); font-variant-numeric: tabular-nums; }

@@ -161,7 +161,7 @@ export const accessibilityPage = {
   limits: {
     title: "Det arbejder vi stadig på",
     points: [
-      { title: "Nogle politikker er PDF-filer.", text: "Enkelte af vores politikker findes kun som PDF, som ikke er fuldt tilgængelig for skærmlæsere. Kontakt os, så sender vi indholdet i et format, der passer dig." },
+      { title: "Politikker som PDF.", text: "Vores politikker er tilgængelige PDF-filer med overskrifter, bogmærker og tabeller, som en skærmlæser kan læse op. Har du brug for dem i et andet format, så kontakt os." },
       { title: "Kundeportalen og appen.", text: "Kundeportalen og appen leveres af en samarbejdspartner, og vi har ikke selv fuld kontrol over, hvor tilgængelige de er. Har du problemer med dem, så kontakt din rådgiver." },
       { title: "Indhold fra andre.", text: "Indlejret indhold fra andre tjenester, fx LinkedIn-opslag, lever ikke nødvendigvis op til de samme krav." },
     ] satisfies Point[],
