@@ -7,6 +7,8 @@ export const facts = {
   rebatesPaid: { amountMio: 2.8, paidYear: 2026 },
   assetsUnderAdviceMia: 3,
   founded: 2016,
+  /** Året, hvor medarbejderne overtog ejerskabet. */
+  employeeOwnedSince: 2024,
   employeesPlus: 10,
   managers: 19,
   countries: 9,

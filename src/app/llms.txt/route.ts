@@ -25,7 +25,7 @@ export function GET() {
 
 > ${footer.about}
 
-${company.legalName} er en medarbejderejet, uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet (FT-nr. ${company.ftNumber}, CVR ${company.cvr}). Vi har rådgivet siden ${facts.founded} og har i dag ${facts.assetsUnderAdviceMia} mia. kr. under rådgivning. Rådgiverne mødes med kunder i hele Danmark; kontoret ligger på ${company.address.line1}, ${company.address.line2}.
+${company.legalName} er en uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet (FT-nr. ${company.ftNumber}, CVR ${company.cvr}). Virksomheden er etableret i ${facts.founded} og har været ejet af medarbejderne siden ${facts.employeeOwnedSince} og har i dag ${facts.assetsUnderAdviceMia} mia. kr. under rådgivning. Rådgiverne mødes med kunder i hele Danmark; kontoret ligger på ${company.address.line1}, ${company.address.line2}.
 
 Nøglefakta:
 - Uafhængig: ingen provision fra fonde eller forvaltere og ingen indtægter fra egen forvaltning eller handel. Kunden betaler et aftalt rådgivningshonorar.

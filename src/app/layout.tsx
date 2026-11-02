@@ -35,7 +35,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="da" className={`${playfair.variable} ${sourceSans.variable}`}>
+    // data-scroll-behavior: Next slår blød scrolling fra ved sideskift, så en ny side starter i toppen uden animation.
+    <html lang="da" data-scroll-behavior="smooth" className={`${playfair.variable} ${sourceSans.variable}`}>
       <body className="flex min-h-full flex-col">
         {/* Virksomhed og website som schema.org-data – til Google og AI-tjenester. */}
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(siteJsonLd)} />

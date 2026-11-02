@@ -15,7 +15,7 @@ export const home = {
     title: "Investeringsrådgivning som den *bør* være",
     lead: "Ingen skjulte gebyrer. Ingen skjulte interesser. Kun ærlig rådgivning, hvor du ved præcis, hvad du betaler for – og hvem vi arbejder for: dig.",
     actions: [bookMeeting, { label: "Hvem spiser din lagkage?", href: "#lagkage", variant: "secondary" }],
-    trustline: "Uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet · Medarbejderejet · Siden 2024",
+    trustline: `Uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet · Etableret ${facts.founded} · Medarbejderejet siden ${facts.employeeOwnedSince}`,
   } satisfies HeroContent,
   heroMedia: ambient.office,
 
