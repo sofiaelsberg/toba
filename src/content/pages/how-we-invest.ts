@@ -5,9 +5,9 @@ import type { FaqItem, HeroContent, ManagerMapContent, Point, QuoteContent, Seo,
 
 export const howWeInvest = {
   seo: {
-    title: "Sådan investerer vi | TOBA Advice",
+    title: "Sådan investerer vi din formue | TOBA Advice",
     description:
-      "En klar strategi, bred spredning, grundig udvælgelse af forvaltere og adgang til private markets. Se, hvordan vi arbejder med din formue – fra første møde til løbende opfølgning.",
+      "En klar strategi, bred spredning, grundigt udvalgte forvaltere og adgang til private markets. Se, hvordan vi arbejder med din formue.",
   } satisfies Seo,
 
   anchorNavLabel: "På denne side",

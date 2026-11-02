@@ -3,8 +3,8 @@ import type { HeroContent, Seo } from "../types";
 
 export const team = {
   seo: {
-    title: "Teamet | TOBA Advice",
-    description: "Mød rådgiverne og specialisterne bag TOBA Advice – medarbejderejet og på din side.",
+    title: "Mød teamet – rådgivere og analytikere | TOBA Advice",
+    description: "Mød rådgiverne og specialisterne bag TOBA Advice. Medarbejderejet og uafhængig – og vi mødes med dig, uanset hvor i Danmark du bor.",
   } satisfies Seo,
 
   hero: {

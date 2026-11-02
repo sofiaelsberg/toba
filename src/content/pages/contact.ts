@@ -3,8 +3,8 @@ import type { HeroContent, Seo } from "../types";
 
 export const contact = {
   seo: {
-    title: "Kontakt | TOBA Advice",
-    description: "Kontakt TOBA Advice i Aarhus. Ring, skriv eller book et uforpligtende møde med en af vores rådgivere.",
+    title: "Kontakt os – book et uforpligtende møde | TOBA Advice",
+    description: "Ring, skriv eller book et uforpligtende møde med en af vores rådgivere. Vi kommer gerne ud til dig – i hele Danmark.",
   } satisfies Seo,
 
   hero: {
