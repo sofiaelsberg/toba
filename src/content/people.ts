@@ -131,7 +131,6 @@ const raw: Omit<Person, "portrait">[] = [
       "Tonny er medstifter af TOBA Advice og COO. Han har over 25 års erfaring fra den finansielle sektor og har tidligere været partner i Clearhaus og finans- og fondschef i Sparekassen Kronjylland.",
     ],
   },
-  // TODO: Mettes e-mail bruger det gamle efternavn – bekræft før den tilføjes.
   {
     slug: "mette-jo-rehn-hermansen",
     name: "Mette Jo Rehn Hermansen",
@@ -151,10 +150,9 @@ const raw: Omit<Person, "portrait">[] = [
   },
   // Bestyrelse (formanden først)
   {
-    // TODO: afklar om advokatfirmaet skal nævnes (beslutning om ingen specifikke virksomheder).
     slug: "dennis-birkeholm-larsen",
     name: "Dennis Birkeholm Larsen",
-    title: "Formand for bestyrelsen",
+    title: "Bestyrelsesformand",
     group: "bestyrelse",
     bio: ["Dennis er formand for bestyrelsen i TOBA Advice. Han er advokat (L) og partner i advokatfirmaet Clemens Law."],
   },
