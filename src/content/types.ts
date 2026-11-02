@@ -147,6 +147,8 @@ export type Person = {
   linkedin?: string;
   /** Afsnit. Tom liste = bio mangler. */
   bio: string[];
+  /** Vises også i en anden gruppe med en anden titel – fx en medarbejder, der også sidder i bestyrelsen. Tælles kun én gang under "Alle". */
+  alsoIn?: { group: GroupId; title: string }[];
   /** Vis uden profil (studentermedhjælpere). */
   noProfile?: boolean;
   /** Kort tekst til kort og forside. */

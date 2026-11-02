@@ -74,6 +74,7 @@ const raw: Omit<Person, "portrait">[] = [
     name: "Bertel Roslev Rasmussen",
     title: "CIO / Partner",
     group: "analyse",
+    alsoIn: [{ group: "bestyrelse", title: "Bestyrelsesmedlem" }],
     phone: "+45 29 92 95 32",
     email: "roslev@tobaadvice.com",
     bio: [
@@ -105,14 +106,7 @@ const raw: Omit<Person, "portrait">[] = [
   {
     slug: "kristian-blaesbjerg-larsen",
     name: "Kristian Blæsbjerg Larsen",
-    title: "Investment Analyst",
-    group: "analyse",
-    bio: [],
-  },
-  {
-    slug: "mads-harder",
-    name: "Mads Harder",
-    title: "Investment Analyst",
+    title: "Investeringsstrateg",
     group: "analyse",
     bio: [],
   },
@@ -137,7 +131,6 @@ const raw: Omit<Person, "portrait">[] = [
       "Tonny er medstifter af TOBA Advice og COO. Han har over 25 års erfaring fra den finansielle sektor og har tidligere været partner i Clearhaus og finans- og fondschef i Sparekassen Kronjylland.",
     ],
   },
-  // TODO: Mettes e-mail bruger det gamle efternavn – bekræft før den tilføjes.
   {
     slug: "mette-jo-rehn-hermansen",
     name: "Mette Jo Rehn Hermansen",
@@ -155,24 +148,23 @@ const raw: Omit<Person, "portrait">[] = [
     short: "Udvikler TOBA Advices hjemmeside.",
     bio: ["Sofia står for udviklingen af TOBA Advices hjemmeside. Hun har en baggrund inden for både design og programmering."],
   },
-  // Bestyrelse
+  // Bestyrelse (formanden først)
+  {
+    slug: "dennis-birkeholm-larsen",
+    name: "Dennis Birkeholm Larsen",
+    title: "Bestyrelsesformand",
+    group: "bestyrelse",
+    bio: ["Dennis er formand for bestyrelsen i TOBA Advice. Han er advokat (L) og partner i advokatfirmaet Clemens Law."],
+  },
   {
     slug: "peter-bager",
     name: "Peter Bager",
-    title: "Formand for bestyrelsen",
+    title: "Bestyrelsesmedlem",
     group: "bestyrelse",
     short: "Professionelt bestyrelsesmedlem med baggrund i salg, marketing og digital udvikling.",
     bio: [
-      "Peter er formand for bestyrelsen i TOBA Advice. Han er professionelt bestyrelsesmedlem i en række virksomheder – typisk privatejede med en aktiv ejerkreds – og er bl.a. formand i Tvilum A/S og Proshop Europe A/S. Peter har en baggrund inden for salg og marketing og arbejder især med digital udvikling.",
+      "Peter er medlem af bestyrelsen i TOBA Advice. Han er professionelt bestyrelsesmedlem i en række virksomheder – typisk privatejede med en aktiv ejerkreds – og er bl.a. formand i Tvilum A/S og Proshop Europe A/S. Peter har en baggrund inden for salg og marketing og arbejder især med digital udvikling.",
     ],
-  },
-  {
-    // TODO: afklar om advokatfirmaet skal nævnes (beslutning om ingen specifikke virksomheder).
-    slug: "dennis-birkeholm-larsen",
-    name: "Dennis Birkeholm Larsen",
-    title: "Bestyrelsesmedlem",
-    group: "bestyrelse",
-    bio: ["Dennis er medlem af bestyrelsen i TOBA Advice. Han er advokat (L) og partner i advokatfirmaet Clemens Law."],
   },
 ];
 
@@ -186,4 +178,3 @@ export const groups: { id: GroupId; name: string; note?: string }[] = [
 ];
 
 export const advisers = people.filter((p) => p.group === "raadgivning");
-
