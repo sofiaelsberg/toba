@@ -22,11 +22,18 @@ type Props = {
 };
 
 /** Teamsiden: filtre, grid grupperet efter afdeling og profiler i et sidepanel. */
+/** Personerne i en gruppe – også dem, der sidder der ved siden af deres egen afdeling (alsoIn), med titlen derfra. */
+function membersOf(people: Person[], group: GroupId): Person[] {
+  const own = people.filter((p) => p.group === group);
+  const extra = people.flatMap((p) => (p.alsoIn ?? []).filter((a) => a.group === group).map((a) => ({ ...p, group, title: a.title })));
+  return [...own, ...extra];
+}
+
 export function TeamDirectory({ people, groups, allLabel, profileUrlPrefix, bookHref }: Props) {
   const [filter, setFilter] = useState<GroupId | "alle">("alle");
   const [open, setOpen] = useState<Person | null>(null);
 
-  const filters = [{ id: "alle" as const, name: allLabel, count: people.length }, ...groups.map((g) => ({ id: g.id, name: g.name, count: people.filter((p) => p.group === g.id).length }))];
+  const filters = [{ id: "alle" as const, name: allLabel, count: people.length }, ...groups.map((g) => ({ id: g.id, name: g.name, count: membersOf(people, g.id).length }))];
   const visible = groups.filter((g) => filter === "alle" || filter === g.id);
 
   return (
@@ -61,10 +68,8 @@ export function TeamDirectory({ people, groups, allLabel, profileUrlPrefix, book
               {g.note && <span className="text-small text-ink-muted">{g.note}</span>}
             </div>
             <ul className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
-              {people
-                .filter((p) => p.group === g.id)
-                .map((p, i) => (
-                  <motion.li key={`${filter}-${p.slug}`} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE, delay: i * 0.05 }}>
+              {membersOf(people, g.id).map((p, i) => (
+                  <motion.li key={`${filter}-${g.id}-${p.slug}`} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE, delay: i * 0.05 }}>
                     <TeamCard person={p} onOpen={() => setOpen(p)} />
                   </motion.li>
                 ))}

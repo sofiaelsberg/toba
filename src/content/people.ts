@@ -74,6 +74,7 @@ const raw: Omit<Person, "portrait">[] = [
     name: "Bertel Roslev Rasmussen",
     title: "CIO / Partner",
     group: "analyse",
+    alsoIn: [{ group: "bestyrelse", title: "Bestyrelsesmedlem" }],
     phone: "+45 29 92 95 32",
     email: "roslev@tobaadvice.com",
     bio: [
@@ -148,24 +149,24 @@ const raw: Omit<Person, "portrait">[] = [
     short: "Udvikler TOBA Advices hjemmeside.",
     bio: ["Sofia står for udviklingen af TOBA Advices hjemmeside. Hun har en baggrund inden for både design og programmering."],
   },
-  // Bestyrelse
-  {
-    slug: "peter-bager",
-    name: "Peter Bager",
-    title: "Formand for bestyrelsen",
-    group: "bestyrelse",
-    short: "Professionelt bestyrelsesmedlem med baggrund i salg, marketing og digital udvikling.",
-    bio: [
-      "Peter er formand for bestyrelsen i TOBA Advice. Han er professionelt bestyrelsesmedlem i en række virksomheder – typisk privatejede med en aktiv ejerkreds – og er bl.a. formand i Tvilum A/S og Proshop Europe A/S. Peter har en baggrund inden for salg og marketing og arbejder især med digital udvikling.",
-    ],
-  },
+  // Bestyrelse (formanden først)
   {
     // TODO: afklar om advokatfirmaet skal nævnes (beslutning om ingen specifikke virksomheder).
     slug: "dennis-birkeholm-larsen",
     name: "Dennis Birkeholm Larsen",
+    title: "Formand for bestyrelsen",
+    group: "bestyrelse",
+    bio: ["Dennis er formand for bestyrelsen i TOBA Advice. Han er advokat (L) og partner i advokatfirmaet Clemens Law."],
+  },
+  {
+    slug: "peter-bager",
+    name: "Peter Bager",
     title: "Bestyrelsesmedlem",
     group: "bestyrelse",
-    bio: ["Dennis er medlem af bestyrelsen i TOBA Advice. Han er advokat (L) og partner i advokatfirmaet Clemens Law."],
+    short: "Professionelt bestyrelsesmedlem med baggrund i salg, marketing og digital udvikling.",
+    bio: [
+      "Peter er medlem af bestyrelsen i TOBA Advice. Han er professionelt bestyrelsesmedlem i en række virksomheder – typisk privatejede med en aktiv ejerkreds – og er bl.a. formand i Tvilum A/S og Proshop Europe A/S. Peter har en baggrund inden for salg og marketing og arbejder især med digital udvikling.",
+    ],
   },
 ];
 
