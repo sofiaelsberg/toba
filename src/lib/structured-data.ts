@@ -1,6 +1,7 @@
 import { facts } from "@/content/facts";
 import { company, footer, routes } from "@/content/site";
 import type { FaqItem, Person, VideoRef } from "@/content/types";
+import type { NewsPost } from "@/lib/news";
 import { SITE_URL } from "@/lib/seo";
 
 /*
@@ -114,6 +115,60 @@ export function videoJsonLd(v: VideoRef) {
     duration: isoDuration(v.durationLabel),
     inLanguage: "da-DK",
     publisher: { "@id": ORG_ID },
+  };
+}
+
+/** Nyhedsoversigten som blog med indlæg. */
+export function newsListJsonLd(posts: NewsPost[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${SITE_URL}${routes.news}#blog`,
+    name: "Nyheder og indsigt fra TOBA Advice",
+    url: `${SITE_URL}${routes.news}`,
+    inLanguage: "da-DK",
+    publisher: { "@id": ORG_ID },
+    blogPost: posts.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      url: `${SITE_URL}${routes.news}/${p.slug}`,
+      datePublished: p.date,
+    })),
+  };
+}
+
+/** Et nyhedsindlæg + brødkrummer. */
+export function articleJsonLd(p: NewsPost) {
+  const url = `${SITE_URL}${routes.news}/${p.slug}`;
+  const author = p.author === "TOBA Advice" ? { "@id": ORG_ID } : { "@type": "Person", name: p.author, worksFor: { "@id": ORG_ID } };
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${url}#artikel`,
+        headline: p.title,
+        description: p.description,
+        datePublished: p.date,
+        dateModified: p.date,
+        author,
+        publisher: { "@id": ORG_ID },
+        mainEntityOfPage: url,
+        inLanguage: "da-DK",
+        isPartOf: { "@id": `${SITE_URL}${routes.news}#blog` },
+        ...(p.image ? { image: abs(p.image) } : {}),
+        ...(p.tags.length ? { keywords: p.tags.join(", ") } : {}),
+        sameAs: [p.linkedin],
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Forside", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Nyheder", item: `${SITE_URL}${routes.news}` },
+          { "@type": "ListItem", position: 3, name: p.title, item: url },
+        ],
+      },
+    ],
   };
 }
 

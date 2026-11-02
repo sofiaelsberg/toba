@@ -15,6 +15,9 @@ const legacyRedirects: { source: string; destination: string }[] = [
   { source: "/gratis-omkostningsoverblik", destination: "/omkostningsoverblik" },
   // Kun gamle profiladresser uden filendelse – ellers fanges portrætterne i /public/team.
   { source: "/team/:slug([^./]+)", destination: "/team" },
+  // Gamle blogadresser fra Webflow → de nye nyheder.
+  { source: "/blog", destination: "/nyheder" },
+  { source: "/blog/:path*", destination: "/nyheder" },
   { source: "/search", destination: "/" },
   { source: "/401", destination: "/" },
   { source: "/404", destination: "/" },

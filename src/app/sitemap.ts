@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { routes } from "@/content/site";
+import { getAllPosts } from "@/lib/news";
 
 const BASE = "https://www.tobaadvice.com";
 
@@ -19,11 +20,13 @@ const pages: { path: string; priority: number }[] = [
   { path: routes.complaints, priority: 0.3 },
   { path: routes.cookies, priority: 0.2 },
   { path: routes.accessibility, priority: 0.2 },
+  { path: routes.news, priority: 0.7 },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   "use cache";
   // Datoen for seneste udgivelse (siden bygges statisk ved hver deploy).
   const lastModified = new Date();
-  return pages.map((p) => ({ url: `${BASE}${p.path === "/" ? "" : p.path}`, lastModified, priority: p.priority }));
+  const posts = (await getAllPosts()).map((p) => ({ url: `${BASE}${routes.news}/${p.slug}`, lastModified: new Date(p.date), priority: 0.6 }));
+  return [...pages.map((p) => ({ url: `${BASE}${p.path === "/" ? "" : p.path}`, lastModified, priority: p.priority })), ...posts];
 }
