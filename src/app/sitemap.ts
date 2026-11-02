@@ -21,6 +21,9 @@ const pages: { path: string; priority: number }[] = [
   { path: routes.accessibility, priority: 0.2 },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  return pages.map((p) => ({ url: `${BASE}${p.path === "/" ? "" : p.path}`, priority: p.priority }));
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  "use cache";
+  // Datoen for seneste udgivelse (siden bygges statisk ved hver deploy).
+  const lastModified = new Date();
+  return pages.map((p) => ({ url: `${BASE}${p.path === "/" ? "" : p.path}`, lastModified, priority: p.priority }));
 }

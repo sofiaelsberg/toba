@@ -15,13 +15,9 @@ import { FactBox } from "@/components/sections/stats";
 import { independent as c } from "@/content/pages/independent";
 import { disclaimers, routes } from "@/content/site";
 import { cn } from "@/lib/utils";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.independent },
-  title: c.seo.title,
-  description: c.seo.description,
-  openGraph: { description: c.seo.ogDescription },
-};
+export const metadata: Metadata = pageMetadata(routes.independent, c.seo);
 
 export default function IndependentPage() {
   return (

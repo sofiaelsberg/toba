@@ -63,6 +63,7 @@ export type VideoRef = {
   durationLabel: string; // "0:36"
   caption?: string;      // navn og titel under videoen
   captionsSrc?: string;  // .vtt
+  uploadDate?: string;   // ISO-dato, hvornår videoen blev lagt på siden (til schema.org)
 };
 
 export type SectionHeadingContent = {

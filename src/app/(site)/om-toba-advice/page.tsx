@@ -15,9 +15,9 @@ import { StatsRow } from "@/components/sections/stats";
 import { about as c } from "@/content/pages/about";
 import { advisers } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.about }, title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = pageMetadata(routes.about, c.seo);
 
 export default function AboutPage() {
   return (

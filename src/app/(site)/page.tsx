@@ -23,16 +23,14 @@ import { independent } from "@/content/pages/independent";
 import { overview } from "@/content/pages/overview";
 import { advisers } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
-import { jsonLd, organizationJsonLd } from "@/lib/structured-data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.home }, title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = pageMetadata(routes.home, c.seo);
 
 /** Forside – referencen for, hvordan sider sættes sammen af sektioner + indhold. */
 export default function HomePage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(organizationJsonLd)} />
       <Hero content={c.hero} aside={<AmbientVideo video={c.heroMedia} />} />
 
       <Section surface="white">

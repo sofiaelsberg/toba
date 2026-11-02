@@ -6,9 +6,9 @@ import { PointList } from "@/components/sections/lists";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { fsa as c } from "@/content/pages/legal";
 import { disclaimers, routes } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.fsa }, title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = pageMetadata(routes.fsa, c.seo);
 
 export default function FsaPage() {
   return (

@@ -18,9 +18,9 @@ import { StatsRow } from "@/components/sections/stats";
 import { facts } from "@/content/facts";
 import { howWeInvest as c } from "@/content/pages/how-we-invest";
 import { disclaimers, routes } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.howWeInvest }, title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = pageMetadata(routes.howWeInvest, c.seo);
 
 export default function HowWeInvestPage() {
   return (

@@ -8,13 +8,15 @@ import { TeamDirectory } from "@/components/sections/team-directory";
 import { team as c } from "@/content/pages/team";
 import { groups, people } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
+import { jsonLd, teamJsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.team }, title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = pageMetadata(routes.team, c.seo);
 
 export default function TeamPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(teamJsonLd(people))} />
       <Hero content={c.hero} className="md:pb-8" />
       <Section spacing="none" reveal={false} className="pb-16 md:pb-24">
         <TeamDirectory people={people} groups={groups} allLabel={c.filterAll} profileUrlPrefix={c.profileUrlPrefix} bookHref={routes.bookMeeting} />
