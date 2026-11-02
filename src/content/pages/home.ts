@@ -7,7 +7,7 @@ export const home = {
   seo: {
     title: "TOBA Advice – uafhængig investeringsrådgivning som den bør være",
     description:
-      "Uafhængig investeringsrådgivning uden uigennemsigtige gebyrer og skjulte interesser. Fast honorar, frit valg på alle hylder – og rabatterne går ubeskåret til dig.",
+      "Uafhængig investeringsrådgivning med fast honorar, frit valg på alle hylder og rabatter, der går ubeskåret til dig. Vi mødes med dig i hele Danmark.",
   } satisfies Seo,
 
   hero: {

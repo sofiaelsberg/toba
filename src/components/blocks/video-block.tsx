@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 
 import type { VideoRef } from "@/content/types";
 import { ui } from "@/content/ui";
+import { jsonLd, videoJsonLd } from "@/lib/structured-data";
 import { cn } from "@/lib/utils";
 
 /**
@@ -26,6 +27,7 @@ export function VideoBlock({ video, className, compact }: { video: VideoRef; cla
 
   return (
     <figure className={cn("flex flex-col gap-3", className)}>
+      {videoJsonLd(video) && <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(videoJsonLd(video)!)} />}
       <div className="group relative aspect-square max-w-full overflow-hidden bg-navy">
         {video.src ? (
           <video

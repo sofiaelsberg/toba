@@ -13,9 +13,9 @@ import { contactForm } from "@/content/forms";
 import { contact as c } from "@/content/pages/contact";
 import { advisers } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.contact }, title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = pageMetadata(routes.contact, c.seo);
 
 export default function ContactPage() {
   return (

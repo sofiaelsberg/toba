@@ -15,13 +15,9 @@ import { FactBox, StatsRow } from "@/components/sections/stats";
 import { cake } from "@/content/cake";
 import { guide as c } from "@/content/pages/guide";
 import { disclaimers, routes } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.guide },
-  title: c.seo.title,
-  description: c.seo.description,
-  openGraph: { description: c.seo.ogDescription },
-};
+export const metadata: Metadata = pageMetadata(routes.guide, c.seo);
 
 /** Landingsside 1 – LinkedIn-kampagnen: hent guiden. */
 export default function GuidePage() {

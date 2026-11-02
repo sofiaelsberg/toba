@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import { CookieBanner } from "@/components/layout/cookie-banner";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { home } from "@/content/pages/home";
+import { jsonLd, siteJsonLd } from "@/lib/structured-data";
 import "./globals.css";
 
 /** Selvhostede variable fonte (OFL) – samme som Google Fonts, men uden kald til Google (GDPR). */
@@ -36,6 +37,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="da" className={`${playfair.variable} ${sourceSans.variable}`}>
       <body className="flex min-h-full flex-col">
+        {/* Virksomhed og website som schema.org-data – til Google og AI-tjenester. */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(siteJsonLd)} />
         <MotionProvider>
           {children}
           <CookieBanner />

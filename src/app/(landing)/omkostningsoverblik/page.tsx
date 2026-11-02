@@ -16,13 +16,10 @@ import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { FactBox, StatsRow } from "@/components/sections/stats";
 import { overview as c } from "@/content/pages/overview";
 import { disclaimers, routes } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
+import { faqJsonLd, jsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.overview },
-  title: c.seo.title,
-  description: c.seo.description,
-  openGraph: { description: c.seo.ogDescription },
-};
+export const metadata: Metadata = pageMetadata(routes.overview, c.seo);
 
 /** Landingsside 2 – primær konvertering: bestil et gratis omkostningsoverblik. */
 export default function OverviewPage() {
@@ -141,6 +138,7 @@ export default function OverviewPage() {
           <Split align="start">
             <SectionHeading rule title={c.faqTitle} />
             <AccordionList items={c.faq} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(c.faq))} />
           </Split>
         </Section>
 

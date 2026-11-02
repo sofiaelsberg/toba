@@ -5,9 +5,9 @@ import { NumberedSteps } from "@/components/sections/lists";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { complaints as c } from "@/content/pages/legal";
 import { disclaimers, routes } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.complaints }, title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = pageMetadata(routes.complaints, c.seo);
 
 export default function ComplaintsPage() {
   const a = c.escalation.address;

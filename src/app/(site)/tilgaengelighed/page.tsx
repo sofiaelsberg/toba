@@ -7,9 +7,9 @@ import { NumberedSteps, PointList } from "@/components/sections/lists";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { accessibilityPage as c } from "@/content/pages/legal";
 import { disclaimers, routes } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.accessibility }, title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = pageMetadata(routes.accessibility, c.seo);
 
 const h2 = "font-serif text-[2rem] leading-10 font-medium text-navy";
 

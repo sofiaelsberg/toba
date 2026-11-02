@@ -7,9 +7,9 @@ import { Disclaimer } from "@/components/sections/legal";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { cookieConsent, cookiesPage as c } from "@/content/pages/legal";
 import { disclaimers, routes } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: routes.cookies }, title: c.seo.title, description: c.seo.description };
+export const metadata: Metadata = pageMetadata(routes.cookies, c.seo);
 
 export default function CookiesPage() {
   return (
