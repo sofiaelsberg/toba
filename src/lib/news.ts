@@ -15,6 +15,9 @@ import path from "node:path";
 
 export type NewsDocument = { title: string; pages?: number | null; pdf?: string | null };
 
+/** Én side fra et slides-opslag: billedet og teksten på det (til tekstversion, Google og skærmlæsere). */
+export type NewsSlide = { src: string; width: number; height: number; text: string };
+
 export type NewsPost = {
   slug: string;
   title: string;
@@ -29,12 +32,22 @@ export type NewsPost = {
   imageAlt?: string;
   imageSize?: { width: number; height: number };
   document?: NewsDocument;
+  /** Slides fra src/content/news/slides/<slug>.json (billederne ligger i public/nyheder/slides/<slug>/). */
+  slides?: NewsSlide[];
+  /** Billede til deling og Google: indlæggets billede eller første slide. */
+  cover?: string;
   tags: string[];
   draft?: boolean;
   body: string;
 };
 
 const DIR = path.join(process.cwd(), "src/content/news");
+const SLIDES_DIR = path.join(DIR, "slides");
+
+function readSlides(slug: string): NewsSlide[] | undefined {
+  const file = path.join(SLIDES_DIR, `${slug}.json`);
+  return fs.existsSync(file) ? (JSON.parse(fs.readFileSync(file, "utf8")) as NewsSlide[]) : undefined;
+}
 
 /** Bredde og højde fra en JPEG/PNG-fil (til next/image uden layoutskift). */
 function imageSize(publicPath: string): { width: number; height: number } | undefined {
@@ -67,8 +80,10 @@ function parse(file: string): NewsPost {
     if (i > 0) meta[line.slice(0, i)] = JSON.parse(line.slice(i + 2));
   }
   const image = meta.image as string | undefined;
+  const slug = file.replace(/\.md$/, "");
+  const slides = readSlides(slug);
   return {
-    slug: file.replace(/\.md$/, ""),
+    slug,
     title: meta.title as string,
     description: meta.description as string,
     date: meta.date as string,
@@ -81,6 +96,8 @@ function parse(file: string): NewsPost {
     imageAlt: (meta.imageAlt as string | undefined) ?? "",
     imageSize: image ? imageSize(image) : undefined,
     document: meta.document as NewsDocument | undefined,
+    slides,
+    cover: image ?? slides?.[0]?.src,
     tags: (meta.tags as string[] | undefined) ?? [],
     draft: Boolean(meta.draft),
     body: match[2].trim(),

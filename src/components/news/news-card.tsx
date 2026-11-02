@@ -22,6 +22,16 @@ export function NewsCard({ post, headingLevel = "h2", priority = false }: { post
             preload={priority}
             className="object-cover transition-transform duration-700 ease-toba group-hover:scale-[1.03]"
           />
+        ) : post.slides?.length ? (
+          // Forsiden af slides – vist i sin helhed på navy, som et dokument.
+          <Image
+            src={post.slides[0].src}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 20vw, (min-width: 640px) 30vw, 60vw"
+            preload={priority}
+            className="object-contain py-4 drop-shadow-[0_8px_20px_rgba(0,0,0,0.35)] transition-transform duration-700 ease-toba group-hover:scale-[1.03]"
+          />
         ) : (
           <div aria-hidden className="flex size-full flex-col justify-between p-6 text-white">
             <FileText className="size-6 text-gold-on-navy" />

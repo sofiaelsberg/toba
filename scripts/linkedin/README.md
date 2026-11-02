@@ -33,4 +33,15 @@ node scripts/linkedin/sync.mjs --from-file ~/Downloads/linkedin-nyheder.json
 
 Organisationens id er `104613890`. Tokens udløber (typisk efter 60 dage) og skal fornys.
 
-Via API'et hentes også billeder og – for slides-opslag – PDF-filen, så slides kan vises på hjemmesiden.
+## Slides (dokumentopslag)
+
+Slides vises på artiklen som billeder, man kan bladre i, med teksten fra hver slide under (til Google og skærmlæsere).
+De ligger i `public/nyheder/slides/<slug>/` og teksten i `src/content/news/slides/<slug>.json` – ret teksten dér.
+
+Hent slides fra et nyt opslag:
+
+1. Åbn opslaget på LinkedIn (ved delinger: det oprindelige opslag), åbn browserens konsol, og kør indholdet af `grab-slides.js`.
+2. `node scripts/linkedin/import-slides.mjs ~/Downloads/li-slides-*.json`
+3. Tjek teksten i JSON-filen (især overskrifter med spærret skrift) og slet filerne i Overførsler.
+
+Via API'et kan PDF-filen hentes direkte, når adgangen er godkendt.

@@ -8,6 +8,7 @@ import { ButtonLink, TextLink } from "@/components/blocks/links";
 import { Eyebrow, Lead } from "@/components/blocks/typography";
 import { ArticleBody } from "@/components/news/article-body";
 import { NewsCard } from "@/components/news/news-card";
+import { SlideViewer } from "@/components/news/slide-viewer";
 import { pickPosts } from "@/components/news/news-teaser";
 import { CtaBand } from "@/components/sections/cta";
 import { Disclaimer } from "@/components/sections/legal";
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
-      ...(post.image ? { images: [{ url: post.image, alt: post.imageAlt || post.title }] } : {}),
+      ...(post.cover ? { images: [{ url: post.cover, alt: post.imageAlt || post.title }] } : {}),
     },
   };
 }
@@ -96,12 +97,16 @@ async function NewsArticle({ params }: Props) {
 
             <ArticleBody body={post.body} />
 
-            {post.document && (
-              <section aria-labelledby="slides" className="flex flex-col gap-3 border-t-2 border-gold bg-cream p-6">
-                <h2 id="slides" className="font-serif text-h3 font-medium text-navy">{c.document.title}</h2>
-                <p>{c.document.text(post.document.title, post.document.pages)}</p>
-                <ButtonLink action={{ label: c.document.action, href: post.linkedin, variant: "secondary" }} className="self-start" />
-              </section>
+            {post.slides?.length ? (
+              <SlideViewer title={post.document?.title ?? post.title} slides={post.slides} />
+            ) : (
+              post.document && (
+                <aside className="flex flex-col gap-3 border-t-2 border-gold bg-cream p-6">
+                  <h2 className="font-serif text-h3 font-medium text-navy">{c.document.title}</h2>
+                  <p>{c.document.text(post.document.title, post.document.pages)}</p>
+                  <ButtonLink action={{ label: c.document.action, href: post.linkedin, variant: "secondary" }} className="self-start" />
+                </aside>
+              )
             )}
 
             <footer className="flex flex-col gap-4 border-t border-line pt-6">

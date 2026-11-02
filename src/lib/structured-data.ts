@@ -162,7 +162,7 @@ export function articleJsonLd(p: NewsPost) {
         mainEntityOfPage: url,
         inLanguage: "da-DK",
         isPartOf: { "@id": `${SITE_URL}${routes.news}#blog` },
-        ...(p.image ? { image: abs(p.image) } : {}),
+        ...(p.cover ? { image: abs(p.cover) } : {}),
         ...(p.tags.length ? { keywords: p.tags.join(", ") } : {}),
         sameAs: [p.linkedin],
       },
