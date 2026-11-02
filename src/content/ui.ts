@@ -31,6 +31,8 @@ export const ui = {
     bioMissing: "Profiltekst kommer snart.",
     bookWith: (first: string) => `Book et møde med ${first}`,
     linkedin: "LinkedIn →",
+    articles: (first: string) => `Artikler af ${first}`,
+    allArticles: "Alle nyheder →",
     portraitAlt: (name: string) => `Portræt af ${name}`,
   },
   accordion: { open: "+", close: "–" },

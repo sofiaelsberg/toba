@@ -44,6 +44,7 @@ export const mainNav: LinkItem[] = [
   { label: "Uafhængig rådgivning", href: routes.independent },
   { label: "Om TOBA", href: routes.about },
   { label: "Team", href: routes.team },
+  { label: "Nyheder", href: routes.news },
   { label: "Kontakt", href: routes.contact },
 ];
 

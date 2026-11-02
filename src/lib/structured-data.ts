@@ -1,6 +1,7 @@
 import { facts } from "@/content/facts";
 import { company, footer, routes } from "@/content/site";
 import type { FaqItem, Person, VideoRef } from "@/content/types";
+import { authorHref, authorPerson } from "@/lib/authors";
 import type { NewsPost } from "@/lib/news";
 import { SITE_URL } from "@/lib/seo";
 
@@ -140,7 +141,12 @@ export function newsListJsonLd(posts: NewsPost[]) {
 /** Et nyhedsindlæg + brødkrummer. */
 export function articleJsonLd(p: NewsPost) {
   const url = `${SITE_URL}${routes.news}/${p.slug}`;
-  const author = p.author === "TOBA Advice" ? { "@id": ORG_ID } : { "@type": "Person", name: p.author, worksFor: { "@id": ORG_ID } };
+  const person = authorPerson(p.author);
+  const author = person
+    ? { "@type": "Person", "@id": `${SITE_URL}${authorHref(person)}`, name: person.name, jobTitle: person.title, url: `${SITE_URL}${authorHref(person)}`, worksFor: { "@id": ORG_ID } }
+    : p.author === "TOBA Advice"
+      ? { "@id": ORG_ID }
+      : { "@type": "Person", name: p.author, worksFor: { "@id": ORG_ID } };
   return {
     "@context": "https://schema.org",
     "@graph": [

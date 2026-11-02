@@ -1,7 +1,7 @@
 import { facts } from "../facts";
 import { ambient, images, videos } from "../media";
 import { routes, bookMeeting } from "../site";
-import type { CtaCardContent, HeroContent, Point, Seo, Stat, ValueItem } from "../types";
+import type { CtaCardContent, HeroContent, Point, Seo, Stat, ValueItem, NewsTeaserContent } from "../types";
 
 export const home = {
   seo: {
@@ -203,4 +203,10 @@ export const home = {
       { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "ghost-light" as const },
     ],
   },
+
+  /** Seneste indlæg fra /nyheder (vises automatisk – de tre nyeste). */
+  news: {
+    title: "Seneste nyt og indsigt",
+    lead: "Vores holdninger og analyser om investering, omkostninger og risiko – også delt på LinkedIn.",
+  } satisfies NewsTeaserContent,
 };

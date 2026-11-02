@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { ButtonLink, TextLink } from "@/components/blocks/links";
 import { Eyebrow } from "@/components/blocks/typography";
@@ -19,6 +20,9 @@ type Props = {
   allLabel: string;
   profileUrlPrefix: string;
   bookHref: string;
+  /** Seneste indlæg på /nyheder pr. medarbejder (slug). */
+  articles?: Record<string, { title: string; href: string }[]>;
+  newsHref?: string;
 };
 
 /** Teamsiden: filtre, grid grupperet efter afdeling og profiler i et sidepanel. */
@@ -29,9 +33,27 @@ function membersOf(people: Person[], group: GroupId): Person[] {
   return [...own, ...extra];
 }
 
-export function TeamDirectory({ people, groups, allLabel, profileUrlPrefix, bookHref }: Props) {
+export function TeamDirectory({ people, groups, allLabel, profileUrlPrefix, bookHref, articles = {}, newsHref }: Props) {
   const [filter, setFilter] = useState<GroupId | "alle">("alle");
   const [open, setOpen] = useState<Person | null>(null);
+
+  // Fjerner #navn fra adressen, når profilen lukkes, så den ikke åbner igen ved genindlæsning.
+  const close = () => {
+    setOpen(null);
+    if (window.location.hash) history.replaceState(null, "", window.location.pathname + window.location.search);
+  };
+
+  // /team#tonny-elsberg åbner profilen (bruges af forfatterlinks på /nyheder).
+  useEffect(() => {
+    const fromHash = () => {
+      const slug = decodeURIComponent(window.location.hash.slice(1));
+      const person = people.find((p) => p.slug === slug && !p.noProfile);
+      if (person) setOpen(person);
+    };
+    fromHash();
+    window.addEventListener("hashchange", fromHash);
+    return () => window.removeEventListener("hashchange", fromHash);
+  }, [people]);
 
   const filters = [{ id: "alle" as const, name: allLabel, count: people.length }, ...groups.map((g) => ({ id: g.id, name: g.name, count: membersOf(people, g.id).length }))];
   const visible = groups.filter((g) => filter === "alle" || filter === g.id);
@@ -78,9 +100,9 @@ export function TeamDirectory({ people, groups, allLabel, profileUrlPrefix, book
         ))}
       </div>
 
-      <Sheet open={!!open} onOpenChange={(v) => !v && setOpen(null)}>
+      <Sheet open={!!open} onOpenChange={(v) => !v && close()}>
         <SheetContent closeLabel={ui.team.closeProfile} aria-describedby={undefined}>
-          {open && <Profile person={open} groupName={groups.find((g) => g.id === open.group)?.name ?? ""} urlPrefix={profileUrlPrefix} bookHref={bookHref} />}
+          {open && <Profile person={open} groupName={groups.find((g) => g.id === open.group)?.name ?? ""} urlPrefix={profileUrlPrefix} bookHref={bookHref} articles={articles[open.slug]} newsHref={newsHref} />}
         </SheetContent>
       </Sheet>
     </>
@@ -111,7 +133,7 @@ function TeamCard({ person, onOpen }: { person: Person; onOpen: () => void }) {
   );
 }
 
-function Profile({ person, groupName, urlPrefix, bookHref }: { person: Person; groupName: string; urlPrefix: string; bookHref: string }) {
+function Profile({ person, groupName, urlPrefix, bookHref, articles, newsHref }: { person: Person; groupName: string; urlPrefix: string; bookHref: string; articles?: { title: string; href: string }[]; newsHref?: string }) {
   const first = person.name.split(" ")[0];
   return (
     <div className="flex flex-col gap-6 p-8">
@@ -136,6 +158,23 @@ function Profile({ person, groupName, urlPrefix, bookHref }: { person: Person; g
         {person.email && <a href={`mailto:${person.email}`} className="text-navy no-underline">{person.email}</a>}
         {person.linkedin && <TextLink href={person.linkedin} className="self-start">{ui.team.linkedin}</TextLink>}
       </div>
+      {articles?.length ? (
+        <section aria-labelledby="profil-artikler" className="flex flex-col gap-3 border-t border-line pt-4">
+          <h3 id="profil-artikler" className="font-serif text-[1.375rem] leading-7 font-medium text-navy">
+            {ui.team.articles(first)}
+          </h3>
+          <ul className="flex flex-col gap-2">
+            {articles.map((a) => (
+              <li key={a.href}>
+                <Link href={a.href} className="text-navy underline decoration-gold underline-offset-4">
+                  {a.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          {newsHref && <TextLink href={newsHref} className="self-start">{ui.team.allArticles}</TextLink>}
+        </section>
+      ) : null}
       {person.group === "raadgivning" && <ButtonLink action={{ label: ui.team.bookWith(first), href: bookHref }} className="self-start" />}
     </div>
   );

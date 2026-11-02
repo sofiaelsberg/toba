@@ -14,7 +14,7 @@ import { Logo } from "./logo";
 
 function NavLink({ item, active, onClick, className }: { item: LinkItem; active: boolean; onClick?: () => void; className?: string }) {
   const cls = cn(
-    "border-b border-transparent py-2 text-base leading-5 font-medium text-ink no-underline transition-colors hover:border-gold hover:text-navy",
+    "border-b border-transparent py-2 text-base whitespace-nowrap leading-5 font-medium text-ink no-underline transition-colors hover:border-gold hover:text-navy",
     active && "border-gold text-navy",
     item.external && "text-ink-muted",
     className,
@@ -30,7 +30,7 @@ function NavLink({ item, active, onClick, className }: { item: LinkItem; active:
   );
 }
 
-/** Sticky header med logo, menu, Kundeportal og "Book et møde". Burgermenu under 1020 px. */
+/** Sticky header med logo, menu, Kundeportal og "Book et møde". Burgermenu under 1120 px (7 menupunkter). */
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -44,7 +44,7 @@ export function Header() {
       </a>
       <div className="wrap flex h-20 items-center gap-3 sm:gap-6 lg:gap-8">
         <Logo className="mr-auto" />
-        <nav aria-label={navLabels.main} className="hidden items-center gap-7 min-[1020px]:flex">
+        <nav aria-label={navLabels.main} className="hidden items-center gap-7 min-[1120px]:flex">
           {items.map((i) => (
             <NavLink key={i.href} item={i} active={isActive(i.href)} />
           ))}
@@ -54,7 +54,7 @@ export function Header() {
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
             aria-label={navLabels.openMenu}
-            className="inline-flex size-11 cursor-pointer items-center justify-center rounded-sm border border-navy text-navy min-[1020px]:hidden"
+            className="inline-flex size-11 cursor-pointer items-center justify-center rounded-sm border border-navy text-navy min-[1120px]:hidden"
           >
             <Menu aria-hidden className="size-5" />
           </SheetTrigger>

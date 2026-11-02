@@ -8,10 +8,12 @@ import { ButtonLink, TextLink } from "@/components/blocks/links";
 import { Eyebrow, Lead } from "@/components/blocks/typography";
 import { ArticleBody } from "@/components/news/article-body";
 import { NewsCard } from "@/components/news/news-card";
+import { pickPosts } from "@/components/news/news-teaser";
 import { CtaBand } from "@/components/sections/cta";
 import { Disclaimer } from "@/components/sections/legal";
 import { news as c } from "@/content/pages/news";
 import { disclaimers, routes } from "@/content/site";
+import { authorHref, authorPerson } from "@/lib/authors";
 import { formatNewsDate, getAllPosts, getPost } from "@/lib/news";
 import { pageMetadata } from "@/lib/seo";
 import { articleJsonLd, jsonLd } from "@/lib/structured-data";
@@ -56,7 +58,10 @@ async function NewsArticle({ params }: Props) {
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) notFound();
-  const more = (await getAllPosts()).filter((p) => p.slug !== post.slug).slice(0, 3);
+  const all = await getAllPosts();
+  // Samme forfatters indlæg først (når det er en medarbejder), derefter de nyeste.
+  const sameAuthor = authorPerson(post.author) ? all.filter((p) => p.author === post.author).map((p) => p.slug) : [];
+  const more = pickPosts(all, sameAuthor, 3, post.slug);
 
   return (
     <>
@@ -68,7 +73,7 @@ async function NewsArticle({ params }: Props) {
               {c.back}
             </Link>
             <Eyebrow>
-              <time dateTime={post.date}>{formatNewsDate(post.date)}</time> · {c.by} {post.author}
+              <time dateTime={post.date}>{formatNewsDate(post.date)}</time> · {c.by} <Byline name={post.author} />
             </Eyebrow>
             <h1 className="font-serif text-[2.25rem] leading-[2.75rem] font-medium text-navy md:text-[3rem] md:leading-[3.5rem]">{post.title}</h1>
             {post.lead && <Lead className="text-ink-muted">{post.lead}</Lead>}
@@ -133,5 +138,16 @@ async function NewsArticle({ params }: Props) {
 
       <Disclaimer content={disclaimers.standard} />
     </>
+  );
+}
+
+/** Forfatterens navn – med link til profilen på teamsiden, når det er en medarbejder. */
+function Byline({ name }: { name: string }) {
+  const person = authorPerson(name);
+  if (!person) return <>{name}</>;
+  return (
+    <Link href={authorHref(person)} rel="author" className="text-inherit underline decoration-gold underline-offset-4 hover:text-navy">
+      {name}
+    </Link>
   );
 }

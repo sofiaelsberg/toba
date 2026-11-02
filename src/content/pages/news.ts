@@ -29,6 +29,7 @@ export const news = {
     action: "Se slides på LinkedIn",
   },
   moreTitle: "Flere indlæg",
+  allLink: "Alle nyheder →",
   empty: "Der er ingen indlæg endnu.",
 
   cta: {
