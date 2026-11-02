@@ -105,7 +105,7 @@ const raw: Omit<Person, "portrait">[] = [
   {
     slug: "kristian-blaesbjerg-larsen",
     name: "Kristian Blæsbjerg Larsen",
-    title: "Investment Analyst",
+    title: "Investeringsstrateg",
     group: "analyse",
     bio: [],
   },
@@ -179,4 +179,3 @@ export const groups: { id: GroupId; name: string; note?: string }[] = [
 ];
 
 export const advisers = people.filter((p) => p.group === "raadgivning");
-
