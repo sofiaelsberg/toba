@@ -35,7 +35,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(organizationJsonLd)} />
       <Hero content={c.hero} aside={<AmbientVideo video={c.heroMedia} />} />
 
-      <Section>
+      <Section surface="white">
         <Split>
           <div className="flex flex-col gap-6">
             <SectionHeading rule title={c.sameSide.title} lead={c.sameSide.lead} />
@@ -46,13 +46,12 @@ export default function HomePage() {
         </Split>
       </Section>
 
-      <Section surface="white">
+      <Section>
         <div className="flex flex-col gap-10">
           <SectionHeading rule title={c.ctaIntro.title} lead={c.ctaIntro.lead} />
           <CtaCards
             headingLevel="h3"
             cards={c.ctaCards}
-            tone="cream"
             visuals={{
               cake: <CakeVisual content={cake} />,
               overview: <OverviewVisual content={overview.example} />,
