@@ -109,13 +109,6 @@ const raw: Omit<Person, "portrait">[] = [
     group: "analyse",
     bio: [],
   },
-  {
-    slug: "mads-harder",
-    name: "Mads Harder",
-    title: "Investment Analyst",
-    group: "analyse",
-    bio: [],
-  },
   { slug: "alexander-holm", name: "Alexander Holm", title: "Studentermedhjælper", group: "analyse", bio: [], noProfile: true },
   {
     slug: "mathias-braas-skytte",
