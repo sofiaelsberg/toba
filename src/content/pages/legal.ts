@@ -89,7 +89,18 @@ export const cookiesPage = {
     lead: "Vi bruger cookies til at få hjemmesiden til at virke og – hvis du siger ja – til at forstå, hvordan siden bliver brugt. Du bestemmer selv.",
   } satisfies HeroContent,
   usageTitle: "Sådan bruger vi cookies",
-  listPlaceholder: "Liste over konkrete cookies – genereres af cookieværktøjet",
+  list: {
+    title: "Cookies vi bruger",
+    headers: { name: "Navn", provider: "Fra", purpose: "Formål", duration: "Varighed" },
+    /** Opdatér listen, hvis der kommer nye værktøjer på siden. */
+    items: [
+      { name: "toba_consent", provider: "TOBA Advice", category: "necessary", purpose: "Husker dit cookievalg.", duration: "6 måneder" },
+      { name: "_ga", provider: "Google Analytics", category: "statistics", purpose: "Skelner besøgende fra hinanden, så vi kan tælle, hvor mange der bruger siden.", duration: "2 år" },
+      { name: "_ga_<id>", provider: "Google Analytics", category: "statistics", purpose: "Husker dit besøg, så sidevisninger kan samles i ét besøg.", duration: "2 år" },
+      { name: "bcookie, lidc m.fl.", provider: "LinkedIn", category: "marketing", purpose: "Sættes af LinkedIn, når vi viser et LinkedIn-opslag på siden.", duration: "Op til 1 år" },
+    ] satisfies { name: string; provider: string; category: CookieCategoryId; purpose: string; duration: string }[],
+    note: "Google Analytics indlæses først, når du siger ja til statistik. Google behandler oplysningerne på vores vegne og kan overføre dem til USA under EU-USA Data Privacy Framework. Vi bruger ikke data fra Google Analytics til annoncering.",
+  },
   change: {
     title: "Skift dit valg",
     text: "Du kan altid ændre eller trække dit samtykke tilbage.",

@@ -28,8 +28,33 @@ export default function CookiesPage() {
               </li>
             ))}
           </ul>
-          {/* TODO: erstattes af cookieværktøjets liste over konkrete cookies */}
-          <p className="bg-white p-5 text-small text-ink-muted">{c.listPlaceholder}</p>
+          <h2 className="mt-6 font-serif text-h3 font-medium text-navy">{c.list.title}</h2>
+          <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={c.list.title}>
+            <table className="w-full min-w-[34rem] border-collapse bg-white text-left text-small">
+              <thead>
+                <tr className="border-b-2 border-gold">
+                  <th scope="col" className="p-3 font-semibold text-navy">{c.list.headers.name}</th>
+                  <th scope="col" className="p-3 font-semibold text-navy">{c.list.headers.provider}</th>
+                  <th scope="col" className="p-3 font-semibold text-navy">{c.list.headers.purpose}</th>
+                  <th scope="col" className="p-3 font-semibold text-navy">{c.list.headers.duration}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {c.list.items.map((i) => (
+                  <tr key={i.name} className="border-b border-line align-top">
+                    <th scope="row" className="p-3 font-mono text-[0.8125rem] font-normal break-all">{i.name}</th>
+                    <td className="p-3">
+                      {i.provider}
+                      <span className="block text-caption text-ink-muted">{cookieConsent.categories.find((x) => x.id === i.category)?.title}</span>
+                    </td>
+                    <td className="p-3">{i.purpose}</td>
+                    <td className="p-3 whitespace-nowrap">{i.duration}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-small text-ink-muted">{c.list.note}</p>
           <div className="mt-4 flex flex-col gap-3 border-t-2 border-gold bg-white p-7">
             <h2 className="font-serif text-h3 font-medium text-navy">{c.change.title}</h2>
             <p>{c.change.text}</p>

@@ -157,3 +157,11 @@ export type Person = {
 };
 
 export type Seo = { title: string; description: string; ogDescription?: string };
+
+/** Tre indlæg fra /nyheder på en anden side. */
+export type NewsTeaserContent = {
+  title: string;
+  lead?: string;
+  /** Udvalgte indlæg (filnavne i src/content/news uden .md) i den viste rækkefølge. Fyldes op med de nyeste. Kladder springes over. */
+  slugs?: string[];
+};

@@ -10,6 +10,7 @@ import { VideoBlock } from "@/components/blocks/video-block";
 import { ShareBar } from "@/components/interactive/charts";
 import { CostCalculator } from "@/components/interactive/cost-calculator";
 import { LayerCake } from "@/components/interactive/layer-cake";
+import { NewsTeaser } from "@/components/news/news-teaser";
 import { CtaBand, CtaCards } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
@@ -159,6 +160,8 @@ export default function HomePage() {
           </div>
         </div>
       </Section>
+
+      <NewsTeaser content={c.news} id="nyheder" />
 
       <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} />
       <Disclaimer content={disclaimers.standard} />

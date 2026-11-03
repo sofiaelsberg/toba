@@ -1,7 +1,7 @@
 import { facts } from "../facts";
 import { videos } from "../media";
 import { routes } from "../site";
-import type { CtaCardContent, FeatureContent, HeroContent, Point, Seo } from "../types";
+import type { CtaCardContent, FeatureContent, HeroContent, Point, Seo, NewsTeaserContent } from "../types";
 
 export type FlowRow = { from: string; to: string; label?: string; tone: "neutral" | "bad" | "good"; fromIsYou?: boolean; toIsYou?: boolean };
 
@@ -140,4 +140,11 @@ export const independent = {
       { eyebrow: "Gratis og uforpligtende", title: "Vil du have et overblik?", text: "Få gennemgået dine egne omkostninger. Gratis og uforpligtende.", linkLabel: "Få gratis omkostningsoverblik", href: routes.overview },
     ] satisfies CtaCardContent[],
   },
+
+  /** Relaterede indlæg fra /nyheder. Skift filnavnene for at vise andre (fyldes op med de nyeste). */
+  related: {
+    title: "Læs mere om emnet",
+    lead: "Indlæg om omkostninger, interessekonflikter og bankernes egne produkter.",
+    slugs: ["er-du-en-cash-cow-for-banken", "betaler-du-for-en-vare-du-sjaeldent-modtager", "siger-du-ogsaa-ja-tak-naar-telefonen-ringer"],
+  } satisfies NewsTeaserContent,
 };

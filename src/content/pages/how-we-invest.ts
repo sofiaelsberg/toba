@@ -1,7 +1,7 @@
 import { facts } from "../facts";
 import { images, videos } from "../media";
 import { routes, bookMeeting } from "../site";
-import type { FaqItem, HeroContent, ManagerMapContent, Point, QuoteContent, Seo, Stat, StepContent } from "../types";
+import type { FaqItem, HeroContent, ManagerMapContent, Point, QuoteContent, Seo, Stat, StepContent, NewsTeaserContent } from "../types";
 
 export const howWeInvest = {
   seo: {
@@ -172,4 +172,11 @@ export const howWeInvest = {
       { label: "Start med et gratis omkostningsoverblik", href: routes.overview, variant: "ghost-light" as const },
     ],
   },
+
+  /** Relaterede indlæg fra /nyheder. Skift filnavnene for at vise andre (fyldes op med de nyeste). */
+  related: {
+    title: "Læs mere om emnet",
+    lead: "Indlæg om porteføljeopbygning, forvaltervalg og private markeder.",
+    slugs: ["core-satellite-saadan-bygger-du-portefoeljen", "investering-i-alternativer-forvaltervalget-er-afgoerende", "hvorfor-interessere-sig-for-private-equity"],
+  } satisfies NewsTeaserContent,
 };

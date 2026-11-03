@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 
 import { useUnlock } from "@/components/interactive/checklists";
 import { activeCampaignForms } from "@/content/forms";
+import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 type Microcopy = { text: string; linkLabel: string; href: string; after?: string };
@@ -113,6 +114,7 @@ export function ActiveCampaignForm({ id, label, title, intro, microcopy, onSubmi
       const thanks = host.querySelector<HTMLElement>("._form-thank-you");
       if (thanks && thanks.offsetParent !== null && thanks.textContent?.trim()) {
         done = true;
+        track("generate_lead", { form: id === activeCampaignForms.guide ? "guide" : "omkostningsoverblik" });
         submittedRef.current?.();
       }
     });

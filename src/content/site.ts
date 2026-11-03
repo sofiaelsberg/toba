@@ -15,6 +15,7 @@ export const routes = {
   complaints: "/klage",
   cookies: "/cookies",
   accessibility: "/tilgaengelighed",
+  news: "/nyheder",
   clientPortal: "https://client.tobaadvice.onperformativ.com",
 } as const;
 
@@ -43,6 +44,7 @@ export const mainNav: LinkItem[] = [
   { label: "Uafhængig rådgivning", href: routes.independent },
   { label: "Om TOBA", href: routes.about },
   { label: "Team", href: routes.team },
+  { label: "Nyheder", href: routes.news },
   { label: "Kontakt", href: routes.contact },
 ];
 
@@ -67,6 +69,7 @@ export const footer = {
         { label: "Uafhængig rådgivning", href: routes.independent },
         { label: "Om TOBA", href: routes.about },
         { label: "Team", href: routes.team },
+        { label: "Nyheder", href: routes.news },
         { label: "Kontakt", href: routes.contact },
       ],
     },

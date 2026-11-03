@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 
 import type { VideoRef } from "@/content/types";
 import { ui } from "@/content/ui";
+import { track } from "@/lib/analytics";
 import { jsonLd, videoJsonLd } from "@/lib/structured-data";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +24,7 @@ export function VideoBlock({ video, className, compact }: { video: VideoRef; cla
     ref.current.controls = true;
     void ref.current.play();
     setPlaying(true);
+    track("video_start", { video: video.id, title: video.title });
   }
 
   return (

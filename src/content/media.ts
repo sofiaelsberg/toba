@@ -35,6 +35,9 @@ export const images = {
   /** Stemningsbilleder fra kontoret (TOBA/kommunikation/utils/img/stills). */
   meetingTable: { src: "/media/stills/moedebordet.jpg", alt: "Rådgiver underskriver papirer ved mødebordet", width: 864, height: 1080 },
   officeWindow: { src: "/media/stills/kontoret-vinduet.jpg", alt: "Kontoret på Store Torv med udsigt over byen", width: 864, height: 1080 },
+  /** Stills fra stemningsvideoen (toba_stemning.mp4, 6,9 s og 26,95 s). */
+  whiteboard: { src: "/media/stills/whiteboard.jpg", alt: "Rådgiver tegner en porteføljefordeling med aktier, obligationer og alternativer på whiteboardet", width: 1350, height: 972 },
+  conversation: { src: "/media/stills/samtalen-2.jpg", alt: "Samtale ved mødebordet på kontoret", width: 1440, height: 960 },
   sameSide: { src: "/media/stills/paa-samme-side.jpg", alt: "To rådgivere gennemgår en portefølje side om side ved skærmen", width: 1200, height: 900 },
   /** Private markets: AI-genererede billeder, beskåret til 4:3. Markeret som illustration i alt-teksten. */
   privateCredit: { src: "/media/private-markets/private-credit.jpg", alt: "Illustration (AI-genereret): erhvervsbygning i skumring", width: 1024, height: 768 },

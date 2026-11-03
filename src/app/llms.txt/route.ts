@@ -1,6 +1,7 @@
 import { facts } from "@/content/facts";
 import { about } from "@/content/pages/about";
 import { contact } from "@/content/pages/contact";
+import { news } from "@/content/pages/news";
 import { guide } from "@/content/pages/guide";
 import { home } from "@/content/pages/home";
 import { howWeInvest } from "@/content/pages/how-we-invest";
@@ -10,6 +11,7 @@ import { overview } from "@/content/pages/overview";
 import { team } from "@/content/pages/team";
 import { advisers } from "@/content/people";
 import { company, footer, routes } from "@/content/site";
+import { getAllPosts } from "@/lib/news";
 import { SITE_URL } from "@/lib/seo";
 
 /**
@@ -19,7 +21,8 @@ import { SITE_URL } from "@/lib/seo";
 const plain = (s: string) => s.replace(/\*\*?/g, "");
 const link = (path: string, title: string, description: string) => `- [${plain(title).replace(/ \| TOBA Advice$/, "")}](${SITE_URL}${path === "/" ? "" : path}): ${plain(description)}`;
 
-export function GET() {
+export async function GET() {
+  const posts = await getAllPosts();
   const rebate = String(facts.rebatesPaid.amountMio).replace(".", ",");
   const body = `# ${company.name}
 
@@ -45,6 +48,11 @@ ${link(routes.guide, guide.seo.title, guide.seo.description)}
 ${link(routes.about, about.seo.title, about.seo.description)}
 ${link(routes.team, team.seo.title, team.seo.description)}
 ${link(routes.contact, contact.seo.title, contact.seo.description)}
+${link(routes.news, news.seo.title, news.seo.description)}
+
+## Seneste indlæg
+
+${posts.slice(0, 10).map((p) => link(`${routes.news}/${p.slug}`, p.title, p.description)).join("\n")}
 
 ## Rådgivere
 

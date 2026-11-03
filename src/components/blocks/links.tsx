@@ -9,17 +9,19 @@ function isExternal(href: string) {
   return /^https?:\/\//.test(href);
 }
 
-/** Knap som link. Variant kommer fra indholdet. */
+/** Knap som link. Variant kommer fra indholdet. data-cta: klik måles som cta_click (se components/layout/analytics.tsx). */
 export function ButtonLink({ action, className, size }: { action: Action; className?: string; size?: "default" | "sm" }) {
   const external = isExternal(action.href);
   return (
     <Button asChild variant={action.variant ?? "primary"} size={size} className={className}>
       {external ? (
-        <a href={action.href} target="_blank" rel="noopener noreferrer">
+        <a href={action.href} target="_blank" rel="noopener noreferrer" data-cta="button">
           {action.label}
         </a>
       ) : (
-        <Link href={action.href}>{action.label}</Link>
+        <Link href={action.href} data-cta="button">
+          {action.label}
+        </Link>
       )}
     </Button>
   );
@@ -44,11 +46,11 @@ export function TextLink({ href, children, className }: { href: string; children
   );
   if (!href) return <span className={cls}>{children}</span>;
   return isExternal(href) ? (
-    <a href={href} className={cls} target="_blank" rel="noopener noreferrer">
+    <a href={href} className={cls} target="_blank" rel="noopener noreferrer" data-cta="link">
       {children}
     </a>
   ) : (
-    <Link href={href} className={cls}>
+    <Link href={href} className={cls} data-cta="link">
       {children}
     </Link>
   );
