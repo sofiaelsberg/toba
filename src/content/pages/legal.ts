@@ -195,7 +195,7 @@ export const accessibilityPage = {
 
 /**
  * Privatlivspolitik (GDPR art. 13–14) for hjemmesiden, henvendelser, nyhedsbrev og kundeforholdet.
- * Erstatter den engelske PDF fra januar 2025. Compliance skal godkende teksten – især opbevaringsperioderne.
+ * Erstatter den engelske PDF fra januar 2025. Kundedelen er en ordret oversættelse af den gamle politik – udvid den kun, når praksis er afklaret.
  * Hold listen over databehandlere ajour, når der kommer nye værktøjer (og opdatér /cookies samtidig).
  */
 export type PrivacySection = {
@@ -234,7 +234,7 @@ export const privacyPage = {
       id: "hjemmesiden",
       title: "Når du besøger hjemmesiden",
       text: [
-        "Når du besøger tobaadvice.com, modtager vores hostingudbyder automatisk tekniske oplysninger som din IP-adresse, din browser, den side du besøger, og tidspunktet. Det er nødvendigt for at vise siden og beskytte den mod misbrug. Oplysningerne gemmes kun kort i serverens logfiler.",
+        "Når du besøger tobaadvice.com, modtager vores hostingudbyder automatisk tekniske oplysninger som din IP-adresse, din browser, den side du besøger, og tidspunktet. Det er nødvendigt for at vise siden og beskytte den mod misbrug. Oplysningerne bruges kun til at drive og beskytte siden.",
         "Vi måler også, hvor hurtigt siderne indlæses (Vercel Speed Insights). Målingen sætter ingen cookies og kan ikke bruges til at genkende dig.",
         "Grundlaget er vores legitime interesse i at drive en sikker og hurtig hjemmeside (databeskyttelsesforordningens artikel 6, stk. 1, litra f).",
       ],
@@ -276,21 +276,22 @@ export const privacyPage = {
       id: "kunde",
       title: "Når du er kunde",
       text: [
-        "Når du bliver kunde, behandler vi de oplysninger, der er nødvendige for at rådgive dig og leve op til de regler, der gælder for investeringsrådgivere. Det er blandt andet:",
+        "Når du er kunde, behandler vi de oplysninger, der er nødvendige for at levere vores ydelser. Det er:",
       ],
       points: [
-        { title: "Identitet og kontakt", text: "Navn, adresse, e-mail, telefon, kundenummer og legitimation, herunder CPR-nummer, som hvidvaskloven kræver, at vi indhenter." },
-        { title: "Din økonomi og dine mål", text: "Formue, indtægter, investeringserfaring, risikovillighed og tidshorisont – så vores rådgivning passer til dig." },
-        { title: "Depoter og konti", text: "Beholdninger, bevægelser og saldi, som vi med din tilladelse henter fra din bank eller dit depot." },
-        { title: "Kundeportalen", text: "Brugernavn og log-ind-oplysninger til kundeportalen og appen." },
-        { title: "Vores dialog", text: "Notater fra møder, e-mails og rapporter." },
+        { title: "Identitet", text: "Navn og kundenummer." },
+        { title: "Log-ind", text: "Adgangskode og log-ind-oplysninger, herunder til netbank." },
+        { title: "Konti og depoter", text: "Saldi og bevægelser på konti samt beholdninger og bevægelser i depoter." },
+      ],
+      after: [
+        "Oplysningerne får vi fra dig og fra din bank eller et lignende institut. Har vi brug for flere oplysninger end dem, der står her, opdaterer vi politikken.",
       ],
     },
     {
       id: "kunde-grundlag",
       title: "Grundlaget for at behandle kundeoplysninger",
       text: [
-        "Vi behandler oplysningerne for at opfylde vores aftale med dig (artikel 6, stk. 1, litra b) og for at overholde de regler, vi er underlagt – blandt andet hvidvaskloven, lov om finansiel virksomhed og regler om investeringsrådgivning (litra c). CPR-nummeret behandler vi efter databeskyttelseslovens § 11.",
+        "Vi behandler oplysningerne, fordi det er nødvendigt for at opfylde vores aftale med dig (databeskyttelsesforordningens artikel 6, stk. 1, litra b).",
       ],
     },
     {
@@ -302,15 +303,12 @@ export const privacyPage = {
         { title: "ActiveCampaign", text: "Formularer, kontakter, nyhedsbrev og e-mails." },
         { title: "Google", text: "Statistik med Google Analytics – kun med dit samtykke." },
         { title: "Bunny Fonts", text: "Skrifttyper i formularerne til guiden og omkostningsoverblikket." },
-        { title: "Performativ", text: "Kundeportal og app, hvor du kan følge din formue." },
       ],
     },
     {
       id: "deling-andre",
       title: "Andre, vi kan dele oplysninger med",
-      text: [
-        "Når du er kunde, udveksler vi oplysninger med din bank eller dit depot og med de forvaltere, vi investerer hos – i det omfang det er nødvendigt for at rådgive dig. Vi giver også oplysninger til myndigheder som Finanstilsynet, Hvidvasksekretariatet og Skattestyrelsen, når loven kræver det.",
-      ],
+      text: ["Ud over vores databehandlere giver vi kun oplysninger videre til andre, når loven tillader eller kræver det."],
     },
     {
       id: "udland",
@@ -323,12 +321,12 @@ export const privacyPage = {
       id: "opbevaring",
       title: "Hvor længe vi gemmer oplysninger",
       points: [
-        { title: "Henvendelser uden kundeforhold", text: "Slettes senest 2 år efter vores seneste kontakt med dig." },
-        { title: "Nyhedsbrev", text: "Indtil du afmelder dig. Dokumentationen for dit samtykke gemmer vi, så længe det er nødvendigt for at kunne vise, at vi havde det." },
+        { title: "Henvendelser og kundeoplysninger", text: "Vi sletter oplysningerne, når vi ikke længere har brug for dem til det formål, vi indsamlede dem til. Oplysninger, som loven kræver, at vi gemmer – fx regnskabsmateriale – gemmer vi, så længe vi har pligt til det." },
+        { title: "Nyhedsbrev", text: "Indtil du afmelder dig." },
         { title: "Google Analytics", text: "14 måneder." },
         { title: "Dit cookievalg", text: "6 måneder – så spørger vi igen." },
-        { title: "Kundeoplysninger", text: "Mindst 5 år efter, at kundeforholdet er ophørt, fordi hvidvaskloven og reglerne for investeringsrådgivning kræver det. Regnskabsmateriale gemmer vi i 5 år efter regnskabsårets udløb (bogføringsloven)." },
       ],
+      after: ["Har du spørgsmål til, hvor længe vi gemmer dine oplysninger, så skriv til kommunikation@tobaadvice.com."],
     },
     {
       id: "rettigheder",
