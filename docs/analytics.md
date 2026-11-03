@@ -9,8 +9,8 @@ så historikken fra den gamle side fortsætter.
 
 ## Ved domæneskiftet
 
-1. **Målings-ID:** GA → Administrator → Datastrømme → web-strømmen → kopiér "Målings-ID" (G-…).
-2. **Vercel** → Settings → Environment Variables → `NEXT_PUBLIC_GA_ID` = G-…, kun **Production**. Redeploy
+1. **Målings-ID:** `G-508HFMTYFG` (datastrømmen "Tobaadvice.com", strøm-id 10127623337 – samme som den gamle side bruger).
+2. **Vercel** → Settings → Environment Variables → `NEXT_PUBLIC_GA_ID` = `G-508HFMTYFG`, kun **Production**. Redeploy
    (værdien bygges ind i siden, så den virker først efter et nyt deploy).
 3. **Fjern GA fra den gamle Webflow-side** samtidig, så besøg ikke tælles dobbelt i overgangen.
 4. Tjek i GA → Rapporter → **Realtid**, at dit eget besøg dukker op (husk at sige ja til statistik).
