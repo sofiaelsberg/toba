@@ -12,7 +12,7 @@ export const policies = {
   } satisfies HeroContent,
   documents: [
     { title: "Håndtering af interessekonflikter", text: "Sådan finder, forebygger og håndterer vi interessekonflikter – så rådgivningen altid tager udgangspunkt i dig.", date: "Gældende fra 1. oktober 2024", href: "/dokumenter/politik-interessekonflikter.pdf", cta: "Hent PDF" },
-    { title: "Privatlivspolitik", text: "Sådan behandler og beskytter vi dine personoplysninger.", date: "Version 2 · opdateret 13. januar 2025", href: "/dokumenter/privatlivspolitik.pdf", cta: "Hent PDF" },
+    { title: "Privatlivspolitik", text: "Sådan behandler og beskytter vi dine personoplysninger.", date: "Version 3 · opdateret 3. november 2026", href: routes.privacy, cta: "Læs politikken" },
     { title: "Lønpolitik", text: "Sådan aflønner vi vores medarbejdere – uden incitamenter, der kan stride mod dine interesser.", date: "Gældende fra 1. oktober 2024", href: "/dokumenter/politik-loen.pdf", cta: "Hent PDF" },
     // TODO compliance: PDF'en tilhører TOBA Investments – afklar før lancering.
     { title: "Bæredygtighed og samfundsansvar", text: "Sådan indgår bæredygtighed og ansvarlighed i vores arbejde.", date: "Gældende fra november 2025", href: "/dokumenter/politik-baeredygtighed.pdf", cta: "Hent PDF" },
@@ -107,7 +107,7 @@ export const cookiesPage = {
     button: "Cookieindstillinger",
     privacyText: "Læs mere om, hvordan vi behandler personoplysninger, i vores",
     privacyLink: "privatlivspolitik",
-    privacyHref: routes.policies,
+    privacyHref: routes.privacy,
   },
 };
 
@@ -191,4 +191,167 @@ export const accessibilityPage = {
   },
 
   updated: "Senest gennemgået 29. oktober 2026. Vi gennemgår oplysningerne mindst én gang om året.",
+};
+
+/**
+ * Privatlivspolitik (GDPR art. 13–14) for hjemmesiden, henvendelser, nyhedsbrev og kundeforholdet.
+ * Erstatter den engelske PDF fra januar 2025. Kundedelen er en ordret oversættelse af den gamle politik – udvid den kun, når praksis er afklaret.
+ * Hold listen over databehandlere ajour, når der kommer nye værktøjer (og opdatér /cookies samtidig).
+ */
+export type PrivacySection = {
+  id: string;
+  title: string;
+  text?: string[];
+  points?: Point[];
+  /** Tekst efter punkterne. */
+  after?: string[];
+  link?: { label: string; href: string };
+};
+
+export const privacyPage = {
+  seo: {
+    title: "Privatlivspolitik | TOBA Advice",
+    description: "Sådan behandler TOBA Advice dine personoplysninger – på hjemmesiden, når du kontakter os, får vores nyhedsbrev, og når du er kunde.",
+  } satisfies Seo,
+  hero: {
+    eyebrow: "Privatlivspolitik",
+    title: "Sådan passer vi på dine oplysninger",
+    lead: "Her kan du læse, hvilke oplysninger vi indsamler om dig, hvorfor vi gør det, hvem vi deler dem med, og hvor længe vi gemmer dem. Og hvad du kan gøre, hvis du vil have indsigt, rette eller slette dem.",
+  } satisfies HeroContent,
+  version: "Version 3 · 3. november 2026. Erstatter version 2 fra 13. januar 2025.",
+  tocTitle: "Indhold",
+
+  sections: [
+    {
+      id: "ansvarlig",
+      title: "Hvem er ansvarlig",
+      text: [
+        `${company.legalName} er dataansvarlig for de oplysninger, vi behandler om dig.`,
+        `${company.legalName} · CVR ${company.cvr} · ${company.address.line1}, ${company.address.line2} · Telefon ${company.phone} · E-mail kommunikation@tobaadvice.com`,
+      ],
+    },
+    {
+      id: "hjemmesiden",
+      title: "Når du besøger hjemmesiden",
+      text: [
+        "Når du besøger tobaadvice.com, modtager vores hostingudbyder automatisk tekniske oplysninger som din IP-adresse, din browser, den side du besøger, og tidspunktet. Det er nødvendigt for at vise siden og beskytte den mod misbrug. Oplysningerne bruges kun til at drive og beskytte siden.",
+        "Vi måler også, hvor hurtigt siderne indlæses (Vercel Speed Insights). Målingen sætter ingen cookies og kan ikke bruges til at genkende dig.",
+        "Grundlaget er vores legitime interesse i at drive en sikker og hurtig hjemmeside (databeskyttelsesforordningens artikel 6, stk. 1, litra f).",
+      ],
+    },
+    {
+      id: "cookies",
+      title: "Cookies og statistik",
+      text: [
+        "Uden dit samtykke sætter vi kun én cookie, der husker dit cookievalg.",
+        "Siger du ja til **statistik**, bruger vi Google Analytics til at se, hvilke sider der bliver besøgt, hvor besøgende kommer fra, og hvilke knapper og formularer der bliver brugt. Google Analytics tildeler din browser et tilfældigt id og gemmer ikke din IP-adresse. Vi bruger ikke data fra Google Analytics til annoncering, og vi har slået Googles annonce- og Google-signaler fra. Data gemmes i 14 måneder.",
+        "Siger du ja til **marketing**, viser vi LinkedIn-opslag direkte på siden. LinkedIn kan da sætte sine egne cookies. LinkedIn er selv ansvarlig for de oplysninger, LinkedIn indsamler.",
+        "Grundlaget er dit samtykke (cookiebekendtgørelsen og databeskyttelsesforordningens artikel 6, stk. 1, litra a). Du kan altid ændre dit valg under cookieindstillinger nederst på siden.",
+      ],
+      link: { label: "Se listen over cookies →", href: routes.cookies },
+    },
+    {
+      id: "henvendelser",
+      title: "Når du kontakter os eller udfylder en formular",
+      points: [
+        { title: "Kontaktformularen", text: "Emne, navn, e-mail, besked og – hvis du oplyser det – telefon og virksomhed. Vi bruger oplysningerne til at besvare din henvendelse og eventuelt aftale et møde." },
+        { title: "Guiden “Hvem spiser din lagkage?”", text: "Fornavn, e-mail og – hvis du oplyser det – telefon. Vi bruger oplysningerne til at sende dig guiden, vores nyhedsbrev og tilbud om et gratis omkostningsoverblik." },
+        { title: "Gratis omkostningsoverblik", text: "Fornavn, efternavn, e-mail, telefon og – hvis du oplyser det – hvor din formue står i dag, og hvad vi skal se særligt på. Vi bruger oplysningerne til at kontakte dig og lave overblikket." },
+        { title: "Telefon og e-mail", text: "Ringer eller skriver du til os, gemmer vi de oplysninger, du giver os, så vi kan hjælpe dig." },
+      ],
+      after: [
+        "Grundlaget er, at du har bedt os om noget, før en eventuel aftale (artikel 6, stk. 1, litra b), og vores legitime interesse i at besvare henvendelser (litra f). Sender vi dig nyhedsbrev eller markedsføring, er grundlaget dit samtykke (litra a).",
+        "Formularerne til guiden og omkostningsoverblikket hentes fra ActiveCampaign. Derfor modtager ActiveCampaign og deres leverandør af skrifttyper (Bunny Fonts) din IP-adresse, når du åbner de to sider – også før du udfylder noget.",
+      ],
+    },
+    {
+      id: "nyhedsbrev",
+      title: "Nyhedsbrev og markedsføring",
+      text: [
+        "Har du sagt ja til vores nyhedsbrev eller anden information, sender vi dig e-mails om investering og vores rådgivning. Vi kan se, om en e-mail bliver åbnet, og hvilke links der bliver klikket på, så vi kan gøre vores e-mails mere relevante.",
+        "Du kan altid afmelde dig med ét klik nederst i alle vores e-mails eller ved at skrive til os. Grundlaget er dit samtykke (artikel 6, stk. 1, litra a) og markedsføringsloven § 10.",
+      ],
+    },
+    {
+      id: "kunde",
+      title: "Når du er kunde",
+      text: [
+        "Når du er kunde, behandler vi de oplysninger, der er nødvendige for at levere vores ydelser. Det er:",
+      ],
+      points: [
+        { title: "Identitet", text: "Navn og kundenummer." },
+        { title: "Log-ind", text: "Adgangskode og log-ind-oplysninger, herunder til netbank." },
+        { title: "Konti og depoter", text: "Saldi og bevægelser på konti samt beholdninger og bevægelser i depoter." },
+      ],
+      after: [
+        "Oplysningerne får vi fra dig og fra din bank eller et lignende institut. Har vi brug for flere oplysninger end dem, der står her, opdaterer vi politikken.",
+      ],
+    },
+    {
+      id: "kunde-grundlag",
+      title: "Grundlaget for at behandle kundeoplysninger",
+      text: [
+        "Vi behandler oplysningerne, fordi det er nødvendigt for at opfylde vores aftale med dig (databeskyttelsesforordningens artikel 6, stk. 1, litra b).",
+      ],
+    },
+    {
+      id: "deling",
+      title: "Hvem vi deler oplysninger med",
+      text: ["Vi sælger aldrig dine oplysninger. Vi bruger leverandører, der behandler oplysninger på vores vegne (databehandlere), og som kun må bruge dem efter vores instruks:"],
+      points: [
+        { title: "Vercel", text: "Hosting af hjemmesiden og måling af indlæsningstid." },
+        { title: "ActiveCampaign", text: "Formularer, kontakter, nyhedsbrev og e-mails." },
+        { title: "Google", text: "Statistik med Google Analytics – kun med dit samtykke." },
+        { title: "Bunny Fonts", text: "Skrifttyper i formularerne til guiden og omkostningsoverblikket." },
+      ],
+    },
+    {
+      id: "deling-andre",
+      title: "Andre, vi kan dele oplysninger med",
+      text: ["Ud over vores databehandlere giver vi kun oplysninger videre til andre, når loven tillader eller kræver det."],
+    },
+    {
+      id: "udland",
+      title: "Overførsel til lande uden for EU",
+      text: [
+        "Vercel, ActiveCampaign og Google er amerikanske virksomheder. Når oplysninger overføres til USA, sker det på grundlag af EU-USA Data Privacy Framework eller EU-Kommissionens standardkontraktbestemmelser. Du kan få en kopi af grundlaget ved at kontakte os.",
+      ],
+    },
+    {
+      id: "opbevaring",
+      title: "Hvor længe vi gemmer oplysninger",
+      points: [
+        { title: "Henvendelser og kundeoplysninger", text: "Vi sletter oplysningerne, når vi ikke længere har brug for dem til det formål, vi indsamlede dem til. Oplysninger, som loven kræver, at vi gemmer – fx regnskabsmateriale – gemmer vi, så længe vi har pligt til det." },
+        { title: "Nyhedsbrev", text: "Indtil du afmelder dig." },
+        { title: "Google Analytics", text: "14 måneder." },
+        { title: "Dit cookievalg", text: "6 måneder – så spørger vi igen." },
+      ],
+      after: ["Har du spørgsmål til, hvor længe vi gemmer dine oplysninger, så skriv til kommunikation@tobaadvice.com."],
+    },
+    {
+      id: "rettigheder",
+      title: "Dine rettigheder",
+      points: [
+        { title: "Indsigt", text: "Du kan få at vide, hvilke oplysninger vi har om dig, hvad vi bruger dem til, og hvem vi deler dem med." },
+        { title: "Berigtigelse", text: "Du kan få rettet forkerte oplysninger." },
+        { title: "Sletning", text: "Du kan få slettet oplysninger, når vi ikke længere har brug for dem eller pligt til at gemme dem." },
+        { title: "Begrænsning", text: "Du kan i visse tilfælde bede os om kun at gemme oplysningerne, mens fx en indsigelse bliver afklaret." },
+        { title: "Indsigelse", text: "Du kan gøre indsigelse mod behandling, der bygger på vores legitime interesse – og altid mod markedsføring." },
+        { title: "Dataportabilitet", text: "Du kan få de oplysninger, du selv har givet os, i et almindeligt maskinlæsbart format." },
+        { title: "Træk samtykke tilbage", text: "Du kan altid trække et samtykke tilbage. Det påvirker ikke den behandling, der er sket, før du trak det tilbage." },
+      ],
+      after: ["Vi træffer ikke beslutninger om dig udelukkende automatisk. Vil du bruge dine rettigheder, så skriv til kommunikation@tobaadvice.com. Vi svarer inden for en måned."],
+    },
+    {
+      id: "klage",
+      title: "Klage",
+      text: ["Er du utilfreds med, hvordan vi behandler dine oplysninger, så kontakt os gerne først. Du kan altid klage til Datatilsynet."],
+      link: { label: "Gå til Datatilsynet →", href: "https://www.datatilsynet.dk" },
+    },
+    {
+      id: "aendringer",
+      title: "Ændringer",
+      text: ["Vi opdaterer politikken, når vi ændrer, hvordan vi behandler oplysninger. Øverst og nederst kan du se, hvornår den sidst er opdateret. Ved væsentlige ændringer giver vi besked på hjemmesiden eller direkte til dig."],
+    },
+  ] satisfies PrivacySection[],
 };

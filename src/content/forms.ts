@@ -68,7 +68,7 @@ export const contactForm: FormContent = {
   ],
   submit: "Send besked",
   submitting: "Sender …",
-  microcopy: { text: "Læs, hvordan vi behandler dine oplysninger, i vores", linkLabel: "privatlivspolitik", href: "/politikker", after: "." },
+  microcopy: { text: "Læs, hvordan vi behandler dine oplysninger, i vores", linkLabel: "privatlivspolitik", href: "/privatlivspolitik", after: "." },
   success: { title: "Tak for din henvendelse!", body: ["Vi vender tilbage hurtigst muligt – senest inden for 24 timer."], action: { label: "Skriv en ny besked", href: "#formular" } },
   failure: "Beskeden kunne ikke sendes. Prøv igen, eller ring til os på +45 28 18 84 27.",
 };
@@ -97,7 +97,7 @@ export const guideForm: FormContent = {
   ],
   submit: "Send mig guiden",
   submitting: "Sender …",
-  microcopy: { text: "Du kan afmelde dig med ét klik i alle vores e-mails. Læs mere i vores", linkLabel: "persondatapolitik", href: "/politikker", after: "." },
+  microcopy: { text: "Du kan afmelde dig med ét klik i alle vores e-mails. Læs mere i vores", linkLabel: "privatlivspolitik", href: "/privatlivspolitik", after: "." },
   success: {
     title: "Tak – guiden er på vej",
     body: [
@@ -140,7 +140,7 @@ export const overviewForm: FormContent = {
   ],
   submit: "Bestil mit overblik",
   submitting: "Sender …",
-  microcopy: { text: "Gratis og uforpligtende. Læs mere i vores", linkLabel: "persondatapolitik", href: "/politikker", after: "." },
+  microcopy: { text: "Gratis og uforpligtende. Læs mere i vores", linkLabel: "privatlivspolitik", href: "/privatlivspolitik", after: "." },
   success: {
     title: "Tak – vi kontakter dig snarest",
     body: [
