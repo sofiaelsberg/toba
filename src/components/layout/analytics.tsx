@@ -59,7 +59,7 @@ export function Analytics() {
     }
   }, [statistics, marketing]);
 
-  // Klik på "Book et møde", telefon og e-mail – uanset hvor på siden de står.
+  // Klik på knapper/links med data-cta, "Book et møde", telefon og e-mail – uanset hvor på siden de står.
   useEffect(() => {
     if (!analyticsAllowed()) return;
     const onClick = (e: MouseEvent) => {
@@ -67,6 +67,21 @@ export function Analytics() {
       if (!a) return;
       const href = a.getAttribute("href") ?? "";
       const location = window.location.pathname;
+      const cta = a.closest<HTMLElement>("[data-cta]");
+      if (cta) {
+        // Overskriften på den sektion, knappen står i – så "samme knap" kan skelnes på forsiden og i en artikel.
+        const box = cta.closest("section, header, footer, aside");
+        const heading = box?.querySelector("h1, h2, h3")?.textContent;
+        const section = heading ?? (box?.tagName === "HEADER" ? "Topmenu" : box?.tagName === "FOOTER" ? "Sidefod" : "");
+        const clip = (s: string) => s.replace(/\s+/g, " ").trim().slice(0, 100);
+        track("cta_click", {
+          cta_type: cta.dataset.cta ?? "button",
+          cta_label: clip(cta.dataset.ctaLabel ?? cta.textContent ?? ""),
+          cta_section: clip(section),
+          location,
+          destination: href.split("#")[0].slice(0, 100),
+        });
+      }
       if (href.startsWith("tel:")) track("contact_click", { method: "phone", location });
       else if (href.startsWith("mailto:")) track("contact_click", { method: "email", location });
       else if (href.startsWith(routes.bookMeeting.split("#")[0])) track("book_meeting_click", { location });

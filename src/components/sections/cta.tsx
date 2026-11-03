@@ -30,6 +30,8 @@ export function CtaCards({
         <li key={c.href + c.title} className="flex">
           <Link
             href={c.href}
+            data-cta="card"
+            data-cta-label={c.title}
             className={cn(
               "group flex w-full flex-col gap-4 border-t-2 border-gold p-8 text-ink no-underline transition-[transform,box-shadow] duration-300 ease-toba hover:-translate-y-1 hover:shadow-raised",
               tone === "white" ? "bg-white" : "bg-cream",

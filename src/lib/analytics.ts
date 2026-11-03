@@ -36,6 +36,8 @@ declare global {
 export type AnalyticsEvent =
   | { name: "generate_lead"; params: { form: "kontakt" | "guide" | "omkostningsoverblik"; topic?: string } }
   | { name: "book_meeting_click"; params: { location: string } }
+  /** Alle knapper, tekstlinks, kort og nyhedskort (elementer med data-cta). */
+  | { name: "cta_click"; params: { cta_type: string; cta_label: string; cta_section: string; location: string; destination: string } }
   | { name: "contact_click"; params: { method: "phone" | "email"; location: string } }
   | { name: "video_start"; params: { video: string; title: string } }
   | { name: "slides_navigate"; params: { post: string; slide: number; total: number } }

@@ -35,13 +35,16 @@ tjek Realtid – og fjern variablen igen bagefter.
 |---|---|---|
 | `generate_lead` | Formular sendt (kontakt, guide, omkostningsoverblik) | `form`, `topic` (emne på kontaktformularen) |
 | `book_meeting_click` | Klik på "Book et møde" | `location` (side) |
+| `cta_click` | Klik på en knap, et tekstlink ("Læs mere →"), et kort eller et nyhedskort | `cta_type` (button/link/card/news_card), `cta_label` (teksten), `cta_section` (sektionens overskrift), `location` (side), `destination` (hvor den fører hen) |
 | `contact_click` | Klik på telefonnummer eller e-mail | `method`, `location` |
 | `video_start` | En video startes | `video`, `title` |
 | `slides_navigate` | Læser bladrer til en ny slide i et nyhedsindlæg | `post`, `slide`, `total` |
 | `slides_text_open` | "Læs teksten fra slides" åbnes | `post` |
 
 Parametrene skal oprettes som **brugerdefinerede dimensioner** (Administrator → Brugerdefinerede definitioner),
-hvis de skal kunne bruges i rapporterne: `form`, `topic`, `location`, `post`.
+hvis de skal kunne bruges i rapporterne: `form`, `topic`, `location`, `post`, `cta_type`, `cta_label`, `cta_section`, `destination`.
+
+Nye knapper måles automatisk, når de bruger `ButtonLink`, `TextLink` eller `CtaCards`. Andre links kan måles ved at give dem `data-cta="…"` (og evt. `data-cta-label`).
 
 ## Search Console
 

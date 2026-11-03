@@ -48,7 +48,7 @@ export function NewsCard({ post, headingLevel = "h2", priority = false }: { post
         </p>
         <Heading className="font-serif text-[1.375rem] leading-7 font-medium text-navy">
           {/* Hele kortet er klikbart via ::after på linket. */}
-          <Link href={`${routes.news}/${post.slug}`} className="no-underline after:absolute after:inset-0">
+          <Link href={`${routes.news}/${post.slug}`} className="no-underline after:absolute after:inset-0" data-cta="news_card">
             {post.title}
           </Link>
         </Heading>
