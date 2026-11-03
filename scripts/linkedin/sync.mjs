@@ -6,6 +6,7 @@
  *   node scripts/linkedin/sync.mjs --api                               # fra LinkedIns API (når adgangen er godkendt)
  *
  * Eksisterende artikler overskrives aldrig (de kan være redigeret/udbygget på hjemmesiden).
+ * Opslag i afviste.json hentes aldrig.
  * Brug --dry-run for at se, hvad der ville blive oprettet.
  *
  * API: LinkedIn Community Management API (scope r_organization_social).
@@ -23,6 +24,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const POSTS_DIR = path.join(ROOT, "src/content/news");
 const IMAGES_DIR = path.join(ROOT, "public/nyheder");
 const ORG_ID = process.env.LINKEDIN_ORG_ID || "104613890";
+/** Opslag, der er afvist til hjemmesiden (se afviste.json). */
+const REJECTED_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "afviste.json");
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
@@ -113,6 +116,11 @@ function existingIds() {
   return ids;
 }
 
+function rejectedIds() {
+  if (!fs.existsSync(REJECTED_FILE)) return new Set();
+  return new Set(JSON.parse(fs.readFileSync(REJECTED_FILE, "utf8")).opslag.map((o) => String(o.id)));
+}
+
 function uniqueSlug(base, date) {
   let slug = base || `opslag-${date.slice(0, 10)}`;
   let n = 2;
@@ -121,7 +129,8 @@ function uniqueSlug(base, date) {
 }
 
 /** Fælles: et normaliseret opslag → artikel-fil (+ billede). */
-async function writePost(p, seen) {
+async function writePost(p, seen, rejected) {
+  if (rejected.has(p.id)) return { skipped: p.id, reason: "afvist (afviste.json)" };
   if (seen.has(p.id)) return { skipped: p.id, file: seen.get(p.id) };
   const { text, tags } = cleanText(p.text || "");
   if (!text) return { skipped: p.id, reason: "uden tekst" };
@@ -237,6 +246,7 @@ if (isMain) {
   }
   const posts = fromFile ? await fromExport(path.resolve(fromFile)) : await fromApi();
   const seen = existingIds();
-  for (const p of posts) console.log(JSON.stringify(await writePost(p, seen)));
+  const rejected = rejectedIds();
+  for (const p of posts) console.log(JSON.stringify(await writePost(p, seen, rejected)));
   if (dryRun) console.log("(dry-run – intet skrevet)");
 }
