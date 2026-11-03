@@ -6,7 +6,7 @@ import { guide } from "@/content/pages/guide";
 import { home } from "@/content/pages/home";
 import { howWeInvest } from "@/content/pages/how-we-invest";
 import { independent } from "@/content/pages/independent";
-import { accessibilityPage, complaints, fsa, policies } from "@/content/pages/legal";
+import { accessibilityPage, privacyPage, complaints, fsa, policies } from "@/content/pages/legal";
 import { overview } from "@/content/pages/overview";
 import { team } from "@/content/pages/team";
 import { advisers } from "@/content/people";
@@ -68,6 +68,7 @@ ${link(routes.fsa, fsa.seo.title, fsa.seo.description)}
 ${link(routes.policies, policies.seo.title, policies.seo.description)}
 ${link(routes.complaints, complaints.seo.title, complaints.seo.description)}
 ${link(routes.accessibility, accessibilityPage.seo.title, accessibilityPage.seo.description)}
+${link(routes.privacy, privacyPage.seo.title, privacyPage.seo.description)}
 
 ## Bemærk
 
