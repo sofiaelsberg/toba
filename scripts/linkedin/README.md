@@ -10,6 +10,8 @@ synkroniseringen overskriver aldrig en eksisterende fil.
 
 - `title`, `description` (vises i Google – højst ca. 155 tegn), `lead` (intro under titlen)
 - `draft: true` skjuler indlægget (fx indtil compliance har set det)
+
+**Skal et opslag slet ikke på siden?** Tilføj dets id i `scripts/linkedin/afviste.json` og slet filen. Så hentes det aldrig igen – heller ikke af den automatiske synkronisering.
 - Teksten: tom linje = nyt afsnit · `## ` = mellemrubrik · linjer med `•`, `-`, `→` eller `1)` = liste · `**fed**`
 
 Korte LinkedIn-opslag kan med fordel udbygges her – længere, grundige tekster gør mest for Google og AI-søgning.
