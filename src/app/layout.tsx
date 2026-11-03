@@ -2,6 +2,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
+import { Analytics } from "@/components/layout/analytics";
 import { CookieBanner } from "@/components/layout/cookie-banner";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { home } from "@/content/pages/home";
@@ -31,6 +32,8 @@ export const metadata: Metadata = {
   title: { default: home.seo.title, template: "%s" },
   description: home.seo.description,
   openGraph: { locale: "da_DK", type: "website", siteName: "TOBA Advice" },
+  // Google Search Console: kode fra "HTML-tag"-metoden (kun nødvendig, hvis domænet ikke bekræftes via DNS).
+  ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -43,6 +46,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <MotionProvider>
           {children}
           <CookieBanner />
+          {/* Google Analytics – kun med samtykke og kun på tobaadvice.com (se lib/analytics.ts). */}
+          <Analytics />
         </MotionProvider>
         {/* Vercel Speed Insights: måler indlæsningstider uden cookies. Sender kun data i produktion. */}
         <SpeedInsights />

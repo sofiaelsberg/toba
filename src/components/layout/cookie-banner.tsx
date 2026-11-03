@@ -43,7 +43,7 @@ export function openCookieSettings() {
 
 function writeConsent(c: Consent) {
   document.cookie = `${COOKIE}=${encodeURIComponent(JSON.stringify(c))}; path=/; max-age=${60 * 60 * 24 * 180}; SameSite=Lax`;
-  // TODO: indlæs GTM / LinkedIn-pixel / ActiveCampaign-sporing først her, ud fra samtykket.
+  // Lyttere (fx <Analytics />) reagerer på hændelsen og indlæser/stopper sporing ud fra samtykket.
   window.dispatchEvent(new CustomEvent("toba:consent", { detail: c }));
 }
 

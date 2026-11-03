@@ -85,7 +85,7 @@ async function NewsArticle({ params }: Props) {
         <div className="bg-white py-12 md:py-16">
           <div className={`${wrap} flex flex-col gap-10`}>
             {/* Slides bærer typisk opslaget (tal og grafer) – derfor står de først. */}
-            {post.slides?.length ? <SlideViewer title={post.document?.title ?? post.title} slides={post.slides} /> : null}
+            {post.slides?.length ? <SlideViewer title={post.document?.title ?? post.title} slides={post.slides} post={post.slug} /> : null}
 
             {post.image && post.imageSize && (
               <Image

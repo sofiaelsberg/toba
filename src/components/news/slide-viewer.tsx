@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 
 import { news } from "@/content/pages/news";
+import { track as trackEvent } from "@/lib/analytics";
 import type { NewsSlide } from "@/lib/news";
 
 /**
@@ -12,12 +13,20 @@ import type { NewsSlide } from "@/lib/news";
  * og teksten fra hver slide under billederne (til skærmlæsere, Google og AI-søgning).
  * Virker også uden JavaScript – så scroller man bare.
  */
-export function SlideViewer({ title, slides }: { title: string; slides: NewsSlide[] }) {
+export function SlideViewer({ title, slides, post }: { title: string; slides: NewsSlide[]; post: string }) {
   const labels = news.slides;
   const id = useId();
   const track = useRef<HTMLOListElement>(null);
   const [current, setCurrent] = useState(0);
   const total = slides.length;
+  const furthest = useRef(0);
+
+  // Statistik: hvor langt læserne bladrer (én hændelse pr. ny slide, ikke pr. klik).
+  useEffect(() => {
+    if (current <= furthest.current) return;
+    furthest.current = current;
+    trackEvent("slides_navigate", { post, slide: current + 1, total });
+  }, [current, post, total]);
 
   // Følg med i, hvilken slide der står i midten.
   useEffect(() => {
@@ -86,7 +95,7 @@ export function SlideViewer({ title, slides }: { title: string; slides: NewsSlid
         </p>
       </div>
 
-      <details className="group border-t border-line pt-4">
+      <details className="group border-t border-line pt-4" onToggle={(e) => e.currentTarget.open && trackEvent("slides_text_open", { post })}>
         <summary className="cursor-pointer font-semibold text-navy marker:text-gold">{labels.textToggle}</summary>
         <ol className="mt-4 flex flex-col gap-4">
           {slides.map((s, i) => (

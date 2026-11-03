@@ -17,6 +17,7 @@ import { NativeSelect } from "@/components/ui/native-select";
 import { Textarea } from "@/components/ui/textarea";
 import type { FieldContent, FormContent } from "@/content/forms";
 import { buildLeadSchema, HONEYPOT } from "@/lib/lead-schema";
+import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -54,6 +55,7 @@ export function LeadForm({ form, defaults, onSuccess, className }: Props) {
     startTransition(async () => {
       const res = await submitLead(form.id, { ...values, [HONEYPOT]: trap });
       if (res.ok) {
+        track("generate_lead", { form: form.id, ...(typeof values.emne === "string" && values.emne ? { topic: values.emne } : {}) });
         setSent(true);
         onSuccess?.();
       } else setFailed(true);
