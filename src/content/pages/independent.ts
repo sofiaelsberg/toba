@@ -60,10 +60,10 @@ export const independent = {
       {
         eyebrow: "2 · Ikke uafhængig", title: "Ikke uafhængig rådgivning",
         flow: {
-          nodes: [{ label: "Dig", you: true }, { label: "Egne og andres fonde" }, { label: "Rådgiveren" }],
+          nodes: [{ label: "Dig", you: true }, { label: "Egne og andres fonde" }, { label: "Bankerne" }],
           steps: [{ label: "køber", tone: "neutral" }, { label: "provisionen går til", tone: "bad" }],
         } satisfies FlowChain,
-        flowAria: "Du køber egne og andres fonde, og provisionen fra fondene går til rådgiveren.",
+        flowAria: "Du køber egne og andres fonde, og provisionen fra fondene går til bankerne.",
         text: "Rådgiveren kan anbefale både egne og eksterne produkter, men kan have økonomiske interesser knyttet til bestemte anbefalinger.",
         forYou: "Du bør undersøge, hvordan rådgiveren bliver betalt, og hvilke produkter der indgår i udvalget.",
         highlight: false,
