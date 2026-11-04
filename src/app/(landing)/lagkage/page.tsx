@@ -7,7 +7,7 @@ import { VideoBlock } from "@/components/blocks/video-block";
 import { GuideEmbedForm } from "@/components/forms/ac-form";
 import { LockedChecklist, LockedChecklistIntro, UnlockProvider } from "@/components/interactive/checklists";
 import { LayerCake } from "@/components/interactive/layer-cake";
-import { LandingHeader } from "@/components/layout/landing-header";
+import { Header } from "@/components/layout/header";
 import { Disclaimer } from "@/components/sections/legal";
 import { FeatureList, PointList } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
@@ -25,7 +25,7 @@ export default function GuidePage() {
     <UnlockProvider>
       {/* Wrapper: så starter et sideskift i toppen – se (site)/layout.tsx. */}
       <div className="flex flex-1 flex-col">
-      <LandingHeader action={c.headerAction} />
+      <Header action={c.headerAction} />
       <main id="indhold">
         <section className="bg-cream py-16 md:pt-22 md:pb-24">
           <div className="wrap grid grid-cols-1 items-center gap-12 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-16">

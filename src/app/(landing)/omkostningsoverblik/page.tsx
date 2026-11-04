@@ -8,7 +8,7 @@ import { SelfCheck } from "@/components/interactive/checklists";
 import { CostCalculator } from "@/components/interactive/cost-calculator";
 import { DepotExample } from "@/components/interactive/depot-example";
 import { StepTimeline } from "@/components/interactive/step-timeline";
-import { LandingHeader } from "@/components/layout/landing-header";
+import { Header } from "@/components/layout/header";
 import { CtaStrip } from "@/components/sections/cta";
 import { Disclaimer } from "@/components/sections/legal";
 import { AccordionList, PointList } from "@/components/sections/lists";
@@ -26,7 +26,7 @@ export default function OverviewPage() {
   return (
     // Wrapper (ikke fragment): så starter et sideskift i toppen – se (site)/layout.tsx.
     <div className="flex flex-1 flex-col">
-      <LandingHeader action={c.headerAction} />
+      <Header action={c.headerAction} />
       <main id="indhold">
         <section className="bg-cream py-16 md:pt-22 md:pb-24">
           <div className="wrap grid grid-cols-1 items-start gap-12 md:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] md:gap-16">
