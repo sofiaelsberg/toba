@@ -13,7 +13,7 @@ npm run build      # produktionsbuild (fejler, hvis en side læser request-data 
 npx eslint src
 ```
 
-Kopiér `.env.example` til `.env.local` og udfyld ActiveCampaign-nøglerne. Uden nøgler virker formularerne lokalt, men intet sendes.
+Kopiér `.env.example` til `.env.local`. Formularerne er ActiveCampaign-formularer (kontakt #10, guide #8, omkostningsoverblik #9), som redigeres i ActiveCampaign – der skal ingen nøgler til.
 
 ## Sådan er projektet bygget op
 
@@ -24,11 +24,10 @@ Kopiér `.env.example` til `.env.local` og udfyld ActiveCampaign-nøglerne. Uden
 | `src/components/sections/` | Sektioner, der går igen: `Section`, `SectionHeading`, `Hero`, `CtaCards`, `CtaBand`, `StatsRow`, `PointList`, `PeopleGrid`, `TeamDirectory` … |
 | `src/components/blocks/` | Små byggeklodser: `RichText`, `ButtonLink`, `TextLink`, `Media`, `VideoBlock`, `IconBadge`. |
 | `src/components/interactive/` | Signatur-elementerne: `LayerCake`, `CostCalculator`, `ShareBar`, `ReturnComparison`, `DepotExample`, `StepTimeline`, tjeklister, `MoneyFlow`, `VolcanoStory`, `AnchorNav`, `SegmentTabs`. |
-| `src/components/forms/` | Én formularmotor (`LeadForm`) + `ContactForm`, `GuideForm`, `OverviewForm`. |
+| `src/components/forms/` | `ActiveCampaignForm` indlejrer ActiveCampaigns formularer (`ContactEmbedForm`, `GuideEmbedForm`). |
 | `src/components/motion/` | `Reveal`, `CountUp`, `useProgressInView` og bevægelsestokens. |
 | `src/app/(site)/` | Sider med fuld header/sidefod. |
 | `src/app/(landing)/` | Landingssider med forenklet header/sidefod. |
-| `src/app/actions/` | Server action, der sender formularer til ActiveCampaign. |
 
 ### Regler
 
@@ -48,7 +47,7 @@ Kopiér `.env.example` til `.env.local` og udfyld ActiveCampaign-nøglerne. Uden
 | Sikkerhedsheadere | `securityHeaders` i `next.config.ts` |
 | Ikoner og delingsbilleder | `src/app/icon.svg`, `apple-icon.png`, `opengraph-image.png` (+ egne på kampagnesiderne) |
 | Strukturerede data (Google) | `src/lib/structured-data.ts`, bruges på forsiden |
-| Formularer → ActiveCampaign | `src/app/actions/submit-lead.ts` + `src/lib/activecampaign.ts`. Besked og øvrige felter gemmes som note på kontakten. Spamfælde: skjult felt `website`. |
+| Formularer → ActiveCampaign | `src/components/forms/ac-form.tsx` indlejrer formularerne; id'erne står i `src/content/forms.ts`. Felter, liste, tags og tak-besked styres i ActiveCampaign. |
 | Fejlsider | `src/app/not-found.tsx` (404), `src/app/error.tsx` (uventet fejl) |
 | Hastighed | Vercel Speed Insights i `src/app/layout.tsx` |
 
