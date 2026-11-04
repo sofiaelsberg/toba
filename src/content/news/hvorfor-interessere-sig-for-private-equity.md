@@ -7,7 +7,7 @@ linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7415286868743036
 linkedinId: "7415287396046544896"
 linkedinShare: "https://www.linkedin.com/feed/update/urn:li:activity:7415287396046544896/"
 lead: "Måske man skulle overveje at have lidt alternativer i porteføljen - for at sprede risikoen og måske dermed opnå et bedre risikojusteret afkast."
-image: "/nyheder/hvorfor-interessere-sig-for-private-equity.jpg"
+image: "/nyheder/hvorfor-interessere-sig-for-private-equity-hd.jpg"
 imageAlt: "Se billede"
 ---
 
