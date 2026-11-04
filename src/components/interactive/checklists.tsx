@@ -28,7 +28,7 @@ export function ChecklistReveal({ items, numbered = false }: { items: Point[]; n
           <li key={it.title} className="grid grid-cols-[2.5rem_minmax(0,1fr)] items-start gap-4 border-t border-line py-5">
             <span aria-hidden className={cn("flex size-10 items-center justify-center rounded-full border-2 border-gold transition-colors duration-400", done ? "bg-gold" : "bg-white")}>
               {numbered ? (
-                <span className={cn("font-serif text-[1.25rem] leading-none font-medium transition-colors duration-400", done ? "text-white" : "text-gold-text")}>{i + 1}</span>
+                <span className={cn("font-serif text-[1.25rem] leading-none font-medium lining-nums tabular-nums transition-colors duration-400", done ? "text-white" : "text-gold-text")}>{i + 1}</span>
               ) : (
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className={done ? "stroke-white" : "stroke-gold"}>
                   <path d="M4 10.5l4 4 8-9" strokeDasharray={24} strokeDashoffset={done ? 0 : 24} className="transition-[stroke-dashoffset] duration-500 ease-toba" />
