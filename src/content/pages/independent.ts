@@ -3,7 +3,12 @@ import { videos } from "../media";
 import { routes } from "../site";
 import type { CtaCardContent, FeatureContent, HeroContent, Point, Seo, NewsTeaserContent } from "../types";
 
-export type FlowRow = { from: string; to: string; label?: string; tone: "neutral" | "bad" | "good"; fromIsYou?: boolean; toIsYou?: boolean };
+/** "Følg pengene": knuder oppefra og ned med en pil og en forklaring imellem. steps har én mindre end nodes. */
+export type FlowChain = {
+  nodes: { label: string; you?: boolean }[];
+  steps: { label: string; tone: "neutral" | "bad" | "good" }[];
+  note?: string;
+};
 
 export const independent = {
   seo: {
@@ -42,34 +47,48 @@ export const independent = {
     forYouLabel: "For dig:",
     cards: [
       {
-        eyebrow: "1 · Afhængig", title: "Afhængig rådgivning",
-        flow: [
-          { from: "Dig", to: "Bankens egne fonde", tone: "neutral", fromIsYou: true },
-          { from: "Bankens egne fonde", to: "Banken", tone: "bad" },
-        ] satisfies FlowRow[],
-        flowAria: "Du køber bankens egne fonde, og banken tjener på produktet.",
+        eyebrow: "1 · Afhængig",
+        title: "Afhængig rådgivning",
+        flow: {
+          nodes: [{ label: "Dig", you: true }, { label: "Bankens egne fonde" }, { label: "Banken" }],
+          steps: [
+            { label: "køber", tone: "neutral" },
+            { label: "provision og rabat går til", tone: "bad" },
+          ],
+        } satisfies FlowChain,
+        flowAria: "Du køber bankens egne fonde, og provisionen fra fondene går til banken.",
         text: "Rådgivningen er knyttet til et bestemt produktunivers, typisk bankens egne investeringsprodukter.",
         forYou: "Dine valgmuligheder er begrænset til de produkter, rådgiveren tilbyder.",
         highlight: false,
       },
       {
-        eyebrow: "2 · Ikke uafhængig", title: "Ikke uafhængig rådgivning",
-        flow: [
-          { from: "Dig", to: "Egne + andres fonde", tone: "neutral", fromIsYou: true },
-          { from: "Fondene", to: "Rådgiver", label: "provision", tone: "bad" },
-        ] satisfies FlowRow[],
-        flowAria: "Du køber egne og andres fonde, og rådgiveren får provision fra fondene.",
-        text: "Rådgiveren kan anbefale både egne og eksterne produkter, men kan have økonomiske interesser knyttet til bestemte anbefalinger.",
+        eyebrow: "2 · Ikke uafhængig",
+        title: "Ikke uafhængig rådgivning",
+        flow: {
+          nodes: [{ label: "Dig", you: true }, { label: "Egne og andres fonde" }, { label: "Bankerne" }],
+          steps: [
+            { label: "køber", tone: "neutral" },
+            { label: "provision og rabat går til", tone: "bad" },
+          ],
+        } satisfies FlowChain,
+        flowAria: "Du køber egne og andres fonde, og provisionen fra fondene går til bankerne.",
+        text: "Rådgivningen kan anbefale både egne og eksterne produkter, men kan have økonomiske interesser knyttet til bestemte anbefalinger.",
         forYou: "Du bør undersøge, hvordan rådgiveren bliver betalt, og hvilke produkter der indgår i udvalget.",
         highlight: false,
       },
       {
-        eyebrow: "3 · Uafhængig – sådan er TOBA", title: "Uafhængig rådgivning",
-        flow: [
-          { from: "Dig", to: "Rådgiver", label: "honorar", tone: "good", fromIsYou: true },
-          { from: "Fondene", to: "Dig", label: "rabat", tone: "good", toIsYou: true },
-        ] satisfies FlowRow[],
-        flowAria: "Du betaler rådgiveren et honorar, og rabatter fra fondene går videre til dig.",
+        eyebrow: "3 · Uafhængig – sådan er TOBA",
+        title: "Uafhængig rådgivning",
+        flow: {
+          nodes: [{ label: "Dig", you: true }, { label: "Fonde fra hele markedet" }, { label: "Dig", you: true }],
+          steps: [
+            { label: "køber", tone: "neutral" },
+            { label: "provision og rabat går til", tone: "good" },
+          ],
+          note: "Rådgiveren får kun et fast honorar fra dig.",
+        } satisfies FlowChain,
+        flowAria:
+          "Du køber fonde fra hele markedet, og provision og rabat fra fondene går til dig. Rådgiveren får kun et fast honorar fra dig.",
         text: "Rådgivningen bygger på et bredt udvalg af relevante investeringsprodukter og er ikke baseret på provision fra de produkter, der anbefales.",
         forYou: "Rådgivningen tager kun udgangspunkt i, hvad der er bedst for dig.",
         highlight: true,
@@ -82,11 +101,21 @@ export const independent = {
     title: "Det skal der til for at kalde sig uafhængig",
     lead: "“Uafhængig” er ikke bare et løfte. Det er en betegnelse, der stiller konkrete krav til, hvordan en investeringsrådgiver arbejder. Ifølge lovgivningen skal en uafhængig investeringsrådgiver blandt andet leve op til tre centrale krav.",
     requirements: [
-      { title: "Ingen provision til rådgiveren", text: "Rådgiveren må ikke beholde provision eller andre økonomiske fordele fra de investeringsprodukter, der anbefales. Modtages sådanne betalinger, skal de videregives til kunden efter gældende regler." },
-      { title: "Ingen tætte bånd", text: "Rådgiveren må ikke have bestemte forbindelser til banker, kapitalforvaltere eller andre finansielle virksomheder, som er uforenelige med kravene til uafhængighed." },
-      { title: "Et bredt udvalg af investeringer", text: "Rådgivningen skal bygge på en tilstrækkelig bred vurdering af relevante produkter på markedet – ikke kun et snævert udvalg fra én udbyder." },
+      {
+        title: "Ingen provision til rådgiveren",
+        text: "Rådgiveren må ikke beholde provision eller andre økonomiske fordele fra de investeringsprodukter, der anbefales. Modtages sådanne betalinger, skal de videregives til kunden efter gældende regler.",
+      },
+      {
+        title: "Ingen tætte bånd",
+        text: "Rådgiveren må ikke have bestemte forbindelser til banker, kapitalforvaltere eller andre finansielle virksomheder, som er uforenelige med kravene til uafhængighed.",
+      },
+      {
+        title: "Et bredt udvalg af investeringer",
+        text: "Rådgivningen skal bygge på en tilstrækkelig bred vurdering af relevante produkter på markedet – ikke kun et snævert udvalg fra én udbyder.",
+      },
     ] satisfies Point[],
-    factBox: "**Vidste du det?** Hvis en investeringsrådgiver ikke er uafhængig, skal det fremgå af virksomhedens hjemmeside. Rådgiveren skal også oplyse størrelsen af – eller beregningsgrundlaget for – eventuel provision.",
+    factBox:
+      "**Vidste du det?** Hvis en investeringsrådgiver ikke er uafhængig, skal det fremgå af virksomhedens hjemmeside. Rådgiveren skal også oplyse størrelsen af – eller beregningsgrundlaget for – eventuel provision.",
     tip: "**Godt råd:** Bruger din rådgiver et ord, der næsten lyder som uafhængig – fx “uvildig” – så spørg, om alle tre krav er opfyldt.",
     source: "Kilde: Lov om investeringsrådgivere og boligkreditformidlere, § 9 og § 10.",
   },
@@ -115,13 +144,38 @@ export const independent = {
     title: "Sådan arbejder vi",
     lead: "Uafhængighed er fundamentet for TOBA Advice. Vi har ingen egne investeringsprodukter og lever af vores rådgivning – ikke af de fonde, vi anbefaler. Det betyder helt konkret:",
     features: [
-      { icon: "globe", title: "Frit valg på tværs af markedet.", text: `Vi er ikke bundet til én bank eller én bestemt forvalter. Vi udvælger relevante investeringsløsninger på tværs af markedet og samarbejder i dag med ${facts.managers} forvaltere i ${facts.countries} lande.` },
-      { icon: "no-commission", title: "Ingen provision.", text: "Vi modtager ikke formidlingsprovision for at anbefale bestemte fonde eller investeringsprodukter. Vores indtjening afhænger derfor ikke af, hvilke produkter vi anbefaler." },
-      { icon: "fixed-fee", title: "Et gennemskueligt honorar.", text: "Du betaler et aftalt rådgivningshonorar, der ikke afhænger af, hvilke investeringer vi vælger til din portefølje." },
-      { icon: "rebate", title: "Rabatterne går til dig.", text: "Vi forhandler rabatter hjem for alle kunder samlet og sender dem ubeskåret videre." },
-      { icon: "owners", title: "Ejet af medarbejderne.", text: "TOBA Advice er ejet af medarbejderne selv. Vi arbejder langsigtet og har ingen eksterne ejere, der stiller krav om salg af bestemte investeringsprodukter." },
+      {
+        icon: "globe",
+        title: "Frit valg på tværs af markedet.",
+        text: `Vi er ikke bundet til én bank eller én bestemt forvalter. Vi udvælger relevante investeringsløsninger på tværs af markedet og samarbejder i dag med ${facts.managers} forvaltere i ${facts.countries} lande.`,
+      },
+      {
+        icon: "no-commission",
+        title: "Ingen provision.",
+        text: "Vi modtager ikke formidlingsprovision for at anbefale bestemte fonde eller investeringsprodukter. Vores indtjening afhænger derfor ikke af, hvilke produkter vi anbefaler.",
+      },
+      {
+        icon: "fixed-fee",
+        title: "Et gennemskueligt honorar.",
+        text: "Du betaler et aftalt rådgivningshonorar, der ikke afhænger af, hvilke investeringer vi vælger til din portefølje.",
+      },
+      {
+        icon: "rebate",
+        title: "Rabatterne går til dig.",
+        text: "Vi forhandler rabatter hjem for alle kunder samlet og sender dem ubeskåret videre.",
+      },
+      {
+        icon: "owners",
+        title: "Ejet af medarbejderne.",
+        text: "TOBA Advice er ejet af medarbejderne selv. Vi arbejder langsigtet og har ingen eksterne ejere, der stiller krav om salg af bestemte investeringsprodukter.",
+      },
     ] satisfies FeatureContent[],
-    rebate: { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalt til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}. Vi sidder på samme side af bordet som vores kunder.` },
+    rebate: {
+      value: facts.rebatesPaid.amountMio,
+      decimals: 1,
+      suffix: " mio. kr.",
+      label: `udbetalt til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}. Vi sidder på samme side af bordet som vores kunder.`,
+    },
     taFunds: {
       question: "Hvad med TA Globale Aktier og TA Globale Obligationer?",
       answer: [
@@ -136,8 +190,20 @@ export const independent = {
     title: "Hvilken slags rådgivning får du i dag?",
     lead: "Ved du, hvad du samlet betaler for din investeringsløsning, og om din rådgiver har økonomiske interesser i de produkter, du bliver anbefalet? Uanset om du ønsker mere viden eller et konkret overblik over din egen portefølje, hjælper vi dig gerne videre.",
     cards: [
-      { eyebrow: "Hvem spiser din lagkage?", title: "Vil du vide mere?", text: "Download vores gratis guide, og få indsigt i omkostninger, rabatter og interessekonflikter – samt 7 spørgsmål, du bør stille din rådgiver.", linkLabel: "Hent guiden gratis", href: routes.guide },
-      { eyebrow: "Gratis og uforpligtende", title: "Vil du have et overblik?", text: "Få gennemgået dine egne omkostninger. Gratis og uforpligtende.", linkLabel: "Få gratis omkostningsoverblik", href: routes.overview },
+      {
+        eyebrow: "Hvem spiser din lagkage?",
+        title: "Vil du vide mere?",
+        text: "Download vores gratis guide, og få indsigt i omkostninger, rabatter og interessekonflikter – samt 7 spørgsmål, du bør stille din rådgiver.",
+        linkLabel: "Hent guiden gratis",
+        href: routes.guide,
+      },
+      {
+        eyebrow: "Gratis og uforpligtende",
+        title: "Vil du have et overblik?",
+        text: "Få gennemgået dine egne omkostninger. Gratis og uforpligtende.",
+        linkLabel: "Få gratis omkostningsoverblik",
+        href: routes.overview,
+      },
     ] satisfies CtaCardContent[],
   },
 
@@ -145,6 +211,10 @@ export const independent = {
   related: {
     title: "Læs mere om emnet",
     lead: "Indlæg om omkostninger, interessekonflikter og bankernes egne produkter.",
-    slugs: ["er-du-en-cash-cow-for-banken", "betaler-du-for-en-vare-du-sjaeldent-modtager", "siger-du-ogsaa-ja-tak-naar-telefonen-ringer"],
+    slugs: [
+      "er-du-en-cash-cow-for-banken",
+      "betaler-du-for-en-vare-du-sjaeldent-modtager",
+      "siger-du-ogsaa-ja-tak-naar-telefonen-ringer",
+    ],
   } satisfies NewsTeaserContent,
 };

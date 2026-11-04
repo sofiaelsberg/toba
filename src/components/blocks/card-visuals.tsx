@@ -45,7 +45,7 @@ export function CakeVisual({ content }: { content: CakeContent }) {
         ))}
         <li className="flex items-center gap-[0.6em] font-semibold text-navy">
           <span className="size-[0.8em] shrink-0 bg-gold" />
-          {content.steps[0].label}
+          {content.core}
         </li>
       </ul>
     </Frame>

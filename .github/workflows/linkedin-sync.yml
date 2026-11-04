@@ -28,7 +28,7 @@ jobs:
           node-version: 22
       - name: Hent nye opslag (som kladder)
         if: env.LINKEDIN_ACCESS_TOKEN != ''
-        run: node scripts/linkedin/sync.mjs --api --draft
+        run: node scripts/linkedin/sync.mjs --api
       - name: Commit nye indlæg
         if: env.LINKEDIN_ACCESS_TOKEN != ''
         run: |

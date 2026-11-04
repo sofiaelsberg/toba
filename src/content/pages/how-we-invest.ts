@@ -1,5 +1,5 @@
 import { facts } from "../facts";
-import { images, videos } from "../media";
+import { images } from "../media";
 import { routes, bookMeeting } from "../site";
 import type { FaqItem, HeroContent, ManagerMapContent, Point, QuoteContent, Seo, Stat, StepContent, NewsTeaserContent } from "../types";
 
@@ -103,7 +103,6 @@ export const howWeInvest = {
       listLabel: "Se alle forvaltere og byer",
       caption: "Forvalternes hovedkontorer. Peg på eller tryk på en prik for at se, hvem der sidder hvor.",
     } satisfies ManagerMapContent,
-    video: videos.v07,
     link: { label: "Læs om uafhængig rådgivning →", href: routes.independent },
   },
 

@@ -63,7 +63,7 @@ export default function IndependentPage() {
               >
                 <Eyebrow className={k.highlight ? "" : "text-ink-muted"}>{k.eyebrow}</Eyebrow>
                 <h3 className="font-serif text-h3 font-medium text-navy">{k.title}</h3>
-                <MoneyFlow rows={k.flow} label={k.flowAria} />
+                <MoneyFlow flow={k.flow} label={k.flowAria} />
                 <p className="flex-1">{k.text}</p>
                 <p className="border-l border-gold-light pl-4 text-navy">
                   <strong className="font-semibold">{c.kinds.forYouLabel}</strong> {k.forYou}
@@ -86,7 +86,7 @@ export default function IndependentPage() {
             </p>
             <Caption>{c.law.source}</Caption>
           </div>
-          <ChecklistReveal items={c.law.requirements} />
+          <ChecklistReveal items={c.law.requirements} numbered />
         </Split>
       </Section>
 
