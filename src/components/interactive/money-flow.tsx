@@ -27,7 +27,7 @@ export function MoneyFlow({ flow, label }: { flow: FlowChain; label: string }) {
           <div key={i} className="flex flex-col">
             <Node label={n.label} you={n.you} />
             {step && (
-              <div className={cn("flex h-11 items-stretch gap-2.5 pl-4", tone[step.tone])}>
+              <div className={cn("flex h-16 items-stretch gap-2.5 py-2 pl-4", tone[step.tone])}>
                 <span className="flex w-2.5 flex-col items-center">
                   <motion.span
                     className="w-0.5 flex-1 origin-top bg-current"
