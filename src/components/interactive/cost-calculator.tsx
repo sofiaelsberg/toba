@@ -103,7 +103,7 @@ export function CostCalculator({ content }: { content: Content }) {
         </div>
         <div aria-live="polite">
           {hasToday && (
-            <p className="mt-4 border-t-2 border-gold bg-white p-5">
+            <p className="mt-6 border border-gold bg-white p-5">
               <RichText text={fill(content.compare, { today: formatKr(todayKr), diff: formatKr(diff) })} />
             </p>
           )}
