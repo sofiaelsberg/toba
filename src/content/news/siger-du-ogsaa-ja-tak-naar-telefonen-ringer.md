@@ -5,7 +5,7 @@ date: "2025-11-24T09:53:47.032Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7398660094693015552/"
 linkedinId: "7398660094693015552"
-image: "/nyheder/siger-du-ogsaa-ja-tak-naar-telefonen-ringer.jpg"
+image: "/nyheder/siger-du-ogsaa-ja-tak-naar-telefonen-ringer-hd.jpg"
 imageAlt: "Se billede"
 ---
 
