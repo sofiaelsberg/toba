@@ -6,7 +6,6 @@ author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7523382724145905664/"
 linkedinId: "7523382724145905664"
 tags: ["Formidlingsprovision", "Gennemsigtighed", "Omkostninger"]
-draft: true
 ---
 
 I dag sætter Børsen fokus på et udspil fra Forbrugerrådet Tænk og Dansk Aktionærforening med ti forslag, der skal få flere danskere til at investere. Et af dem er et opgør med formidlingsprovisioner – den betaling, bankerne modtager for at sælge investeringsfonde til deres kunder. Ofte fonde i investeringsforeninger, som bankerne selv ejer.
