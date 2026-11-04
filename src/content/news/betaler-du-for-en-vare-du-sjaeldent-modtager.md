@@ -5,7 +5,7 @@ date: "2025-11-18T09:15:31.794Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7396476140573437955/"
 linkedinId: "7396476140573437955"
-image: "/nyheder/betaler-du-for-en-vare-du-sjaeldent-modtager.jpg"
+image: "/nyheder/betaler-du-for-en-vare-du-sjaeldent-modtager-hd.jpg"
 imageAlt: "Se billede"
 ---
 
