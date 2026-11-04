@@ -7,6 +7,7 @@ const raw: Omit<Person, "portrait">[] = [
   // Rådgivning
   {
     slug: "anders-bentholm",
+    portraitFile: "anders-bentholm-v3.jpg",
     name: "Anders Bentholm",
     title: "CEO / Partner",
     group: "raadgivning",
@@ -19,6 +20,7 @@ const raw: Omit<Person, "portrait">[] = [
   },
   {
     slug: "bent-hymoeller",
+    portraitFile: "bent-hymoeller-v3.jpg",
     name: "Bent Hymøller",
     title: "Senior Relationship Manager / Partner",
     group: "raadgivning",
@@ -31,6 +33,7 @@ const raw: Omit<Person, "portrait">[] = [
   },
   {
     slug: "lars-dessau",
+    portraitFile: "lars-dessau-v3.jpg",
     name: "Lars Dessau",
     title: "Senior Relationship Manager / Partner",
     group: "raadgivning",
@@ -44,6 +47,7 @@ const raw: Omit<Person, "portrait">[] = [
   },
   {
     slug: "martin-svendsen",
+    portraitFile: "martin-svendsen-v3.jpg",
     name: "Martin Svendsen",
     title: "Senior Relationship Manager / Partner",
     group: "raadgivning",
@@ -57,6 +61,7 @@ const raw: Omit<Person, "portrait">[] = [
   },
   {
     slug: "patrick-czyz",
+    portraitFile: "patrick-czyz-v3.jpg",
     name: "Patrick Czyz",
     title: "Senior Relationship Manager / Partner",
     group: "raadgivning",

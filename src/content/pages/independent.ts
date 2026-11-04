@@ -3,7 +3,12 @@ import { videos } from "../media";
 import { routes } from "../site";
 import type { CtaCardContent, FeatureContent, HeroContent, Point, Seo, NewsTeaserContent } from "../types";
 
-export type FlowRow = { from: string; to: string; label?: string; tone: "neutral" | "bad" | "good"; fromIsYou?: boolean; toIsYou?: boolean };
+/** "Følg pengene": knuder oppefra og ned med en pil og en forklaring imellem. steps har én mindre end nodes. */
+export type FlowChain = {
+  nodes: { label: string; you?: boolean }[];
+  steps: { label: string; tone: "neutral" | "bad" | "good" }[];
+  note?: string;
+};
 
 export const independent = {
   seo: {
@@ -43,33 +48,34 @@ export const independent = {
     cards: [
       {
         eyebrow: "1 · Afhængig", title: "Afhængig rådgivning",
-        flow: [
-          { from: "Dig", to: "Bankens egne fonde", tone: "neutral", fromIsYou: true },
-          { from: "Bankens egne fonde", to: "Banken", tone: "bad" },
-        ] satisfies FlowRow[],
-        flowAria: "Du køber bankens egne fonde, og banken tjener på produktet.",
+        flow: {
+          nodes: [{ label: "Dig", you: true }, { label: "Bankens egne fonde" }, { label: "Banken" }],
+          steps: [{ label: "køber", tone: "neutral" }, { label: "indtjeningen går til", tone: "bad" }],
+        } satisfies FlowChain,
+        flowAria: "Du køber bankens egne fonde, og indtjeningen på fondene går til banken.",
         text: "Rådgivningen er knyttet til et bestemt produktunivers, typisk bankens egne investeringsprodukter.",
         forYou: "Dine valgmuligheder er begrænset til de produkter, rådgiveren tilbyder.",
         highlight: false,
       },
       {
         eyebrow: "2 · Ikke uafhængig", title: "Ikke uafhængig rådgivning",
-        flow: [
-          { from: "Dig", to: "Egne + andres fonde", tone: "neutral", fromIsYou: true },
-          { from: "Fondene", to: "Rådgiver", label: "provision", tone: "bad" },
-        ] satisfies FlowRow[],
-        flowAria: "Du køber egne og andres fonde, og rådgiveren får provision fra fondene.",
+        flow: {
+          nodes: [{ label: "Dig", you: true }, { label: "Egne og andres fonde" }, { label: "Rådgiveren" }],
+          steps: [{ label: "køber", tone: "neutral" }, { label: "provisionen går til", tone: "bad" }],
+        } satisfies FlowChain,
+        flowAria: "Du køber egne og andres fonde, og provisionen fra fondene går til rådgiveren.",
         text: "Rådgiveren kan anbefale både egne og eksterne produkter, men kan have økonomiske interesser knyttet til bestemte anbefalinger.",
         forYou: "Du bør undersøge, hvordan rådgiveren bliver betalt, og hvilke produkter der indgår i udvalget.",
         highlight: false,
       },
       {
         eyebrow: "3 · Uafhængig – sådan er TOBA", title: "Uafhængig rådgivning",
-        flow: [
-          { from: "Dig", to: "Rådgiver", label: "honorar", tone: "good", fromIsYou: true },
-          { from: "Fondene", to: "Dig", label: "rabat", tone: "good", toIsYou: true },
-        ] satisfies FlowRow[],
-        flowAria: "Du betaler rådgiveren et honorar, og rabatter fra fondene går videre til dig.",
+        flow: {
+          nodes: [{ label: "Dig", you: true }, { label: "Fonde fra hele markedet" }, { label: "Dig", you: true }],
+          steps: [{ label: "køber", tone: "neutral" }, { label: "rabatten går tilbage til", tone: "good" }],
+          note: "Rådgiveren får kun et fast honorar fra dig.",
+        } satisfies FlowChain,
+        flowAria: "Du køber fonde fra hele markedet, og rabatten fra fondene går tilbage til dig. Rådgiveren får kun et fast honorar fra dig.",
         text: "Rådgivningen bygger på et bredt udvalg af relevante investeringsprodukter og er ikke baseret på provision fra de produkter, der anbefales.",
         forYou: "Rådgivningen tager kun udgangspunkt i, hvad der er bedst for dig.",
         highlight: true,
