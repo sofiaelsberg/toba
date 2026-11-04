@@ -30,8 +30,8 @@ node scripts/linkedin/sync.mjs --from-file ~/Downloads/linkedin-nyheder.json
 1. Opret et access token for en administrator af virksomhedssiden.
 2. Kør lokalt: `LINKEDIN_ACCESS_TOKEN=… node scripts/linkedin/sync.mjs --api`
 3. Eller automatisk: læg tokenet som secret `LINKEDIN_ACCESS_TOKEN` i GitHub (Settings → Secrets → Actions).
-   Workflowet `.github/workflows/linkedin-sync.yml` kører hver morgen, committer nye indlæg som **kladder**
-   (`draft: true`) og Vercel deployer. Gennemgå og fjern `draft`, når et indlæg skal på siden.
+   Workflowet `.github/workflows/linkedin-sync.yml` kører hver morgen, committer nye indlæg, og Vercel deployer.
+   Alt, der er postet på TOBA's LinkedIn, er godkendt og kommer direkte på siden (ikke som kladde).
 
 Organisationens id er `104613890`. Tokens udløber (typisk efter 60 dage) og skal fornys.
 
