@@ -15,6 +15,7 @@ export const routes = {
   complaints: "/klage",
   cookies: "/cookies",
   accessibility: "/tilgaengelighed",
+  privacy: "/privatlivspolitik",
   news: "/nyheder",
   clientPortal: "https://client.tobaadvice.onperformativ.com",
 } as const;
@@ -88,6 +89,7 @@ export const footer = {
         { label: "Klageadgang", href: routes.complaints },
         { label: "Cookies", href: routes.cookies },
         { label: "Tilgængelighed", href: routes.accessibility },
+        { label: "Privatlivspolitik", href: routes.privacy },
       ],
     },
   ] satisfies { title: string; links: LinkItem[] }[],
@@ -98,7 +100,7 @@ export const footer = {
 
 export const landingChrome = {
   footerLinks: [
-    { label: "Persondatapolitik", href: routes.policies },
+    { label: "Privatlivspolitik", href: routes.privacy },
     { label: "Cookies", href: routes.cookies },
     { label: "Tilgængelighed", href: routes.accessibility },
     { label: "tobaadvice.com", href: routes.home },
