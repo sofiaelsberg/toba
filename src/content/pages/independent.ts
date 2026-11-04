@@ -50,9 +50,9 @@ export const independent = {
         eyebrow: "1 · Afhængig", title: "Afhængig rådgivning",
         flow: {
           nodes: [{ label: "Dig", you: true }, { label: "Bankens egne fonde" }, { label: "Banken" }],
-          steps: [{ label: "køber", tone: "neutral" }, { label: "indtjeningen går til", tone: "bad" }],
+          steps: [{ label: "køber", tone: "neutral" }, { label: "provisionen går til", tone: "bad" }],
         } satisfies FlowChain,
-        flowAria: "Du køber bankens egne fonde, og indtjeningen på fondene går til banken.",
+        flowAria: "Du køber bankens egne fonde, og provisionen fra fondene går til banken.",
         text: "Rådgivningen er knyttet til et bestemt produktunivers, typisk bankens egne investeringsprodukter.",
         forYou: "Dine valgmuligheder er begrænset til de produkter, rådgiveren tilbyder.",
         highlight: false,
