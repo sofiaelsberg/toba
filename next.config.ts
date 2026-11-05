@@ -45,7 +45,11 @@ const nextConfig: NextConfig = {
     },
   },
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      // Whitepaperet har en fast adresse til mails, men skal ikke findes via Google.
+      { source: "/dokumenter/hvem-spiser-din-lagkage.pdf", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
+    ];
   },
   async redirects() {
     return legacyRedirects.map((r) => ({ ...r, permanent: true }));
