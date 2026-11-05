@@ -4,12 +4,10 @@ import { Suspense } from "react";
 import { IconBadge } from "@/components/blocks/icon";
 import { TextLink } from "@/components/blocks/links";
 import { Eyebrow } from "@/components/blocks/typography";
-import { ContactForm } from "@/components/forms/forms";
-import { LeadForm } from "@/components/forms/lead-form";
+import { ContactEmbedForm } from "@/components/forms/ac-form";
 import { Disclaimer } from "@/components/sections/legal";
 import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading } from "@/components/sections/section";
-import { contactForm } from "@/content/forms";
 import { contact as c } from "@/content/pages/contact";
 import { advisers } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
@@ -56,10 +54,10 @@ export default function ContactPage() {
               ))}
             </ul>
           </div>
-          <div id={c.formAnchor} className="scroll-mt-28 bg-white p-8 shadow-raised md:p-10">
+          <div id={c.formAnchor} className="scroll-mt-28">
             {/* useSearchParams kræver Suspense; fallback er samme formular uden forvalgt emne. */}
-            <Suspense fallback={<LeadForm form={contactForm} />}>
-              <ContactForm />
+            <Suspense fallback={<ContactEmbedForm topic={null} />}>
+              <ContactEmbedForm />
             </Suspense>
           </div>
         </div>

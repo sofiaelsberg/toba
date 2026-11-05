@@ -1,14 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 import { useUnlock } from "@/components/interactive/checklists";
-import { activeCampaignForms } from "@/content/forms";
+import { activeCampaignForms, contactForm, formAnalyticsName, type FormMicrocopy } from "@/content/forms";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
-
-type Microcopy = { text: string; linkLabel: string; href: string; after?: string };
 
 type ActiveCampaignFormProps = {
   /** Formularens id i ActiveCampaign. */
@@ -18,7 +17,9 @@ type ActiveCampaignFormProps = {
   /** Overskrift og tekst i toppen af boksen. */
   title?: string;
   intro?: string;
-  microcopy?: Microcopy;
+  microcopy?: FormMicrocopy;
+  /** Forudfyldte værdier, fx { "field[47]": "Book et møde" }. Sættes, når ActiveCampaign har bygget formularen. */
+  prefill?: Record<string, string>;
   /** Kaldes, når ActiveCampaign viser sin tak-besked. */
   onSubmitted?: () => void;
   className?: string;
@@ -49,6 +50,11 @@ function addLabels(host: HTMLElement) {
     label.textContent = text;
     input.removeAttribute("placeholder");
   });
+}
+
+/** Det valgte emne i kontaktformularen (til GA). */
+function topicOf(host: HTMLElement) {
+  return host.querySelector<HTMLSelectElement>(`[name="${CSS.escape(contactForm.topicField)}"]`)?.value || undefined;
 }
 
 /** Autoudfyldning (WCAG 1.3.5) – ActiveCampaign sætter ikke autocomplete på felterne. */
@@ -83,13 +89,15 @@ function linkErrors(host: HTMLElement) {
  * Scriptet indsættes ved hver visning, så formularen også kommer frem efter et sideskift i appen.
  * Felter, design, tak-besked og handlinger redigeres i ActiveCampaign.
  */
-export function ActiveCampaignForm({ id, label, title, intro, microcopy, onSubmitted, className }: ActiveCampaignFormProps) {
+export function ActiveCampaignForm({ id, label, title, intro, microcopy, prefill, onSubmitted, className }: ActiveCampaignFormProps) {
   const hostRef = useRef<HTMLDivElement>(null);
   const submittedRef = useRef(onSubmitted);
+  const prefillRef = useRef(prefill);
 
   useEffect(() => {
     submittedRef.current = onSubmitted;
-  }, [onSubmitted]);
+    prefillRef.current = prefill;
+  }, [onSubmitted, prefill]);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -106,15 +114,24 @@ export function ActiveCampaignForm({ id, label, title, intro, microcopy, onSubmi
 
     // ActiveCampaign viser tak-beskeden i et element med klassen _form-thank-you.
     let done = false;
+    let prefilled = false;
     const observer = new MutationObserver(() => {
       removeStrays(id);
       addLabels(host);
       linkErrors(host);
+      if (!prefilled && prefillRef.current && host.querySelector("form")) {
+        prefilled = true;
+        for (const [name, value] of Object.entries(prefillRef.current)) {
+          const field = host.querySelector<HTMLInputElement | HTMLSelectElement>(`[name="${CSS.escape(name)}"]`);
+          if (field) field.value = value;
+        }
+      }
       if (done) return;
       const thanks = host.querySelector<HTMLElement>("._form-thank-you");
       if (thanks && thanks.offsetParent !== null && thanks.textContent?.trim()) {
         done = true;
-        track("generate_lead", { form: id === activeCampaignForms.guide ? "guide" : "omkostningsoverblik" });
+        const form = formAnalyticsName[id];
+        if (form) track("generate_lead", form === "kontakt" ? { form, topic: topicOf(host) } : { form });
         submittedRef.current?.();
       }
     });
@@ -150,4 +167,26 @@ export function ActiveCampaignForm({ id, label, title, intro, microcopy, onSubmi
 export function GuideEmbedForm(props: Omit<ActiveCampaignFormProps, "onSubmitted">) {
   const { unlock } = useUnlock();
   return <ActiveCampaignForm {...props} onSubmitted={unlock} />;
+}
+
+/** Kontaktformularen (#10). Forvælger emnet ud fra ?emne=moede|spoergsmaal|andet. */
+export function ContactEmbedForm({ topic }: { topic?: string | null }) {
+  return topic === undefined ? <ContactEmbedFromUrl /> : <ContactEmbed topic={topic} />;
+}
+
+function ContactEmbedFromUrl() {
+  return <ContactEmbed topic={useSearchParams().get("emne")} />;
+}
+
+function ContactEmbed({ topic }: { topic: string | null }) {
+  const value = topic ? contactForm.topics[topic] : undefined;
+  return (
+    <ActiveCampaignForm
+      id={activeCampaignForms.contact}
+      label={contactForm.label}
+      title={contactForm.title}
+      microcopy={contactForm.microcopy}
+      prefill={value ? { [contactForm.topicField]: value } : undefined}
+    />
+  );
 }
