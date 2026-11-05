@@ -8,7 +8,7 @@ import type { AmbientVideoRef, ImageRef, LinkedInPostRef, VideoRef } from "./typ
 export const videos = {
   v02: { id: "V02", title: "Hvem spiser din lagkage?", durationLabel: "0:38", src: "/media/video/v02-v2.mp4", poster: "/media/video/v02-v2.jpg", caption: "Martin Svendsen, Senior Relationship Manager / Partner, TOBA Advice", uploadDate: "2026-11-02" },
   v03: { id: "V03", title: "Rådgiver eller sælger?", durationLabel: "0:36", src: "/media/video/v03-v2.mp4", poster: "/media/video/v03-v2.jpg", caption: "Martin Svendsen, Senior Relationship Manager / Partner", uploadDate: "2026-11-02" },
-  v05: { id: "V05", title: "Hvor havner rabatten?", durationLabel: "0:31", src: "/media/video/v05.mp4", poster: "/media/video/v05.jpg", caption: "Anton Sørensen", uploadDate: "2026-10-28" },
+  v05: { id: "V05", title: "Hvor havner rabatten?", durationLabel: "0:31", src: "/media/video/v05-v2.mp4", poster: "/media/video/v05-v2.jpg", caption: "Anton Sørensen", uploadDate: "2026-11-05" },
   v06: { id: "V06", title: "Hvor havner rabatten?", durationLabel: "0:28", src: "/media/video/v06-v2.mp4", poster: "/media/video/v06-v2.jpg", caption: "Bent Hymøller, Senior Relationship Manager / Partner, TOBA Advice", uploadDate: "2026-11-02" },
   v07: { id: "V07", title: "Uafhængighed", durationLabel: "0:26", src: "/media/video/v07-v2.mp4", poster: "/media/video/v07-v2.jpg", caption: "Bertel Roslev Rasmussen, CIO, om hvorfor frit valg betyder noget.", uploadDate: "2026-11-02" },
   v09: { id: "V09", title: "Uafhængighed", durationLabel: "0:30", src: "/media/video/v09-v2.mp4", poster: "/media/video/v09-v2.jpg", caption: "Bertel Roslev Rasmussen", uploadDate: "2026-11-02" },
