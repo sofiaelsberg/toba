@@ -47,8 +47,8 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
-      // Whitepaperet har en fast adresse til mails, men skal ikke findes via Google.
-      { source: "/dokumenter/hvem-spiser-din-lagkage.pdf", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
+      // PDF'er med en fast adresse til mails, som ikke skal findes via Google.
+      { source: "/dokumenter/:file(hvem-spiser-din-lagkage|omkostningsanalyse-eksempel).pdf", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
     ];
   },
   async redirects() {
