@@ -68,16 +68,19 @@ export const home = {
   },
 
   bank: {
-    eyebrow: "Hvem arbejder din bank for?",
+    title: "Hvem arbejder din rådgiver *for*?",
+    text: [
+      "Når din rådgiver også tjener på de produkter, du bliver anbefalet, kan der være andre interesser end dine på spil.",
+      "Hos TOBA Advice har vi ingen egne investeringsprodukter og modtager ingen formidlingsprovision. Du betaler os for rådgivningen – og de rabatter, vi forhandler hjem, går ubeskåret til dig.",
+    ],
+    action: { label: "Læs mere om uafhængig investeringsrådgivning", href: routes.independent, variant: "light" as const },
     value: facts.ownFundsTop5Pct,
     lead: "af fondsbeholdningerne hos de fem største danske banker ligger i gennemsnit i bankernes egne fonde.",
     segments: [
       { label: "bankernes egne fonde", value: facts.ownFundsTop5Pct },
       { label: "andre fonde", value: 100 - facts.ownFundsTop5Pct },
     ],
-    text: "Det betyder ikke, at rådgivningen er dårlig. Men det betyder, at den ikke er fri. Vi har ingen indtægter fra egen forvaltning eller handel og tager ingen provision. Vi tjener kun på vores rådgivning – aldrig på de forvaltere, vi vælger.",
     source: "Kilde: Finanstilsynet, “Bankernes salg af egne fonde”, maj 2026.",
-    link: { label: "Se forskellen på de tre slags rådgivere →", href: routes.independent },
     video: videos.v09,
   },
 

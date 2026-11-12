@@ -5,7 +5,7 @@ import { AmbientVideo } from "@/components/blocks/ambient-video";
 import { AdvisersVisual, CakeVisual, OverviewVisual } from "@/components/blocks/card-visuals";
 import { Media } from "@/components/blocks/media";
 import { RichText } from "@/components/blocks/rich-text";
-import { Caption, Eyebrow } from "@/components/blocks/typography";
+import { Caption } from "@/components/blocks/typography";
 import { VideoBlock } from "@/components/blocks/video-block";
 import { ShareBar } from "@/components/interactive/charts";
 import { CostCalculator } from "@/components/interactive/cost-calculator";
@@ -60,18 +60,21 @@ export default function HomePage() {
       </Section>
 
       <Section surface="navy" id="bank">
-        <Split align="start">
-          <div className="flex flex-col gap-5">
-            <Eyebrow>{c.bank.eyebrow}</Eyebrow>
-            <ShareBar value={c.bank.value} lead={c.bank.lead} segments={c.bank.segments} />
-            <p className="max-w-140">{c.bank.text}</p>
-            <Caption>{c.bank.source}</Caption>
-            <TextLink href={c.bank.link.href} className="self-start">
-              {c.bank.link.label}
-            </TextLink>
+        <Split>
+          <div className="flex flex-col gap-6">
+            <SectionHeading rule title={c.bank.title} />
+            {c.bank.text.map((t) => (
+              <p key={t} className="max-w-measure">
+                {t}
+              </p>
+            ))}
+            <ButtonLink action={c.bank.action} className="self-start" />
           </div>
           <VideoBlock video={c.bank.video} />
         </Split>
+        <div className="mt-16 border-t-2 border-gold-light pt-8">
+          <ShareBar value={c.bank.value} lead={c.bank.lead} segments={c.bank.segments} source={c.bank.source} />
+        </div>
       </Section>
 
       <Section surface="white" id="lagkage">
