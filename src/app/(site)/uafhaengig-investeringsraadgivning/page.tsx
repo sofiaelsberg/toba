@@ -6,7 +6,6 @@ import { VideoBlock } from "@/components/blocks/video-block";
 import { ShareBar } from "@/components/interactive/charts";
 import { ChecklistReveal } from "@/components/interactive/checklists";
 import { MoneyFlow } from "@/components/interactive/money-flow";
-import { NewsTeaser } from "@/components/news/news-teaser";
 import { CtaCards } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
@@ -130,8 +129,6 @@ export default function IndependentPage() {
           <CtaCards cards={c.next.cards} tone="cream" />
         </div>
       </Section>
-
-      <NewsTeaser content={c.related} id="laes-mere" />
 
       <Disclaimer content={disclaimers.short} />
     </>
