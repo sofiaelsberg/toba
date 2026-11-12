@@ -12,8 +12,8 @@ export const about = {
 
   hero: {
     eyebrow: "Om TOBA Advice",
-    title: "Vi tager os af dine investeringer, så du kan tage dig af *livet*",
-    lead: "TOBA Advice er en uafhængig investeringsrådgiver, ejet af medarbejderne. Vi har ingen egne investeringsprodukter – så rådgivningen tager altid udgangspunkt i dig og dine ønsker.",
+    title: "Vi er uafhængige, ejet af medarbejderne – og på *din side*",
+    lead: "Fra vores kontor i Aarhus rådgiver vi kunder i hele Danmark – og vi kommer gerne ud til dig.",
     actions: [bookMeeting],
   } satisfies HeroContent,
   heroMedia: images.officeWindow,
