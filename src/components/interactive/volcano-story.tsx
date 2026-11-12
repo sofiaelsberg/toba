@@ -19,10 +19,10 @@ export function VolcanoStory({ stages, label }: { stages: { title: string; text:
         <path d="M0 200 C80 170 140 186 200 176 C260 166 320 186 380 172 C430 162 480 178 520 170" fill="none" stroke="var(--gold-soft)" strokeWidth="2" strokeDasharray="560" strokeDashoffset={560 * (1 - growth)} />
         <path d="M0 214 L520 214" stroke="var(--grey-light)" strokeWidth="1" opacity=".4" />
       </svg>
-      <ol className="grid grid-cols-3 gap-4 text-small text-on-navy-muted">
+      <ol className="grid grid-cols-3 gap-4 text-small text-ink-muted [.on-navy_&]:text-on-navy-muted">
         {stages.map((s, i) => (
           <li key={s.title} className="transition-opacity duration-500" style={{ opacity: lit[i] ? 1 : 0.7 }}>
-            <strong className="block font-semibold text-white">{s.title}</strong>
+            <strong className="block font-semibold text-navy [.on-navy_&]:text-white">{s.title}</strong>
             {s.text}
           </li>
         ))}

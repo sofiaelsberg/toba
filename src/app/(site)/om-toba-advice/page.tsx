@@ -37,7 +37,7 @@ export default function AboutPage() {
         }
       />
 
-      <Section surface="navy">
+      <Section surface="white">
         <Split align="start">
           <div className="flex flex-col gap-6">
             <SectionHeading eyebrow={c.name.eyebrow} title={c.name.title} />
