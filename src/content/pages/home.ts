@@ -1,6 +1,6 @@
 import { facts } from "../facts";
 import { ambient, videos } from "../media";
-import { routes, bookMeeting } from "../site";
+import { routes, bookMeeting, trustline } from "../site";
 import type { CtaCardContent, FactContent, HeroContent, Point, Seo, Stat, WealthMapContent } from "../types";
 
 export const home = {
@@ -15,7 +15,7 @@ export const home = {
     title: "Vi tager os af dine investeringer, så du kan tage dig af *livet*",
     lead: "Uafhængig rådgivning om din samlede formue – for selskaber, privatpersoner, virksomhedsejere og familier.",
     actions: [bookMeeting, { label: "Hvem spiser din lagkage?", href: routes.guide, variant: "secondary" }],
-    trustline: `Uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet · Etableret ${facts.founded} · Medarbejderejet siden ${facts.employeeOwnedSince}`,
+    trustline,
   } satisfies HeroContent,
   heroMedia: ambient.office,
 

@@ -1,3 +1,4 @@
+import { facts } from "./facts";
 import type { Action, DisclaimerContent, LinkItem } from "./types";
 
 export const routes = {
@@ -37,6 +38,9 @@ export const brand = {
   logoAlt: "TOBA Advice",
   homeLabel: "TOBA Advice – forside",
 } as const;
+
+/** Tillidslinjen i hero'ens mørke bånd (forsiden, Sådan investerer vi). Punkterne adskilles af " · ". */
+export const trustline = `Uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet · Etableret ${facts.founded} · Medarbejderejet siden ${facts.employeeOwnedSince}`;
 
 export const bookMeeting: Action = { label: "Book et møde", href: routes.bookMeeting, variant: "primary" };
 

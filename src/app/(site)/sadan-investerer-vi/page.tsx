@@ -28,6 +28,7 @@ export default function HowWeInvestPage() {
       <Hero
         content={c.hero}
         layout="bleed"
+        trustBand
         aside={
           <Media
             media={c.heroMedia}

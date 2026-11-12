@@ -1,6 +1,6 @@
 import { facts } from "../facts";
 import { images } from "../media";
-import { routes, bookMeeting } from "../site";
+import { routes, bookMeeting, trustline } from "../site";
 import type { FaqItem, HeroContent, ManagerMapContent, Point, QuoteContent, Seo, Stat, StepContent, NewsTeaserContent } from "../types";
 
 export const howWeInvest = {
@@ -25,6 +25,7 @@ export const howWeInvest = {
     title: "Sådan *investerer* vi",
     lead: "En klar plan, de bedste forvaltere og en rådgiver, der følger med hele vejen. Her kan du se, hvordan vi arbejder med din formue.",
     actions: [bookMeeting, { label: "Se hvordan", href: "#strategi", variant: "secondary" }],
+    trustline,
   } satisfies HeroContent,
   heroMedia: images.meetingTable,
 
