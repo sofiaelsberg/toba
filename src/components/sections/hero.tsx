@@ -20,6 +20,10 @@ type HeroProps = {
   className?: string;
 };
 
+/** Teksten følger sidebreddens venstre kant (som .wrap); mediet tager resten ud til skærmens højre kant. */
+const bleedGutter = "max(1.5rem, calc((100% - 72rem) / 2))";
+const bleedColumns = `${bleedGutter} minmax(0, 7fr) minmax(0, 5fr) ${bleedGutter}`;
+
 /** Sidens top: overlinje, H1 med ét fremhævet ord, indledning, knapper og evt. tillidslinje. */
 export function Hero({ content, aside, surface = "cream", layout = "split", trustBand = false, className }: HeroProps) {
   const text = (
@@ -41,7 +45,7 @@ export function Hero({ content, aside, surface = "cream", layout = "split", trus
   if (layout === "bleed" && aside) {
     return (
       <section className={cn(surface === "navy" ? "on-navy bg-navy text-on-navy" : "bg-cream", className)}>
-        <div className="hero-bleed flex flex-col md:grid md:min-h-[36rem]">
+        <div className="flex flex-col md:grid md:min-h-[36rem]" style={{ gridTemplateColumns: bleedColumns }}>
           <div className="order-2 px-6 py-12 md:order-none md:col-start-2 md:self-center md:py-20 md:pr-12 md:pl-0">{text}</div>
           <div className="relative order-1 md:order-none md:col-span-2 md:col-start-3">{aside}</div>
         </div>

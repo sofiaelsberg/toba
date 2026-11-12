@@ -179,11 +179,6 @@
   .tabular {
     font-variant-numeric: tabular-nums;
   }
-  /* Hero med medie til skærmkanten: teksten følger .wrap's venstre kant, mediet løber ud til højre kant. */
-  .hero-bleed {
-    --gutter: max(1.5rem, calc((100% - 72rem) / 2));
-    grid-template-columns: var(--gutter) minmax(0, 7fr) minmax(0, 5fr) var(--gutter);
-  }
 }
 
 /*
