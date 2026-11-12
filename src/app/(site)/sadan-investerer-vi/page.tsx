@@ -25,7 +25,18 @@ export const metadata: Metadata = pageMetadata(routes.howWeInvest, c.seo);
 export default function HowWeInvestPage() {
   return (
     <>
-      <Hero content={c.hero} aside={<Media media={c.heroMedia} priority />} />
+      <Hero
+        content={c.hero}
+        layout="bleed"
+        aside={
+          <Media
+            media={c.heroMedia}
+            priority
+            sizes="(min-width: 768px) 45vw, 100vw"
+            className="aspect-4/3 object-cover object-[center_20%] md:absolute md:inset-0 md:aspect-auto md:size-full"
+          />
+        }
+      />
       <AnchorNav items={c.anchors} label={c.anchorNavLabel} />
 
       <Section surface="white" id="strategi">
