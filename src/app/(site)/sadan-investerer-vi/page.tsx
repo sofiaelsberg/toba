@@ -80,6 +80,7 @@ export default function HowWeInvestPage() {
             <SectionHeading rule title={c.managers.title} />
             <p>{c.managers.lead}</p>
           </Split>
+          <div aria-hidden className="border-t-2 border-gold-light" />
           <Split align="start">
             <AccordionList items={c.managers.process} defaultOpen={0} />
             <div className="flex flex-col gap-6">
