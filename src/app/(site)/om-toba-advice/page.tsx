@@ -37,17 +37,6 @@ export default function AboutPage() {
         </Split>
       </Section>
 
-      <Section surface="white">
-        <Split align="start">
-          <SectionHeading rule title={c.owned.title} />
-          <div className="flex flex-col gap-4">
-            {c.owned.text.map((t) => (
-              <p key={t}>{t}</p>
-            ))}
-          </div>
-        </Split>
-      </Section>
-
       <Section>
         <div className="flex flex-col gap-10">
           <div className="flex flex-wrap items-end justify-between gap-6">
