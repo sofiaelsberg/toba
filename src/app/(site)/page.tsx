@@ -28,7 +28,12 @@ export const metadata: Metadata = pageMetadata(routes.home, c.seo);
 export default function HomePage() {
   return (
     <>
-      <Hero content={c.hero} aside={<AmbientVideo video={c.heroMedia} />} />
+      <Hero
+        content={c.hero}
+        layout="bleed"
+        trustBand
+        aside={<AmbientVideo video={c.heroMedia} className="aspect-[4/3] md:absolute md:inset-0 md:aspect-auto" />}
+      />
 
       <Section surface="white">
         <Split>
