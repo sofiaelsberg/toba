@@ -1,25 +1,25 @@
-import type { Metadata } from "next";
-
-import { ButtonLink, TextLink } from "@/components/blocks/links";
-import { AmbientVideo } from "@/components/blocks/ambient-video";
 import { AdvisersVisual, CakeVisual, OverviewVisual } from "@/components/blocks/card-visuals";
-import { Media } from "@/components/blocks/media";
-import { Caption } from "@/components/blocks/typography";
-import { VideoBlock } from "@/components/blocks/video-block";
-import { ShareFact } from "@/components/interactive/charts";
-import { LayerCake } from "@/components/interactive/layer-cake";
-import { NewsTeaser } from "@/components/news/news-teaser";
+import { ButtonLink, TextLink } from "@/components/blocks/links";
 import { CtaBand, CtaCards } from "@/components/sections/cta";
-import { Hero } from "@/components/sections/hero";
-import { Disclaimer } from "@/components/sections/legal";
+import { FactBox, StatsRow } from "@/components/sections/stats";
 import { PointList, ValueGrid } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
-import { FactBox, StatsRow } from "@/components/sections/stats";
-import { cake } from "@/content/cake";
+import { disclaimers, routes } from "@/content/site";
+
+import { AmbientVideo } from "@/components/blocks/ambient-video";
+import { Caption } from "@/components/blocks/typography";
+import { Disclaimer } from "@/components/sections/legal";
+import { Hero } from "@/components/sections/hero";
+import { LayerCake } from "@/components/interactive/layer-cake";
+import { Media } from "@/components/blocks/media";
+import type { Metadata } from "next";
+import { NewsTeaser } from "@/components/news/news-teaser";
+import { ShareFact } from "@/components/interactive/charts";
+import { VideoBlock } from "@/components/blocks/video-block";
 import { home as c } from "@/content/pages/home";
+import { cake } from "@/content/cake";
 import { independent } from "@/content/pages/independent";
 import { overview } from "@/content/pages/overview";
-import { disclaimers, routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.home, c.seo);
@@ -32,7 +32,7 @@ export default function HomePage() {
         content={c.hero}
         layout="bleed"
         trustBand
-        aside={<AmbientVideo video={c.heroMedia} className="aspect-[4/3] md:absolute md:inset-0 md:aspect-auto" />}
+        aside={<AmbientVideo video={c.heroMedia} className="aspect-4/3 md:absolute md:inset-0 md:aspect-auto" />}
       />
 
       <Section surface="white">
@@ -73,7 +73,14 @@ export default function HomePage() {
           </div>
           <VideoBlock video={c.bank.video} />
         </Split>
-        <ShareFact className="mt-14" value={c.bank.value} label={c.bank.factLabel} text={c.bank.factText} segments={c.bank.segments} source={c.bank.source} />
+        <ShareFact
+          className="mt-14"
+          value={c.bank.value}
+          label={c.bank.factLabel}
+          text={c.bank.factText}
+          segments={c.bank.segments}
+          source={c.bank.source}
+        />
       </Section>
 
       <Section surface="white" id="lagkage">
