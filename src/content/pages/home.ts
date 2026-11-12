@@ -1,7 +1,7 @@
 import { facts } from "../facts";
 import { ambient, images, videos } from "../media";
 import { routes, bookMeeting } from "../site";
-import type { CtaCardContent, HeroContent, Point, Seo, Stat, ValueItem, NewsTeaserContent } from "../types";
+import type { CtaCardContent, FactContent, HeroContent, Point, Seo, Stat, ValueItem, NewsTeaserContent } from "../types";
 
 export const home = {
   seo: {
@@ -138,12 +138,21 @@ export const home = {
     link: { label: "Læs mere om uafhængig investeringsrådgivning →", href: routes.independent },
   },
 
-  pricing: {
-    eyebrow: "Fair priser – regn selv efter",
-    title: "Vi forhandler rabatterne hjem. Du beholder dem.",
-    text: `I ${facts.rebatesPaid.paidYear} udbetalte vi **${String(facts.rebatesPaid.amountMio).replace(".", ",")} mio. kr.** i forvalterrabatter til vores kunder. Hver krone gik ubeskåret videre.`,
+  terms: {
+    title: "Sammen får vi bedre vilkår",
+    lead: "Når vi forhandler på vegne af alle vores kunder, kan vi opnå bedre vilkår hos kapitalforvalterne. Rabatterne går ubeskåret videre til dig.",
+    fact: {
+      value: facts.rebatesPaid.amountMio,
+      decimals: 1,
+      suffix: " mio. kr.",
+      label: `udbetalt til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}.`,
+    } satisfies FactContent,
     video: videos.v05,
+    text: "Vil du vide, hvad dine investeringer samlet koster? Vi gennemgår dine omkostninger og giver dig et overblik i kroner og procent – gratis og uforpligtende.",
+    action: { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "light" as const },
+    link: { label: "Hent guiden “Hvem spiser din lagkage?” →", href: routes.guide },
   },
+
 
   calculator: {
     title: "Hvad koster rådgivningen – når rabatterne er trukket fra?",

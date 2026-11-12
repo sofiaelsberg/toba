@@ -4,11 +4,9 @@ import { ButtonLink, TextLink } from "@/components/blocks/links";
 import { AmbientVideo } from "@/components/blocks/ambient-video";
 import { AdvisersVisual, CakeVisual, OverviewVisual } from "@/components/blocks/card-visuals";
 import { Media } from "@/components/blocks/media";
-import { RichText } from "@/components/blocks/rich-text";
 import { Caption } from "@/components/blocks/typography";
 import { VideoBlock } from "@/components/blocks/video-block";
 import { ShareFact } from "@/components/interactive/charts";
-import { CostCalculator } from "@/components/interactive/cost-calculator";
 import { LayerCake } from "@/components/interactive/layer-cake";
 import { NewsTeaser } from "@/components/news/news-teaser";
 import { CtaBand, CtaCards } from "@/components/sections/cta";
@@ -17,7 +15,7 @@ import { Disclaimer } from "@/components/sections/legal";
 import { PointList, ValueGrid } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
-import { StatsRow } from "@/components/sections/stats";
+import { FactBox, StatsRow } from "@/components/sections/stats";
 import { cake } from "@/content/cake";
 import { home as c } from "@/content/pages/home";
 import { independent } from "@/content/pages/independent";
@@ -99,21 +97,6 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section surface="white" id="beregner">
-        <div className="flex flex-col gap-12">
-          <Split align="start">
-            <div className="flex flex-col gap-5">
-              <SectionHeading eyebrow={c.pricing.eyebrow} title={c.pricing.title} />
-              <p>
-                <RichText text={c.pricing.text} />
-              </p>
-            </div>
-            <VideoBlock video={c.pricing.video} className="w-full max-w-95 md:justify-self-end" />
-          </Split>
-          <CostCalculator content={c.calculator} />
-        </div>
-      </Section>
-
       <Section>
         <Split>
           <SectionHeading rule title={c.professional.title} />
@@ -145,6 +128,25 @@ export default function HomePage() {
 
       <Section spacing="compact">
         <StatsRow stats={c.stats} />
+      </Section>
+
+      <Section surface="navy" id="vilkaar">
+        <Split>
+          <div className="flex flex-col gap-6">
+            <SectionHeading rule title={c.terms.title} lead={c.terms.lead} />
+            <FactBox fact={c.terms.fact} tone="plain" className="border-t border-white/20 pt-6" />
+          </div>
+          <VideoBlock video={c.terms.video} />
+        </Split>
+        <div className="mt-14 flex flex-col gap-6 border-t border-white/20 pt-8 md:flex-row md:items-center md:justify-between md:gap-12">
+          <p className="max-w-measure">{c.terms.text}</p>
+          <div className="flex shrink-0 flex-col items-start gap-4">
+            <ButtonLink action={c.terms.action} />
+            <TextLink href={c.terms.link.href} className="text-small font-normal">
+              {c.terms.link.label}
+            </TextLink>
+          </div>
+        </div>
       </Section>
 
       <Section surface="white">
