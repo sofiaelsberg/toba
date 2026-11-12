@@ -13,14 +13,12 @@ import { CtaBand, CtaCards } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
 import { PointList, ValueGrid } from "@/components/sections/lists";
-import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { FactBox, StatsRow } from "@/components/sections/stats";
 import { cake } from "@/content/cake";
 import { home as c } from "@/content/pages/home";
 import { independent } from "@/content/pages/independent";
 import { overview } from "@/content/pages/overview";
-import { advisers } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
@@ -145,20 +143,6 @@ export default function HomePage() {
             <TextLink href={c.terms.link.href} className="text-small font-normal">
               {c.terms.link.label}
             </TextLink>
-          </div>
-        </div>
-      </Section>
-
-      <Section surface="white">
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading rule title={c.advisers.title} lead={c.advisers.lead} />
-            <TextLink href={c.advisers.link.href}>{c.advisers.link.label}</TextLink>
-          </div>
-          <PeopleGrid people={advisers} />
-          <div className="flex flex-col items-start gap-5 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
-            <p className="max-w-150">{c.advisers.text}</p>
-            <ButtonLink action={c.advisers.contact} />
           </div>
         </div>
       </Section>

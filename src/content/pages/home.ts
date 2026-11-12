@@ -200,13 +200,7 @@ export const home = {
     { value: facts.yearsSelectingManagers, suffix: "+ år", label: "med udvælgelse af kapitalforvaltere" },
   ] satisfies Stat[],
 
-  advisers: {
-    title: "Mød dine rådgivere",
-    lead: "Hos TOBA Advice får du en personlig rådgiver, du kan sparre med om dine investeringer. Her kan du møde nogle af de mennesker, der står klar til at hjælpe dig.",
-    text: "Har du spørgsmål, eller er du i tvivl om, hvem du skal kontakte? Så tag endelig fat i os. Vi hjælper dig gerne videre.",
-    link: { label: "Se hele vores team →", href: routes.team },
-    contact: { label: "Kontakt TOBA Advice", href: routes.contact, variant: "secondary" as const },
-  },
+
 
   closing: {
     title: "Lad os tage en snak",
