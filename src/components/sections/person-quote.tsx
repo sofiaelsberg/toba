@@ -20,7 +20,7 @@ export function PersonQuote({ text, person, className }: { text: string; person:
       </div>
       <div className="flex max-w-[46rem] flex-col gap-5">
         <GoldRule />
-        <blockquote className="font-serif text-[1.25rem] leading-[1.875rem] font-medium text-balance text-navy md:text-quote md:leading-(--text-quote--line-height)">
+        <blockquote className="text-[1.1875rem] leading-[1.875rem] text-balance text-navy md:text-[1.375rem] md:leading-[2.125rem]">
           <p>{text}</p>
         </blockquote>
         <figcaption>
