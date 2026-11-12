@@ -15,7 +15,6 @@ export const news = {
     lead: "Analyser, holdninger og nyheder fra os om investering, omkostninger og risiko. Alle indlæg er også delt på vores LinkedIn-side.",
     actions: [{ label: "Følg TOBA på LinkedIn", href: company.linkedin, variant: "primary" }],
   } satisfies HeroContent,
-  heroMedia: images.whiteboard,
 
   readMore: "Læs indlægget",
   slidesBadge: "Med slides",
