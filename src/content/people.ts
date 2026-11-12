@@ -111,7 +111,7 @@ const raw: Omit<Person, "portrait">[] = [
   {
     slug: "kristian-blaesbjerg-larsen",
     name: "Kristian Blæsbjerg Larsen",
-    title: "Investeringsstrateg",
+    title: "Investeringsstrateg / Partner",
     group: "analyse",
     bio: [],
   },
