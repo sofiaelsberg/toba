@@ -75,18 +75,20 @@ export default function HomePage() {
       </Section>
 
       <Section surface="white">
-        <Split>
-          <PeopleGrid people={advisers} size="sm" className="order-2 md:order-none" />
+        <div className="flex flex-col gap-10 md:gap-12">
           <div className="flex flex-col gap-5">
             <SectionHeading eyebrow={c.about.eyebrow} title={c.about.title} />
             {c.about.text.map((t) => (
-              <p key={t}>{t}</p>
+              <p key={t} className="max-w-measure">
+                {t}
+              </p>
             ))}
             <TextLink href={c.about.link.href} className="self-start">
               {c.about.link.label}
             </TextLink>
           </div>
-        </Split>
+          <PeopleGrid people={advisers} />
+        </div>
       </Section>
 
       <Section spacing="compact">
