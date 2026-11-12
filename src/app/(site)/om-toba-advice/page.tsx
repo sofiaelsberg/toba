@@ -11,7 +11,6 @@ import { Disclaimer } from "@/components/sections/legal";
 import { FeatureList } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
-import { StatsRow } from "@/components/sections/stats";
 import { about as c } from "@/content/pages/about";
 import { advisers } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
@@ -69,10 +68,6 @@ export default function AboutPage() {
             {c.benefits.link.label}
           </TextLink>
         </div>
-      </Section>
-
-      <Section spacing="compact">
-        <StatsRow stats={c.stats} />
       </Section>
 
       <Section surface="white">
