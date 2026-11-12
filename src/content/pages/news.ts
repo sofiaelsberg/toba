@@ -1,5 +1,5 @@
 import { images } from "../media";
-import { bookMeeting, routes } from "../site";
+import { bookMeeting, company, routes } from "../site";
 import type { HeroContent, Seo } from "../types";
 
 /** /nyheder – artikler bygget på TOBA Advices LinkedIn-opslag (selve artiklerne ligger i src/content/news/). */
@@ -13,6 +13,7 @@ export const news = {
     eyebrow: "Nyheder",
     title: "Nyheder og *indsigt*",
     lead: "Analyser, holdninger og nyheder fra os om investering, omkostninger og risiko. Alle indlæg er også delt på vores LinkedIn-side.",
+    actions: [{ label: "Følg TOBA på LinkedIn", href: company.linkedin, variant: "primary" }],
   } satisfies HeroContent,
   heroMedia: images.whiteboard,
 
