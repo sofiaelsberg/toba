@@ -42,11 +42,9 @@ export const bookMeeting: Action = { label: "Book et møde", href: routes.bookMe
 
 export const mainNav: LinkItem[] = [
   { label: "Sådan investerer vi", href: routes.howWeInvest },
-  { label: "Uafhængig rådgivning", href: routes.independent },
   { label: "Om TOBA", href: routes.about },
   { label: "Team", href: routes.team },
   { label: "Nyheder", href: routes.news },
-  { label: "Kontakt", href: routes.contact },
 ];
 
 export const clientPortalLink: LinkItem = { label: "Kundeportal", href: routes.clientPortal, external: true };
