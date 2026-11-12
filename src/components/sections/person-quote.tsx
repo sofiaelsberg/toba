@@ -18,9 +18,9 @@ export function PersonQuote({ text, person, className }: { text: string; person:
           className="size-full object-cover"
         />
       </div>
-      <div className="flex max-w-[46rem] flex-col gap-5">
+      <div className="flex flex-col gap-5">
         <GoldRule />
-        <blockquote className="text-[1.1875rem] leading-[1.875rem] text-balance text-navy md:text-[1.375rem] md:leading-[2.125rem]">
+        <blockquote className="text-[1.1875rem] leading-[1.875rem] text-navy md:text-[1.375rem] md:leading-[2.125rem]">
           <p>{text}</p>
         </blockquote>
         <figcaption>
