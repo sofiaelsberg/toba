@@ -1,6 +1,6 @@
 import { facts } from "../facts";
 import { images, linkedin, videos } from "../media";
-import { company, routes, bookMeeting } from "../site";
+import { company, routes, bookMeeting, trustline } from "../site";
 import type { FeatureContent, HeroContent, Seo, Stat } from "../types";
 
 export const about = {
@@ -15,6 +15,7 @@ export const about = {
     title: "Vi er uafhængige, ejet af medarbejderne – og på *din side*",
     lead: "Fra vores kontor i Aarhus rådgiver vi kunder i hele Danmark – og vi kommer gerne ud til dig.",
     actions: [bookMeeting],
+    trustline,
   } satisfies HeroContent,
   heroMedia: images.officeWindow,
 

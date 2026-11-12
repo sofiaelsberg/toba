@@ -23,7 +23,19 @@ export default function AboutPage() {
   const coo = people.find((p) => p.slug === c.cooQuote.personSlug);
   return (
     <>
-      <Hero content={c.hero} aside={<Media media={c.heroMedia} priority />} />
+      <Hero
+        content={c.hero}
+        layout="bleed"
+        trustBand
+        aside={
+          <Media
+            media={c.heroMedia}
+            priority
+            sizes="(min-width: 768px) 45vw, 100vw"
+            className="aspect-4/3 object-cover md:absolute md:inset-0 md:aspect-auto md:size-full"
+          />
+        }
+      />
 
       <Section surface="navy">
         <Split align="start">
