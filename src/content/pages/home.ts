@@ -1,5 +1,5 @@
 import { facts } from "../facts";
-import { ambient, images, videos } from "../media";
+import { ambient, videos } from "../media";
 import { routes, bookMeeting } from "../site";
 import type { CtaCardContent, FactContent, HeroContent, Point, Seo, Stat, WealthMapContent } from "../types";
 
@@ -141,7 +141,6 @@ export const home = {
       "TOBA Advice er en medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver personer med en investerbar formue på mindst 5 mio. kr. – med skræddersyet rådgivning og frit valg på alle hylder.",
     ],
     link: { label: "Læs om TOBA →", href: routes.about },
-    media: images.sameSide,
   },
 
   stats: [

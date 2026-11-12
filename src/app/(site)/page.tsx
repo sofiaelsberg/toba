@@ -3,14 +3,15 @@ import { ButtonLink, TextLink } from "@/components/blocks/links";
 import { CtaBand, CtaCards } from "@/components/sections/cta";
 import { FactBox, StatsRow } from "@/components/sections/stats";
 import { PointList } from "@/components/sections/lists";
+import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { WealthMap } from "@/components/sections/wealth-map";
+import { advisers } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
 
 import { AmbientVideo } from "@/components/blocks/ambient-video";
 import { Disclaimer } from "@/components/sections/legal";
 import { Hero } from "@/components/sections/hero";
-import { Media } from "@/components/blocks/media";
 import type { Metadata } from "next";
 import { ShareFact } from "@/components/interactive/charts";
 import { VideoBlock } from "@/components/blocks/video-block";
@@ -75,7 +76,7 @@ export default function HomePage() {
 
       <Section surface="white">
         <Split>
-          <Media media={c.about.media} />
+          <PeopleGrid people={advisers} size="sm" className="order-2 md:order-none" />
           <div className="flex flex-col gap-5">
             <SectionHeading eyebrow={c.about.eyebrow} title={c.about.title} />
             {c.about.text.map((t) => (
