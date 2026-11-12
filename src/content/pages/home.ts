@@ -51,18 +51,19 @@ export const home = {
     title: "Vi sidder på *samme side* af bordet",
     lead: "Hos TOBA Advice arbejder vi for at sikre dig attraktive og fair vilkår for dine investeringer. Vi har ingen økonomisk interesse i at anbefale bestemte investeringsprodukter.",
     points: [
-      { title: "En sparringspartner – ikke en sælger.", text: "Sammen lægger vi en klar retning for dine investeringer." },
       {
         title: "En strategi, der passer til dig.",
-        text: "Skræddersyet til dine ønsker og behov – og fulgt løbende op, når din situation ændrer sig.",
+        text: "Vi tager udgangspunkt i dine mål og behov og justerer, når din situation ændrer sig.",
       },
-      { title: "Direkte adgang til din rådgiver.", text: "Du ved, hvem du taler med – i både gode og dårlige tider." },
+      {
+        title: "Direkte adgang til din rådgiver.",
+        text: "Du har en fast rådgiver, der kender dig og din formue – i både gode og dårlige tider.",
+      },
       {
         title: "Overblik, når det passer dig.",
-        text: "Følg din formue online – på web og i app – og få en rapport hvert kvartal.",
+        text: "Følg din formue på web og i app, og få en rapport hvert kvartal.",
       },
     ] satisfies Point[],
-    quote: "For værdi handler om mere end et godt afkast. Det handler om tillid og ordentlighed.",
     video: videos.v03,
   },
 

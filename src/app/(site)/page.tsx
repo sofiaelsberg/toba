@@ -39,7 +39,6 @@ export default function HomePage() {
           <div className="flex flex-col gap-6">
             <SectionHeading rule title={c.sameSide.title} lead={c.sameSide.lead} />
             <PointList points={c.sameSide.points} />
-            <p className="font-serif text-quote font-medium text-navy italic">{c.sameSide.quote}</p>
           </div>
           <VideoBlock video={c.sameSide.video} />
         </Split>
