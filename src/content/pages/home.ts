@@ -140,7 +140,7 @@ export const home = {
     text: [
       "TOBA Advice er en medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver personer med en investerbar formue på mindst 5 mio. kr. – med skræddersyet rådgivning og frit valg på alle hylder.",
     ],
-    link: { label: "Læs om TOBA →", href: routes.about },
+    link: { label: "Mød hele teamet →", href: routes.team },
   },
 
   stats: [
