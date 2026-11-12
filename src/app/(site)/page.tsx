@@ -81,20 +81,6 @@ export default function HomePage() {
         />
       </Section>
 
-      <Section>
-        <Split>
-          <SectionHeading rule title={c.professional.title} />
-          <div className="flex flex-col gap-4">
-            {c.professional.text.map((t) => (
-              <p key={t}>{t}</p>
-            ))}
-            <TextLink href={c.professional.link.href} className="self-start">
-              {c.professional.link.label}
-            </TextLink>
-          </div>
-        </Split>
-      </Section>
-
       <Section surface="white">
         <Split>
           <Media media={c.about.media} />

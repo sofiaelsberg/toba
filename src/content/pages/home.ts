@@ -121,15 +121,6 @@ export const home = {
       "Eksempel. Portefølje med 35 % aktier, 40 % obligationer og 25 % alternativer, middel risiko. Honorar ekskl. moms. Rabatter udbetales kontant eller som institutionel andelsklasse. Dine faktiske omkostninger afhænger af din portefølje.",
   },
 
-  professional: {
-    title: "Investér som de *professionelle*",
-    text: [
-      `Vi udvælger kapitalforvaltere gennem en grundig, faglig proces og samarbejder i dag med ${facts.managers} forvaltere i ${facts.countries} lande.`,
-      "Ingen kunder er ens. Derfor sammensætter vi en investeringsstrategi med udgangspunkt i dine mål, din tidshorisont og den risiko, du er villig til at tage.",
-    ],
-    link: { label: "Sådan investerer vi →", href: routes.howWeInvest },
-  },
-
   about: {
     eyebrow: "Om TOBA Advice",
     title: "Ejet af dem, der rådgiver dig",
