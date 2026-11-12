@@ -12,8 +12,8 @@ export const home = {
 
   hero: {
     eyebrow: "Uafhængig investeringsrådgivning",
-    title: "Investeringsrådgivning som den *bør* være",
-    lead: "Ingen skjulte gebyrer. Ingen skjulte interesser. Kun ærlig rådgivning, hvor du ved præcis, hvad du betaler for – og hvem vi arbejder for: dig.",
+    title: "Vi tager os af dine investeringer, så du kan tage dig af *livet*",
+    lead: "Uafhængig rådgivning om din samlede formue – for selskaber, privatpersoner, virksomhedsejere og familier.",
     actions: [bookMeeting, { label: "Hvem spiser din lagkage?", href: "#lagkage", variant: "secondary" }],
     trustline: `Uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet · Etableret ${facts.founded} · Medarbejderejet siden ${facts.employeeOwnedSince}`,
   } satisfies HeroContent,
