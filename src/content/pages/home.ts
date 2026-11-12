@@ -72,12 +72,7 @@ export const home = {
     lead: "De fleste har formuen fordelt flere steder. Vi rådgiver om investeringerne på tværs af alle dine skattemiljøer, så det hele hænger sammen.",
     map: {
       label: "Én samlet strategi",
-      areas: [
-        { title: "Frie midler", text: "Opsparing og investeringer i dit eget navn." },
-        { title: "Pensionsmidler", text: "Rate-, livrente- og aldersopsparing." },
-        { title: "Virksomheds\u00adskatteordningen", text: "Opsparet overskud i din virksomhed." },
-        { title: "Holding- og driftsselskab", text: "Selskabets likviditet og investeringer." },
-      ],
+      areas: ["Frie midler", "Pensionsmidler", "Virksomheds\u00adskatteordningen", "Holding- og driftsselskab"],
       family: {
         title: "Og familieplanen",
         text: "Skat, ægtepagt, testamente og generationsskifte. Vi sparrer med dig, henviser til advokater og revisorer, vi stoler på – og sørger for, at tingene sker.",

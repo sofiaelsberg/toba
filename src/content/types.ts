@@ -169,6 +169,6 @@ export type NewsTeaserContent = {
 /** "Én strategi for hele din formue": skattemiljøer + familieplanen. */
 export type WealthMapContent = {
   label: string;
-  areas: { title: string; text: string }[];
+  areas: string[];
   family: { title: string; text: string };
 };

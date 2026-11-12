@@ -16,10 +16,9 @@ export function WealthMap({ content, className }: { content: WealthMapContent; c
         <Eyebrow className="-mt-3 bg-cream px-3">{content.label}</Eyebrow>
       </div>
       <ul className="grid grid-cols-1 gap-px bg-line sm:grid-cols-2">
-        {content.areas.map((a) => (
-          <li key={a.title} className="flex flex-col gap-1 bg-white p-6">
-            <p className="font-serif text-[1.375rem] leading-7 font-medium text-navy">{a.title}</p>
-            <p className="text-small text-ink-muted">{a.text}</p>
+        {content.areas.map((area) => (
+          <li key={area} className="bg-white p-6 font-serif text-[1.375rem] leading-7 font-medium text-navy">
+            {area}
           </li>
         ))}
       </ul>
