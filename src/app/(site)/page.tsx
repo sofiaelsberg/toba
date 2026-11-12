@@ -7,7 +7,7 @@ import { Media } from "@/components/blocks/media";
 import { RichText } from "@/components/blocks/rich-text";
 import { Caption } from "@/components/blocks/typography";
 import { VideoBlock } from "@/components/blocks/video-block";
-import { ShareBar } from "@/components/interactive/charts";
+import { ShareFact } from "@/components/interactive/charts";
 import { CostCalculator } from "@/components/interactive/cost-calculator";
 import { LayerCake } from "@/components/interactive/layer-cake";
 import { NewsTeaser } from "@/components/news/news-teaser";
@@ -72,9 +72,7 @@ export default function HomePage() {
           </div>
           <VideoBlock video={c.bank.video} />
         </Split>
-        <div className="mt-16 border-t-2 border-gold-light pt-8">
-          <ShareBar value={c.bank.value} lead={c.bank.lead} segments={c.bank.segments} source={c.bank.source} />
-        </div>
+        <ShareFact className="mt-14" value={c.bank.value} label={c.bank.factLabel} text={c.bank.factText} source={c.bank.source} />
       </Section>
 
       <Section surface="white" id="lagkage">

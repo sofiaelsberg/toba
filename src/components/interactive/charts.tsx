@@ -46,6 +46,30 @@ export function ShareBar({ value, lead, segments, source, className }: { value: 
   );
 }
 
+/**
+ * Kompakt faktaboks: tallet tæller op til venstre, en kort forklaring til højre.
+ * Bruges som understøttende element under en sektion (fx forsiden), ikke som blikfang.
+ */
+export function ShareFact({ value, label, text, source, className }: { value: number; label?: string; text: string; source?: string; className?: string }) {
+  const { ref, progress } = useProgressInView<HTMLDivElement>({ amount: 0.6, duration: 1.2 });
+
+  return (
+    <div ref={ref} className={cn("grid grid-cols-1 items-center gap-4 border-y border-white/20 py-8 md:grid-cols-[auto_minmax(0,1fr)] md:gap-12", className)}>
+      <p className="tabular font-serif text-[3.5rem] leading-none font-medium text-gold md:text-[4.5rem]">
+        <span aria-hidden>{Math.round(progress * value)} %</span>
+        <span className="sr-only">{value} %</span>
+      </p>
+      <div className="flex max-w-[40rem] flex-col gap-2">
+        <p>
+          {label && <strong className="font-semibold">{label} </strong>}
+          {text}
+        </p>
+        {source && <p className="text-caption text-on-navy-muted">{source}</p>}
+      </div>
+    </div>
+  );
+}
+
 type Series = { label: string; rate: number };
 
 /** To søjler der vokser fra startformuen til slutværdien; forskellen tæller op. */

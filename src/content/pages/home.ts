@@ -75,11 +75,8 @@ export const home = {
     ],
     action: { label: "Læs mere om uafhængig investeringsrådgivning", href: routes.independent, variant: "light" as const },
     value: facts.ownFundsTop5Pct,
-    lead: "af fondsbeholdningerne hos de fem største danske banker ligger i gennemsnit i bankernes egne fonde.",
-    segments: [
-      { label: "bankernes egne fonde", value: facts.ownFundsTop5Pct },
-      { label: "andre fonde", value: 100 - facts.ownFundsTop5Pct },
-    ],
+    factLabel: "Finanstilsynets analyse:",
+    factText: `${facts.ownFundsTop5Pct} % af fondsbeholdningerne hos de fem største danske banker ligger i gennemsnit i bankernes egne fonde. Bertel forklarer, hvad det betyder for dig.`,
     source: "Kilde: Finanstilsynet, “Bankernes salg af egne fonde”, maj 2026.",
     video: videos.v09,
   },
