@@ -23,7 +23,7 @@ export function AnchorNav({ items, label }: { items: { id: string; label: string
   }, [items]);
 
   return (
-    <nav aria-label={label} className="sticky top-20 z-10 border-y border-line bg-cream">
+    <nav aria-label={label} className="sticky top-20 z-10 border-y border-line bg-white">
       <ul className="wrap flex gap-8 overflow-x-auto">
         {items.map((i) => (
           <li key={i.id}>
