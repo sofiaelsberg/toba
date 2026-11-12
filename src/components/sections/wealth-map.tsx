@@ -17,7 +17,7 @@ export function WealthMap({ content, className }: { content: WealthMapContent; c
       </div>
       <ul className="grid grid-cols-1 gap-px bg-line sm:grid-cols-2">
         {content.areas.map((area) => (
-          <li key={area} className="bg-white p-6 font-serif text-[1.375rem] leading-7 font-medium text-navy">
+          <li key={area} className="bg-white px-6 py-5 text-[1.125rem] leading-7 font-semibold text-navy">
             {area}
           </li>
         ))}
