@@ -2,7 +2,7 @@ import { AdvisersVisual, CakeVisual, OverviewVisual } from "@/components/blocks/
 import { ButtonLink, TextLink } from "@/components/blocks/links";
 import { CtaBand, CtaCards } from "@/components/sections/cta";
 import { FactBox, StatsRow } from "@/components/sections/stats";
-import { PointList, ValueGrid } from "@/components/sections/lists";
+import { PointList } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { disclaimers, routes } from "@/content/site";
 
@@ -79,16 +79,6 @@ export default function HomePage() {
           segments={c.bank.segments}
           source={c.bank.source}
         />
-      </Section>
-
-      <Section>
-        <div className="flex flex-col gap-12">
-          <SectionHeading rule title={c.values.title} />
-          <ValueGrid items={c.values.items} />
-          <TextLink href={c.values.link.href} className="self-start">
-            {c.values.link.label}
-          </TextLink>
-        </div>
       </Section>
 
       <Section>

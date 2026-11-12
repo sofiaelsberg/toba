@@ -1,7 +1,7 @@
 import { facts } from "../facts";
 import { ambient, images, videos } from "../media";
 import { routes, bookMeeting } from "../site";
-import type { CtaCardContent, FactContent, HeroContent, Point, Seo, Stat, ValueItem, NewsTeaserContent } from "../types";
+import type { CtaCardContent, FactContent, HeroContent, Point, Seo, Stat, NewsTeaserContent } from "../types";
 
 export const home = {
   seo: {
@@ -83,42 +83,6 @@ export const home = {
     ],
     source: "Kilde: Finanstilsynet, “Bankernes salg af egne fonde”, maj 2026.",
     video: videos.v09,
-  },
-
-  values: {
-    title: "Det betyder vores værdier for dig",
-    items: [
-      {
-        number: "01",
-        title: "Uafhængighed",
-        text: "Vi har ingen indtægter fra egen forvaltning eller handel. Derfor kan vi vælge frit mellem aktivklasser og investeringsprodukter.",
-        forYouLabel: "For dig:",
-        forYou:
-          "Du får rådgivning med udgangspunkt i dine interesser – ikke i hvilke produkter der giver rådgiveren størst indtjening.",
-      },
-      {
-        number: "02",
-        title: "Transparens",
-        text: "Du betaler et fast rådgivningshonorar, som ikke afhænger af, hvilke investeringer vi vælger. Vi får aldrig betaling for handler eller følgeforretninger.",
-        forYouLabel: "For dig:",
-        forYou: "Du ved præcis, hvad du betaler for – og hvorfor.",
-      },
-      {
-        number: "03",
-        title: "Fællesskab",
-        text: `Vi samler vores kunders volumen og forhandler rabatter hjem hos forvaltere og depotbanker. Rabatterne går ubeskåret videre – i ${facts.rebatesPaid.paidYear} udbetalte vi ${String(facts.rebatesPaid.amountMio).replace(".", ",")} mio. kr.`,
-        forYouLabel: "For dig:",
-        forYou: "Du får glæde af de stordriftsfordele, vi forhandler på vegne af vores kunder.",
-      },
-      {
-        number: "04",
-        title: "Adgang",
-        text: "Vi giver adgang til et professionelt investeringssetup og udvalgte investeringsmuligheder, som normalt kræver større investeringsbeløb.",
-        forYouLabel: "For dig:",
-        forYou: "Du kan få adgang til udvalgte investeringer på institutionelle vilkår.",
-      },
-    ] satisfies ValueItem[],
-    link: { label: "Læs mere om uafhængig investeringsrådgivning →", href: routes.independent },
   },
 
   terms: {
