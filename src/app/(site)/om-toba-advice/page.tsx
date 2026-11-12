@@ -38,12 +38,6 @@ export default function AboutPage() {
         </Split>
       </Section>
 
-      {coo && (
-        <Section surface="white">
-          <PersonQuote text={c.cooQuote.text} person={coo} />
-        </Section>
-      )}
-
       <Section>
         <div className="flex flex-col gap-10">
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -51,6 +45,7 @@ export default function AboutPage() {
             <TextLink href={c.advisers.link.href}>{c.advisers.link.label}</TextLink>
           </div>
           <PeopleGrid people={advisers} />
+          {coo && <PersonQuote text={c.cooQuote.text} person={coo} className="mt-6 border-t border-line pt-12" />}
         </div>
       </Section>
 
