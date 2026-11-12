@@ -4,6 +4,7 @@ import { CtaBand, CtaCards } from "@/components/sections/cta";
 import { FactBox, StatsRow } from "@/components/sections/stats";
 import { PointList } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
+import { WealthMap } from "@/components/sections/wealth-map";
 import { disclaimers, routes } from "@/content/site";
 
 import { AmbientVideo } from "@/components/blocks/ambient-video";
@@ -39,6 +40,13 @@ export default function HomePage() {
             <PointList points={c.sameSide.points} />
           </div>
           <VideoBlock video={c.sameSide.video} />
+        </Split>
+      </Section>
+
+      <Section>
+        <Split ratio="5-7" align="center">
+          <SectionHeading rule title={c.wholeWealth.title} lead={c.wholeWealth.lead} />
+          <WealthMap content={c.wholeWealth.map} />
         </Split>
       </Section>
 
