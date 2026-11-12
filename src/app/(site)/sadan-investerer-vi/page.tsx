@@ -13,16 +13,19 @@ import { CtaStrip } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
 import { AccordionList, NumberedSteps, QuoteBlock } from "@/components/sections/lists";
+import { PersonQuote } from "@/components/sections/person-quote";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { StatsRow } from "@/components/sections/stats";
 import { facts } from "@/content/facts";
 import { howWeInvest as c } from "@/content/pages/how-we-invest";
+import { people } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.howWeInvest, c.seo);
 
 export default function HowWeInvestPage() {
+  const cio = people.find((p) => p.slug === c.cioQuote.personSlug);
   return (
     <>
       <Hero
@@ -47,6 +50,12 @@ export default function HowWeInvestPage() {
           <QuoteBlock quote={c.strategy.quote} />
         </div>
       </Section>
+
+      {cio && (
+        <Section>
+          <PersonQuote text={c.cioQuote.text} person={cio} />
+        </Section>
+      )}
 
       <Section surface="navy" id="afkast">
         <div className="flex flex-col gap-10">

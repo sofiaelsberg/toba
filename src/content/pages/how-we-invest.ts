@@ -43,6 +43,12 @@ export const howWeInvest = {
     } satisfies QuoteContent,
   },
 
+  /** OBS: Udkast fra Anders' version – citatet skal godkendes af Bertel før lancering. */
+  cioQuote: {
+    personSlug: "bertel-roslev-rasmussen",
+    text: "“Mange forvaltere lover det bedste afkast og at kunne time markedet. Jeg lover ikke mere, end vi kan holde. Derfor bygger vi kernen af billige indeksfonde – og bruger kun aktive forvaltere dér, hvor de har bevist deres værdi.”",
+  },
+
   returns: {
     eyebrow: "Afkast og risiko",
     title: "Mere afkast – for den samme risiko",
