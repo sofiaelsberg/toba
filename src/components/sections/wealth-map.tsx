@@ -23,7 +23,7 @@ export function WealthMap({ content, className }: { content: WealthMapContent; c
         ))}
       </ul>
       <div className="on-navy flex flex-col gap-2 bg-navy p-6 text-on-navy md:p-7">
-        <p className="font-serif text-[1.375rem] leading-7 font-medium text-white">{content.family.title}</p>
+        <p className="text-[1.125rem] leading-7 font-semibold text-white">{content.family.title}</p>
         <p className="text-on-navy-muted">{content.family.text}</p>
       </div>
     </div>
