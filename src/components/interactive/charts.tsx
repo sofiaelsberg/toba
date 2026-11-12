@@ -77,7 +77,7 @@ export function ShareFact({
         <span aria-hidden>{Math.round(segments ? Math.min(value, filled) : progress * value)} %</span>
         <span className="sr-only">{value} %</span>
       </p>
-      <div className="flex max-w-[40rem] flex-col gap-2">
+      <div className="flex flex-col gap-2">
         <p>
           {label && <strong className="font-semibold">{label} </strong>}
           {text}
