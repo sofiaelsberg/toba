@@ -10,15 +10,17 @@ import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
 import { FeatureList } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
+import { PersonQuote } from "@/components/sections/person-quote";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { about as c } from "@/content/pages/about";
-import { advisers } from "@/content/people";
+import { advisers, people } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.about, c.seo);
 
 export default function AboutPage() {
+  const coo = people.find((p) => p.slug === c.cooQuote.personSlug);
   return (
     <>
       <Hero content={c.hero} aside={<Media media={c.heroMedia} priority />} />
@@ -35,6 +37,12 @@ export default function AboutPage() {
           <VideoBlock video={c.name.video} />
         </Split>
       </Section>
+
+      {coo && (
+        <Section surface="white">
+          <PersonQuote text={c.cooQuote.text} person={coo} />
+        </Section>
+      )}
 
       <Section>
         <div className="flex flex-col gap-10">

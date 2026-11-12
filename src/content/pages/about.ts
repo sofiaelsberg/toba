@@ -89,6 +89,12 @@ export const about = {
     { value: facts.yearsSelectingManagers, suffix: "+ år", label: "med udvælgelse af kapitalforvaltere" },
   ] satisfies Stat[],
 
+  /** OBS: Udkast fra Anders' version – citatet skal godkendes af Tonny før lancering. */
+  cooQuote: {
+    personSlug: "tonny-elsberg",
+    text: "“Fordi vi selv ejer virksomheden, træffer vi beslutninger med et langt perspektiv. Vi skal kunne se vores kunder i øjnene om ti år – og det er det, der styrer, hvordan vi arbejder i dag.”",
+  },
+
   advisers: {
     title: "Mød dine rådgivere",
     lead: "Har du spørgsmål, eller vil du have din investeringsopsætning gennemgået? Tag fat i en af os – vi tager gerne en uforpligtende snak.",
