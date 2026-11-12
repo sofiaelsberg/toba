@@ -72,7 +72,7 @@ export default function HomePage() {
           </div>
           <VideoBlock video={c.bank.video} />
         </Split>
-        <ShareFact className="mt-14" value={c.bank.value} label={c.bank.factLabel} text={c.bank.factText} source={c.bank.source} />
+        <ShareFact className="mt-14" value={c.bank.value} label={c.bank.factLabel} text={c.bank.factText} segments={c.bank.segments} source={c.bank.source} />
       </Section>
 
       <Section surface="white" id="lagkage">
