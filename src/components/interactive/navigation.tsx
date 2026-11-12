@@ -23,23 +23,28 @@ export function AnchorNav({ items, label }: { items: { id: string; label: string
   }, [items]);
 
   return (
-    <nav aria-label={label} className="sticky top-20 z-10 border-y border-line bg-white">
-      <ul className="wrap flex gap-8 overflow-x-auto">
-        {items.map((i) => (
-          <li key={i.id}>
-            <a
-              href={`#${i.id}`}
-              aria-current={active === i.id ? "location" : undefined}
-              className={cn(
-                "block border-b-2 py-3.5 text-[0.9375rem] font-medium whitespace-nowrap no-underline transition-colors duration-300",
-                active === i.id ? "border-gold text-navy" : "border-transparent text-ink-muted hover:text-navy",
-              )}
-            >
-              {i.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <nav aria-label={label} className="sticky top-20 z-10 border-b border-line bg-white">
+      <div className="wrap flex items-center gap-8">
+        <p aria-hidden className="hidden shrink-0 border-r border-line py-1 pr-8 text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase md:block">
+          {label}
+        </p>
+        <ul className="flex gap-7 overflow-x-auto">
+          {items.map((i) => (
+            <li key={i.id}>
+              <a
+                href={`#${i.id}`}
+                aria-current={active === i.id ? "location" : undefined}
+                className={cn(
+                  "block border-b-2 py-4 text-small font-medium whitespace-nowrap no-underline transition-colors duration-300",
+                  active === i.id ? "border-gold text-navy" : "border-transparent text-ink-muted hover:text-navy",
+                )}
+              >
+                {i.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 }
