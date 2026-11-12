@@ -11,7 +11,6 @@ import { Disclaimer } from "@/components/sections/legal";
 import { Hero } from "@/components/sections/hero";
 import { Media } from "@/components/blocks/media";
 import type { Metadata } from "next";
-import { NewsTeaser } from "@/components/news/news-teaser";
 import { ShareFact } from "@/components/interactive/charts";
 import { VideoBlock } from "@/components/blocks/video-block";
 import { home as c } from "@/content/pages/home";
@@ -118,8 +117,6 @@ export default function HomePage() {
           </div>
         </div>
       </Section>
-
-      <NewsTeaser content={c.news} id="nyheder" />
 
       <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} />
       <Disclaimer content={disclaimers.standard} />
