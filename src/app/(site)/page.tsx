@@ -42,21 +42,6 @@ export default function HomePage() {
         </Split>
       </Section>
 
-      <Section>
-        <div className="flex flex-col gap-10">
-          <SectionHeading rule title={c.ctaIntro.title} lead={c.ctaIntro.lead} />
-          <CtaCards
-            headingLevel="h3"
-            cards={c.ctaCards}
-            visuals={{
-              cake: <CakeVisual content={cake} />,
-              overview: <OverviewVisual content={overview.example} />,
-              advisers: <AdvisersVisual content={independent.kinds} />,
-            }}
-          />
-        </div>
-      </Section>
-
       <Section surface="navy" id="bank">
         <Split>
           <div className="flex flex-col gap-6">
@@ -115,6 +100,21 @@ export default function HomePage() {
               {c.terms.link.label}
             </TextLink>
           </div>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="flex flex-col gap-10">
+          <SectionHeading rule title={c.ctaIntro.title} lead={c.ctaIntro.lead} />
+          <CtaCards
+            headingLevel="h3"
+            cards={c.ctaCards}
+            visuals={{
+              cake: <CakeVisual content={cake} />,
+              overview: <OverviewVisual content={overview.example} />,
+              advisers: <AdvisersVisual content={independent.kinds} />,
+            }}
+          />
         </div>
       </Section>
 
