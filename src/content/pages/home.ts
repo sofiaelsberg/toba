@@ -14,7 +14,7 @@ export const home = {
     eyebrow: "Uafhængig investeringsrådgivning",
     title: "Vi tager os af dine investeringer, så du kan tage dig af *livet*",
     lead: "Uafhængig rådgivning om din samlede formue – for selskaber, privatpersoner, virksomhedsejere og familier.",
-    actions: [bookMeeting, { label: "Hvem spiser din lagkage?", href: "#lagkage", variant: "secondary" }],
+    actions: [bookMeeting, { label: "Hvem spiser din lagkage?", href: routes.guide, variant: "secondary" }],
     trustline: `Uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet · Etableret ${facts.founded} · Medarbejderejet siden ${facts.employeeOwnedSince}`,
   } satisfies HeroContent,
   heroMedia: ambient.office,
@@ -83,23 +83,6 @@ export const home = {
     ],
     source: "Kilde: Finanstilsynet, “Bankernes salg af egne fonde”, maj 2026.",
     video: videos.v09,
-  },
-
-  cake: {
-    title: "Hvem spiser din *lagkage*?",
-    lead: "Omkostningerne i en investeringsløsning ligger i lag – og nogle af dem kan du slet ikke se. Det er ikke ét gebyr, der er problemet. Det er summen af alle lagene.",
-    action: { label: "Hent guiden gratis", href: routes.guide, variant: "primary" as const },
-    example: [
-      { display: "0,5 %-point", label: "mere om året, der bliver hos dig i stedet for at gå til omkostninger" },
-      {
-        value: facts.cakeExample.extraMio,
-        decimals: 1,
-        suffix: " mio. kr.",
-        label: "mere efter 20 år på en formue på 10 mio. kr.",
-      },
-    ] satisfies Stat[],
-    exampleNote:
-      "Regneeksempel: 10 mio. kr. over 20 år med 6,0 % mod 5,5 % i årligt afkast efter omkostninger (32,1 mod 29,2 mio. kr.). Afrundet og kun til illustration.",
   },
 
   values: {

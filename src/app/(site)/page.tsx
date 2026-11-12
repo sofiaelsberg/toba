@@ -7,10 +7,8 @@ import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { disclaimers, routes } from "@/content/site";
 
 import { AmbientVideo } from "@/components/blocks/ambient-video";
-import { Caption } from "@/components/blocks/typography";
 import { Disclaimer } from "@/components/sections/legal";
 import { Hero } from "@/components/sections/hero";
-import { LayerCake } from "@/components/interactive/layer-cake";
 import { Media } from "@/components/blocks/media";
 import type { Metadata } from "next";
 import { NewsTeaser } from "@/components/news/news-teaser";
@@ -81,20 +79,6 @@ export default function HomePage() {
           segments={c.bank.segments}
           source={c.bank.source}
         />
-      </Section>
-
-      <Section surface="white" id="lagkage">
-        <Split>
-          <div className="flex flex-col gap-6">
-            <SectionHeading rule title={c.cake.title} lead={c.cake.lead} />
-            <ButtonLink action={c.cake.action} className="self-start" />
-          </div>
-          <LayerCake content={cake} withToba showStory />
-        </Split>
-        <div className="mt-16 grid grid-cols-1 gap-6 border-t-2 border-gold-light pt-6 md:grid-cols-3">
-          <StatsRow stats={c.cake.example} className="border-none pt-0 md:col-span-2 md:grid-cols-2" />
-          <Caption className="self-end">{c.cake.exampleNote}</Caption>
-        </div>
       </Section>
 
       <Section>
