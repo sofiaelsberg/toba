@@ -96,7 +96,7 @@ export const home = {
     } satisfies FactContent,
     video: videos.v05,
     text: "Vil du vide, hvad dine investeringer samlet koster? Vi gennemgår dine omkostninger og giver dig et overblik i kroner og procent – gratis og uforpligtende.",
-    action: { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "light" as const },
+    action: { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "primary" as const },
     link: { label: "Hent guiden “Hvem spiser din lagkage?” →", href: routes.guide },
   },
 

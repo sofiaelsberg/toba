@@ -99,15 +99,15 @@ export default function HomePage() {
         <StatsRow stats={c.stats} />
       </Section>
 
-      <Section surface="navy" id="vilkaar">
+      <Section surface="white" id="vilkaar">
         <Split>
           <div className="flex flex-col gap-6">
             <SectionHeading rule title={c.terms.title} lead={c.terms.lead} />
-            <FactBox fact={c.terms.fact} tone="plain" className="border-t border-white/20 pt-6" />
+            <FactBox fact={c.terms.fact} tone="plain" className="border-t border-line pt-6" />
           </div>
           <VideoBlock video={c.terms.video} />
         </Split>
-        <div className="mt-14 flex flex-col gap-6 border-t border-white/20 pt-8 md:flex-row md:items-center md:justify-between md:gap-12">
+        <div className="mt-14 flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between md:gap-12">
           <p className="max-w-measure">{c.terms.text}</p>
           <div className="flex shrink-0 flex-col items-start gap-4">
             <ButtonLink action={c.terms.action} />
