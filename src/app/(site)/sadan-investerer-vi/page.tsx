@@ -9,8 +9,6 @@ import { ReturnComparison } from "@/components/interactive/charts";
 import { ManagerMap } from "@/components/interactive/manager-map";
 import { AnchorNav } from "@/components/interactive/navigation";
 import { StepTimeline } from "@/components/interactive/step-timeline";
-import { NewsTeaser } from "@/components/news/news-teaser";
-import { CtaStrip } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
 import { AccordionList, NumberedSteps, QuoteBlock } from "@/components/sections/lists";
@@ -167,11 +165,8 @@ export default function HowWeInvestPage() {
               <Caption>{c.cooperation.caption}</Caption>
             </figure>
           </Split>
-          <CtaStrip title={c.cooperation.price.title} text={c.cooperation.price.text} action={c.cooperation.price.action} />
         </div>
       </Section>
-
-      <NewsTeaser content={c.related} id="laes-mere" />
 
       <section id="kom-i-gang" className="on-navy scroll-mt-24 bg-navy py-16 text-on-navy md:py-24">
         <div className="wrap flex flex-col gap-12">
