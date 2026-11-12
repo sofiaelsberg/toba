@@ -41,10 +41,7 @@ export default function HowWeInvestPage() {
 
       <Section surface="white" id="strategi">
         <div className="flex flex-col gap-12">
-          <Split align="end">
-            <SectionHeading rule title={c.strategy.title} />
-            <p>{c.strategy.lead}</p>
-          </Split>
+          <SectionHeading rule title={c.strategy.title} />
           <StepTimeline steps={c.strategy.steps} />
           <QuoteBlock quote={c.strategy.quote} />
         </div>

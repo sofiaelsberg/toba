@@ -30,7 +30,6 @@ export const howWeInvest = {
 
   strategy: {
     title: "En plan, du kan holde fast i – også i modvind",
-    lead: "De fleste investeringsfejl sker, når markedet larmer, og følelserne tager over. En klar strategi holder dig på sporet.",
     steps: [
       { title: "Blankt papir", text: "Vi starter uden færdige porteføljer. Hele markedet er i spil." },
       { title: "Rammerne", text: "Vi aftaler dem sammen: din tidshorisont, hvor store udsving du kan leve med, og hvad du forventer af afkast." },
