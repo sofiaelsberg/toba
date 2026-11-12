@@ -176,10 +176,9 @@ export const home = {
 
   about: {
     eyebrow: "Om TOBA Advice",
-    title: "Medarbejderejet – og på din side",
+    title: "Ejet af dem, der rådgiver dig",
     text: [
       "TOBA Advice er en medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver personer med en investerbar formue på mindst 5 mio. kr. – med skræddersyet rådgivning og frit valg på alle hylder.",
-      "Mange af vores kunder er virksomhedsejere, selvstændige og familier, der vil have ro om en formue, de har arbejdet hårdt for – og en rådgiver, der siger tingene, som de er.",
     ],
     link: { label: "Læs om TOBA →", href: routes.about },
     media: images.sameSide,
