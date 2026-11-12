@@ -15,7 +15,6 @@ import { Disclaimer } from "@/components/sections/legal";
 import { AccordionList, NumberedSteps, QuoteBlock } from "@/components/sections/lists";
 import { PersonQuote } from "@/components/sections/person-quote";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
-import { StatsRow } from "@/components/sections/stats";
 import { facts } from "@/content/facts";
 import { howWeInvest as c } from "@/content/pages/how-we-invest";
 import { people } from "@/content/people";
@@ -81,7 +80,6 @@ export default function HowWeInvestPage() {
             <SectionHeading rule title={c.managers.title} />
             <p>{c.managers.lead}</p>
           </Split>
-          <StatsRow stats={c.managers.stats} />
           <Split align="start">
             <AccordionList items={c.managers.process} defaultOpen={0} />
             <div className="flex flex-col gap-6">
