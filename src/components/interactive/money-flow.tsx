@@ -20,7 +20,7 @@ function Node({ label, you }: { label: string; you?: boolean }) {
  */
 export function MoneyFlow({ flow, label }: { flow: FlowChain; label: string }) {
   return (
-    <div role="img" aria-label={label} className="flex flex-col bg-cream p-4 text-[0.9375rem] font-medium">
+    <div role="img" aria-label={label} className="flex flex-col bg-white p-4 text-[0.9375rem] font-medium">
       {flow.nodes.map((n, i) => {
         const step = flow.steps[i];
         return (
