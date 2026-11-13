@@ -96,22 +96,22 @@ export default function HomePage() {
       </Section>
 
       <Section surface="white" id="vilkaar">
-        <Split align="center">
-          <div className="flex flex-col gap-8">
+        <Split>
+          <div className="flex flex-col gap-6">
             <SectionHeading rule title={c.terms.title} lead={c.terms.lead} />
-            <FactBox fact={c.terms.fact} />
-            <div className="flex flex-col gap-4">
-              <p>{c.terms.text}</p>
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                <ButtonLink action={c.terms.action} />
-                <TextLink href={c.terms.link.href} className="text-small font-normal">
-                  {c.terms.link.label}
-                </TextLink>
-              </div>
-            </div>
+            <FactBox fact={c.terms.fact} tone="plain" className="border-t border-line pt-6" />
           </div>
           <VideoBlock video={c.terms.video} />
         </Split>
+        <div className="mt-14 flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between md:gap-12">
+          <p className="max-w-measure">{c.terms.text}</p>
+          <div className="flex shrink-0 flex-col items-start gap-4">
+            <ButtonLink action={c.terms.action} />
+            <TextLink href={c.terms.link.href} className="text-small font-normal">
+              {c.terms.link.label}
+            </TextLink>
+          </div>
+        </div>
       </Section>
 
       <Section>
