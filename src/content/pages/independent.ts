@@ -57,7 +57,6 @@ export const independent = {
           ],
         } satisfies FlowChain,
         flowAria: "Du køber bankens egne fonde, og provisionen fra fondene går til banken.",
-        text: "Rådgivningen er knyttet til et bestemt produktunivers, typisk bankens egne investeringsprodukter.",
         forYou: "Dine valgmuligheder er begrænset til de produkter, rådgiveren tilbyder.",
         highlight: false,
       },
@@ -72,12 +71,12 @@ export const independent = {
           ],
         } satisfies FlowChain,
         flowAria: "Du køber egne og andres fonde, og provisionen fra fondene går til bankerne.",
-        text: "Rådgivningen kan anbefale både egne og eksterne produkter, men kan have økonomiske interesser knyttet til bestemte anbefalinger.",
-        forYou: "Du bør undersøge, hvordan rådgiveren bliver betalt, og hvilke produkter der indgår i udvalget.",
+        forYou: "Udvalget er bredere, men rådgiveren kan have en økonomisk interesse i bestemte anbefalinger.",
         highlight: false,
       },
       {
-        eyebrow: "3 · Uafhængig – sådan er TOBA",
+        eyebrow: "3 · Uafhængig",
+        badge: "Sådan er TOBA",
         title: "Uafhængig rådgivning",
         flow: {
           nodes: [{ label: "Dig", you: true }, { label: "Fonde fra hele markedet" }, { label: "Dig", you: true }],
@@ -89,8 +88,7 @@ export const independent = {
         } satisfies FlowChain,
         flowAria:
           "Du køber fonde fra hele markedet, og provision og rabat fra fondene går til dig. Rådgiveren får kun et fast honorar fra dig.",
-        text: "Rådgivningen bygger på et bredt udvalg af relevante investeringsprodukter og er ikke baseret på provision fra de produkter, der anbefales.",
-        forYou: "Rådgivningen tager kun udgangspunkt i, hvad der er bedst for dig.",
+        forYou: "Rådgiveren kan vælge frit på markedet og tjener ikke på de produkter, du får anbefalet.",
         highlight: true,
       },
     ],

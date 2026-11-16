@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { RichText } from "@/components/blocks/rich-text";
-import { Caption, Eyebrow } from "@/components/blocks/typography";
+import { Caption } from "@/components/blocks/typography";
 import { VideoBlock } from "@/components/blocks/video-block";
 import { ShareBar } from "@/components/interactive/charts";
 import { ChecklistReveal } from "@/components/interactive/checklists";
@@ -56,15 +56,20 @@ export default function IndependentPage() {
               <li
                 key={k.title}
                 className={cn(
-                  "flex flex-col gap-4 bg-white p-8 transition-[transform,box-shadow] duration-300 ease-toba hover:-translate-y-1 hover:shadow-raised",
+                  "relative flex flex-col gap-4 bg-white p-8 transition-[transform,box-shadow] duration-300 ease-toba hover:-translate-y-1 hover:shadow-raised md:row-span-3 md:grid md:grid-rows-subgrid",
                   k.highlight ? "border-2 border-gold" : "border-t-2 border-line",
                 )}
               >
-                <Eyebrow className={k.highlight ? "" : "text-ink-muted"}>{k.eyebrow}</Eyebrow>
-                <h3 className="font-serif text-h3 font-medium text-navy">{k.title}</h3>
+                {"badge" in k && k.badge && (
+                  <span className="absolute -top-3.5 left-7 bg-gold-text px-3 py-1 text-eyebrow font-semibold tracking-[0.12em] text-white uppercase">
+                    {k.badge}
+                  </span>
+                )}
+                <h3 className={cn("text-eyebrow font-semibold tracking-[0.12em] uppercase", k.highlight ? "text-gold-text" : "text-ink-muted")}>
+                  {k.eyebrow}
+                </h3>
                 <MoneyFlow flow={k.flow} label={k.flowAria} />
-                <p className="flex-1">{k.text}</p>
-                <p className="border-l border-gold-light pl-4 text-navy">
+                <p className="self-end border-l border-gold-light pl-4 text-navy">
                   <strong className="font-semibold">{c.kinds.forYouLabel}</strong> {k.forYou}
                 </p>
               </li>
