@@ -121,20 +121,15 @@ export const independent = {
   why: {
     title: "Hvorfor betyder uafhængighed noget for dig?",
     text: [
-      "Når du overlader rådgivningen om din formue til andre, skal du kunne stole på, at anbefalingerne tager udgangspunkt i dine interesser.",
-      "Men hvis rådgiveren også tjener penge på bestemte investeringsprodukter, kan der opstå interessekonflikter.",
-      "Uafhængig rådgivning handler om at sikre, at dine interesser er i centrum – uden økonomiske incitamenter til at anbefale bestemte produkter.",
+      "Hvis din rådgiver tjener på de produkter, du får anbefalet, er det ikke kun dine interesser, der styrer anbefalingen. Og det er mere udbredt, end mange tror.",
     ],
     value: facts.ownFundsTop5Pct,
-    lead: "Ifølge Finanstilsynets analyse ligger i gennemsnit 92 % af fondsbeholdningerne hos de fem største danske banker i bankernes egne fonde.",
+    lead: "af fondsbeholdningerne hos de fem største danske banker ligger i gennemsnit i bankernes egne fonde.",
     segments: [
       { label: "bankernes egne fonde", value: facts.ownFundsTop5Pct },
       { label: "andre fonde", value: 100 - facts.ownFundsTop5Pct },
     ],
-    after: [
-      "Det betyder ikke nødvendigvis, at investeringerne er dårlige. Men det understreger, hvorfor det er vigtigt at forstå, hvordan din rådgiver bliver betalt, og hvilke investeringsmuligheder der bliver taget i betragtning.",
-      "Det afgørende er ikke kun, hvad du investerer i – men også hvorfor netop de investeringer er blevet valgt.",
-    ],
+    after: ["Det gør ikke investeringerne dårlige. Men det betyder, at rådgivningen ikke er fri."],
     source: "Kilde: Finanstilsynet, “Bankernes salg af egne fonde”, maj 2026.",
   },
 
