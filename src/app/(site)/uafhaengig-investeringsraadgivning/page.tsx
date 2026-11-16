@@ -49,7 +49,7 @@ export default function IndependentPage() {
 
       <Section id="tre">
         <div className="flex flex-col gap-12">
-          <SectionHeading rule title={c.kinds.title} lead={c.kinds.lead} />
+          <SectionHeading rule title={c.kinds.title} />
           <ul className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {c.kinds.cards.map((k) => (
               <li

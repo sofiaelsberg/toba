@@ -43,7 +43,6 @@ export const independent = {
 
   kinds: {
     title: "Tre slags rådgivere – tre forskellige interesser",
-    lead: "Ikke alle investeringsrådgivere arbejder efter den samme model. Forskellen handler blandt andet om, hvilke produkter de kan anbefale, hvordan de bliver betalt, og hvilke økonomiske interesser der kan være forbundet med rådgivningen.",
     forYouLabel: "For dig:",
     cards: [
       {
