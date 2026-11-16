@@ -96,7 +96,7 @@ export const guide = {
       { icon: "rebate", title: "Rabatterne går til dig.", text: "Vi forhandler rabatter hjem på vegne af alle vores kunder samlet – og sender dem ubeskåret videre til dig." },
     ] satisfies FeatureContent[],
     stats: [
-      { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalte vi til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}. Hver krone gik ubeskåret videre.` },
+      { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalt til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}.` },
       { value: facts.yearsSelectingManagers, suffix: "+ år", label: "med udvælgelse af kapitalforvaltere" },
       { value: facts.assetsUnderAdviceMia, suffix: " mia. kr.", label: "under rådgivning" },
       { display: "Ejet", label: "af medarbejderne" },

@@ -1,6 +1,6 @@
 ---
 title: "Er din portefølje stadig på plads – eller har markedet skævvredet den?"
-description: "Mange investorer etablerer en gennemtænkt portefølje med klar fordeling mellem aktier, obligationer og alternative investeringer. Så sker der noget. …"
+description: "Markedet kan skævvride din portefølje – både aktivfordeling og faktorprofil – uden at du har truffet et eneste valg. Sådan opdager og retter du det."
 date: "2026-03-18T09:26:40.082Z"
 author: "Tonny Elsberg"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7439936220916371456/"

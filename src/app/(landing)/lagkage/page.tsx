@@ -17,7 +17,7 @@ import { guide as c } from "@/content/pages/guide";
 import { disclaimers, routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = pageMetadata(routes.guide, c.seo);
+export const metadata: Metadata = pageMetadata(routes.guide, c.seo, { ownShareImage: true });
 
 /** Landingsside 1 – LinkedIn-kampagnen: hent guiden. */
 export default function GuidePage() {

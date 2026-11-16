@@ -1,6 +1,6 @@
 ---
 title: "Eksperterne fejler år efter år – og det bør du planlægge efter"
-description: "Vi har analyseret 25 års Wall Street-prognoser for S&P 500 (2000–2024) og sammenholdt dem med de realiserede afkast. Ud af 25 år ramte …"
+description: "Wall Streets prognoser for S&P 500 ramte kun 3 ud af 25 år inden for ±5 %. Derfor bør din portefølje bygges til usikkerhed – ikke til prognoser."
 date: "2026-03-11T09:31:22.465Z"
 author: "Tonny Elsberg"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7437399490258538496/"

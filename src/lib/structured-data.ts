@@ -21,12 +21,15 @@ export const siteJsonLd = {
       "@type": "FinancialService",
       "@id": ORG_ID,
       name: company.name,
+      alternateName: [company.legalName, "TOBA"],
       legalName: company.legalName,
       description: footer.about,
+      disambiguatingDescription: company.disambiguation,
       url: SITE_URL,
       logo: abs("/icon.svg"),
       image: abs("/opengraph-image.png"),
       telephone: company.phone,
+      hasMap: company.mapsUrl,
       vatID: `DK${company.cvr}`,
       foundingDate: String(facts.founded),
       numberOfEmployees: { "@type": "QuantitativeValue", minValue: facts.employeesPlus },
@@ -46,12 +49,43 @@ export const siteJsonLd = {
       },
       knowsAbout: [
         "Uafhængig investeringsrådgivning",
+        "Investeringsrådgiver",
         "Formuerådgivning",
         "Udvælgelse af kapitalforvaltere",
         "Omkostninger i investeringsporteføljer",
+        "Forvalterrabatter",
         "Private markets",
+        "Private equity",
+        "Investering af pensionsmidler",
+        "Investering i holdingselskaber og virksomhedsskatteordningen",
       ],
-      sameAs: [company.linkedin].filter(Boolean),
+      makesOffer: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Uafhængig investeringsrådgivning",
+            serviceType: "Investeringsrådgivning",
+            description: `Uafhængig rådgivning om hele formuen for personer, familier, virksomhedsejere og selskaber med en investerbar formue på mindst ${facts.minimumWealthMio} mio. kr. Fast honorar, ingen provision, og forvalterrabatter går ubeskåret til kunden.`,
+            url: abs(routes.independent),
+            areaServed: { "@type": "Country", name: "Danmark" },
+            provider: { "@id": ORG_ID },
+          },
+        },
+        {
+          "@type": "Offer",
+          price: 0,
+          priceCurrency: "DKK",
+          itemOffered: {
+            "@type": "Service",
+            name: "Gratis omkostningsoverblik",
+            description: "Gennemgang af hvad din nuværende investeringsløsning koster i kroner og procent – og hvem der får pengene. Gratis og uforpligtende.",
+            url: abs(routes.overview),
+            provider: { "@id": ORG_ID },
+          },
+        },
+      ],
+      sameAs: [...company.profiles],
     },
     {
       "@type": "WebSite",
@@ -79,6 +113,17 @@ export function teamJsonLd(list: Person[]) {
       ...(p.linkedin ? { sameAs: [p.linkedin] } : {}),
       ...(p.group === "bestyrelse" ? { affiliation: { "@id": ORG_ID } } : { worksFor: { "@id": ORG_ID } }),
       ...(p.alsoIn?.length ? { hasOccupation: p.alsoIn.map((a) => ({ "@type": "Occupation", name: a.title })) } : {}),
+      ...(p.press?.length
+        ? {
+            subjectOf: p.press.map((a) => ({
+              "@type": "NewsArticle",
+              headline: a.headline,
+              datePublished: a.date,
+              url: a.url,
+              publisher: { "@type": "Organization", name: a.outlet },
+            })),
+          }
+        : {}),
     })),
   };
 }
@@ -156,7 +201,7 @@ export function articleJsonLd(p: NewsPost) {
         headline: p.title,
         description: p.description,
         datePublished: p.date,
-        dateModified: p.date,
+        dateModified: p.updated ?? p.date,
         author,
         publisher: { "@id": ORG_ID },
         mainEntityOfPage: url,

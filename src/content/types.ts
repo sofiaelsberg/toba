@@ -154,7 +154,11 @@ export type Person = {
   noProfile?: boolean;
   /** Kort tekst til kort og forside. */
   short?: string;
+  /** Artikler, hvor personen har udtalt sig eller bidraget. Vises ikke – bruges i schema.org-data (subjectOf) til Google og AI. */
+  press?: PressMention[];
 };
+
+export type PressMention = { headline: string; outlet: string; date: string; url: string };
 
 export type Seo = { title: string; description: string; ogDescription?: string };
 
@@ -164,4 +168,11 @@ export type NewsTeaserContent = {
   lead?: string;
   /** Udvalgte indlæg (filnavne i src/content/news uden .md) i den viste rækkefølge. Fyldes op med de nyeste. Kladder springes over. */
   slugs?: string[];
+};
+
+/** "Én strategi for hele din formue": skattemiljøer + familieplanen. */
+export type WealthMapContent = {
+  label: string;
+  areas: string[];
+  family: { title: string; text: string };
 };

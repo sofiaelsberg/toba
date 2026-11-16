@@ -1,5 +1,7 @@
 import {
-  Ban,
+  CircleSlash2,
+  HandCoins,
+  ReceiptText,
   CircleUserRound,
   FileText,
   Globe,
@@ -8,8 +10,6 @@ import {
   Phone,
   ShieldCheck,
   Smartphone,
-  Square,
-  Undo2,
   Users,
   Cookie,
   type LucideIcon,
@@ -31,9 +31,9 @@ function LinkedinMark(props: ComponentProps<"svg">) {
 
 const map: Record<IconName, LucideIcon | typeof LinkedinMark> = {
   globe: Globe,
-  "no-commission": Ban,
-  "fixed-fee": Square,
-  rebate: Undo2,
+  "no-commission": CircleSlash2,
+  "fixed-fee": ReceiptText,
+  rebate: HandCoins,
   owners: Users,
   person: CircleUserRound,
   shelves: Library,
@@ -46,15 +46,15 @@ const map: Record<IconName, LucideIcon | typeof LinkedinMark> = {
   cookie: Cookie,
 };
 
-/** Ikon i guldkantet felt (44 px). */
+/** Guldikon i navy felt (48 px) – på navy flader en lys, gennemsigtig variant. */
 export function IconBadge({ name, className }: { name: IconName; className?: string }) {
   const Icon = map[name];
   return (
     <span
       aria-hidden
-      className={cn("flex size-11 shrink-0 items-center justify-center border border-gold text-gold-text [.on-navy_&]:text-gold", className)}
+      className={cn("flex size-12 shrink-0 items-center justify-center bg-navy text-gold [.on-navy_&]:bg-white/10", className)}
     >
-      <Icon className="size-[22px]" strokeWidth={1.75} />
+      <Icon className="size-6" strokeWidth={1.5} />
     </span>
   );
 }

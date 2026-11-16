@@ -1,3 +1,4 @@
+import { facts } from "./facts";
 import type { Action, DisclaimerContent, LinkItem } from "./types";
 
 export const routes = {
@@ -29,6 +30,18 @@ export const company = {
   address: { line1: "Store Torv 3C, 2. sal", line2: "8000 Aarhus C" },
   mapsUrl: "https://maps.google.com/?q=Store+Torv+3C,+8000+Aarhus+C",
   linkedin: "https://www.linkedin.com/company/toba-advice",
+  /** Officielle profiler andre steder. Hjælper Google og AI med at koble dem til samme virksomhed (schema.org sameAs). */
+  profiles: [
+    "https://www.linkedin.com/company/toba-advice",
+    "https://datacvr.virk.dk/enhed/virksomhed/37424277",
+    "https://www.proff.dk/firma/toba-advice-as/-/-/37424277",
+  ],
+  /**
+   * Adskiller TOBA Advice fra navnefæller og forklarer forholdet til TOBA Investments.
+   * Vises ikke på siden – bruges i schema.org-data og /llms.txt til søgemaskiner og AI.
+   */
+  disambiguation:
+    "TOBA Advice A/S er en dansk, uafhængig investeringsrådgiver i Aarhus med tilladelse fra Finanstilsynet. TOBA Advice er investeringsrådgiver for fondsafdelingerne TA Globale Aktier og TA Globale Obligationer, som udbydes under navnet TOBA Investments. TOBA Advice har ingen forbindelse til de amerikanske virksomheder Toba Financial og Toba Capital.",
 } as const;
 
 export const brand = {
@@ -38,15 +51,16 @@ export const brand = {
   homeLabel: "TOBA Advice – forside",
 } as const;
 
+/** Tillidslinjen i hero'ens mørke bånd (forsiden, Sådan investerer vi). Punkterne adskilles af " · ". */
+export const trustline = `Uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet · Etableret ${facts.founded} · Medarbejderejet siden ${facts.employeeOwnedSince}`;
+
 export const bookMeeting: Action = { label: "Book et møde", href: routes.bookMeeting, variant: "primary" };
 
 export const mainNav: LinkItem[] = [
   { label: "Sådan investerer vi", href: routes.howWeInvest },
   { label: "Uafhængig rådgivning", href: routes.independent },
   { label: "Om TOBA", href: routes.about },
-  { label: "Team", href: routes.team },
   { label: "Nyheder", href: routes.news },
-  { label: "Kontakt", href: routes.contact },
 ];
 
 export const clientPortalLink: LinkItem = { label: "Kundeportal", href: routes.clientPortal, external: true };

@@ -1,6 +1,6 @@
 ---
 title: "Hvem spiser din lagkage – din forvalter, din bank eller dig?"
-description: "Hvem spiser din lagkage - Din forvalter, din bank eller Dig? Hos TOBA Advice hjælper vi vores kunder med at sikre fair priser. Samtidig er vi bevidste …"
+description: "Flere omkostningslag kan spise mere af dit afkast end nødvendigt. Sådan sikrer vi fair priser uden at gå på kompromis med investeringerne."
 date: "2026-01-07T13:32:20.882Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7414660164253057025/"

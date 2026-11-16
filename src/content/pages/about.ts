@@ -1,20 +1,21 @@
 import { facts } from "../facts";
 import { images, linkedin, videos } from "../media";
-import { company, routes, bookMeeting } from "../site";
+import { company, routes, bookMeeting, trustline } from "../site";
 import type { FeatureContent, HeroContent, Seo, Stat } from "../types";
 
 export const about = {
   seo: {
-    title: "Om TOBA Advice – uafhængig og medarbejderejet",
+    title: "Om TOBA Advice – uafhængig, medarbejderejet investeringsrådgiver",
     description:
       "TOBA Advice er en uafhængig, medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver formuer fra 5 mio. kr. i hele Danmark.",
   } satisfies Seo,
 
   hero: {
     eyebrow: "Om TOBA Advice",
-    title: "Vi tager os af dine investeringer, så du kan tage dig af *livet*",
-    lead: "TOBA Advice er en uafhængig investeringsrådgiver, ejet af medarbejderne. Vi har ingen egne investeringsprodukter – så rådgivningen tager altid udgangspunkt i dig og dine ønsker.",
+    title: "Vi er uafhængige, ejet af medarbejderne – og på *din side*",
+    lead: "Fra vores kontor i Aarhus rådgiver vi kunder i hele Danmark – og vi kommer gerne ud til dig.",
     actions: [bookMeeting],
+    trustline,
   } satisfies HeroContent,
   heroMedia: images.officeWindow,
 
@@ -88,6 +89,12 @@ export const about = {
     { value: facts.managers, suffix: " forvaltere", label: `i ${facts.countries} lande` },
     { value: facts.yearsSelectingManagers, suffix: "+ år", label: "med udvælgelse af kapitalforvaltere" },
   ] satisfies Stat[],
+
+  /** OBS: Udkast fra Anders' version – citatet skal godkendes af Tonny før lancering. */
+  cooQuote: {
+    personSlug: "tonny-elsberg",
+    text: "“Fordi vi selv ejer virksomheden, træffer vi beslutninger med et langt perspektiv. Vi skal kunne se vores kunder i øjnene om ti år – og det er det, der styrer, hvordan vi arbejder i dag.”",
+  },
 
   advisers: {
     title: "Mød dine rådgivere",

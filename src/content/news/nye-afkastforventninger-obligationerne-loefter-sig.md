@@ -1,6 +1,6 @@
 ---
 title: "Nye afkastforventninger: Obligationerne løfter sig"
-description: "Nye afkastforventninger fra Rådet for Afkastforventninger. Obligationerne løfter sig, men er stadig til den lave side. Forventet årligt afkast de næste …"
+description: "Rådet for Afkastforventninger løfter forventningen til stats- og realkreditobligationer til 3,5 %, mens globale aktier ligger på 7,1 %. Se de nye tal."
 date: "2026-11-02T10:49:27.418Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7522973143188262913/"

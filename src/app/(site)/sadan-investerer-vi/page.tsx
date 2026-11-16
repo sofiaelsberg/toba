@@ -1,3 +1,4 @@
+import { Check } from "lucide-react";
 import type { Metadata } from "next";
 
 import { ButtonRow, TextLink } from "@/components/blocks/links";
@@ -6,38 +7,53 @@ import { RichText } from "@/components/blocks/rich-text";
 import { Caption, GoldRule, Heading } from "@/components/blocks/typography";
 import { ReturnComparison } from "@/components/interactive/charts";
 import { ManagerMap } from "@/components/interactive/manager-map";
-import { AnchorNav, SegmentTabs } from "@/components/interactive/navigation";
+import { AnchorNav } from "@/components/interactive/navigation";
 import { StepTimeline } from "@/components/interactive/step-timeline";
-import { NewsTeaser } from "@/components/news/news-teaser";
-import { CtaStrip } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
 import { AccordionList, NumberedSteps, QuoteBlock } from "@/components/sections/lists";
+import { PersonQuote } from "@/components/sections/person-quote";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
-import { StatsRow } from "@/components/sections/stats";
 import { facts } from "@/content/facts";
 import { howWeInvest as c } from "@/content/pages/how-we-invest";
+import { people } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.howWeInvest, c.seo);
 
 export default function HowWeInvestPage() {
+  const cio = people.find((p) => p.slug === c.cioQuote.personSlug);
   return (
     <>
-      <Hero content={c.hero} aside={<Media media={c.heroMedia} priority />} />
+      <Hero
+        content={c.hero}
+        layout="bleed"
+        trustBand
+        aside={
+          <Media
+            media={c.heroMedia}
+            priority
+            sizes="(min-width: 768px) 45vw, 100vw"
+            className="aspect-4/3 object-cover object-[center_20%] md:absolute md:inset-0 md:aspect-auto md:size-full"
+          />
+        }
+      />
       <AnchorNav items={c.anchors} label={c.anchorNavLabel} />
 
       <Section surface="white" id="strategi">
         <div className="flex flex-col gap-12">
-          <Split align="end">
-            <SectionHeading rule title={c.strategy.title} />
-            <p>{c.strategy.lead}</p>
-          </Split>
+          <SectionHeading rule title={c.strategy.title} />
           <StepTimeline steps={c.strategy.steps} />
           <QuoteBlock quote={c.strategy.quote} />
         </div>
       </Section>
+
+      {cio && (
+        <Section>
+          <PersonQuote text={c.cioQuote.text} person={cio} />
+        </Section>
+      )}
 
       <Section surface="navy" id="afkast">
         <div className="flex flex-col gap-10">
@@ -63,7 +79,7 @@ export default function HowWeInvestPage() {
             <SectionHeading rule title={c.managers.title} />
             <p>{c.managers.lead}</p>
           </Split>
-          <StatsRow stats={c.managers.stats} />
+          <div aria-hidden className="border-t-2 border-gold-light" />
           <Split align="start">
             <AccordionList items={c.managers.process} defaultOpen={0} />
             <div className="flex flex-col gap-6">
@@ -127,26 +143,30 @@ export default function HowWeInvestPage() {
 
       <Section surface="white" id="samarbejde">
         <div className="flex flex-col gap-16">
-          <Split align="start">
-            <div className="flex flex-col gap-5">
-              <SectionHeading rule title={c.cooperation.title} />
-              <SegmentTabs modes={c.cooperation.modes} label={c.cooperation.tabsLabel} />
-              <p className="bg-cream px-6 py-5">
+          <Split>
+            <div className="flex flex-col gap-6">
+              <SectionHeading rule title={c.cooperation.title} lead={c.cooperation.lead} />
+              <ul className="flex flex-col gap-3">
+                {c.cooperation.points.map((p) => (
+                  <li key={p.title} className="flex gap-3">
+                    <Check aria-hidden className="mt-1 size-5 shrink-0 text-gold" />
+                    <p>
+                      <strong className="font-semibold text-navy">{p.title}</strong> {p.text}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <p className="border-l-2 border-gold-light pl-4 text-navy">
                 <RichText text={c.cooperation.noBankSwitch} />
               </p>
             </div>
-            <div className="flex flex-col gap-4">
-              <h3 className="font-serif text-h3 font-medium text-navy">{c.cooperation.overview.title}</h3>
-              <p>{c.cooperation.overview.text}</p>
-              <Media media={c.cooperation.overview.media} />
-              <Caption>{c.cooperation.overview.caption}</Caption>
-            </div>
+            <figure className="flex flex-col gap-3">
+              <Media media={c.cooperation.media} />
+              <Caption>{c.cooperation.caption}</Caption>
+            </figure>
           </Split>
-          <CtaStrip title={c.cooperation.price.title} text={c.cooperation.price.text} action={c.cooperation.price.action} />
         </div>
       </Section>
-
-      <NewsTeaser content={c.related} id="laes-mere" />
 
       <section id="kom-i-gang" className="on-navy scroll-mt-24 bg-navy py-16 text-on-navy md:py-24">
         <div className="wrap flex flex-col gap-12">

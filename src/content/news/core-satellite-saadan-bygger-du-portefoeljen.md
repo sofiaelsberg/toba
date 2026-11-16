@@ -1,6 +1,6 @@
 ---
 title: "Core-Satellite: Sådan bygger du porteføljen"
-description: "Det lyder teknisk, men idéen er ret enkel. Jeg møder tit investorer med samme dilemma: Skal jeg følge markedet – eller satse mere på det, jeg tror på? …"
+description: "Core-Satellite kombinerer en billig, bredt spredt kerne med mindre, målrettede satellitter. Sådan bygger du porteføljen – og holder omkostningerne nede."
 date: "2026-10-02T07:48:39.297Z"
 author: "Tonny Elsberg"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7511684162416885760/"

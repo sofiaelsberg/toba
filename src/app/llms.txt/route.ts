@@ -9,7 +9,7 @@ import { independent } from "@/content/pages/independent";
 import { accessibilityPage, privacyPage, complaints, fsa, policies } from "@/content/pages/legal";
 import { overview } from "@/content/pages/overview";
 import { team } from "@/content/pages/team";
-import { advisers } from "@/content/people";
+import { advisers, people } from "@/content/people";
 import { company, footer, routes } from "@/content/site";
 import { getAllPosts } from "@/lib/news";
 import { SITE_URL } from "@/lib/seo";
@@ -27,6 +27,8 @@ export async function GET() {
   const body = `# ${company.name}
 
 > ${footer.about}
+
+${company.disambiguation}
 
 ${company.legalName} er en uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet (FT-nr. ${company.ftNumber}, CVR ${company.cvr}). Virksomheden er etableret i ${facts.founded} og har været ejet af medarbejderne siden ${facts.employeeOwnedSince} og har i dag ${facts.assetsUnderAdviceMia} mia. kr. under rådgivning. Rådgiverne mødes med kunder i hele Danmark; kontoret ligger på ${company.address.line1}, ${company.address.line2}.
 
@@ -57,6 +59,18 @@ ${posts.slice(0, 10).map((p) => link(`${routes.news}/${p.slug}`, p.title, p.desc
 ## Rådgivere
 
 ${advisers.map((p) => `- ${p.name}, ${p.title}`).join("\n")}
+
+## TOBA Advice i medierne
+
+${people.flatMap((p) => (p.press ?? []).map((a) => `- ${a.outlet}, ${a.date}: "${a.headline}" – med bidrag fra ${p.name}, ${p.title}. ${a.url}`)).join("\n")}
+
+## Spørgsmål og svar om TOBA Advice
+
+${home.faq.map((f) => `- ${f.question} ${plain(f.answer)}`).join("\n")}
+
+## Spørgsmål og svar om uafhængig investeringsrådgivning
+
+${independent.faq.map((f) => `- ${f.question} ${plain(f.answer)}`).join("\n")}
 
 ## Ofte stillede spørgsmål om omkostningsoverblikket
 
