@@ -82,6 +82,14 @@ const raw: Omit<Person, "portrait">[] = [
     alsoIn: [{ group: "bestyrelse", title: "Bestyrelsesmedlem" }],
     phone: "+45 29 92 95 32",
     email: "roslev@tobaadvice.com",
+    press: [
+      {
+        headline: "Rådgiver kritiserer afkast ved Landbobanken-produkter: \"Investorer vil blive slemt skuffede\"",
+        outlet: "FinansWatch",
+        date: "2025-12-05",
+        url: "https://finanswatch.dk/Finansnyt/kapitalforvaltning/article18813738.ece",
+      },
+    ],
     bio: [
       "Bertel står i spidsen for TOBA Advices analyseafdeling. Han har tidligere været partner og chef for investeringsafdelingen i konsulenthuset Kirstein A/S, hvor han rådgav institutionelle investorer om investeringsstrategi og udvælgelse af kapitalforvaltere.",
     ],
