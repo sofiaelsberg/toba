@@ -1,6 +1,6 @@
 ---
 title: "Beskytter dollaren dine amerikanske aktier?"
-description: "Jeg har flere gange skrevet, at risikoen ved at eje amerikanske aktiver er stigende. USAs statsgæld vokser, og der er tilsyneladende ingen politisk vilje …"
+description: "Stigende amerikansk statsgæld øger risikoen ved amerikanske aktier. Men kan en stærk dollar beskytte dig? Vi gennemgår argumentet."
 date: "2026-10-23T06:34:35.826Z"
 author: "Tonny Elsberg"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7519268884185743360/"

@@ -1,6 +1,6 @@
 ---
 title: "Bliver aktier mindre risikable, jo længere du ejer dem?"
-description: "Det korte svar er ja. Det lidt længere svar er: Det afhænger af, hvad du kalder risiko. Jeg har kigget på 56 års data for globale aktier (MSCI World …"
+description: "56 års data for globale aktier: ingen periode på 14 år eller mere har givet tab. Men tid fjerner ikke al usikkerhed – her er hvorfor."
 date: "2026-10-09T07:37:41.859Z"
 author: "Tonny Elsberg"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7514225952609173504/"

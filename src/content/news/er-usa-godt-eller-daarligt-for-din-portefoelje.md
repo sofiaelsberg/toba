@@ -1,6 +1,6 @@
 ---
 title: "Er USA godt eller dårligt for din portefølje?"
-description: "Der har længe været bekymring for, om koncentrationsrisikoen i det amerikanske aktiemarked er blevet ”for stor”. Amerikanske aktier udgør 63% af …"
+description: "Koncentrationsrisiko og stigende statsgæld: Derfor undervægter TOBA Advice amerikanske aktier i porteføljerne. Læs vores argumenter."
 date: "2026-09-17T07:17:25.676Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7506249942517342208/"

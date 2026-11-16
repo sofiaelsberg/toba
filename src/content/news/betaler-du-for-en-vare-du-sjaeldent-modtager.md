@@ -1,6 +1,6 @@
 ---
 title: "Betaler du også for en vare, du sjældent modtager?"
-description: "Når du investerer i en investeringsforening, betaler du typisk for tre ting: • Administration (kurtage, depot og generel drift) • Forvaltning …"
+description: "Omkring halvdelen af dine fondsomkostninger kan gå til distribution og provision til banken. Se, hvad ESMA's rapport viser – og hvad det betyder for dig."
 date: "2025-11-18T09:15:31.794Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7396476140573437955/"
