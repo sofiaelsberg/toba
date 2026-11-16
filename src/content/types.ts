@@ -154,7 +154,11 @@ export type Person = {
   noProfile?: boolean;
   /** Kort tekst til kort og forside. */
   short?: string;
+  /** Artikler, hvor personen har udtalt sig eller bidraget. Vises ikke – bruges i schema.org-data (subjectOf) til Google og AI. */
+  press?: PressMention[];
 };
+
+export type PressMention = { headline: string; outlet: string; date: string; url: string };
 
 export type Seo = { title: string; description: string; ogDescription?: string };
 

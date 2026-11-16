@@ -113,6 +113,17 @@ export function teamJsonLd(list: Person[]) {
       ...(p.linkedin ? { sameAs: [p.linkedin] } : {}),
       ...(p.group === "bestyrelse" ? { affiliation: { "@id": ORG_ID } } : { worksFor: { "@id": ORG_ID } }),
       ...(p.alsoIn?.length ? { hasOccupation: p.alsoIn.map((a) => ({ "@type": "Occupation", name: a.title })) } : {}),
+      ...(p.press?.length
+        ? {
+            subjectOf: p.press.map((a) => ({
+              "@type": "NewsArticle",
+              headline: a.headline,
+              datePublished: a.date,
+              url: a.url,
+              publisher: { "@type": "Organization", name: a.outlet },
+            })),
+          }
+        : {}),
     })),
   };
 }

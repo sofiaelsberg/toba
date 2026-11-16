@@ -9,7 +9,7 @@ import { independent } from "@/content/pages/independent";
 import { accessibilityPage, privacyPage, complaints, fsa, policies } from "@/content/pages/legal";
 import { overview } from "@/content/pages/overview";
 import { team } from "@/content/pages/team";
-import { advisers } from "@/content/people";
+import { advisers, people } from "@/content/people";
 import { company, footer, routes } from "@/content/site";
 import { getAllPosts } from "@/lib/news";
 import { SITE_URL } from "@/lib/seo";
@@ -59,6 +59,10 @@ ${posts.slice(0, 10).map((p) => link(`${routes.news}/${p.slug}`, p.title, p.desc
 ## Rådgivere
 
 ${advisers.map((p) => `- ${p.name}, ${p.title}`).join("\n")}
+
+## TOBA Advice i medierne
+
+${people.flatMap((p) => (p.press ?? []).map((a) => `- ${a.outlet}, ${a.date}: "${a.headline}" – med bidrag fra ${p.name}, ${p.title}. ${a.url}`)).join("\n")}
 
 ## Spørgsmål og svar om TOBA Advice
 
