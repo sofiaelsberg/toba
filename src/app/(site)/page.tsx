@@ -14,7 +14,7 @@ import { NewsTeaser } from "@/components/news/news-teaser";
 import { CtaBand, CtaCards } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
-import { PointList, ValueGrid } from "@/components/sections/lists";
+import { AccordionList, PointList, ValueGrid } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { StatsRow } from "@/components/sections/stats";
@@ -25,6 +25,7 @@ import { overview } from "@/content/pages/overview";
 import { advisers } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
+import { faqJsonLd, jsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = pageMetadata(routes.home, c.seo);
 
@@ -162,6 +163,14 @@ export default function HomePage() {
       </Section>
 
       <NewsTeaser content={c.news} id="nyheder" />
+
+      <Section surface="white" id="spoergsmaal">
+        <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
+          <SectionHeading rule title={c.faqTitle} />
+          <AccordionList items={c.faq} />
+        </div>
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(c.faq))} />
+      </Section>
 
       <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} />
       <Disclaimer content={disclaimers.standard} />

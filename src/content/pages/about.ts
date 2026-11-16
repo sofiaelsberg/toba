@@ -5,7 +5,7 @@ import type { FeatureContent, HeroContent, Seo, Stat } from "../types";
 
 export const about = {
   seo: {
-    title: "Om TOBA Advice – uafhængig og medarbejderejet",
+    title: "Om TOBA Advice – uafhængig, medarbejderejet investeringsrådgiver",
     description:
       "TOBA Advice er en uafhængig, medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver formuer fra 5 mio. kr. i hele Danmark.",
   } satisfies Seo,

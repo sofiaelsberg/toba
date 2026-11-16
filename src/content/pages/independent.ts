@@ -1,7 +1,7 @@
 import { facts } from "../facts";
 import { videos } from "../media";
 import { routes } from "../site";
-import type { CtaCardContent, FeatureContent, HeroContent, Point, Seo, NewsTeaserContent } from "../types";
+import type { CtaCardContent, FaqItem, FeatureContent, HeroContent, Point, Seo, NewsTeaserContent } from "../types";
 
 /** "Følg pengene": knuder oppefra og ned med en pil og en forklaring imellem. steps har én mindre end nodes. */
 export type FlowChain = {
@@ -185,6 +185,27 @@ export const independent = {
       ],
     },
   },
+
+  /** Spørgsmål og svar – vises på siden og sendes til Google/AI som FAQ-data. */
+  faqTitle: "Spørgsmål og svar",
+  faq: [
+    {
+      question: "Hvad betyder uafhængig investeringsrådgivning?",
+      answer: "Uafhængig er en betegnelse med konkrete krav i lovgivningen. En uafhængig investeringsrådgiver må ikke beholde provision fra de produkter, der anbefales, må ikke have bånd til banker eller kapitalforvaltere, der er uforenelige med uafhængighed, og skal vælge blandt et bredt udvalg af investeringer på markedet (lov om investeringsrådgivere og boligkreditformidlere, § 9 og § 10).",
+    },
+    {
+      question: "Er uvildig det samme som uafhængig?",
+      answer: "Nej, ikke nødvendigvis. Kun “uafhængig” er knyttet til lovens krav. Hvis en investeringsrådgiver ikke er uafhængig, skal det fremgå af virksomhedens hjemmeside – sammen med størrelsen af eventuel provision.",
+    },
+    {
+      question: "Hvordan finder jeg ud af, om min rådgiver er uafhængig?",
+      answer: "Spørg, hvordan rådgiveren bliver betalt, og om der er provision eller egne produkter involveret i anbefalingerne. Tjek også rådgiverens hjemmeside, som skal oplyse det, hvis rådgivningen ikke er uafhængig. I vores gratis guide “Hvem spiser din lagkage?” finder du 7 spørgsmål, du bør stille din rådgiver.",
+    },
+    {
+      question: "Hvorfor koster uafhængig rådgivning et honorar?",
+      answer: "Fordi rådgiveren ikke må tjene på produkterne, betaler du i stedet et fast, aftalt honorar. Det gør omkostningen synlig. Hos TOBA Advice går de rabatter, vi forhandler hjem hos kapitalforvalterne, desuden ubeskåret videre til dig.",
+    },
+  ] satisfies FaqItem[],
 
   next: {
     title: "Hvilken slags rådgivning får du i dag?",

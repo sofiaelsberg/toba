@@ -7,7 +7,7 @@ import path from "node:path";
  *
  * Forside (frontmatter) – én værdi pr. linje, skrevet som JSON:
  *   title, description, date (ISO), author, linkedin (URL), linkedinId,
- *   linkedinShare?, lead?, image? (/nyheder/x.jpg), imageAlt?, document? {title, pages?, pdf?}, tags?, draft?
+ *   updated? (ISO, når indlægget er rettet væsentligt), linkedinShare?, lead?, image? (/nyheder/x.jpg), imageAlt?, document? {title, pages?, pdf?}, tags?, draft?
  *
  * Brødtekst: tomme linjer adskiller afsnit. "## " = mellemrubrik. Linjer, der starter med
  * "•", "-", "→" eller "1)"/"1." bliver til lister. **fed** og links (https://…) virker.
@@ -23,6 +23,8 @@ export type NewsPost = {
   title: string;
   description: string;
   date: string;
+  /** Dato for seneste væsentlige rettelse (valgfri). Bruges som dateModified og i sitemap. */
+  updated?: string;
   author: string;
   linkedin: string;
   linkedinId: string;
@@ -87,6 +89,7 @@ function parse(file: string): NewsPost {
     title: meta.title as string,
     description: meta.description as string,
     date: meta.date as string,
+    updated: meta.updated as string | undefined,
     author: (meta.author as string) || "TOBA Advice",
     linkedin: meta.linkedin as string,
     linkedinId: meta.linkedinId as string,

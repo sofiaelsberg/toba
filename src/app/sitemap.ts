@@ -26,8 +26,17 @@ const pages: { path: string; priority: number }[] = [
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   "use cache";
-  // Datoen for seneste udgivelse (siden bygges statisk ved hver deploy).
-  const lastModified = new Date();
-  const posts = (await getAllPosts()).map((p) => ({ url: `${BASE}${routes.news}/${p.slug}`, lastModified: new Date(p.date), priority: 0.6 }));
-  return [...pages.map((p) => ({ url: `${BASE}${p.path === "/" ? "" : p.path}`, lastModified, priority: p.priority })), ...posts];
+  const all = await getAllPosts();
+  const posts = all.map((p) => ({ url: `${BASE}${routes.news}/${p.slug}`, lastModified: new Date(p.updated ?? p.date), priority: 0.6 }));
+  // Faste sider får ingen lastModified: en dato, der skifter ved hvert deploy, lærer Google at ignorere feltet.
+  // Undtagelse: nyhedsoversigten ændres, når der kommer et nyt indlæg.
+  const newest = all[0] ? new Date(all[0].date) : undefined;
+  return [
+    ...pages.map((p) => ({
+      url: `${BASE}${p.path === "/" ? "" : p.path}`,
+      ...(p.path === routes.news && newest ? { lastModified: newest } : {}),
+      priority: p.priority,
+    })),
+    ...posts,
+  ];
 }
