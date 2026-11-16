@@ -17,7 +17,7 @@ import { news as c } from "@/content/pages/news";
 import { disclaimers, routes } from "@/content/site";
 import { authorHref, authorPerson } from "@/lib/authors";
 import { formatNewsDate, getAllPosts, getPost } from "@/lib/news";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, withBrand } from "@/lib/seo";
 import { articleJsonLd, jsonLd } from "@/lib/structured-data";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) return {};
-  const base = pageMetadata(`${routes.news}/${post.slug}`, { title: `${post.title} | TOBA Advice`, description: post.description });
+  const base = pageMetadata(`${routes.news}/${post.slug}`, { title: withBrand(post.title), description: post.description });
   return {
     ...base,
     authors: [{ name: post.author }],
@@ -42,6 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       tags: post.tags,
       ...(post.cover ? { images: [{ url: post.cover, alt: post.imageAlt || post.title }] } : {}),
     },
+    // Samme billede på X/Twitter som på LinkedIn (ellers vises sitets standardbillede).
+    ...(post.cover ? { twitter: { card: "summary_large_image", images: [{ url: post.cover, alt: post.imageAlt || post.title }] } } : {}),
   };
 }
 

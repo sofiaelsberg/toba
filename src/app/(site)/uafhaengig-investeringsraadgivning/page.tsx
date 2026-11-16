@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 import { pageMetadata } from "@/lib/seo";
 import { faqJsonLd, jsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = pageMetadata(routes.independent, c.seo);
+export const metadata: Metadata = pageMetadata(routes.independent, c.seo, { ownShareImage: true });
 
 export default function IndependentPage() {
   return (
