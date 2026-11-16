@@ -138,22 +138,22 @@ export const independent = {
       {
         icon: "globe",
         title: "Frit valg på tværs af markedet.",
-        text: `Vi er ikke bundet til én bank eller én bestemt forvalter. Vi udvælger relevante investeringsløsninger på tværs af markedet og samarbejder i dag med ${facts.managers} forvaltere i ${facts.countries} lande.`,
+        text: `Vi samarbejder i dag med ${facts.managers} forvaltere i ${facts.countries} lande.`,
       },
       {
         icon: "no-commission",
         title: "Ingen provision.",
-        text: "Vi modtager ikke formidlingsprovision for at anbefale bestemte fonde eller investeringsprodukter. Vores indtjening afhænger derfor ikke af, hvilke produkter vi anbefaler.",
+        text: "Vores indtjening afhænger ikke af, hvilke produkter vi anbefaler.",
       },
       {
         icon: "fixed-fee",
         title: "Et gennemskueligt honorar.",
-        text: "Du betaler et aftalt rådgivningshonorar, der ikke afhænger af, hvilke investeringer vi vælger til din portefølje.",
+        text: "Du betaler et fast, aftalt honorar – uanset hvad vi investerer i.",
       },
       {
         icon: "owners",
         title: "Ejet af medarbejderne.",
-        text: "TOBA Advice er ejet af medarbejderne selv. Vi arbejder langsigtet og har ingen eksterne ejere, der stiller krav om salg af bestemte investeringsprodukter.",
+        text: "Vi har ingen eksterne ejere, der stiller krav om salg.",
       },
     ] satisfies FeatureContent[],
     rebate: {
