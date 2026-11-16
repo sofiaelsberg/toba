@@ -114,7 +114,7 @@ export const independent = {
     ] satisfies Point[],
     factBox:
       "**Vidste du det?** Hvis en investeringsrådgiver ikke er uafhængig, skal det fremgå af virksomhedens hjemmeside. Rådgiveren skal også oplyse størrelsen af – eller beregningsgrundlaget for – eventuel provision.",
-    tip: "**Godt råd:** Bruger din rådgiver et ord, der næsten lyder som uafhængig – fx “uvildig” – så spørg, om alle tre krav er opfyldt.",
+    tip: "**Værd at vide:** Ord, der lyder ens – fx “uvildig” – betyder ikke nødvendigvis det samme som uafhængig.",
     source: "Kilde: Lov om investeringsrådgivere og boligkreditformidlere, § 9 og § 10.",
   },
 
