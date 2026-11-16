@@ -1,6 +1,6 @@
 ---
 title: "Investering i alternativer: Forvaltervalget er afgørende"
-description: "Investering i alternativer - Dit forvaltervalg er afgørende for om din portefølje er robust, diversificeret og giver et afkast, der står mål med …"
+description: "Ved alternative investeringer er forvaltervalget afgørende. Sådan vurderer vi forvaltere: proces, team, operationel due diligence og rapportering."
 date: "2025-11-21T06:46:05.192Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7397525695515475968/"

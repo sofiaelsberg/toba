@@ -1,6 +1,6 @@
 ---
 title: "Formidlingsprovisioner: Pengene tilhører investorerne"
-description: "I dag sætter Børsen fokus på et udspil fra Forbrugerrådet Tænk og Dansk Aktionærforening med ti forslag, der skal få flere danskere til at investere. Et …"
+description: "Formidlingsprovisioner bør tilfalde investorerne – ikke bankerne. Sådan arbejder TOBA Advice uden provision og med rabatter, der går til kunderne."
 date: "2026-11-03T13:56:59.128Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7523382724145905664/"

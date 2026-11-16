@@ -1,6 +1,6 @@
 ---
 title: "Hvorfor interessere sig for private equity?"
-description: "Fordi det giver afkast og diversifikation til din portefølje! Der er i dag langt flere selskaber, der er ejet og finansieret af private equity-fonde og …"
+description: "Langt de fleste selskaber er unoterede, og meget af værdiskabelsen sker før børsen. Derfor kan private equity give afkast og spredning til din portefølje."
 date: "2026-01-09T07:04:44.595Z"
 author: "Tonny Elsberg"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7415286868743036928/"

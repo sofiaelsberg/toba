@@ -1,6 +1,6 @@
 ---
 title: "Er du en cash cow for banken?"
-description: "Er du en Cash Cow – for banken? Hos de fem største danske banker ligger 92 % af kundernes investeringsbeholdninger i bankens EGNE fonde. Det evige …"
+description: "92 % af fondsbeholdningerne hos de fem største banker ligger i bankernes egne fonde (Finanstilsynet, 2026). Hvad betyder det for dig som investor?"
 date: "2026-06-03T07:23:02.282Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7467838240591437825/"
