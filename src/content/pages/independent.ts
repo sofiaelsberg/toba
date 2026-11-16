@@ -160,7 +160,7 @@ export const independent = {
       value: facts.rebatesPaid.amountMio,
       decimals: 1,
       suffix: " mio. kr.",
-      label: `udbetalt til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}. Vi sidder på samme side af bordet som vores kunder.`,
+      label: `udbetalt til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}. Vi forhandler rabatterne hjem for alle kunder samlet – og sender dem ubeskåret videre til dig.`,
     },
     taFunds: {
       question: "Hvad med TA Globale Aktier og TA Globale Obligationer?",
