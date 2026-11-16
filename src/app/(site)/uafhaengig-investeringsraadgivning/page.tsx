@@ -23,12 +23,11 @@ export default function IndependentPage() {
   return (
     <>
       <Hero
-        surface="navy"
         content={c.hero}
         aside={
           <div className="flex flex-col gap-4 border-l border-gold-light pl-6 md:mb-3 md:self-end">
             {c.heroText.map((t) => (
-              <p key={t} className="text-on-navy-muted">
+              <p key={t} className="text-ink-muted">
                 {t}
               </p>
             ))}

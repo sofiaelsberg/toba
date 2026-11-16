@@ -23,8 +23,8 @@ export const independent = {
     title: "Hvem arbejder din rådgiver *for*?",
     lead: "Når du modtager investeringsrådgivning, bør dine interesser altid komme først. Men ved du, hvordan din rådgiver bliver betalt, og om der er økonomiske interesser knyttet til de produkter, du bliver anbefalet?",
     actions: [
-      { label: "Se forskellen", href: "#tre", variant: "light" },
-      { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "ghost-light" },
+      { label: "Se forskellen", href: "#tre", variant: "primary" },
+      { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "secondary" },
     ],
   } satisfies HeroContent,
   heroText: [
