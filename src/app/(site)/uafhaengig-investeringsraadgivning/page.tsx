@@ -112,10 +112,7 @@ export default function IndependentPage() {
 
       <Section>
         <div className="flex flex-col gap-12">
-          <Split align="end">
-            <SectionHeading rule title={c.practice.title} />
-            <p>{c.practice.lead}</p>
-          </Split>
+          <SectionHeading rule title={c.practice.title} />
           <Split align="start">
             <FeatureList features={c.practice.features} columns={1} inline />
             <div className="flex flex-col gap-8">

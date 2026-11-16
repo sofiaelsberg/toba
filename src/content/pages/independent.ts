@@ -134,7 +134,6 @@ export const independent = {
 
   practice: {
     title: "Sådan arbejder vi",
-    lead: "Uafhængighed er fundamentet for TOBA Advice. Vi har ingen egne investeringsprodukter og lever af vores rådgivning – ikke af de fonde, vi anbefaler. Det betyder helt konkret:",
     features: [
       {
         icon: "globe",
@@ -150,11 +149,6 @@ export const independent = {
         icon: "fixed-fee",
         title: "Et gennemskueligt honorar.",
         text: "Du betaler et aftalt rådgivningshonorar, der ikke afhænger af, hvilke investeringer vi vælger til din portefølje.",
-      },
-      {
-        icon: "rebate",
-        title: "Rabatterne går til dig.",
-        text: "Vi forhandler rabatter hjem for alle kunder samlet og sender dem ubeskåret videre.",
       },
       {
         icon: "owners",
