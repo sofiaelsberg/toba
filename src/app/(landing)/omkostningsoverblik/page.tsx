@@ -19,7 +19,7 @@ import { disclaimers, routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { faqJsonLd, jsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = pageMetadata(routes.overview, c.seo);
+export const metadata: Metadata = pageMetadata(routes.overview, c.seo, { ownShareImage: true });
 
 /** Landingsside 2 – primær konvertering: bestil et gratis omkostningsoverblik. */
 export default function OverviewPage() {
