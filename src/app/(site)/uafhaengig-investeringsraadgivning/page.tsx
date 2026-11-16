@@ -84,9 +84,6 @@ export default function IndependentPage() {
             <p className="border-t-2 border-gold bg-cream p-6">
               <RichText text={c.law.factBox} />
             </p>
-            <p className="border-l border-gold-light pl-4 text-navy">
-              <RichText text={c.law.tip} />
-            </p>
             <Caption>{c.law.source}</Caption>
           </div>
           <ChecklistReveal items={c.law.requirements} numbered />
