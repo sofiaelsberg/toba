@@ -15,7 +15,7 @@ import type {
 
 export const howWeInvest = {
   seo: {
-    title: "Sådan investerer vi din formue | TOBA Advice",
+    title: "Formuerådgivning: sådan investerer vi din formue | TOBA Advice",
     description:
       "En klar strategi, bred spredning, grundigt udvalgte forvaltere og adgang til private markets. Se, hvordan vi arbejder med din formue.",
   } satisfies Seo,

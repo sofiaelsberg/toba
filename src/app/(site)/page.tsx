@@ -2,7 +2,7 @@ import { AdvisersVisual, CakeVisual, OverviewVisual } from "@/components/blocks/
 import { ButtonLink, TextLink } from "@/components/blocks/links";
 import { CtaBand, CtaCards } from "@/components/sections/cta";
 import { FactBox, StatsRow } from "@/components/sections/stats";
-import { PointList } from "@/components/sections/lists";
+import { AccordionList, PointList } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { WealthMap } from "@/components/sections/wealth-map";
@@ -20,6 +20,7 @@ import { cake } from "@/content/cake";
 import { independent } from "@/content/pages/independent";
 import { overview } from "@/content/pages/overview";
 import { pageMetadata } from "@/lib/seo";
+import { faqJsonLd, jsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = pageMetadata(routes.home, c.seo);
 
@@ -127,6 +128,14 @@ export default function HomePage() {
             }}
           />
         </div>
+      </Section>
+
+      <Section surface="white" id="spoergsmaal">
+        <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
+          <SectionHeading rule title={c.faqTitle} />
+          <AccordionList items={c.faq} />
+        </div>
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(c.faq))} />
       </Section>
 
       <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} />

@@ -16,6 +16,7 @@ import { independent as c } from "@/content/pages/independent";
 import { disclaimers, routes } from "@/content/site";
 import { cn } from "@/lib/utils";
 import { pageMetadata } from "@/lib/seo";
+import { faqJsonLd, jsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = pageMetadata(routes.independent, c.seo);
 
@@ -123,10 +124,18 @@ export default function IndependentPage() {
         </div>
       </Section>
 
-      <Section surface="white" id="naeste">
+      <Section surface="white" id="spoergsmaal">
+        <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
+          <SectionHeading rule title={c.faqTitle} />
+          <AccordionList items={c.faq} />
+        </div>
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(c.faq))} />
+      </Section>
+
+      <Section id="naeste">
         <div className="flex flex-col gap-10">
           <SectionHeading rule title={c.next.title} lead={c.next.lead} />
-          <CtaCards cards={c.next.cards} tone="cream" />
+          <CtaCards cards={c.next.cards} tone="white" />
         </div>
       </Section>
 
