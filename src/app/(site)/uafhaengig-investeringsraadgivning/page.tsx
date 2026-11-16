@@ -94,21 +94,23 @@ export default function IndependentPage() {
       </Section>
 
       <Section surface="navy">
-        <Split align="start">
+        <div className="grid grid-cols-1 gap-x-16 gap-y-8 md:grid-cols-2 md:gap-y-6">
           <div className="flex flex-col gap-5">
             <SectionHeading rule title={c.why.title} />
             {c.why.text.map((t) => (
               <p key={t}>{t}</p>
             ))}
           </div>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 md:col-start-2 md:row-span-2 md:row-start-1">
             <ShareBar value={c.why.value} lead={c.why.lead} segments={c.why.segments} />
+            <Caption>{c.why.source}</Caption>
+          </div>
+          <div className="flex flex-col gap-5 md:col-start-1 md:row-start-2">
             {c.why.after.map((t) => (
               <p key={t}>{t}</p>
             ))}
-            <Caption>{c.why.source}</Caption>
           </div>
-        </Split>
+        </div>
       </Section>
 
       <Section>
