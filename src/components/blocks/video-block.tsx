@@ -9,16 +9,6 @@ import { track } from "@/lib/analytics";
 import { jsonLd, videoJsonLd } from "@/lib/structured-data";
 import { cn } from "@/lib/utils";
 
-/** "0:31" → "31 sek.", "1:05" → "1 min. 5 sek." – så længden ikke ligner et tidsstempel. */
-function readableDuration(label?: string) {
-  const m = label?.match(/^(\d+):(\d{2})$/);
-  if (!m) return label;
-  const min = Number(m[1]);
-  const sec = Number(m[2]);
-  if (min === 0) return `${sec} sek.`;
-  return sec === 0 ? `${min} min.` : `${min} min. ${sec} sek.`;
-}
-
 /**
  * Kampagnevideo i 1:1. Starter aldrig selv med lyd.
  * Uden `src` vises en navngivet pladsholder med plakattekst.
@@ -26,7 +16,7 @@ function readableDuration(label?: string) {
 export function VideoBlock({ video, className, compact }: { video: VideoRef; className?: string; compact?: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
-  const label = [ui.video.play, readableDuration(video.durationLabel)].filter(Boolean).join(" · ");
+  const label = `${ui.video.play}: ${video.title}`;
 
   function play() {
     if (!ref.current) return;
@@ -60,18 +50,21 @@ export function VideoBlock({ video, className, compact }: { video: VideoRef; cla
             {ui.video.placeholderNote}
           </div>
         )}
-        {!playing && (
+        {!playing && video.src && (
           <button
             type="button"
             onClick={play}
-            disabled={!video.src}
-            className={cn(
-              "absolute bottom-6 left-6 inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-sm bg-cream px-4 py-2.5 text-[0.9375rem] font-semibold text-navy disabled:cursor-default",
-              compact && "bottom-2 left-2 px-2.5 text-caption",
-            )}
+            aria-label={label}
+            className="absolute inset-0 flex cursor-pointer items-center justify-center"
           >
-            <Play aria-hidden className="size-4 fill-current" />
-            {label}
+            <span
+              className={cn(
+                "flex size-16 items-center justify-center rounded-full bg-cream/90 text-navy shadow-lg transition-transform duration-300 ease-toba group-hover:scale-110 md:size-20",
+                compact && "size-11 md:size-12",
+              )}
+            >
+              <Play aria-hidden className={cn("ml-1 size-6 fill-current md:size-7", compact && "ml-0.5 size-4 md:size-4")} />
+            </span>
           </button>
         )}
       </div>
