@@ -127,7 +127,7 @@ export const independent = {
       { label: "bankernes egne fonde", value: facts.ownFundsTop5Pct },
       { label: "andre fonde", value: 100 - facts.ownFundsTop5Pct },
     ],
-    after: ["Det gør ikke investeringerne dårlige. Men det betyder, at rådgivningen ikke er fri."],
+    after: ["Det gør ikke investeringerne dårlige. Men det betyder, at rådgivningen ikke er uafhængig."],
     source: "Kilde: Finanstilsynet, “Bankernes salg af egne fonde”, maj 2026.",
   },
 
