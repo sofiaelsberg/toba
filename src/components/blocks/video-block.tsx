@@ -9,6 +9,16 @@ import { track } from "@/lib/analytics";
 import { jsonLd, videoJsonLd } from "@/lib/structured-data";
 import { cn } from "@/lib/utils";
 
+/** "0:31" → "31 sek.", "1:05" → "1 min. 5 sek." – så længden ikke ligner et tidsstempel. */
+function readableDuration(label?: string) {
+  const m = label?.match(/^(\d+):(\d{2})$/);
+  if (!m) return label;
+  const min = Number(m[1]);
+  const sec = Number(m[2]);
+  if (min === 0) return `${sec} sek.`;
+  return sec === 0 ? `${min} min.` : `${min} min. ${sec} sek.`;
+}
+
 /**
  * Kampagnevideo i 1:1. Starter aldrig selv med lyd.
  * Uden `src` vises en navngivet pladsholder med plakattekst.
@@ -16,7 +26,7 @@ import { cn } from "@/lib/utils";
 export function VideoBlock({ video, className, compact }: { video: VideoRef; className?: string; compact?: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
-  const label = [ui.video.play, video.durationLabel].filter(Boolean).join(" · ");
+  const label = [ui.video.play, readableDuration(video.durationLabel)].filter(Boolean).join(" · ");
 
   function play() {
     if (!ref.current) return;
