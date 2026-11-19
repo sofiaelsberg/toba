@@ -29,8 +29,8 @@ export const about = {
     ],
     illustrationLabel: "Illustration: en vulkan, der bryder ud, og et nyt landskab, der vokser frem – ligesom A’et i logoet.",
     text: [
-      "Toba er navnet på en vulkan på Sumatra. For mange tusinde år siden havde den et kæmpe udbrud, der lagde alt omkring sig øde. Efter udbruddet begyndte naturen langsomt at vende tilbage. For os symboliserer det en ny begyndelse – en ny start.",
-      "Det er det, vi vil symbolisere med navnet: en ny måde at lave investeringsrådgivning på, hvor vi tager udgangspunkt i dine behov. Derfor er A’et i vores logo en vulkan.",
+      "Toba er navnet på en supervulkan på øen Sumatra i Indonesien. For 74.000 år siden var den i udbrud og det var så voldsomt at den lagde alt omkring sig øde. Efter udbruddet begyndte naturen langsomt at vende tilbage. For os symboliserer det en ny begyndelse – en ny start.",
+      "Det er det vi gerne vil symbolisere med navnet TOBA: en ny tilgang til investeringsrådgivning, hvor vi tager udgangspunkt i dine behov. Derfor er A’et i vores logo en vulkan.",
     ],
     video: videos.v11,
   },
