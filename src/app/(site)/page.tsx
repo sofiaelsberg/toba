@@ -130,6 +130,8 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} />
+
       <Section surface="white" id="spoergsmaal">
         <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
           <SectionHeading rule title={c.faqTitle} />
@@ -137,8 +139,6 @@ export default function HomePage() {
         </div>
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(c.faq))} />
       </Section>
-
-      <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} />
       <Disclaimer content={disclaimers.standard} />
     </>
   );
