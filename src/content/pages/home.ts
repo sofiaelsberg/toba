@@ -1,7 +1,7 @@
 import { facts } from "../facts";
 import { ambient, videos } from "../media";
 import { routes, bookMeeting, trustline } from "../site";
-import type { CtaCardContent, FactContent, FaqItem, HeroContent, Point, Seo, Stat, WealthMapContent } from "../types";
+import type { CtaCardContent, StepContent, FactContent, FaqItem, HeroContent, Point, Seo, Stat, WealthMapContent } from "../types";
 
 export const home = {
   seo: {
@@ -185,12 +185,20 @@ export const home = {
     },
   ] satisfies FaqItem[],
 
-  closing: {
-    title: "Lad os tage en snak",
-    lead: "Vil du vide, om din investeringsløsning passer til dine behov? Book et uforpligtende møde med en af vores rådgivere.",
+  getStarted: {
+    title: "Sådan kommer du i gang",
+    steps: [
+      {
+        title: "Et uforpligtende møde",
+        text: "Vi starter med dig: Hvad er formålet med dine penge? Hvad betaler du i dag? Hvad er vigtigt for dig?",
+      },
+      { title: "Et forslag", text: "Du får en strategi og et klart overblik over, hvad det koster." },
+      { title: "Du bestemmer", text: "Ingen binding. Siger du ja, sætter vi det hele i gang – i din egen bank." },
+      { title: "Vi følger op", text: "Fast møderytme og løbende overvågning. Du kan altid ringe direkte til din rådgiver." },
+    ] satisfies StepContent[],
     actions: [
       { ...bookMeeting, variant: "light" as const },
-      { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "ghost-light" as const },
+      { label: "Start med et gratis omkostningsoverblik", href: routes.overview, variant: "ghost-light" as const },
     ],
   },
 };

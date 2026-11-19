@@ -1,17 +1,17 @@
 import { Check } from "lucide-react";
 import type { Metadata } from "next";
 
-import { ButtonRow, TextLink } from "@/components/blocks/links";
+import { TextLink } from "@/components/blocks/links";
 import { Media } from "@/components/blocks/media";
 import { RichText } from "@/components/blocks/rich-text";
-import { Caption, GoldRule, Heading } from "@/components/blocks/typography";
+import { Caption } from "@/components/blocks/typography";
 import { ReturnComparison } from "@/components/interactive/charts";
 import { ManagerMap } from "@/components/interactive/manager-map";
 import { AnchorNav } from "@/components/interactive/navigation";
 import { StepTimeline } from "@/components/interactive/step-timeline";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
-import { AccordionList, NumberedSteps, QuoteBlock } from "@/components/sections/lists";
+import { AccordionList, QuoteBlock } from "@/components/sections/lists";
 import { PersonQuote } from "@/components/sections/person-quote";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { facts } from "@/content/facts";
@@ -167,17 +167,6 @@ export default function HowWeInvestPage() {
           </Split>
         </div>
       </Section>
-
-      <section id="kom-i-gang" className="on-navy scroll-mt-24 bg-navy py-16 text-on-navy md:py-24">
-        <div className="wrap flex flex-col gap-12">
-          <div className="flex flex-col gap-4">
-            <GoldRule />
-            <Heading title={c.getStarted.title} />
-          </div>
-          <NumberedSteps steps={c.getStarted.steps} />
-          <ButtonRow actions={c.getStarted.actions} />
-        </div>
-      </section>
 
       <Disclaimer content={disclaimers.standard} />
     </>

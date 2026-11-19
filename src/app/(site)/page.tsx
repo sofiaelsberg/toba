@@ -1,8 +1,9 @@
 import { AdvisersVisual, CakeVisual, OverviewVisual } from "@/components/blocks/card-visuals";
-import { ButtonLink, TextLink } from "@/components/blocks/links";
-import { CtaBand, CtaCards } from "@/components/sections/cta";
+import { ButtonLink, ButtonRow, TextLink } from "@/components/blocks/links";
+import { GoldRule, Heading } from "@/components/blocks/typography";
+import { CtaCards } from "@/components/sections/cta";
 import { FactBox, StatsRow } from "@/components/sections/stats";
-import { AccordionList, PointList } from "@/components/sections/lists";
+import { AccordionList, NumberedSteps, PointList } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { WealthMap } from "@/components/sections/wealth-map";
@@ -130,7 +131,16 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} />
+      <section id="kom-i-gang" className="on-navy scroll-mt-24 bg-navy py-16 text-on-navy md:py-24">
+        <div className="wrap flex flex-col gap-12">
+          <div className="flex flex-col gap-4">
+            <GoldRule />
+            <Heading title={c.getStarted.title} />
+          </div>
+          <NumberedSteps steps={c.getStarted.steps} />
+          <ButtonRow actions={c.getStarted.actions} />
+        </div>
+      </section>
 
       <Section surface="white" id="spoergsmaal">
         <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">

@@ -27,7 +27,6 @@ export const howWeInvest = {
     { id: "forvaltere", label: "Forvaltere" },
     { id: "private", label: "Private markets" },
     { id: "helheden", label: "Helheden" },
-    { id: "kom-i-gang", label: "Kom i gang" },
   ],
 
   hero: {
@@ -203,23 +202,6 @@ export const howWeInvest = {
       text: "Fast honorar, og alle rabatter går ubeskåret til dig. Se, hvad din formue koster i dag.",
       action: { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "primary" as const },
     },
-  },
-
-  getStarted: {
-    title: "Sådan kommer du i gang",
-    steps: [
-      {
-        title: "Et uforpligtende møde",
-        text: "Vi starter med dig: Hvad er formålet med dine penge? Hvad betaler du i dag? Hvad er vigtigt for dig?",
-      },
-      { title: "Et forslag", text: "Du får en strategi og et klart overblik over, hvad det koster." },
-      { title: "Du bestemmer", text: "Ingen binding. Siger du ja, sætter vi det hele i gang – i din egen bank." },
-      { title: "Vi følger op", text: "Fast møderytme og løbende overvågning. Du kan altid ringe direkte til din rådgiver." },
-    ] satisfies StepContent[],
-    actions: [
-      { ...bookMeeting, variant: "light" as const },
-      { label: "Start med et gratis omkostningsoverblik", href: routes.overview, variant: "ghost-light" as const },
-    ],
   },
 
   /** Relaterede indlæg fra /nyheder. Skift filnavnene for at vise andre (fyldes op med de nyeste). */
