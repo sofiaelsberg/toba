@@ -37,9 +37,8 @@ export const guide = {
   intro: {
     title: "Omkostninger er ikke problemet. *Usynlige* omkostninger er.",
     text: [
-      "Når du investerer, handler det ikke kun om at skabe afkast. Det handler også om, hvor meget du beholder efter omkostninger.",
-      "Nogle omkostninger er synlige, mens andre trækkes løbende fra fondenes afkast. Derudover kan rabatter og økonomiske interessekonflikter have betydning for den samlede værdi af din investeringsløsning.",
-      "Og selv små forskelle i omkostninger kan få stor betydning over tid.",
+      "Det er ikke kun dit afkast, der tæller. Det er, hvor meget af det du beholder.",
+      "Nogle omkostninger kan du se. Andre trækkes løbende inde i fondene, og rabatter kan ende hos andre end dig.",
     ],
     fact: {
       value: facts.cakeExample.extraMio, decimals: 1, suffix: " mio. kr.",
