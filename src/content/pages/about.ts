@@ -109,7 +109,7 @@ export const about = {
   },
 
   closing: {
-    title: "Lad os tage en snak",
+    title: "Lad os starte med en samtale",
     lead: "Vil du vide, om din formue arbejder for dig – eller for andre? Book et uforpligtende møde, eller start med et gratis omkostningsoverblik.",
     actions: [
       { ...bookMeeting, variant: "light" as const },

@@ -17,7 +17,7 @@ export const team = {
   profileUrlPrefix: "tobaadvice.com/team/",
 
   closing: {
-    title: "Lad os tage en snak",
+    title: "Lad os starte med en samtale",
     lead: "Vil du vide, om din formue arbejder for dig – eller for andre? Book et uforpligtende møde med en af vores rådgivere.",
     actions: [
       { ...bookMeeting, variant: "light" as const },
