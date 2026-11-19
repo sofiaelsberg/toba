@@ -63,7 +63,7 @@ export const independent = {
         eyebrow: "2 · Ikke uafhængig",
         title: "Ikke uafhængig rådgivning",
         flow: {
-          nodes: [{ label: "Dig", you: true }, { label: "Bankens og andres fonde" }, { label: "Bankerne" }],
+          nodes: [{ label: "Dig", you: true }, { label: "Bankens & andres fonde" }, { label: "Bankerne" }],
           steps: [
             { label: "køber", tone: "neutral" },
             { label: "provision og rabat går til", tone: "bad" },
