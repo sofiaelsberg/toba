@@ -113,7 +113,7 @@ const raw: Omit<Person, "portrait">[] = [
     phone: "+45 88 88 82 06",
     email: "ch@tobaadvice.com",
     bio: [
-      "Christian arbejder i analyseafdelingen, hvor han står for rapportering, opstart af nye kunder og omlægning af eksisterende kunders porteføljer. Han har en bachelor i finans fra Erhvervsakademi Aarhus.",
+      "Christian arbejder i analyseafdelingen, hvor han står for rapportering, opstart af nye kunder og omlægning af eksisterende kunders porteføljer. Han har en bachelor i finans fra Erhvervsakademi Aarhus og er ved at færdiggøre sin cand.merc. i finansiering fra Handelshøjskolen i Aarhus / Aarhus Universitet.",
     ],
   },
   {
@@ -121,16 +121,26 @@ const raw: Omit<Person, "portrait">[] = [
     name: "Kristian Blæsbjerg Larsen",
     title: "Investeringsstrateg / Partner",
     group: "analyse",
-    bio: [],
+    email: "kbl@tobaadvice.com",
+    bio: [
+      "Kristian er investeringsstrateg og partner i TOBA Advice, hvor han er tilknyttet analyseafdelingen. Han er cand.merc. i finansiering fra Handelshøjskolen i Aarhus og kommer fra en karriere i Nordea, senest som Chief Private Banker i Nordea Wealth Management. Han har desuden undervist som ekstern lektor på Handelshøjskolen / Aarhus Universitet.",
+    ],
   },
-  { slug: "alexander-holm", name: "Alexander Holm", title: "Intern – Investments", group: "analyse", bio: [], noProfile: true },
+  {
+    slug: "alexander-holm",
+    name: "Alexander Holm",
+    title: "Intern – Investments",
+    group: "analyse",
+    email: "holm@tobaadvice.com",
+    bio: ["Alexander er tilknyttet analyseafdelingen i TOBA Advice. Han assisterer ved de fleste opgaver i analyseafdelingen, uanset om det er udarbejdelse af investeringsanalyser, kundeoplæg eller værktøjer, der understøtter afdelingens arbejdsopgaver."],
+  },
   {
     slug: "mathias-braas-skytte",
     name: "Mathias Braas Skytte",
     title: "Intern – Investments",
     group: "analyse",
-    bio: [],
-    noProfile: true,
+    email: "skytte@tobaadvice.com",
+    bio: ["Mathias er tilknyttet analyseafdelingen i TOBA Advice. Han assisterer ved de fleste opgaver i analyseafdelingen, uanset om det er udarbejdelse af investeringsanalyser, kundeoplæg eller værktøjer, der understøtter afdelingens arbejdsopgaver."],
   },
   // Administration
   {
@@ -150,7 +160,9 @@ const raw: Omit<Person, "portrait">[] = [
     title: "CFO / Partner",
     group: "administration",
     phone: "+45 26 83 81 11",
-    bio: [],
+    bio: [
+      "Mette er CFO i TOBA Advice og holder styr på finanserne – uanset om det er den daglige styring af økonomi og likviditet eller de langsigtede mål og budgetter, TOBA Advice manøvrerer efter. Hun har bred erfaring fra forskellige roller i økonomifunktionen hos tidligere arbejdsgivere.",
+    ],
   },
   {
     slug: "sofia-lund-elsberg",
