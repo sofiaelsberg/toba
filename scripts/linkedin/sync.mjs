@@ -10,7 +10,8 @@
  * Brug --dry-run for at se, hvad der ville blive oprettet.
  *
  * API: LinkedIn Community Management API (scope r_organization_social).
- *   LINKEDIN_ACCESS_TOKEN  – token for en administrator af virksomhedssiden
+ *   LINKEDIN_ACCESS_TOKEN  – token for en administrator af virksomhedssiden (gyldigt 60 dage), eller:
+ *   LINKEDIN_REFRESH_TOKEN + LINKEDIN_CLIENT_ID + LINKEDIN_CLIENT_SECRET – så hentes et frisk token ved hver kørsel
  *   LINKEDIN_ORG_ID        – 104613890 (TOBA Advice)
  *   LINKEDIN_VERSION       – valgfri, fx 202611 (ÅÅÅÅMM). Ellers findes den nyeste aktive version automatisk.
  *
@@ -185,6 +186,36 @@ async function fromExport(file) {
       document: p.document || null,
     };
   });
+}
+
+let cachedToken = null;
+
+/**
+ * Access token: hentes frisk ud fra LINKEDIN_REFRESH_TOKEN + LINKEDIN_CLIENT_ID + LINKEDIN_CLIENT_SECRET
+ * (refresh-tokenet holder ét år). Uden dem bruges LINKEDIN_ACCESS_TOKEN (gyldigt 60 dage).
+ */
+async function getToken() {
+  if (cachedToken) return cachedToken;
+  const { LINKEDIN_REFRESH_TOKEN: refresh, LINKEDIN_CLIENT_ID: id, LINKEDIN_CLIENT_SECRET: secret } = process.env;
+  if (!refresh || !id || !secret) {
+    if (process.env.LINKEDIN_ACCESS_TOKEN) return (cachedToken = process.env.LINKEDIN_ACCESS_TOKEN);
+    throw new Error("Mangler LINKEDIN_ACCESS_TOKEN eller LINKEDIN_REFRESH_TOKEN + LINKEDIN_CLIENT_ID + LINKEDIN_CLIENT_SECRET");
+  }
+  const res = await fetch("https://www.linkedin.com/oauth/v2/accessToken", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ grant_type: "refresh_token", refresh_token: refresh, client_id: id, client_secret: secret }),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || !data.access_token) {
+    throw new Error(`Kunne ikke forny LinkedIn-token (${res.status}): ${data.error_description || data.error || "ukendt fejl"}`);
+  }
+  if (data.refresh_token_expires_in) {
+    const days = Math.round(data.refresh_token_expires_in / 86400);
+    console.log(`LinkedIn: refresh-tokenet udløber om ${days} dage.`);
+    if (days < 30) console.log("::warning::LinkedIn refresh-token udløber snart – lav et nyt login (se scripts/linkedin/README.md).");
+  }
+  return (cachedToken = data.access_token);
 }
 
 /** LinkedIn-Version (ÅÅÅÅMM). Starter ved indeværende måned og går tilbage, til LinkedIn accepterer den. */
