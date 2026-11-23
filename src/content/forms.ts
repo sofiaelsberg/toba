@@ -6,6 +6,8 @@
 
 export type FormMicrocopy = { text: string; linkLabel: string; href: string; after?: string };
 
+import { routes } from "./site";
+
 /** Formularernes id i ActiveCampaign (Website → Forms). */
 export const activeCampaignForms = { account: "https://tobaadvice24097.activehosted.com", contact: 10, guide: 8, overview: 9 } as const;
 
@@ -16,7 +18,7 @@ export const formAnalyticsName: Record<number, "kontakt" | "guide" | "omkostning
   [activeCampaignForms.overview]: "omkostningsoverblik",
 };
 
-const privacy = { linkLabel: "privatlivspolitik", href: "/privatlivspolitik", after: "." };
+const privacy = { linkLabel: "privatlivspolitik", href: routes.privacy, after: "." };
 
 export const contactForm = {
   title: "Skriv til os",

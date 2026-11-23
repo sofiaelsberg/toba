@@ -21,6 +21,11 @@ export const routes = {
   clientPortal: "https://client.tobaadvice.onperformativ.com",
 } as const;
 
+/** Adressen på et indlæg på /nyheder. */
+export const newsPath = (slug: string) => `${routes.news}/${slug}`;
+
+const linkedinUrl = "https://www.linkedin.com/company/toba-advice";
+
 export const company = {
   name: "TOBA Advice",
   legalName: "TOBA Advice A/S",
@@ -29,10 +34,10 @@ export const company = {
   phone: "+45 28 18 84 27",
   address: { line1: "Store Torv 3C, 2. sal", line2: "8000 Aarhus C" },
   mapsUrl: "https://maps.google.com/?q=Store+Torv+3C,+8000+Aarhus+C",
-  linkedin: "https://www.linkedin.com/company/toba-advice",
+  linkedin: linkedinUrl,
   /** Officielle profiler andre steder. Hjælper Google og AI med at koble dem til samme virksomhed (schema.org sameAs). */
   profiles: [
-    "https://www.linkedin.com/company/toba-advice",
+    linkedinUrl,
     "https://datacvr.virk.dk/enhed/virksomhed/37424277",
     "https://www.proff.dk/firma/toba-advice-as/-/-/37424277",
   ],
@@ -78,14 +83,8 @@ export const footer = {
   columns: [
     {
       title: "Om TOBA",
-      links: [
-        { label: "Sådan investerer vi", href: routes.howWeInvest },
-        { label: "Uafhængig rådgivning", href: routes.independent },
-        { label: "Om TOBA", href: routes.about },
-        { label: "Team", href: routes.team },
-        { label: "Nyheder", href: routes.news },
-        { label: "Kontakt", href: routes.contact },
-      ],
+      // Samme sider som topmenuen.
+      links: mainNav,
     },
     {
       title: "Kom i gang",

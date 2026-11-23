@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 
+import { company } from "@/content/site";
 import type { Seo } from "@/content/types";
 
 export const SITE_URL = "https://www.tobaadvice.com";
+
+/** Fuld adresse: "/team" → "https://www.tobaadvice.com/team", "/" → "https://www.tobaadvice.com". Eksterne adresser røres ikke. */
+export function absoluteUrl(path: string): string {
+  if (path.startsWith("http")) return path;
+  return path === "/" ? SITE_URL : `${SITE_URL}${path}`;
+}
 
 /**
  * Standard-delingsbillede (app/opengraph-image.png). Skal sættes eksplicit: et `openGraph`-objekt på en side
@@ -36,7 +43,7 @@ export function pageMetadata(path: string, seo: Seo, opts: { ownShareImage?: boo
       url: path,
       title: seo.title,
       description: seo.ogDescription ?? seo.description,
-      siteName: "TOBA Advice",
+      siteName: company.name,
       locale: "da_DK",
       type: "website",
       // Sider med egen opengraph-image.png i mappen sætter ownShareImage – ellers overskriver standardbilledet deres eget.

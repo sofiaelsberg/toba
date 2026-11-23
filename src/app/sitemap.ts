@@ -1,9 +1,8 @@
 import type { MetadataRoute } from "next";
 
-import { routes } from "@/content/site";
+import { newsPath, routes } from "@/content/site";
 import { getAllPosts } from "@/lib/news";
-
-const BASE = "https://www.tobaadvice.com";
+import { absoluteUrl } from "@/lib/seo";
 
 /** Alle offentlige sider. Nye sider tilføjes her (og i `routes`). */
 const pages: { path: string; priority: number }[] = [
@@ -27,13 +26,13 @@ const pages: { path: string; priority: number }[] = [
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   "use cache";
   const all = await getAllPosts();
-  const posts = all.map((p) => ({ url: `${BASE}${routes.news}/${p.slug}`, lastModified: new Date(p.updated ?? p.date), priority: 0.6 }));
+  const posts = all.map((p) => ({ url: absoluteUrl(newsPath(p.slug)), lastModified: new Date(p.updated ?? p.date), priority: 0.6 }));
   // Faste sider får ingen lastModified: en dato, der skifter ved hvert deploy, lærer Google at ignorere feltet.
   // Undtagelse: nyhedsoversigten ændres, når der kommer et nyt indlæg.
   const newest = all[0] ? new Date(all[0].date) : undefined;
   return [
     ...pages.map((p) => ({
-      url: `${BASE}${p.path === "/" ? "" : p.path}`,
+      url: absoluteUrl(p.path),
       ...(p.path === routes.news && newest ? { lastModified: newest } : {}),
       priority: p.priority,
     })),

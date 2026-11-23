@@ -25,6 +25,11 @@ export function telHref(phone: string): string {
   return `tel:${phone.replace(/\s/g, "")}`;
 }
 
+/** Fjerner *fremhævning* og **fed** fra en indholdstekst – til steder uden formatering (JSON-LD, llms.txt). */
+export function stripMarkup(text: string): string {
+  return text.replace(/\*\*?/g, "");
+}
+
 /** Udfylder {navn}-pladsholdere i indholdstekster: fill("Hej {navn}", { navn: "Sofia" }). */
 export function fill(template: string, values: Record<string, string>): string {
   return template.replace(/\{(\w+)\}/g, (_, k: string) => values[k] ?? `{${k}}`);

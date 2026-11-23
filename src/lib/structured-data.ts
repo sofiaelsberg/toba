@@ -1,9 +1,10 @@
 import { facts } from "@/content/facts";
-import { company, footer, routes } from "@/content/site";
+import { company, footer, newsPath, routes } from "@/content/site";
 import type { FaqItem, Person, VideoRef } from "@/content/types";
 import { authorHref, authorPerson } from "@/lib/authors";
 import type { NewsPost } from "@/lib/news";
-import { SITE_URL } from "@/lib/seo";
+import { stripMarkup } from "@/lib/format";
+import { absoluteUrl as abs, SITE_URL } from "@/lib/seo";
 
 /*
  * Schema.org-data (JSON-LD). Bruges af Google til søgeresultater og af AI-tjenester til at svare
@@ -11,7 +12,6 @@ import { SITE_URL } from "@/lib/seo";
  */
 
 const ORG_ID = `${SITE_URL}/#organisation`;
-const abs = (path: string) => (path.startsWith("http") ? path : `${SITE_URL}${path}`);
 
 /** Virksomheden + websitet. Står på alle sider (root layout). */
 export const siteJsonLd = {
@@ -104,7 +104,7 @@ export function teamJsonLd(list: Person[]) {
     "@context": "https://schema.org",
     "@graph": list.map((p) => ({
       "@type": "Person",
-      "@id": `${SITE_URL}${routes.team}#${p.slug}`,
+      "@id": abs(authorHref(p)),
       name: p.name,
       jobTitle: p.title,
       image: abs(p.portrait.src),
@@ -136,7 +136,7 @@ export function faqJsonLd(items: FaqItem[]) {
     mainEntity: items.map((f) => ({
       "@type": "Question",
       name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer.replace(/\*\*?/g, "") },
+      acceptedAnswer: { "@type": "Answer", text: stripMarkup(f.answer) },
     })),
   };
 }
@@ -169,15 +169,15 @@ export function newsListJsonLd(posts: NewsPost[]) {
   return {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "@id": `${SITE_URL}${routes.news}#blog`,
+    "@id": abs(`${routes.news}#blog`),
     name: "Nyheder og indsigt fra TOBA Advice",
-    url: `${SITE_URL}${routes.news}`,
+    url: abs(routes.news),
     inLanguage: "da-DK",
     publisher: { "@id": ORG_ID },
     blogPost: posts.map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
-      url: `${SITE_URL}${routes.news}/${p.slug}`,
+      url: abs(newsPath(p.slug)),
       datePublished: p.date,
     })),
   };
@@ -185,10 +185,10 @@ export function newsListJsonLd(posts: NewsPost[]) {
 
 /** Et nyhedsindlæg + brødkrummer. */
 export function articleJsonLd(p: NewsPost) {
-  const url = `${SITE_URL}${routes.news}/${p.slug}`;
+  const url = abs(newsPath(p.slug));
   const person = authorPerson(p.author);
   const author = person
-    ? { "@type": "Person", "@id": `${SITE_URL}${authorHref(person)}`, name: person.name, jobTitle: person.title, url: `${SITE_URL}${authorHref(person)}`, worksFor: { "@id": ORG_ID } }
+    ? { "@type": "Person", "@id": abs(authorHref(person)), name: person.name, jobTitle: person.title, url: abs(authorHref(person)), worksFor: { "@id": ORG_ID } }
     : p.author === "TOBA Advice"
       ? { "@id": ORG_ID }
       : { "@type": "Person", name: p.author, worksFor: { "@id": ORG_ID } };
@@ -206,7 +206,7 @@ export function articleJsonLd(p: NewsPost) {
         publisher: { "@id": ORG_ID },
         mainEntityOfPage: url,
         inLanguage: "da-DK",
-        isPartOf: { "@id": `${SITE_URL}${routes.news}#blog` },
+        isPartOf: { "@id": abs(`${routes.news}#blog`) },
         ...(p.cover ? { image: abs(p.cover) } : {}),
         ...(p.tags.length ? { keywords: p.tags.join(", ") } : {}),
         sameAs: [p.linkedin],
@@ -215,7 +215,7 @@ export function articleJsonLd(p: NewsPost) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Forside", item: SITE_URL },
-          { "@type": "ListItem", position: 2, name: "Nyheder", item: `${SITE_URL}${routes.news}` },
+          { "@type": "ListItem", position: 2, name: "Nyheder", item: abs(routes.news) },
           { "@type": "ListItem", position: 3, name: p.title, item: url },
         ],
       },

@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { ButtonLink } from "@/components/blocks/links";
 import { bookMeeting, company, footer, landingChrome } from "@/content/site";
+import { telHref } from "@/lib/format";
 import { Logo } from "./logo";
 import { CookieSettingsButton } from "./cookie-banner";
 
@@ -38,7 +39,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 flex flex-wrap gap-x-6 gap-y-2 border-t border-gold-light pt-5 text-caption text-on-navy-muted">
-          <a href={`tel:${company.phone.replace(/\s/g, "")}`} className="text-inherit no-underline">
+          <a href={telHref(company.phone)} className="text-inherit no-underline">
             {company.phone}
           </a>
           <span>

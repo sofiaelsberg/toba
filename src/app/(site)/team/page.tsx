@@ -7,7 +7,7 @@ import { Section } from "@/components/sections/section";
 import { TeamDirectory } from "@/components/sections/team-directory";
 import { team as c } from "@/content/pages/team";
 import { groups, people } from "@/content/people";
-import { disclaimers, routes } from "@/content/site";
+import { disclaimers, newsPath, routes } from "@/content/site";
 import { authorPerson } from "@/lib/authors";
 import { getAllPosts } from "@/lib/news";
 import { pageMetadata } from "@/lib/seo";
@@ -22,7 +22,7 @@ export default async function TeamPage() {
     const person = authorPerson(post.author);
     if (!person) continue;
     const list = (articles[person.slug] ??= []);
-    if (list.length < 3) list.push({ title: post.title, href: `${routes.news}/${post.slug}` });
+    if (list.length < 3) list.push({ title: post.title, href: newsPath(post.slug) });
   }
   return (
     <>

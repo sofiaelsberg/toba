@@ -14,7 +14,7 @@ import { pickPosts } from "@/components/news/news-teaser";
 import { Disclaimer } from "@/components/sections/legal";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { news as c } from "@/content/pages/news";
-import { disclaimers, routes } from "@/content/site";
+import { disclaimers, newsPath, routes } from "@/content/site";
 import { authorHref, authorPerson } from "@/lib/authors";
 import { formatNewsDate, getAllPosts, getPost } from "@/lib/news";
 import { pageMetadata, withBrand } from "@/lib/seo";
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) return {};
-  const base = pageMetadata(`${routes.news}/${post.slug}`, { title: withBrand(post.title), description: post.description });
+  const base = pageMetadata(newsPath(post.slug), { title: withBrand(post.title), description: post.description });
   return {
     ...base,
     authors: [{ name: post.author }],
