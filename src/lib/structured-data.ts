@@ -147,9 +147,9 @@ function isoDuration(label: string) {
   return `PT${m || 0}M${s || 0}S`;
 }
 
-/** En kampagnevideo. Kræver src, plakat og udgivelsesdato. */
+/** En kampagnevideo. Kræver udgivelsesdato. */
 export function videoJsonLd(v: VideoRef) {
-  if (!v.src || !v.poster || !v.uploadDate) return null;
+  if (!v.uploadDate) return null;
   return {
     "@context": "https://schema.org",
     "@type": "VideoObject",

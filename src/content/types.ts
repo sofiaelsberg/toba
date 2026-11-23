@@ -23,11 +23,7 @@ export type ImageRef = {
   height: number;
 };
 
-/** Medie, der endnu ikke findes – vises som navngivet pladsholder. */
-export type PlaceholderRef = {
-  placeholder: string;
-  aspect?: "1/1" | "4/5" | "4/3" | "16/10";
-};
+export type Aspect = "1/1" | "4/5" | "4/3" | "16/10";
 
 /** Indlejret LinkedIn-opslag. `urn` findes i LinkedIns indlejringskode ("urn:li:ugcPost:…" / "urn:li:share:…"). */
 export type LinkedInPostRef = {
@@ -52,14 +48,14 @@ export type ManagerMapContent = {
 export type AmbientVideoRef = {
   src: string;
   poster: string;
-  aspect: NonNullable<PlaceholderRef["aspect"]>;
+  aspect: Aspect;
 };
 
 export type VideoRef = {
   id: string;            // "V03"
   title: string;         // vises på plakaten
-  src?: string;          // mp4, når den findes
-  poster?: string;
+  src: string;           // mp4
+  poster: string;
   durationLabel: string; // "0:36"
   caption?: string;      // navn og titel under videoen
   captionsSrc?: string;  // .vtt
@@ -103,7 +99,7 @@ export type CtaCardContent = {
   text: string;
   linkLabel: string;
   href: string;
-  media?: ImageRef | PlaceholderRef;
+  media?: ImageRef;
   visual?: CardVisualKey;
 };
 
