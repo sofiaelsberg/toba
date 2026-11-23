@@ -1,0 +1,118 @@
+{
+  "_forklaring": "Faste adresser (og originalbilleder/slides) for LinkedIn-opslag, nøglen er opslagets id fra API'et. Synkroniseringen bruger adressen her i stedet for at lave en ud fra overskriften. Tilføj et opslag her for at give det en pænere adresse, før det hentes.",
+  "opslag": {
+    "7417228083893653504": {
+      "titel": "Alternativer: hvordan styrer du allokeringen og likviditeten i dine investeringer?",
+      "adresse": "alternativer-allokering-og-likviditet",
+      "dokument": {
+        "title": "Guide til allokering og likviditetsstyring"
+      }
+    },
+    "7396476139315118080": {
+      "titel": "Betaler du også for en vare, du sjældent modtager?",
+      "adresse": "betaler-du-for-en-vare-du-sjaeldent-modtager",
+      "billede": "/nyheder/betaler-du-for-en-vare-du-sjaeldent-modtager-hd.jpg",
+      "billedtekst": "Se billede"
+    },
+    "7514227575842291712": {
+      "titel": "Bliver aktier mindre risikable, jo længere du ejer dem?",
+      "adresse": "bliver-aktier-mindre-risikable-jo-laengere-du-ejer-dem",
+      "dokument": {
+        "title": "Bliver aktier mindre risikable?",
+        "pages": 5
+      }
+    },
+    "7467838239127699456": {
+      "titel": "Er du en Cash Cow – for banken?",
+      "adresse": "er-du-en-cash-cow-for-banken",
+      "dokument": {
+        "title": "Illustration af Finanstilsynets undersøgelse"
+      }
+    },
+    "7506249940982046720": {
+      "titel": "Er USA godt eller dårligt for din portefølje?",
+      "adresse": "er-usa-godt-eller-daarligt-for-din-portefoelje",
+      "dokument": {
+        "title": "Er USA godt eller dårligt for din portefølje?"
+      }
+    },
+    "7523382723332210688": {
+      "titel": "Formidlingsprovisioner: Pengene tilhører investorerne",
+      "adresse": "formidlingsprovisioner-pengene-tilhoerer"
+    },
+    "7511693618102005760": {
+      "titel": "Hos TOBA Advice har vi stor fokus på den overordnede sammensætning af vore kunders porteføljer, så vi …",
+      "adresse": "core-satellite-saadan-bygger-du-portefoeljen",
+      "dokument": {
+        "title": "Core-Satellite – illustration",
+        "pages": 8
+      }
+    },
+    "7414660163107938304": {
+      "titel": "Hvem spiser din lagkage - Din forvalter, din bank eller Dig?",
+      "adresse": "hvem-spiser-din-lagkage",
+      "billede": "/nyheder/hvem-spiser-din-lagkage.jpg",
+      "billedtekst": "Se billede"
+    },
+    "7453395324234113024": {
+      "titel": "Idag udbetaler vi 2.800.000 DKK til vore kunder",
+      "adresse": "vi-udbetaler-2-8-mio-kr-i-forvalterrabatter",
+      "dokument": {
+        "title": "TOBA-kunder får stordriftsfordelene"
+      }
+    },
+    "7391836780641193984": {
+      "titel": "Investerer du også i Evergreens? så vær opmærksom – ellers risikerer du at få 2% i stedet for 10%",
+      "adresse": "evergreens-risikerer-du-2-procent-i-stedet-for-10",
+      "dokument": {
+        "title": "Evergreens – pas på: risiko for at få 2 % i stedet for 10 %"
+      }
+    },
+    "7397525694311964672": {
+      "titel": "Investering i alternativer - Dit forvaltervalg er afgørende for om din portefølje er robust, …",
+      "adresse": "investering-i-alternativer-forvaltervalget-er-afgoerende",
+      "billede": "/nyheder/investering-i-alternativer-forvaltervalget-er-afgoerende.jpg",
+      "billedtekst": "Se billede"
+    },
+    "7415287395459473408": {
+      "titel": "Måske man skulle overveje at have lidt alternativer i porteføljen - for at sprede risikoen og måske dermed …",
+      "adresse": "hvorfor-interessere-sig-for-private-equity",
+      "billede": "/nyheder/hvorfor-interessere-sig-for-private-equity-hd.jpg",
+      "billedtekst": "Se billede"
+    },
+    "7519285126384504832": {
+      "titel": "Når man spreder sine investeringer er det naturligt at amerikanske aktiver fylder meget i porteføljen. Og …",
+      "adresse": "beskytter-dollaren-dine-amerikanske-aktier",
+      "dokument": {
+        "title": "Stiger USD, når aktierne falder?",
+        "pages": 10
+      }
+    },
+    "7439965486630502401": {
+      "titel": "Når markederne flytter sig ændres din portefølje og dermed din risiko. Så hold nu øje - Eller endnu bedre …",
+      "adresse": "er-din-portefoelje-stadig-paa-plads",
+      "dokument": {
+        "title": "Har du den rigtige sammensætning?",
+        "pages": 6
+      }
+    },
+    "7522973142571532289": {
+      "titel": "Nye afkastforventninger fra Rådet for Afkastforventninger. Obligationerne løfter sig, men er stadig til …",
+      "adresse": "nye-afkastforventninger-obligationerne-loefter-sig"
+    },
+    "7437429955870998528": {
+      "titel": "Se lige her. Vores Founder Tonny Elsberg har analyseret de sidste mange års afkasthistorik på …",
+      "adresse": "eksperterne-fejler-aar-efter-aar",
+      "dokument": {
+        "title": "Eksperterne fejler – år efter år",
+        "pages": 6
+      }
+    },
+    "7398660093199851521": {
+      "titel": "Siger du også ja tak, når telefonen ringer? Så pas på",
+      "adresse": "siger-du-ogsaa-ja-tak-naar-telefonen-ringer",
+      "billede": "/nyheder/siger-du-ogsaa-ja-tak-naar-telefonen-ringer-hd.jpg",
+      "billedtekst": "Se billede"
+    }
+  }
+}

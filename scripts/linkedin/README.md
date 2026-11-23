@@ -57,6 +57,10 @@ Jobbet skriver i loggen, hvor mange dage refresh-tokenet har tilbage, og advarer
 
 Lokalt: `LINKEDIN_ACCESS_TOKEN=… node scripts/linkedin/sync.mjs --api --dry-run`.
 
+**Adresser:** `adresser.json` giver bestemte opslag en fast adresse (og evt. originalbillede og slides), nøglen er opslagets id fra API'et.
+De 17 første indlæg beholder på den måde deres gamle adresser. Nye opslag får en adresse ud fra overskriften – vil du have en pænere, så omdøb filen (og evt. slides-mappen) og tilføj den i `adresser.json`.
+Opslag genkendes på id, id'ets tidsstempel eller udgivelsestidspunktet, så samme opslag aldrig hentes to gange.
+
 ## Slides (dokumentopslag)
 
 Slides vises på artiklen som billeder, man kan bladre i, med teksten fra hver slide under (til Google og skærmlæsere).
