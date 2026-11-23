@@ -12,7 +12,7 @@
  * API: LinkedIn Community Management API (scope r_organization_social).
  *   LINKEDIN_ACCESS_TOKEN  – token for en administrator af virksomhedssiden
  *   LINKEDIN_ORG_ID        – 104613890 (TOBA Advice)
- *   LINKEDIN_VERSION       – fx 202510 (LinkedIn-Version-header, ÅÅÅÅMM)
+ *   LINKEDIN_VERSION       – valgfri, fx 202611 (ÅÅÅÅMM). Ellers findes den nyeste aktive version automatisk.
  *
  * --draft: nye indlæg gemmes med draft: true (bruges af det automatiske job), så de først vises efter gennemgang.
  */
@@ -187,18 +187,38 @@ async function fromExport(file) {
   });
 }
 
+/** LinkedIn-Version (ÅÅÅÅMM). Starter ved indeværende måned og går tilbage, til LinkedIn accepterer den. */
+let apiVersion = process.env.LINKEDIN_VERSION || null;
+
+function previousMonth(v) {
+  let y = Number(v.slice(0, 4)), m = Number(v.slice(4, 6)) - 1;
+  if (m === 0) { y -= 1; m = 12; }
+  return `${y}${String(m).padStart(2, "0")}`;
+}
+
 async function api(pathname) {
-  const token = process.env.LINKEDIN_ACCESS_TOKEN;
-  if (!token) throw new Error("Mangler LINKEDIN_ACCESS_TOKEN");
-  const res = await fetch(`https://api.linkedin.com/rest${pathname}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "LinkedIn-Version": process.env.LINKEDIN_VERSION || "202510",
-      "X-Restli-Protocol-Version": "2.0.0",
-    },
-  });
-  if (!res.ok) throw new Error(`LinkedIn ${res.status}: ${await res.text()}`);
-  return res.json();
+  const token = await getToken();
+  if (!apiVersion) {
+    const now = new Date();
+    apiVersion = `${now.getUTCFullYear()}${String(now.getUTCMonth() + 1).padStart(2, "0")}`;
+  }
+  for (let tries = 0; tries < 15; tries++) {
+    const res = await fetch(`https://api.linkedin.com/rest${pathname}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "LinkedIn-Version": apiVersion,
+        "X-Restli-Protocol-Version": "2.0.0",
+      },
+    });
+    if (res.status === 426) {
+      // Versionen findes ikke (endnu) eller er udfaset – prøv måneden før.
+      apiVersion = previousMonth(apiVersion);
+      continue;
+    }
+    if (!res.ok) throw new Error(`LinkedIn ${res.status} (version ${apiVersion}): ${await res.text()}`);
+    return res.json();
+  }
+  throw new Error("LinkedIn: fandt ingen aktiv API-version");
 }
 
 /** Community Management API: organisationens offentlige opslag. */
