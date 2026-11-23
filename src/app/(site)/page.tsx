@@ -4,6 +4,7 @@ import { GoldRule, Heading } from "@/components/blocks/typography";
 import { CtaCards } from "@/components/sections/cta";
 import { FactBox, StatsRow } from "@/components/sections/stats";
 import { AccordionList, NumberedSteps, PointList } from "@/components/sections/lists";
+import { NewsTeaser } from "@/components/news/news-teaser";
 import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { WealthMap } from "@/components/sections/wealth-map";
@@ -141,6 +142,8 @@ export default function HomePage() {
           <ButtonRow actions={c.getStarted.actions} />
         </div>
       </section>
+
+      <NewsTeaser content={c.news} id="nyheder" />
 
       <Section surface="white" id="spoergsmaal">
         <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">

@@ -27,6 +27,9 @@ const IMAGES_DIR = path.join(ROOT, "public/nyheder");
 const ORG_ID = process.env.LINKEDIN_ORG_ID || "104613890";
 /** Opslag, der er afvist til hjemmesiden (se afviste.json). */
 const REJECTED_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "afviste.json");
+/** Faste adresser, originalbilleder og slides for bestemte opslag (se adresser.json). */
+const ADDRESS_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "adresser.json");
+const addresses = fs.existsSync(ADDRESS_FILE) ? JSON.parse(fs.readFileSync(ADDRESS_FILE, "utf8")).opslag : {};
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
@@ -107,19 +110,53 @@ export function toMarkdown(post) {
   return `---\n${fm.join("\n")}\n---\n\n${post.body.trim()}\n`;
 }
 
-function existingIds() {
-  if (!fs.existsSync(POSTS_DIR)) return new Map();
-  const ids = new Map();
-  for (const f of fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md"))) {
-    const m = fs.readFileSync(path.join(POSTS_DIR, f), "utf8").match(/^linkedinId: "([^"]+)"/m);
-    if (m) ids.set(m[1], f);
-  }
-  return ids;
+/**
+ * Kendte opslag (på siden eller afvist). LinkedIn giver samme opslag flere id'er: eksporten bruger
+ * urn:li:activity, API'et urn:li:share/ugcPost, og planlagte opslag får et nyt id ved udgivelse.
+ * Derfor genkendes et opslag på id, på id'ets tidsstempel (±10 s) eller på udgivelsestidspunktet (±60 s).
+ */
+const urnIds = (txt) => [...String(txt || "").matchAll(/urn:li:\w+:(\d+)/g)].map((m) => m[1]);
+const idTime = (id) => { try { return Number(BigInt(id) >> 22n); } catch { return NaN; } };
+
+function knownIndex(entries) {
+  return {
+    entries,
+    match(p) {
+      const ids = [p.id, ...urnIds(p.url)].filter(Boolean).map(String);
+      const date = p.date ? Date.parse(p.date) : NaN;
+      for (const e of entries) {
+        if (ids.some((id) => e.ids.includes(id))) return e;
+        if (ids.some((id) => e.ids.some((k) => Math.abs(idTime(id) - idTime(k)) < 10_000))) return e;
+        if (!Number.isNaN(date) && e.dates.some((d) => Math.abs(date - d) < 60_000)) return e;
+      }
+      return null;
+    },
+  };
 }
 
-function rejectedIds() {
-  if (!fs.existsSync(REJECTED_FILE)) return new Set();
-  return new Set(JSON.parse(fs.readFileSync(REJECTED_FILE, "utf8")).opslag.map((o) => String(o.id)));
+export function existingPosts() {
+  if (!fs.existsSync(POSTS_DIR)) return knownIndex([]);
+  const entries = [];
+  for (const f of fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md"))) {
+    const txt = fs.readFileSync(path.join(POSTS_DIR, f), "utf8");
+    const fm = txt.split(/^---$/m)[1] || "";
+    const ids = [...fm.matchAll(/^linkedinId: "([^"]+)"/gm)].map((m) => m[1]).concat(urnIds(fm));
+    const dates = [...fm.matchAll(/^date: "([^"]+)"/gm)].map((m) => Date.parse(m[1])).filter((d) => !Number.isNaN(d));
+    entries.push({ file: f, ids, dates });
+  }
+  return knownIndex(entries);
+}
+
+export function rejectedPosts() {
+  if (!fs.existsSync(REJECTED_FILE)) return knownIndex([]);
+  const list = JSON.parse(fs.readFileSync(REJECTED_FILE, "utf8")).opslag;
+  return knownIndex(
+    list.map((o) => ({
+      file: o.titel,
+      ids: [o.id, ...(o.andreIds || [])].map(String),
+      dates: o.dato ? [Date.parse(o.dato)] : [],
+    })),
+  );
 }
 
 function uniqueSlug(base, date) {
@@ -130,16 +167,19 @@ function uniqueSlug(base, date) {
 }
 
 /** Fælles: et normaliseret opslag → artikel-fil (+ billede). */
-async function writePost(p, seen, rejected) {
-  if (rejected.has(p.id)) return { skipped: p.id, reason: "afvist (afviste.json)" };
-  if (seen.has(p.id)) return { skipped: p.id, file: seen.get(p.id) };
+export async function writePost(p, seen, rejected) {
+  const rej = rejected.match(p);
+  if (rej) return { skipped: p.id, reason: "afvist (afviste.json)", title: rej.file };
+  const known = seen.match(p);
+  if (known) return { skipped: p.id, file: known.file };
   const { text, tags } = cleanText(p.text || "");
   if (!text) return { skipped: p.id, reason: "uden tekst" };
   const { title, body } = splitTitle(text);
   const date = p.date || dateFromActivityId(p.id);
-  const slug = uniqueSlug(slugify(title), date);
-  let image = null;
-  if (p.imageData) {
+  const fixed = [p.id, ...urnIds(p.url)].map((id) => addresses[id]).find(Boolean) || null;
+  const slug = fixed && !fs.existsSync(path.join(POSTS_DIR, `${fixed.adresse}.md`)) ? fixed.adresse : uniqueSlug(slugify(title), date);
+  let image = fixed?.billede || null;
+  if (!image && p.imageData) {
     image = `/nyheder/${slug}.jpg`;
     if (!dryRun) {
       fs.mkdirSync(IMAGES_DIR, { recursive: true });
@@ -154,8 +194,8 @@ async function writePost(p, seen, rejected) {
     linkedin: p.url,
     linkedinId: p.id,
     image,
-    imageAlt: p.imageAlt ?? "",
-    document: p.document || null,
+    imageAlt: fixed?.billedtekst ?? p.imageAlt ?? "",
+    document: fixed?.dokument || p.document || null,
     tags,
     draft: asDraft,
     body: body || text,
@@ -296,8 +336,8 @@ if (isMain) {
     process.exit(1);
   }
   const posts = fromFile ? await fromExport(path.resolve(fromFile)) : await fromApi();
-  const seen = existingIds();
-  const rejected = rejectedIds();
+  const seen = existingPosts();
+  const rejected = rejectedPosts();
   for (const p of posts) console.log(JSON.stringify(await writePost(p, seen, rejected)));
   if (dryRun) console.log("(dry-run – intet skrevet)");
 }

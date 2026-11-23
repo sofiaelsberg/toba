@@ -1,7 +1,7 @@
 import { facts } from "../facts";
 import { ambient, videos } from "../media";
 import { routes, bookMeeting, trustline } from "../site";
-import type { CtaCardContent, StepContent, FactContent, FaqItem, HeroContent, Point, Seo, Stat, WealthMapContent } from "../types";
+import type { CtaCardContent, StepContent, FactContent, FaqItem, HeroContent, NewsTeaserContent, Point, Seo, Stat, WealthMapContent } from "../types";
 
 export const home = {
   seo: {
@@ -201,4 +201,8 @@ export const home = {
       { label: "Start med et gratis omkostningsoverblik", href: routes.overview, variant: "ghost-light" as const },
     ],
   },
+  news: {
+    title: "Seneste nyt og indsigt",
+    lead: "Vores holdninger og analyser om investering, omkostninger og risiko – også delt på LinkedIn.",
+  } satisfies NewsTeaserContent,
 };
