@@ -108,7 +108,7 @@
   --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-source-sans), Calibri, "Segoe UI", Arial, sans-serif;
 
-  /* Typeskala fra tokens.json (størrelse / linjehøjde) */
+  /* Typeskala fra tokens.json (størrelse / linjehøjde). Nye navne skal også i cn() i src/lib/utils.ts. */
   --text-display: 3.5rem;
   --text-display--line-height: 3.875rem;
   --text-h2: 2.5rem;
