@@ -2,7 +2,7 @@
 
 Ny hjemmeside for TOBA Advice. Next.js 16 (App Router), React 19, TypeScript, Tailwind v4, shadcn/ui (Radix) og Motion.
 
-Design: Claude Design-filen "TOBA forside" og designsystemet "TOBA Advice – Web". Komponentoversigten står i [`docs/komponentplan.md`](docs/komponentplan.md).
+Design: Claude Design-filen "TOBA forside" og designsystemet "TOBA Advice – Web". Mapper og komponenter står i tabellen "Sådan er projektet bygget op" nedenfor.
 
 ## Kom i gang
 
@@ -20,7 +20,7 @@ Kopiér `.env.example` til `.env.local`. Formularerne er ActiveCampaign-formular
 
 | Mappe | Indhold |
 |---|---|
-| `src/content/` | **Al tekst.** Én fil pr. side i `pages/`, plus fælles filer (`site.ts`, `facts.ts`, `forms.ts`, `people.ts`, `media.ts`, `ui.ts`, `cake.ts`). |
+| `src/content/` | **Al tekst.** Sidetekster i `pages/` (én fil pr. side eller sidegruppe), nyhedsindlæg i `news/` (se `scripts/linkedin/README.md`), typer i `types.ts` og fælles tekster og tal i de øvrige filer (`site.ts`, `facts.ts`, `forms.ts`, `people.ts`, `media.ts`, `ui.ts`, `cake.ts` …). |
 | `src/components/ui/` | shadcn-primitiver (button, input, checkbox, switch, accordion, sheet …) i TOBA-stil. |
 | `src/components/sections/` | Sektioner, der går igen: `Section`, `SectionHeading`, `Hero`, `CtaCards`, `CtaBand`, `StatsRow`, `PointList`, `PeopleGrid`, `TeamDirectory` … |
 | `src/components/blocks/` | Små byggeklodser: `RichText`, `ButtonLink`, `TextLink`, `Media`, `VideoBlock`, `IconBadge`. |
@@ -47,15 +47,15 @@ Kopiér `.env.example` til `.env.local`. Formularerne er ActiveCampaign-formular
 | Viderestillinger fra den gamle Webflow-side | `legacyRedirects` i `next.config.ts` |
 | Sikkerhedsheadere | `securityHeaders` i `next.config.ts` |
 | Ikoner og delingsbilleder | `src/app/icon.svg`, `apple-icon.png`, `opengraph-image.png` (+ egne på kampagnesiderne) |
-| Strukturerede data (Google) | `src/lib/structured-data.ts`, bruges på forsiden |
+| Strukturerede data (Google) | `src/lib/structured-data.ts` – virksomhed og website på alle sider (rodlayoutet), desuden team, nyheder, FAQ og videoer |
 | Formularer → ActiveCampaign | `src/components/forms/ac-form.tsx` indlejrer formularerne; id'erne står i `src/content/forms.ts`. Felter, liste, tags og tak-besked styres i ActiveCampaign. |
 | Fejlsider | `src/app/not-found.tsx` (404), `src/app/error.tsx` (uventet fejl) |
 | Hastighed | Vercel Speed Insights i `src/app/layout.tsx` |
 
 ### Før launch
 
-- [ ] Sæt miljøvariablerne fra `.env.example` i Vercel (Production). ActiveCampaign-nøglen findes i ActiveCampaign → Settings → Developer.
-- [ ] Aktivér automationen "Hvem spiser din lagkage? (Leadgen)" i ActiveCampaign og tjek, at den starter på listen Leads (id 6).
+- [ ] Sæt miljøvariablerne fra `.env.example` i Vercel (Production) – se `docs/analytics.md`.
+- [ ] Aktivér automationen "Hvem spiser din lagkage? (Leadgen)" i ActiveCampaign og tjek, at den starter på listen "Lagkage (leadgen)" (id 6).
 - [ ] Lav en automation, der giver besked til en rådgiver, når en kontakt får tagget "Website Formular" eller "omkostningsoverblik".
 - [ ] Beslut, hvad der skal ske med de gamle sider `/toba-investments`, `/toba-investment-bonds`, `/toba-investment-equities`, `/dokument/*` (fondsbørsmeddelelser), `/nyheder` og `/blog/*`.
 - [ ] Peg domænet (www.tobaadvice.com og tobaadvice.com) på Vercel, og send sitemap til Google Search Console.
@@ -66,6 +66,7 @@ Kopiér `.env.example` til `.env.local`. Formularerne er ActiveCampaign-formular
 
 - ✅ Alle sider, komponenter og indhold er færdige: forside, Sådan investerer vi, Uafhængig rådgivning, Om TOBA, Team, Kontakt, `/lagkage`, `/omkostningsoverblik`, politikker, Finanstilsynet, klage, cookies, 404 og fejlside.
 - ✅ Videoer, stemningsvideo, fotos, AI-billeder til private markets, portrætter, forvalterkort og LinkedIn-opslag.
-- ✅ Lighthouse (mobil): tilgængelighed 97–100, SEO 100, ingen layoutskift. Desktop-performance 98 på forsiden.
-- ⏭ LinkedIn-API'et (automatisk nyeste opslag) – afventer godkendelse. Indtil da skiftes opslaget i `src/content/media.ts`.
-- ⏭ Egne profilsider pr. rådgiver (`/team/[slug]`) – i dag åbner profilen i et panel på teamsiden.
+- ✅ Lighthouse (mobil, målt 29. okt. 2026): tilgængelighed 97–100, SEO 100, ingen layoutskift. Desktop-performance 98 på forsiden.
+- ✅ Nye LinkedIn-opslag kommer automatisk på `/nyheder` hver morgen (se `scripts/linkedin/README.md`).
+- ⏭ Det indlejrede opslag på Om TOBA skiftes stadig i hånden i `src/content/media.ts` (`linkedin.latestPost`).
+- ⏭ Egne profilsider pr. rådgiver – i dag åbner profilen i et panel på teamsiden (`/team#navn`; `/team/navn` sendes dertil).

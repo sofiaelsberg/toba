@@ -10,15 +10,15 @@ synkroniseringen overskriver aldrig en eksisterende fil.
 
 - `title`, `description` (vises i Google – højst ca. 155 tegn), `lead` (intro under titlen)
 - `draft: true` skjuler indlægget (fx indtil compliance har set det)
+- Teksten: tom linje = nyt afsnit · `## ` = mellemrubrik · linjer med `•`, `-`, `→` eller `1)` = liste · `**fed**`
 
 **Skal et opslag slet ikke på siden?** Tilføj dets id i `scripts/linkedin/afviste.json` og slet filen. Så hentes det aldrig igen – heller ikke af den automatiske synkronisering.
-- Teksten: tom linje = nyt afsnit · `## ` = mellemrubrik · linjer med `•`, `-`, `→` eller `1)` = liste · `**fed**`
 
 Korte LinkedIn-opslag kan med fordel udbygges her – længere, grundige tekster gør mest for Google og AI-søgning.
 
 ## Hent nye opslag
 
-**Nu (uden API):** eksportér opslagene fra LinkedIn som `linkedin-nyheder.json` (se historikken) og kør
+**Manuelt (fra en eksport):** eksportér opslagene fra LinkedIn som `linkedin-nyheder.json` (se historikken) og kør
 
 ```bash
 node scripts/linkedin/sync.mjs --from-file ~/Downloads/linkedin-nyheder.json --dry-run   # se, hvad der sker
@@ -58,7 +58,7 @@ Jobbet skriver i loggen, hvor mange dage refresh-tokenet har tilbage, og advarer
 Lokalt: `LINKEDIN_ACCESS_TOKEN=… node scripts/linkedin/sync.mjs --api --dry-run`.
 
 **Adresser:** `adresser.json` giver bestemte opslag en fast adresse (og evt. originalbillede og slides), nøglen er opslagets id fra API'et.
-De 17 første indlæg beholder på den måde deres gamle adresser. Nye opslag får en adresse ud fra overskriften – vil du have en pænere, så omdøb filen (og evt. slides-mappen) og tilføj den i `adresser.json`.
+Indlæggene i `adresser.json` beholder på den måde deres adresser. Nye opslag får en adresse ud fra overskriften – vil du have en pænere, så omdøb filen (og evt. slides-mappen) og tilføj den i `adresser.json`.
 Opslag genkendes på id, id'ets tidsstempel eller udgivelsestidspunktet, så samme opslag aldrig hentes to gange.
 
 ## Slides (dokumentopslag)
@@ -72,4 +72,4 @@ Hent slides fra et nyt opslag:
 2. `node scripts/linkedin/import-slides.mjs ~/Downloads/li-slides-*.json`
 3. Tjek teksten i JSON-filen (især overskrifter med spærret skrift) og slet filerne i Overførsler.
 
-Via API'et kan PDF-filen hentes direkte, når adgangen er godkendt.
+Den automatiske synkronisering henter ikke slides – den gemmer kun dokumentets titel og PDF-adresse (`document`) i indlægget. Slides hentes stadig med trinene ovenfor.
