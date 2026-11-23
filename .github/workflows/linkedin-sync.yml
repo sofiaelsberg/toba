@@ -1,5 +1,6 @@
-# Henter nye LinkedIn-opslag til /nyheder hver morgen (når API-adgangen er godkendt).
-# Kræver secret LINKEDIN_ACCESS_TOKEN. Uden den springes jobbet over.
+# Henter nye LinkedIn-opslag til /nyheder hver morgen. Alt, der er postet på TOBA's LinkedIn, kommer direkte på siden.
+# Kræver secrets LINKEDIN_REFRESH_TOKEN + LINKEDIN_CLIENT_SECRET (fornyer selv adgangen i et år)
+# eller LINKEDIN_ACCESS_TOKEN (60 dage). Uden dem springes jobbet over.
 name: LinkedIn → nyheder
 
 on:
@@ -15,25 +16,28 @@ jobs:
     runs-on: ubuntu-latest
     env:
       LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+      LINKEDIN_REFRESH_TOKEN: ${{ secrets.LINKEDIN_REFRESH_TOKEN }}
+      LINKEDIN_CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET }}
+      LINKEDIN_CLIENT_ID: "78fu9r1nx9rjm0"
       LINKEDIN_ORG_ID: "104613890"
     steps:
       - name: Stop, hvis der ikke er et token endnu
-        if: env.LINKEDIN_ACCESS_TOKEN == ''
-        run: echo "Ingen LINKEDIN_ACCESS_TOKEN – springer over." && exit 0
+        if: env.LINKEDIN_ACCESS_TOKEN == '' && env.LINKEDIN_REFRESH_TOKEN == ''
+        run: echo "Ingen LinkedIn-token – springer over." && exit 0
       - uses: actions/checkout@v4
-        if: env.LINKEDIN_ACCESS_TOKEN != ''
+        if: env.LINKEDIN_ACCESS_TOKEN != '' || env.LINKEDIN_REFRESH_TOKEN != ''
       - uses: actions/setup-node@v4
-        if: env.LINKEDIN_ACCESS_TOKEN != ''
+        if: env.LINKEDIN_ACCESS_TOKEN != '' || env.LINKEDIN_REFRESH_TOKEN != ''
         with:
           node-version: 22
-      - name: Hent nye opslag (som kladder)
-        if: env.LINKEDIN_ACCESS_TOKEN != ''
+      - name: Hent nye opslag
+        if: env.LINKEDIN_ACCESS_TOKEN != '' || env.LINKEDIN_REFRESH_TOKEN != ''
         run: node scripts/linkedin/sync.mjs --api
       - name: Commit nye indlæg
-        if: env.LINKEDIN_ACCESS_TOKEN != ''
+        if: env.LINKEDIN_ACCESS_TOKEN != '' || env.LINKEDIN_REFRESH_TOKEN != ''
         run: |
           git config user.name "TOBA LinkedIn-sync"
           git config user.email "sofia.elsberg@live.dk"
           git add src/content/news public/nyheder
-          git diff --cached --quiet || git commit -m "Nye LinkedIn-opslag til /nyheder (kladder)"
+          git diff --cached --quiet || git commit -m "Nye LinkedIn-opslag til /nyheder"
           git push

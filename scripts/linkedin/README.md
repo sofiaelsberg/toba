@@ -25,15 +25,37 @@ node scripts/linkedin/sync.mjs --from-file ~/Downloads/linkedin-nyheder.json --d
 node scripts/linkedin/sync.mjs --from-file ~/Downloads/linkedin-nyheder.json
 ```
 
-**Når API-adgangen er godkendt** (LinkedIn Community Management API, scope `r_organization_social`):
+**Automatisk via API'et (sat op 23. nov. 2026):**
 
-1. Opret et access token for en administrator af virksomhedssiden.
-2. Kør lokalt: `LINKEDIN_ACCESS_TOKEN=… node scripts/linkedin/sync.mjs --api`
-3. Eller automatisk: læg tokenet som secret `LINKEDIN_ACCESS_TOKEN` i GitHub (Settings → Secrets → Actions).
-   Workflowet `.github/workflows/linkedin-sync.yml` kører hver morgen, committer nye indlæg, og Vercel deployer.
-   Alt, der er postet på TOBA's LinkedIn, er godkendt og kommer direkte på siden (ikke som kladde).
+Workflowet `.github/workflows/linkedin-sync.yml` kører hver morgen, committer nye indlæg, og Vercel deployer.
+Alt, der er postet på TOBA's LinkedIn, er godkendt og kommer direkte på siden (ikke som kladde).
 
-Organisationens id er `104613890`. Tokens udløber (typisk efter 60 dage) og skal fornys.
+Det bruger tre GitHub-secrets (repo → Settings → Secrets and variables → Actions):
+
+- `LINKEDIN_REFRESH_TOKEN` – holder ét år. Jobbet henter selv et nyt access token ved hver kørsel.
+- `LINKEDIN_CLIENT_SECRET` – appens Client Secret (LinkedIn Developer Portal → appen TOBA Advice → Auth).
+- (Client ID `78fu9r1nx9rjm0` og organisationens id `104613890` står i workflowet.)
+
+Jobbet skriver i loggen, hvor mange dage refresh-tokenet har tilbage, og advarer, når der er under 30.
+
+**Nyt refresh-token (én gang om året):**
+
+1. Log ind på LinkedIn som administrator af virksomhedssiden, og åbn
+   `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=78fu9r1nx9rjm0&redirect_uri=https%3A%2F%2Fwww.linkedin.com%2Fdevelopers%2Ftools%2Foauth%2Fredirect&scope=r_organization_social&state=toba`
+2. Tryk Allow, og kopiér koden mellem `code=` og `&state` i adresselinjen (den udløber efter få minutter).
+3. Kør i Terminal:
+
+   ```bash
+   CODE='…'; SECRET='…'
+   curl -s -X POST https://www.linkedin.com/oauth/v2/accessToken -d grant_type=authorization_code \
+     --data-urlencode "code=$CODE" -d client_id=78fu9r1nx9rjm0 --data-urlencode "client_secret=$SECRET" \
+     --data-urlencode redirect_uri=https://www.linkedin.com/developers/tools/oauth/redirect
+   ```
+4. Læg `refresh_token` fra svaret ind som secret `LINKEDIN_REFRESH_TOKEN`.
+
+(LinkedIns token-værktøj i Developer Portal fejler med "state parameter was modified" – brug ovenstående.)
+
+Lokalt: `LINKEDIN_ACCESS_TOKEN=… node scripts/linkedin/sync.mjs --api --dry-run`.
 
 ## Slides (dokumentopslag)
 
