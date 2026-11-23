@@ -1,3 +1,4 @@
+import { facts } from "./facts";
 import type { Action, DisclaimerContent, LinkItem } from "./types";
 
 export const routes = {
@@ -73,7 +74,7 @@ export const navLabels = {
 
 export const footer = {
   about:
-    "TOBA Advice leverer uafhængig, individuel og gennemsigtig investeringsrådgivning og henvender sig til personer med en investérbar formue på minimum 5 mio. kr.",
+    `TOBA Advice leverer uafhængig, individuel og gennemsigtig investeringsrådgivning og henvender sig til personer med en investérbar formue på minimum ${facts.minimumWealthMio} mio. kr.`,
   columns: [
     {
       title: "Om TOBA",

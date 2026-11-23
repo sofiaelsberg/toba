@@ -7,7 +7,7 @@ export const about = {
   seo: {
     title: "Om TOBA Advice – uafhængig, medarbejderejet investeringsrådgiver",
     description:
-      "TOBA Advice er en uafhængig, medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver formuer fra 5 mio. kr. i hele Danmark.",
+      `TOBA Advice er en uafhængig, medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver formuer fra ${facts.minimumWealthMio} mio. kr. i hele Danmark.`,
   } satisfies Seo,
 
   hero: {
@@ -79,7 +79,7 @@ export const about = {
     title: "Er TOBA Advice noget for dig?",
     highlight: `Fra ${facts.minimumWealthMio} mio. kr.`,
     highlightLabel: "i investérbar formue",
-    text: "Vi rådgiver kunder med en investérbar formue på mindst 5 mio. kr. Mange af vores kunder er virksomhedsejere, selvstændige og familier, der vil have ro om en formue, de har arbejdet hårdt for – og en rådgiver, der siger tingene, som de er.",
+    text: `Vi rådgiver kunder med en investérbar formue på mindst ${facts.minimumWealthMio} mio. kr. Mange af vores kunder er virksomhedsejere, selvstændige og familier, der vil have ro om en formue, de har arbejdet hårdt for – og en rådgiver, der siger tingene, som de er.`,
   },
 
   stats: [

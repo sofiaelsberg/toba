@@ -1,4 +1,4 @@
-import { facts } from "../facts";
+import { calculatorConfig, facts } from "../facts";
 import { ambient, images, videos } from "../media";
 import { routes, bookMeeting } from "../site";
 import type { CtaCardContent, HeroContent, FaqItem, Point, Seo, Stat, ValueItem, NewsTeaserContent } from "../types";
@@ -144,8 +144,8 @@ export const home = {
     title: "Hvad koster rådgivningen – når rabatterne er trukket fra?",
     wealthLabel: "Din investérbare formue",
     unitMio: "mio. kr.",
-    rangeMinLabel: "5 mio.",
-    rangeMaxLabel: "100 mio.",
+    rangeMinLabel: `${calculatorConfig.minMio} mio.`,
+    rangeMaxLabel: `${calculatorConfig.maxMio} mio.`,
     todayLabel: "Valgfrit: Hvad betaler du i dag? (% om året)",
     todayPlaceholder: "fx 1,2",
     todayHint: "Ved du det ikke? Det finder vi ud af for dig i omkostningsoverblikket.",
@@ -173,7 +173,7 @@ export const home = {
     eyebrow: "Om TOBA Advice",
     title: "Medarbejderejet – og på din side",
     text: [
-      "TOBA Advice er en medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver personer med en investerbar formue på mindst 5 mio. kr. – med skræddersyet rådgivning og frit valg på alle hylder.",
+      `TOBA Advice er en medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver personer med en investerbar formue på mindst ${facts.minimumWealthMio} mio. kr. – med skræddersyet rådgivning og frit valg på alle hylder.`,
       "Mange af vores kunder er virksomhedsejere, selvstændige og familier, der vil have ro om en formue, de har arbejdet hårdt for – og en rådgiver, der siger tingene, som de er.",
     ],
     link: { label: "Læs om TOBA →", href: routes.about },

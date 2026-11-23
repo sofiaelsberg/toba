@@ -128,7 +128,7 @@ export const independent = {
       "Uafhængig rådgivning handler om at sikre, at dine interesser er i centrum – uden økonomiske incitamenter til at anbefale bestemte produkter.",
     ],
     value: facts.ownFundsTop5Pct,
-    lead: "Ifølge Finanstilsynets analyse ligger i gennemsnit 92 % af fondsbeholdningerne hos de fem største danske banker i bankernes egne fonde.",
+    lead: `Ifølge Finanstilsynets analyse ligger i gennemsnit ${facts.ownFundsTop5Pct} % af fondsbeholdningerne hos de fem største danske banker i bankernes egne fonde.`,
     segments: [
       { label: "bankernes egne fonde", value: facts.ownFundsTop5Pct },
       { label: "andre fonde", value: 100 - facts.ownFundsTop5Pct },
