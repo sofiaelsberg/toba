@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { ButtonLink } from "@/components/blocks/links";
-import { Heading, Lead } from "@/components/blocks/typography";
+import { eyebrowClass, Heading, Lead } from "@/components/blocks/typography";
 import { VideoBlock } from "@/components/blocks/video-block";
 import { GuideEmbedForm } from "@/components/forms/ac-form";
 import { LockedChecklist, LockedChecklistIntro, UnlockProvider } from "@/components/interactive/checklists";
 import { LayerCake } from "@/components/interactive/layer-cake";
-import { Header } from "@/components/layout/header";
+import { LandingShell } from "@/components/layout/landing-shell";
 import { Disclaimer } from "@/components/sections/legal";
 import { FeatureList, PointList } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
@@ -23,14 +23,11 @@ export const metadata: Metadata = pageMetadata(routes.guide, c.seo, { ownShareIm
 export default function GuidePage() {
   return (
     <UnlockProvider>
-      {/* Wrapper: så starter et sideskift i toppen – se (site)/layout.tsx. */}
-      <div className="flex flex-1 flex-col">
-      <Header action={c.headerAction} />
-      <main id="indhold">
+      <LandingShell action={c.headerAction}>
         <section className="bg-cream py-16 md:pt-22 md:pb-24">
           <div className="wrap grid grid-cols-1 items-center gap-12 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-16">
             <div className="flex flex-col gap-6">
-              <p className="text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase">{c.hero.eyebrow}</p>
+              <p className={`${eyebrowClass} text-gold-text`}>{c.hero.eyebrow}</p>
               <Heading as="h1" size="display" title={c.hero.title} className="md:text-[4rem] md:leading-[4.375rem]" />
               <Lead className="max-w-150">{c.hero.lead}</Lead>
               {c.heroText.map((t) => (
@@ -122,8 +119,7 @@ export default function GuidePage() {
         </Section>
 
         <Disclaimer content={disclaimers.guide} />
-      </main>
-      </div>
+      </LandingShell>
     </UnlockProvider>
   );
 }

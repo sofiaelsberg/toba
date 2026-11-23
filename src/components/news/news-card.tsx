@@ -5,7 +5,19 @@ import Link from "next/link";
 import { news as c } from "@/content/pages/news";
 import { newsPath } from "@/content/site";
 import { formatNewsDate, type NewsPost } from "@/lib/news";
-import { cn } from "@/lib/utils";
+
+/** Indlæg som kort i et grid (1–3 kolonner). `priority`: antal kort øverst, hvis billede hentes med det samme. */
+export function NewsGrid({ posts, headingLevel, priority = 0 }: { posts: NewsPost[]; headingLevel?: "h2" | "h3"; priority?: number }) {
+  return (
+    <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((p, i) => (
+        <li key={p.slug}>
+          <NewsCard post={p} headingLevel={headingLevel} priority={i < priority} />
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 /** Kort til oversigten. Indlæg uden billede får en rolig navy-flade med titlen på slides. */
 export function NewsCard({ post, headingLevel = "h2", priority = false }: { post: NewsPost; headingLevel?: "h2" | "h3"; priority?: boolean }) {
@@ -52,7 +64,7 @@ export function NewsCard({ post, headingLevel = "h2", priority = false }: { post
             {post.title}
           </Link>
         </Heading>
-        <p className={cn("line-clamp-3 text-small text-ink")}>{post.description}</p>
+        <p className="line-clamp-3 text-small text-ink">{post.description}</p>
         <span aria-hidden className="mt-auto self-start border-b border-gold pb-0.5 text-small font-semibold text-navy">
           {c.readMore} →
         </span>

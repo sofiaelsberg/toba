@@ -7,7 +7,7 @@ import { Eyebrow } from "@/components/blocks/typography";
 import { ContactEmbedForm } from "@/components/forms/ac-form";
 import { Disclaimer } from "@/components/sections/legal";
 import { PeopleGrid } from "@/components/sections/people";
-import { Section, SectionHeading } from "@/components/sections/section";
+import { HeadingRow, Section, SectionHeading } from "@/components/sections/section";
 import { contact as c } from "@/content/pages/contact";
 import { advisers } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
@@ -65,10 +65,7 @@ export default function ContactPage() {
 
       <Section surface="white">
         <div className="flex flex-col gap-10">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading rule title={c.advisers.title} lead={c.advisers.lead} />
-            <TextLink href={c.advisers.link.href}>{c.advisers.link.label}</TextLink>
-          </div>
+          <HeadingRow title={c.advisers.title} lead={c.advisers.lead} link={c.advisers.link} />
           <PeopleGrid people={advisers} contact="always" />
         </div>
       </Section>

@@ -3,9 +3,12 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { RichText } from "./rich-text";
 
+/** Overlinjens typografi (lille, fed, spærret versaltekst) – uden farve. */
+export const eyebrowClass = "text-eyebrow font-semibold tracking-[0.12em] uppercase";
+
 export function Eyebrow({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <p className={cn("text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase [.on-navy_&]:text-gold-on-navy", className)}>
+    <p className={cn(eyebrowClass, "text-gold-text [.on-navy_&]:text-gold-on-navy", className)}>
       {children}
     </p>
   );

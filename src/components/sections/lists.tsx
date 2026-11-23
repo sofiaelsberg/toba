@@ -1,14 +1,17 @@
 import { IconBadge } from "@/components/blocks/icon";
 import { RichText } from "@/components/blocks/rich-text";
+import { Eyebrow } from "@/components/blocks/typography";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import type { FaqItem, FeatureContent, Point, QuoteContent, StepContent, ValueItem } from "@/content/types";
+import { faqJsonLd, jsonLd } from "@/lib/structured-data";
 import { cn } from "@/lib/utils";
+import { Section, SectionHeading } from "./section";
 
 /** Fed førstesætning + tekst, adskilt af hårstreger. */
 export function PointList({ points, className, title }: { points: Point[]; className?: string; title?: string }) {
   return (
     <div className={cn("flex flex-col", className)}>
-      {title && <p className="mb-2 text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase [.on-navy_&]:text-gold-on-navy">{title}</p>}
+      {title && <Eyebrow className="mb-2">{title}</Eyebrow>}
       <ul className="border-b border-line [.on-navy_&]:border-gold-light">
         {points.map((p) => (
           <li key={p.title} className="border-t border-line py-4 [.on-navy_&]:border-gold-light">
@@ -104,6 +107,19 @@ export function AccordionList({ items, defaultOpen }: { items: FaqItem[]; defaul
         </AccordionItem>
       ))}
     </Accordion>
+  );
+}
+
+/** Hvid sektion med spørgsmål og svar – også som FAQPage-data til Google. */
+export function FaqSection({ title, items, id }: { title: string; items: FaqItem[]; id?: string }) {
+  return (
+    <Section surface="white" id={id}>
+      <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
+        <SectionHeading rule title={title} />
+        <AccordionList items={items} />
+      </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(items))} />
+    </Section>
   );
 }
 

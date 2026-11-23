@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { eyebrowClass } from "@/components/blocks/typography";
 import { ButtonLink } from "@/components/blocks/links";
 import { bookMeeting, company, footer, landingChrome } from "@/content/site";
 import { telHref } from "@/lib/format";
@@ -20,7 +21,7 @@ export function Footer() {
           </div>
           {footer.columns.map((col) => (
             <div key={col.title}>
-              <p className="mb-4 text-eyebrow font-semibold tracking-[0.12em] text-gold-on-navy uppercase">{col.title}</p>
+              <p className={`${eyebrowClass} mb-4 text-gold-on-navy`}>{col.title}</p>
               <ul className="flex flex-col gap-2.5">
                 {col.links.map((l) => (
                   <li key={l.href}>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { eyebrowClass } from "@/components/blocks/typography";
 import type { ManagerMapContent } from "@/content/types";
 import { projectWorldDots, worldDots } from "@/content/maps/world-dots";
 import { cn } from "@/lib/utils";
@@ -68,7 +69,7 @@ export function ManagerMap({ content, className }: { content: ManagerMapContent;
       <ul className="grid grid-cols-2 gap-x-6 gap-y-4 border-t border-line pt-4 sm:grid-cols-4">
         {content.regions.map((r) => (
           <li key={r.label} className="flex flex-col gap-0.5">
-            <span className="text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase">{r.label}</span>
+            <span className={`${eyebrowClass} text-gold-text`}>{r.label}</span>
             <span className="text-small text-ink">
               {r.managers} {r.managers === 1 ? content.managerSingular : content.managerPlural}
             </span>
@@ -85,7 +86,7 @@ export function ManagerMap({ content, className }: { content: ManagerMapContent;
         <dl className="mt-3 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
           {content.locations.map((l) => (
             <div key={l.label}>
-              <dt className="text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase">{l.label}</dt>
+              <dt className={`${eyebrowClass} text-gold-text`}>{l.label}</dt>
               <dd className="text-small text-ink">{l.managers.join(" · ")}</dd>
             </div>
           ))}

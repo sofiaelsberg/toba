@@ -10,7 +10,7 @@ import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
 import { FeatureList } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
-import { Section, SectionHeading, Split } from "@/components/sections/section";
+import { HeadingRow, Section, SectionHeading, Split } from "@/components/sections/section";
 import { StatsRow } from "@/components/sections/stats";
 import { about as c } from "@/content/pages/about";
 import { advisers } from "@/content/people";
@@ -50,10 +50,7 @@ export default function AboutPage() {
 
       <Section>
         <div className="flex flex-col gap-10">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading rule title={c.advisers.title} lead={c.advisers.lead} />
-            <TextLink href={c.advisers.link.href}>{c.advisers.link.label}</TextLink>
-          </div>
+          <HeadingRow title={c.advisers.title} lead={c.advisers.lead} link={c.advisers.link} />
           <PeopleGrid people={advisers} />
         </div>
       </Section>
