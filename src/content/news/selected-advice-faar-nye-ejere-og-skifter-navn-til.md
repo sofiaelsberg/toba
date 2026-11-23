@@ -1,6 +1,6 @@
 ---
-title: "SELECTED ADVICE FÅR NYE EJERE OG SKIFTER NAVN TIL"
-description: "TOBA Advice Pr. den 1. oktober 2024 overgår Selected Advice til at blive et medarbejder-ejet selskab, og udgår af ethvert ejerskab samt tilhørsforhold …"
+title: "Selected Advice får nye ejere og skifter navn til TOBA Advice"
+description: "Fra 1. oktober 2024 er Selected Advice medarbejderejet, uafhængigt af Selected Group og skifter navn til TOBA Advice."
 date: "2024-10-01T10:40:45.298Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7246831398706176000/"

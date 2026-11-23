@@ -1,6 +1,6 @@
 ---
 title: "Siger du også ja tak, når telefonen ringer? Så pas på"
-description: "I TOBA Advice gennemgår vi dagligt mange forskellige investeringsporteføljer. I nogle af dem ser vi et meget tydeligt aftryk fra bestemte udbydere af …"
+description: "Komplekse, illikvide investeringer sælges ofte over telefonen – med optimistiske afkast og flere lag gebyrer. Det skal du tjekke, før du siger ja."
 date: "2025-11-24T09:53:47.000Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7398660093199851521/"

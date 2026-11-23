@@ -1,6 +1,6 @@
 ---
-title: "Indeksfonde – er de virkelig så billige som du tror?"
-description: "Indeksfonde (ETF’er) er kendt for deres lave omkostninger. Men jagten på at spejle indekset helt præcist kan faktisk føre til skjulte omkostninger, som …"
+title: "Indeksfonde – er de virkelig så billige, som du tror?"
+description: "Når en indeksfond skal ramme indekset præcist, kan det give skjulte handelsomkostninger, der ikke står i det officielle omkostningsniveau."
 date: "2025-10-08T08:00:15.793Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7381279557141618688/"

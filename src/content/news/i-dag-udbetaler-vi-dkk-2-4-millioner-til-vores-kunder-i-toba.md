@@ -1,6 +1,6 @@
 ---
-title: "I dag udbetaler vi DKK 2,4 millioner til vores kunder i TOBA!"
-description: "... I TOBA er vi dedikerede til at finde de absolut bedste kapitalforvaltere og sikre de mest fordelagtige priser for vores kunder. Det betyder, at vores …"
+title: "I dag udbetaler vi 2,4 mio. kr. til vores kunder"
+description: "TOBA Advice udbetaler 2,4 mio. kr. i forvalterrabatter ubeskåret til kunderne. Rabatterne forhandler vi hjem hos nøje udvalgte kapitalforvaltere."
 date: "2025-04-02T12:01:59.207Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7313168821043781632/"

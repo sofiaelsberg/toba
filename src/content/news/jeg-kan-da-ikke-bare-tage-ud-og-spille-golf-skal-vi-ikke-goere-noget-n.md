@@ -1,6 +1,6 @@
 ---
-title: "\"... Jeg kan da ikke bare tage ud og spille golf?! Skal vi ikke gøre noget NU?\""
-description: "Markederne er turbulente, og det kan føles som om, verden står i brand. Vi forstår godt at vores kunder er nervøse.... Men før du tager forhastede …"
+title: "Skal vi ikke gøre noget nu? Hold hovedet koldt i urolige markeder"
+description: "Når markederne er turbulente, er det fristende at handle hurtigt. Men i usikre tider er en langsigtet strategi og et koldt hoved det vigtigste."
 date: "2025-04-10T13:22:07.463Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7316088090744229889/"

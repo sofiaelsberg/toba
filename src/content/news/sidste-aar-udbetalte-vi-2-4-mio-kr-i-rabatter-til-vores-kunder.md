@@ -1,6 +1,6 @@
 ---
 title: "Sidste år udbetalte vi 2,4 mio. kr. i rabatter til vores kunder"
-description: "Når du investerer gennem TOBA Advice, får du adgang til de rabatter, vi har forhandlet med udvalgte forvaltere. Rabatten udbetaler vi ubeskåret til dig – …"
+description: "Når du investerer gennem TOBA Advice, får du rabatterne fra vores aftaler med udvalgte forvaltere – udbetalt ubeskåret én gang om året."
 date: "2025-09-19T10:29:12.602Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7374751409969364992/"

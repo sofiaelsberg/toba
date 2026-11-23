@@ -1,7 +1,23 @@
 {
   "_forklaring": "LinkedIn-opslag, der IKKE skal på hjemmesiden. Synkroniseringen springer dem over. Tilføj et id (fra opslagets adresse: urn:li:activity:<id>) for at afvise et opslag, og slet evt. filen i src/content/news.",
   "opslag": [
-    { "id": "7402711584147582976", "titel": "Når markedsføringen lover ét, og dokumenterne siger noget andet", "grund": "Nævner virksomheder ved navn", "afvist": "2026-11-03" },
-    { "id": "7400176425812635648", "titel": "Endnu en bank hæver prisen på valutaveksling", "grund": "Nævner virksomheder ved navn", "afvist": "2026-11-03" }
+    {
+      "id": "7402711584147582976",
+      "titel": "Når markedsføringen lover ét, og dokumenterne siger noget andet",
+      "grund": "Nævner virksomheder ved navn",
+      "afvist": "2026-11-03"
+    },
+    {
+      "id": "7400176425812635648",
+      "titel": "Endnu en bank hæver prisen på valutaveksling",
+      "grund": "Nævner virksomheder ved navn",
+      "afvist": "2026-11-03"
+    },
+    {
+      "id": "7256657435216519168",
+      "titel": "57.100 kr. til KNÆKcancer (dublet)",
+      "grund": "Samme opslag delt to gange",
+      "afvist": "2026-11-23"
+    }
   ]
 }

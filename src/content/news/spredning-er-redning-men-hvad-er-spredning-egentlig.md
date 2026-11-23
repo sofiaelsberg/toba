@@ -1,6 +1,6 @@
 ---
 title: "Spredning er redning – men hvad er spredning egentlig?"
-description: "Vi hører ofte, at man skal sprede risikoen i aktieporteføljen. Tidligere betød det, at man købte 20-40 forskellige aktier – og så var man godt på vej mod …"
+description: "Et fåtal af superaktier står for næsten hele aktiemarkedets afkast. Derfor er det ikke nok at eje 20–40 aktier for at være godt spredt."
 date: "2025-10-03T09:22:13.874Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7379807983968366592/"

@@ -1,6 +1,6 @@
 ---
-title: "Idag udbetaler vi 2.800.000 DKK til vore kunder"
-description: "Hvert år er der én dag i TOBA Advice, vi virkelig glæder os til — den dag, hvor vi udbetaler de årlige forvalterrabatter vi har forhandlet hjem til vores …"
+title: "I dag udbetaler vi 2,8 mio. kr. i forvalterrabatter til vores kunder"
+description: "TOBA Advice udbetaler 2,8 mio. kr. i forvalterrabatter for 2025 direkte til kunderne. Derfor skal stordriftsfordelene tilfalde investorerne."
 date: "2026-04-28T06:30:18.290Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7453395324234113024/"

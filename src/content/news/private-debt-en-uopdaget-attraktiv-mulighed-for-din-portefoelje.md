@@ -1,6 +1,6 @@
 ---
-title: "Private Debt – En uopdaget attraktiv mulighed for din portefølje?"
-description: "Mange har sikkert hørt om Private Equity, hvor der investeres i kapitalfonde, som investerer i unoterede selskaber på aktiesiden. Men hvorfor ikke gøre …"
+title: "Private debt – en overset mulighed for din portefølje?"
+description: "Private debt giver adgang til unoterede selskaber med gældskapitalens beskyttelse. Derfor kan det være en del af en alternativ portefølje."
 date: "2025-06-30T09:24:18.646Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7345381660445609985/"
