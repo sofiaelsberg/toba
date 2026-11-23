@@ -1,6 +1,5 @@
-import { TextLink } from "@/components/blocks/links";
-import { NewsCard } from "@/components/news/news-card";
-import { Section, SectionHeading } from "@/components/sections/section";
+import { NewsGrid } from "@/components/news/news-card";
+import { HeadingRow, Section } from "@/components/sections/section";
 import { news } from "@/content/pages/news";
 import { routes } from "@/content/site";
 import type { NewsTeaserContent } from "@/content/types";
@@ -21,17 +20,8 @@ export async function NewsTeaser({ content, surface = "cream", id }: { content: 
   return (
     <Section surface={surface} id={id}>
       <div className="flex flex-col gap-10">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading rule title={content.title} lead={content.lead} />
-          <TextLink href={routes.news}>{news.allLink}</TextLink>
-        </div>
-        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((p) => (
-            <li key={p.slug}>
-              <NewsCard post={p} headingLevel="h3" />
-            </li>
-          ))}
-        </ul>
+        <HeadingRow title={content.title} lead={content.lead} link={{ href: routes.news, label: news.allLink }} />
+        <NewsGrid posts={posts} headingLevel="h3" />
       </div>
     </Section>
   );

@@ -6,6 +6,8 @@ import { Analytics } from "@/components/layout/analytics";
 import { CookieBanner } from "@/components/layout/cookie-banner";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { home } from "@/content/pages/home";
+import { company } from "@/content/site";
+import { SITE_URL } from "@/lib/seo";
 import { jsonLd, siteJsonLd } from "@/lib/structured-data";
 import "./globals.css";
 
@@ -28,10 +30,10 @@ const sourceSans = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.tobaadvice.com"),
+  metadataBase: new URL(SITE_URL),
   title: { default: home.seo.title, template: "%s" },
   description: home.seo.description,
-  openGraph: { locale: "da_DK", type: "website", siteName: "TOBA Advice" },
+  openGraph: { locale: "da_DK", type: "website", siteName: company.name },
   // Google Search Console: kode fra "HTML-tag"-metoden (kun nødvendig, hvis domænet ikke bekræftes via DNS).
   ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),
 };

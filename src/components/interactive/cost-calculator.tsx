@@ -16,7 +16,7 @@ type Content = Omit<(typeof home)["calculator"], "action"> & { action: Action };
 
 /**
  * Omkostningsberegneren. Satser kommer fra `calculatorConfig` (content/facts.ts).
- * Intet gemmes; formuen kan sendes videre til /omkostningsoverblik via CTA'en.
+ * Intet gemmes.
  */
 export function CostCalculator({ content }: { content: Content }) {
   const id = useId();
@@ -69,7 +69,7 @@ export function CostCalculator({ content }: { content: Content }) {
           {/* Knappen står ved feltet: kender man ikke sin pris, er overblikket næste skridt. */}
           <div className="flex flex-wrap items-center gap-3">
             <Input id={`${id}-idag`} inputMode="decimal" placeholder={content.todayPlaceholder} value={today} onChange={(e) => setToday(e.target.value)} className="w-24" />
-            <ButtonLink action={{ ...content.action, href: withFormue(content.action.href, mio) }} />
+            <ButtonLink action={content.action} />
           </div>
           <p className="text-small text-ink-muted">{content.todayHint}</p>
         </div>
@@ -112,10 +112,4 @@ export function CostCalculator({ content }: { content: Content }) {
       <p className="max-w-measure text-caption text-ink-muted md:col-span-2">{content.footnote}</p>
     </div>
   );
-}
-
-/** Tilføjer ?formue= til linket – også når det peger på et anker på samme side (fx "#bestil"). */
-function withFormue(href: string, mio: number) {
-  const [base, hash = ""] = href.split("#");
-  return `${base}${base.includes("?") ? "&" : "?"}formue=${mio}${hash ? `#${hash}` : ""}`;
 }

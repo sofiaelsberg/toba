@@ -3,7 +3,7 @@ import { ButtonLink, ButtonRow, TextLink } from "@/components/blocks/links";
 import { GoldRule, Heading } from "@/components/blocks/typography";
 import { CtaCards } from "@/components/sections/cta";
 import { FactBox, StatsRow } from "@/components/sections/stats";
-import { AccordionList, NumberedSteps, PointList } from "@/components/sections/lists";
+import { FaqSection, NumberedSteps, PointList } from "@/components/sections/lists";
 import { NewsTeaser } from "@/components/news/news-teaser";
 import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
@@ -22,7 +22,6 @@ import { cake } from "@/content/cake";
 import { independent } from "@/content/pages/independent";
 import { overview } from "@/content/pages/overview";
 import { pageMetadata } from "@/lib/seo";
-import { faqJsonLd, jsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = pageMetadata(routes.home, c.seo);
 
@@ -145,13 +144,7 @@ export default function HomePage() {
 
       <NewsTeaser content={c.news} id="nyheder" />
 
-      <Section surface="white" id="spoergsmaal">
-        <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
-          <SectionHeading rule title={c.faqTitle} />
-          <AccordionList items={c.faq} />
-        </div>
-        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(c.faq))} />
-      </Section>
+      <FaqSection id="spoergsmaal" title={c.faqTitle} items={c.faq} />
       <Disclaimer content={disclaimers.standard} />
     </>
   );

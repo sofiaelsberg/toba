@@ -13,8 +13,9 @@ const securityHeaders = [
 const legacyRedirects: { source: string; destination: string }[] = [
   { source: "/hvem-spiser-din-lagkage", destination: "/lagkage" },
   { source: "/gratis-omkostningsoverblik", destination: "/omkostningsoverblik" },
-  // Kun gamle profiladresser uden filendelse – ellers fanges portrætterne i /public/team.
-  { source: "/team/:slug([^./]+)", destination: "/team" },
+  // Profiladresser (også dem fra den gamle side) åbner personens profil i panelet på /team.
+  // Kun adresser uden filendelse – ellers fanges portrætterne i /public/team.
+  { source: "/team/:slug([^./]+)", destination: "/team#:slug" },
   // Gamle blogadresser fra Webflow → de nye nyheder.
   { source: "/blog", destination: "/nyheder" },
   { source: "/blog/:path*", destination: "/nyheder" },

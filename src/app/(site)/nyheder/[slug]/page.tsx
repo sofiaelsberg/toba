@@ -6,15 +6,15 @@ import { Suspense } from "react";
 
 import { ButtonLink, ButtonRow, TextLink } from "@/components/blocks/links";
 import { Media } from "@/components/blocks/media";
-import { Eyebrow } from "@/components/blocks/typography";
+import { Eyebrow, eyebrowClass } from "@/components/blocks/typography";
 import { ArticleBody } from "@/components/news/article-body";
-import { NewsCard } from "@/components/news/news-card";
+import { NewsGrid } from "@/components/news/news-card";
 import { SlideViewer } from "@/components/news/slide-viewer";
 import { pickPosts } from "@/components/news/news-teaser";
 import { Disclaimer } from "@/components/sections/legal";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { news as c } from "@/content/pages/news";
-import { disclaimers, routes } from "@/content/site";
+import { disclaimers, newsPath, routes } from "@/content/site";
 import { authorHref, authorPerson } from "@/lib/authors";
 import { formatNewsDate, getAllPosts, getPost } from "@/lib/news";
 import { pageMetadata, withBrand } from "@/lib/seo";
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) return {};
-  const base = pageMetadata(`${routes.news}/${post.slug}`, { title: withBrand(post.title), description: post.description });
+  const base = pageMetadata(newsPath(post.slug), { title: withBrand(post.title), description: post.description });
   return {
     ...base,
     authors: [{ name: post.author }],
@@ -114,7 +114,7 @@ async function NewsArticle({ params }: Props) {
             {/* Ved delinger: TOBA Advices egen tekst fra delingen. */}
             {post.lead && (
               <aside aria-labelledby="deling" className="flex flex-col gap-2 border-l-2 border-gold bg-cream px-6 py-5">
-                <h2 id="deling" className="text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase">
+                <h2 id="deling" className={`${eyebrowClass} text-gold-text`}>
                   {c.sharedBy}
                 </h2>
                 <p>{post.lead}</p>
@@ -142,13 +142,7 @@ async function NewsArticle({ params }: Props) {
         <section className="bg-cream py-16 md:py-24">
           <div className="wrap flex flex-col gap-8">
             <h2 className="font-serif text-h2 font-medium text-navy">{c.moreTitle}</h2>
-            <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {more.map((p) => (
-                <li key={p.slug}>
-                  <NewsCard post={p} headingLevel="h3" />
-                </li>
-              ))}
-            </ul>
+            <NewsGrid posts={more} headingLevel="h3" />
           </div>
         </section>
       )}

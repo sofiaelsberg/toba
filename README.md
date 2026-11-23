@@ -11,6 +11,7 @@ npm install
 npm run dev        # http://localhost:3000
 npm run build      # produktionsbuild (fejler, hvis en side læser request-data uden <Suspense>)
 npx eslint src
+npm run check:html # efter build: dublet-id'er og døde id-referencer i HTML'en
 ```
 
 Kopiér `.env.example` til `.env.local`. Formularerne er ActiveCampaign-formularer (kontakt #10, guide #8, omkostningsoverblik #9), som redigeres i ActiveCampaign – der skal ingen nøgler til.
@@ -34,7 +35,7 @@ Kopiér `.env.example` til `.env.local`. Formularerne er ActiveCampaign-formular
 1. **Ingen tekst i komponenter.** Ret tekster i `src/content/`. `*ord*` = fremhævet (kursiv guld), `**ord**` = fed. `{navn}` udfyldes af koden, fx i beregneren.
 2. **Tal, der går igen, står ét sted:** `src/content/facts.ts` (rabatbeløb, antal forvaltere, satser til beregneren …).
 3. **Farver og typografi** kommer fra tokens i `src/app/globals.css` – brug `text-navy`, `bg-cream`, `text-gold-text`, `text-h2` osv., aldrig hex-koder i komponenterne.
-4. **Bevægelse** følger brandbogen: én kurve (`ease-toba`), 150/300/700 ms, kører én gang og respekterer "reducer bevægelse". Alt står færdigt uden JavaScript.
+4. **Bevægelse** følger brandbogen: én kurve (`ease-toba`), kører én gang og respekterer "reducer bevægelse". Alt står færdigt uden JavaScript. Tider: hover/fokus ca. 150 ms, ting der åbner 300–500 ms, ting der glider ind 600–900 ms, tal og søjler der tæller op op til 1,6 s.
 5. **Fonte** (Playfair Display, Source Sans 3) er selvhostede i `src/fonts/` – ingen kald til Google.
 6. **Tilgængelighed** (tilgængelighedsloven): siden skal overholde WCAG 2.1 AA / EN 301 549. Nye komponenter skal kunne bruges med tastatur, have synligt fokus, tekstalternativer og virke ved 320 px bredde og 200 % tekst. Oplysningerne på `/tilgaengelighed` (`accessibilityPage` i `src/content/pages/legal.ts`) skal gennemgås mindst én gang om året og ved større ændringer.
 

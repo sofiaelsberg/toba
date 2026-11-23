@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { eyebrowClass } from "@/components/blocks/typography";
 import { ButtonLink } from "@/components/blocks/links";
 import { Logo } from "@/components/layout/logo";
 import { notFound as c } from "@/content/pages/not-found";
@@ -17,7 +18,7 @@ export default function NotFound() {
       <main className="wrap flex-1 py-16 md:py-24">
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] md:gap-20">
           <div className="flex flex-col gap-5">
-            <p className="text-eyebrow font-semibold tracking-[0.12em] text-gold-on-navy uppercase">{c.eyebrow}</p>
+            <p className={`${eyebrowClass} text-gold-on-navy`}>{c.eyebrow}</p>
             <h1 className="font-serif text-[2.375rem] leading-[2.75rem] font-medium md:text-display md:leading-(--text-display--line-height)">{c.title}</h1>
             <p className="max-w-140 text-[1.25rem] leading-[1.875rem] md:text-[1.375rem] md:leading-8 md:font-light">{c.lead}</p>
             <ButtonLink action={c.homeAction} className="mt-2 self-start" />
@@ -34,7 +35,7 @@ export default function NotFound() {
               <path d="M10 150 L170 20 L200 20 L360 150" fill="none" stroke="var(--gold)" strokeWidth="2" />
               <path d="M0 150 L420 150" stroke="var(--grey-light)" strokeWidth="1" opacity=".35" />
             </svg>
-            <p className="text-eyebrow font-semibold tracking-[0.12em] text-gold-on-navy uppercase">{c.suggestionsTitle}</p>
+            <p className={`${eyebrowClass} text-gold-on-navy`}>{c.suggestionsTitle}</p>
             <nav aria-label={c.suggestionsTitle}>
               <ul className="border-b border-gold-light/60">
                 {c.suggestions.map((s) => (

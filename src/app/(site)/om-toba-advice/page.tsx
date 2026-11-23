@@ -11,7 +11,7 @@ import { Disclaimer } from "@/components/sections/legal";
 import { FeatureList } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
 import { PersonQuote } from "@/components/sections/person-quote";
-import { Section, SectionHeading, Split } from "@/components/sections/section";
+import { HeadingRow, Section, SectionHeading, Split } from "@/components/sections/section";
 import { about as c } from "@/content/pages/about";
 import { advisers, people } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
@@ -52,10 +52,7 @@ export default function AboutPage() {
 
       <Section>
         <div className="flex flex-col gap-10">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading rule title={c.advisers.title} lead={c.advisers.lead} />
-            <TextLink href={c.advisers.link.href}>{c.advisers.link.label}</TextLink>
-          </div>
+          <HeadingRow title={c.advisers.title} lead={c.advisers.lead} link={c.advisers.link} />
           <PeopleGrid people={advisers} />
           {coo && <PersonQuote text={c.cooQuote.text} person={coo} className="mt-6 border-t border-line pt-12" />}
         </div>

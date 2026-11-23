@@ -1,3 +1,4 @@
+import { facts } from "../facts";
 import { company, routes } from "../site";
 import type { HeroContent, Point, Seo, StepContent } from "../types";
 
@@ -144,7 +145,7 @@ export const accessibilityPage = {
 
   service: {
     title: "Vores tjeneste",
-    text: `${company.name} er investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver personer med en investérbar formue på mindst 5 mio. kr. om, hvordan formuen skal investeres. Din formue står i din egen bank – vi rådgiver om den. Du har en fast rådgiver, som du taler med på møder, på telefon og på e-mail.`,
+    text: `${company.name} er investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver personer med en investérbar formue på mindst ${facts.minimumWealthMio} mio. kr. om, hvordan formuen skal investeres. Din formue står i din egen bank – vi rådgiver om den. Du har en fast rådgiver, som du taler med på møder, på telefon og på e-mail.`,
     stepsTitle: "Sådan foregår det",
     steps: [
       { title: "Du kontakter os", text: `Ring på ${company.phone}, skriv til os via kontaktformularen, eller book et møde. Du kan også kontakte en af vores rådgivere direkte.` },

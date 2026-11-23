@@ -21,6 +21,11 @@ export const routes = {
   clientPortal: "https://client.tobaadvice.onperformativ.com",
 } as const;
 
+/** Adressen på et indlæg på /nyheder. */
+export const newsPath = (slug: string) => `${routes.news}/${slug}`;
+
+const linkedinUrl = "https://www.linkedin.com/company/toba-advice";
+
 export const company = {
   name: "TOBA Advice",
   legalName: "TOBA Advice A/S",
@@ -29,10 +34,10 @@ export const company = {
   phone: "+45 28 18 84 27",
   address: { line1: "Store Torv 3C, 2. sal", line2: "8000 Aarhus C" },
   mapsUrl: "https://maps.google.com/?q=Store+Torv+3C,+8000+Aarhus+C",
-  linkedin: "https://www.linkedin.com/company/toba-advice",
+  linkedin: linkedinUrl,
   /** Officielle profiler andre steder. Hjælper Google og AI med at koble dem til samme virksomhed (schema.org sameAs). */
   profiles: [
-    "https://www.linkedin.com/company/toba-advice",
+    linkedinUrl,
     "https://datacvr.virk.dk/enhed/virksomhed/37424277",
     "https://www.proff.dk/firma/toba-advice-as/-/-/37424277",
   ],
@@ -75,7 +80,7 @@ export const navLabels = {
 
 export const footer = {
   about:
-    "TOBA Advice leverer uafhængig, individuel og gennemsigtig investeringsrådgivning og henvender sig til personer med en investérbar formue på minimum 5 mio. kr.",
+    `TOBA Advice leverer uafhængig, individuel og gennemsigtig investeringsrådgivning og henvender sig til personer med en investérbar formue på minimum ${facts.minimumWealthMio} mio. kr.`,
   columns: [
     {
       title: "Om TOBA",
@@ -97,6 +102,8 @@ export const footer = {
     },
     {
       title: "Politikker",
+      /** Knappen "Cookieindstillinger" står nederst i denne kolonne. */
+      cookieSettings: true,
       links: [
         { label: "Finanstilsynet", href: routes.fsa },
         { label: "Politikker", href: routes.policies },
@@ -106,7 +113,7 @@ export const footer = {
         { label: "Privatlivspolitik", href: routes.privacy },
       ],
     },
-  ] satisfies { title: string; links: LinkItem[] }[],
+  ] satisfies { title: string; links: LinkItem[]; cookieSettings?: boolean }[],
   cookieSettingsLabel: "Cookieindstillinger",
   linkedinLabel: "LinkedIn",
   companyLine: `${company.legalName} · CVR ${company.cvr} · Godkendt af Finanstilsynet (FT-nr. ${company.ftNumber})`,

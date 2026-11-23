@@ -1,5 +1,6 @@
 "use client";
 
+import { eyebrowClass } from "@/components/blocks/typography";
 import { ButtonLink } from "@/components/blocks/links";
 import { Logo } from "@/components/layout/logo";
 import { Button } from "@/components/ui/button";
@@ -14,7 +15,7 @@ export default function Error({ reset }: { error: Error & { digest?: string }; r
         <Logo tone="light" />
       </header>
       <main className="wrap flex flex-1 flex-col items-start justify-center gap-5 py-16">
-        <p className="text-eyebrow font-semibold tracking-[0.12em] text-gold-on-navy uppercase">{c.eyebrow}</p>
+        <p className={`${eyebrowClass} text-gold-on-navy`}>{c.eyebrow}</p>
         <h1 className="font-serif text-[2.375rem] leading-[2.75rem] font-medium md:text-display md:leading-(--text-display--line-height)">{c.title}</h1>
         <p className="max-w-140 text-[1.25rem] leading-[1.875rem]">{c.lead}</p>
         <div className="mt-2 flex flex-wrap gap-3">

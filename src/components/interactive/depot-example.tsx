@@ -1,5 +1,6 @@
 "use client";
 
+import { eyebrowClass } from "@/components/blocks/typography";
 import { useProgressInView } from "@/components/motion/use-progress-in-view";
 import type { overview } from "@/content/pages/overview";
 import { formatNumber, formatPercent } from "@/lib/format";
@@ -21,7 +22,7 @@ export function DepotExample({ content }: { content: Content }) {
       <ul ref={cardsRef} className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {content.depots.map((d) => (
           <li key={d.name} className="flex flex-col gap-4 border-t-2 border-line bg-white p-7">
-            <p className="text-eyebrow font-semibold tracking-[0.12em] text-ink-muted uppercase">{d.name}</p>
+            <p className={`${eyebrowClass} text-ink-muted`}>{d.name}</p>
             <div className="flex flex-wrap items-baseline justify-between gap-3">
               <span className="tabular font-serif text-[1.625rem] leading-8 font-medium text-navy">{formatNumber(d.amount)} kr.</span>
               <span className="text-[0.875rem] text-ink-muted">
@@ -29,7 +30,7 @@ export function DepotExample({ content }: { content: Content }) {
               </span>
             </div>
             <div className="flex flex-col gap-2 bg-cream p-4">
-              <p className="text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase">{content.costsLabel}</p>
+              <p className={`${eyebrowClass} text-gold-text`}>{content.costsLabel}</p>
               {d.lines.map((l) => (
                 <div key={l.label} className="flex justify-between gap-3 text-base">
                   <span className="flex items-center gap-2">
@@ -61,7 +62,7 @@ export function DepotExample({ content }: { content: Content }) {
 
       <div ref={sumRef} className="on-navy grid grid-cols-1 items-center gap-10 bg-navy p-8 text-on-navy md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-12 md:p-10">
         <div className="flex flex-col gap-4">
-          <p className="text-eyebrow font-semibold tracking-[0.12em] text-gold-on-navy uppercase">{content.summary.eyebrow}</p>
+          <p className={`${eyebrowClass} text-gold-on-navy`}>{content.summary.eyebrow}</p>
           {content.depots.map((d, i) => (
             <div key={d.name} className="grid gap-1.5">
               <div className="flex justify-between gap-3 text-base">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { RichText } from "@/components/blocks/rich-text";
-import { Caption } from "@/components/blocks/typography";
+import { Caption, eyebrowClass } from "@/components/blocks/typography";
 import { VideoBlock } from "@/components/blocks/video-block";
 import { ShareBar } from "@/components/interactive/charts";
 import { ChecklistReveal } from "@/components/interactive/checklists";
@@ -9,14 +9,13 @@ import { MoneyFlow } from "@/components/interactive/money-flow";
 import { CtaCards } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
-import { AccordionList, FeatureList } from "@/components/sections/lists";
+import { AccordionList, FaqSection, FeatureList } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { FactBox } from "@/components/sections/stats";
 import { independent as c } from "@/content/pages/independent";
 import { disclaimers, routes } from "@/content/site";
 import { cn } from "@/lib/utils";
 import { pageMetadata } from "@/lib/seo";
-import { faqJsonLd, jsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = pageMetadata(routes.independent, c.seo, { ownShareImage: true });
 
@@ -61,11 +60,11 @@ export default function IndependentPage() {
                 )}
               >
                 {"badge" in k && k.badge && (
-                  <span className="absolute -top-3.5 left-7 bg-gold-text px-3 py-1 text-eyebrow font-semibold tracking-[0.12em] text-white uppercase">
+                  <span className={`${eyebrowClass} absolute -top-3.5 left-7 bg-gold-text px-3 py-1 text-white`}>
                     {k.badge}
                   </span>
                 )}
-                <h3 className={cn("text-eyebrow font-semibold tracking-[0.12em] uppercase", k.highlight ? "text-gold-text" : "text-ink-muted")}>
+                <h3 className={cn(eyebrowClass, k.highlight ? "text-gold-text" : "text-ink-muted")}>
                   {k.eyebrow}
                 </h3>
                 <MoneyFlow flow={k.flow} label={k.flowAria} />
@@ -124,28 +123,14 @@ export default function IndependentPage() {
         </div>
       </Section>
 
-      <Section surface="white" id="spoergsmaal">
-        <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
-          <SectionHeading rule title={c.faqTitle} />
-          <AccordionList items={c.faq} />
-        </div>
-        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(c.faq))} />
-      </Section>
-
-      <Section id="naeste">
+      <Section surface="white" id="naeste">
         <div className="flex flex-col gap-10">
           <SectionHeading rule title={c.next.title} lead={c.next.lead} />
-          <CtaCards cards={c.next.cards} tone="white" />
+          <CtaCards cards={c.next.cards} tone="cream" />
         </div>
       </Section>
 
-      <Section id="spoergsmaal">
-        <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
-          <SectionHeading rule title={c.faqTitle} />
-          <AccordionList items={c.faq} />
-        </div>
-        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(c.faq))} />
-      </Section>
+      <FaqSection id="spoergsmaal" surface="cream" title={c.faqTitle} items={c.faq} />
 
       <Disclaimer content={disclaimers.short} />
     </>

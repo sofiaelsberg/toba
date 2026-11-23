@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { ButtonRow } from "@/components/blocks/links";
+import { ButtonRow, TextLink } from "@/components/blocks/links";
 import { Eyebrow, GoldRule, Heading, Lead } from "@/components/blocks/typography";
 import { Reveal } from "@/components/motion/reveal";
 import type { Action } from "@/content/types";
@@ -69,6 +69,16 @@ export function SectionHeading({ eyebrow, title, lead, rule, as = "h2", size = "
       <Heading title={title} as={as} size={size} id={id} />
       {lead && (size === "display" ? <Lead className={cn("max-w-[37.5rem]", leadClassName)}>{lead}</Lead> : <p className={cn("max-w-measure", leadClassName)}>{lead}</p>)}
       {actions && <ButtonRow actions={actions} className="mt-2" />}
+    </div>
+  );
+}
+
+/** Sektionsoverskrift med et tekstlink ude til højre (fx "Alle nyheder →"). */
+export function HeadingRow({ title, lead, link }: { title: string; lead?: string; link: { href: string; label: string } }) {
+  return (
+    <div className="flex flex-wrap items-end justify-between gap-6">
+      <SectionHeading rule title={title} lead={lead} />
+      <TextLink href={link.href}>{link.label}</TextLink>
     </div>
   );
 }

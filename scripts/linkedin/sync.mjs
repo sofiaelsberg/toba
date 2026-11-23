@@ -15,7 +15,8 @@
  *   LINKEDIN_ORG_ID        – 104613890 (TOBA Advice)
  *   LINKEDIN_VERSION       – valgfri, fx 202611 (ÅÅÅÅMM). Ellers findes den nyeste aktive version automatisk.
  *
- * --draft: nye indlæg gemmes med draft: true (bruges af det automatiske job), så de først vises efter gennemgang.
+ * --draft: nye indlæg gemmes med draft: true, så de først vises efter gennemgang. Det automatiske job bruger det IKKE –
+ *          alt, der er udgivet på TOBA's LinkedIn, skal direkte på siden.
  */
 import fs from "node:fs";
 import path from "node:path";

@@ -7,6 +7,7 @@ import type { CakeContent } from "@/content/cake";
 import { ui } from "@/content/ui";
 import { useIsClient } from "@/lib/use-is-client";
 import { cn } from "@/lib/utils";
+import { LAYER_COLORS } from "./layer-colors";
 
 type Props = {
   content: CakeContent;
@@ -20,7 +21,6 @@ type Props = {
 };
 
 const R = 220;
-const LAYER_COLORS = ["var(--layer-1)", "var(--layer-2)", "var(--layer-3)", "var(--layer-4)"];
 
 /**
  * Lagkagen: koncentriske lag, der gør "dit lag" i midten mindre.

@@ -6,6 +6,7 @@ import type { independent } from "@/content/pages/independent";
 import type { overview } from "@/content/pages/overview";
 import { formatNumber, formatPercent } from "@/lib/format";
 import { cn } from "@/lib/utils";
+import { LAYER_COLORS } from "@/components/interactive/layer-colors";
 
 /**
  * Små, statiske illustrationer til CTA-kort (16:10). Bygget af samme data som de store grafikker,
@@ -20,7 +21,6 @@ function Frame({ className, children }: { className?: string; children: ReactNod
   );
 }
 
-const LAYER_COLORS = ["var(--layer-1)", "var(--layer-2)", "var(--layer-3)", "var(--layer-4)"];
 
 /** Lagkagen med alle lag lagt på og "dit lag" i midten. */
 export function CakeVisual({ content }: { content: CakeContent }) {

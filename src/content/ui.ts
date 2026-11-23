@@ -2,7 +2,6 @@
 export const ui = {
   video: {
     play: "Se video",
-    placeholderNote: "Plakatbillede fra videoen",
   },
   linkedinPost: {
     iframeTitle: "Seneste opslag fra TOBA Advice på LinkedIn",
@@ -33,11 +32,6 @@ export const ui = {
     linkedin: "LinkedIn →",
     articles: (first: string) => `Artikler af ${first}`,
     allArticles: "Alle nyheder →",
-    portraitAlt: (name: string) => `Portræt af ${name}`,
-  },
-  accordion: { open: "+", close: "–" },
-  calculator: {
-    perYear: "om året",
   },
   lockedQuestion: "Låst spørgsmål – hent guiden for at se det",
 } as const;

@@ -10,16 +10,16 @@ import { accessibilityPage, privacyPage, complaints, fsa, policies } from "@/con
 import { overview } from "@/content/pages/overview";
 import { team } from "@/content/pages/team";
 import { advisers, people } from "@/content/people";
-import { company, footer, routes } from "@/content/site";
+import { company, footer, newsPath, routes } from "@/content/site";
+import { stripMarkup as plain } from "@/lib/format";
 import { getAllPosts } from "@/lib/news";
-import { SITE_URL } from "@/lib/seo";
+import { absoluteUrl, SITE_URL } from "@/lib/seo";
 
 /**
  * /llms.txt – en kort, maskinlæsbar oversigt til AI-tjenester (llmstxt.org).
  * Bygges ud fra indholdsfilerne, så den altid følger siden. Bruger ingen request-data, så Next bygger den statisk.
  */
-const plain = (s: string) => s.replace(/\*\*?/g, "");
-const link = (path: string, title: string, description: string) => `- [${plain(title).replace(/ \| TOBA Advice$/, "")}](${SITE_URL}${path === "/" ? "" : path}): ${plain(description)}`;
+const link = (path: string, title: string, description: string) => `- [${plain(title).replace(/ \| TOBA Advice$/, "")}](${absoluteUrl(path)}): ${plain(description)}`;
 
 export async function GET() {
   const posts = await getAllPosts();
@@ -38,7 +38,7 @@ Nøglefakta:
 - Vi samarbejder med ${facts.managers} kapitalforvaltere i ${facts.countries} lande og har ${facts.yearsSelectingManagers}+ års erfaring med at udvælge forvaltere.
 - Kunden beholder sit depot i sin egen bank; TOBA Advice opbevarer ikke værdipapirer.
 - Målgruppe: personer, familier og virksomhedsejere med en investerbar formue på mindst ${facts.minimumWealthMio} mio. kr.
-- Kontakt: ${company.phone} · ${SITE_URL}${routes.contact}
+- Kontakt: ${company.phone} · ${absoluteUrl(routes.contact)}
 
 ## Sider
 
@@ -54,7 +54,7 @@ ${link(routes.news, news.seo.title, news.seo.description)}
 
 ## Seneste indlæg
 
-${posts.slice(0, 10).map((p) => link(`${routes.news}/${p.slug}`, p.title, p.description)).join("\n")}
+${posts.slice(0, 10).map((p) => link(newsPath(p.slug), p.title, p.description)).join("\n")}
 
 ## Rådgivere
 

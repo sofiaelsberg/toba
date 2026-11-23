@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 
+import { eyebrowClass } from "@/components/blocks/typography";
 import { RichText } from "@/components/blocks/rich-text";
 import { EASE } from "@/components/motion/tokens";
 import { cn } from "@/lib/utils";
@@ -25,7 +26,7 @@ export function AnchorNav({ items, label }: { items: { id: string; label: string
   return (
     <nav aria-label={label} className="sticky top-20 z-10 border-b border-line bg-white">
       <div className="wrap flex items-center gap-8">
-        <p aria-hidden className="hidden shrink-0 border-r border-line py-1 pr-8 text-eyebrow font-semibold tracking-[0.12em] text-gold-text uppercase md:block">
+        <p aria-hidden className={`${eyebrowClass} hidden shrink-0 border-r border-line py-1 pr-8 text-gold-text md:block`}>
           {label}
         </p>
         <ul className="flex gap-7 overflow-x-auto">
@@ -54,6 +55,7 @@ type Mode = { label: string; title: string; text: string };
 /** Faner – fx "Hele formuen / En del af formuen". */
 export function SegmentTabs({ modes, label }: { modes: Mode[]; label: string }) {
   const [i, setI] = useState(0);
+  const uid = useId();
   const current = modes[i];
   return (
     <div className="flex flex-col gap-4">
@@ -63,9 +65,9 @@ export function SegmentTabs({ modes, label }: { modes: Mode[]; label: string }) 
             key={m.label}
             role="tab"
             type="button"
-            id={`tab-${j}`}
+            id={`${uid}-tab-${j}`}
             aria-selected={i === j}
-            aria-controls="tabpanel"
+            aria-controls={`${uid}-panel`}
             onClick={() => setI(j)}
             className={cn(
               "min-h-11 cursor-pointer rounded-full border px-4.5 py-2.5 font-medium transition-colors duration-300 ease-toba",
@@ -76,7 +78,7 @@ export function SegmentTabs({ modes, label }: { modes: Mode[]; label: string }) 
           </button>
         ))}
       </div>
-      <div id="tabpanel" role="tabpanel" aria-labelledby={`tab-${i}`} className="min-h-21 border-t border-line pt-4">
+      <div id={`${uid}-panel`} role="tabpanel" aria-labelledby={`${uid}-tab-${i}`} className="min-h-21 border-t border-line pt-4">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.3, ease: EASE }}>
             <p className="font-semibold text-navy">{current.title}</p>

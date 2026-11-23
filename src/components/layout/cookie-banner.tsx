@@ -11,8 +11,13 @@ import { useIsClient } from "@/lib/use-is-client";
 
 const COOKIE = "toba_consent";
 const OPEN_EVENT = "toba:cookie-settings";
+/** Sendes, når et valg gemmes (fx <Analytics /> lytter). */
+const CONSENT_EVENT = "toba:consent";
 
 type Consent = Record<CookieCategoryId, boolean>;
+
+const ONLY_NECESSARY: Consent = { necessary: true, statistics: false, marketing: false };
+const ALL: Consent = { necessary: true, statistics: true, marketing: true };
 
 function readConsent(): Consent | null {
   const m = document.cookie.match(new RegExp(`(?:^|; )${COOKIE}=([^;]*)`));
@@ -28,8 +33,8 @@ function readConsent(): Consent | null {
 export function useConsent(category: CookieCategoryId): boolean {
   return useSyncExternalStore(
     (onChange) => {
-      window.addEventListener("toba:consent", onChange);
-      return () => window.removeEventListener("toba:consent", onChange);
+      window.addEventListener(CONSENT_EVENT, onChange);
+      return () => window.removeEventListener(CONSENT_EVENT, onChange);
     },
     () => readConsent()?.[category] ?? false,
     () => false,
@@ -44,7 +49,7 @@ export function openCookieSettings() {
 function writeConsent(c: Consent) {
   document.cookie = `${COOKIE}=${encodeURIComponent(JSON.stringify(c))}; path=/; max-age=${60 * 60 * 24 * 180}; SameSite=Lax`;
   // Lyttere (fx <Analytics />) reagerer på hændelsen og indlæser/stopper sporing ud fra samtykket.
-  window.dispatchEvent(new CustomEvent("toba:consent", { detail: c }));
+  window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: c }));
 }
 
 /** Åbner cookiebanneret igen (bruges i sidefoden og på /cookies). */
@@ -66,11 +71,11 @@ export function CookieBanner() {
   const [dismissed, setDismissed] = useState(false);
   const [reopened, setReopened] = useState(false);
   const [custom, setCustom] = useState(false);
-  const [choice, setChoice] = useState<Consent>({ necessary: true, statistics: false, marketing: false });
+  const [choice, setChoice] = useState<Consent>(ONLY_NECESSARY);
 
   useEffect(() => {
     const reopen = () => {
-      setChoice(readConsent() ?? { necessary: true, statistics: false, marketing: false });
+      setChoice(readConsent() ?? ONLY_NECESSARY);
       setCustom(true);
       setReopened(true);
     };
@@ -98,7 +103,7 @@ export function CookieBanner() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 12 }}
           transition={{ duration: 0.4, ease: EASE }}
-          className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-[47.5rem] border-t-2 border-gold bg-white p-5 shadow-[0_8px_24px_rgba(37,55,71,0.16)] md:inset-x-6 md:bottom-6 md:p-7"
+          className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-[47.5rem] border-t-2 border-gold bg-white p-5 shadow-dialog md:inset-x-6 md:bottom-6 md:p-7"
         >
           <div className="flex flex-col gap-4">
             <h2 className="font-serif text-[1.5rem] leading-8 font-medium text-navy">{c.title}</h2>
@@ -124,7 +129,7 @@ export function CookieBanner() {
               </ul>
             )}
             <div className="flex flex-wrap gap-3">
-              <Button onClick={() => save({ necessary: true, statistics: false, marketing: false })}>{c.buttons.onlyNecessary}</Button>
+              <Button onClick={() => save(ONLY_NECESSARY)}>{c.buttons.onlyNecessary}</Button>
               {custom ? (
                 <Button variant="secondary" onClick={() => save(choice)}>
                   {c.buttons.save}
@@ -134,7 +139,7 @@ export function CookieBanner() {
                   {c.buttons.customize}
                 </Button>
               )}
-              <Button onClick={() => save({ necessary: true, statistics: true, marketing: true })}>{c.buttons.acceptAll}</Button>
+              <Button onClick={() => save(ALL)}>{c.buttons.acceptAll}</Button>
             </div>
           </div>
         </motion.div>

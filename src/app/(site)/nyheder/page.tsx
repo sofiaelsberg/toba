@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { TextLink } from "@/components/blocks/links";
-import { NewsCard } from "@/components/news/news-card";
+import { NewsGrid } from "@/components/news/news-card";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
 import { Section } from "@/components/sections/section";
@@ -22,13 +22,7 @@ export default async function NewsPage() {
       <Section spacing="none" className="pb-16 md:pb-24">
         <div className="flex flex-col gap-10">
           {posts.length ? (
-            <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {posts.map((p, i) => (
-                <li key={p.slug}>
-                  <NewsCard post={p} priority={i < 3} />
-                </li>
-              ))}
-            </ul>
+            <NewsGrid posts={posts} priority={3} />
           ) : (
             <p>{c.empty}</p>
           )}
