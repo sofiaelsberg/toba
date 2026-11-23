@@ -11,6 +11,7 @@ npm install
 npm run dev        # http://localhost:3000
 npm run build      # produktionsbuild (fejler, hvis en side læser request-data uden <Suspense>)
 npx eslint src
+npm run check:html # efter build: dublet-id'er og døde id-referencer i HTML'en
 ```
 
 Kopiér `.env.example` til `.env.local`. Formularerne er ActiveCampaign-formularer (kontakt #10, guide #8, omkostningsoverblik #9), som redigeres i ActiveCampaign – der skal ingen nøgler til.

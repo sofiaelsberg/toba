@@ -11,7 +11,7 @@ Følg "Regler" i README.md (afsnit 1–6). Kort:
 5. Fonte er selvhostede i `src/fonts/` – ingen Google-kald.
 6. WCAG 2.1 AA: tastatur, synligt fokus, tekstalternativer, 320 px og 200 % tekst.
 
-Tjek før commit: `npm run build` og `npx eslint src`.
+Tjek før commit: `npm run build`, `npx eslint src` og `npm run check:html` (dublet-id'er og døde id-referencer i det byggede HTML).
 
 ## Git
 

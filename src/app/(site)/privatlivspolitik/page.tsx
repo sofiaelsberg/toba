@@ -21,8 +21,8 @@ export default function PrivacyPage() {
       <NarrowPage hero={c.hero}>
         <NarrowBlock className="pt-0 md:pt-0">
           <Caption>{c.version}</Caption>
-          <nav aria-labelledby="indhold" className="border-t-2 border-gold bg-white p-6">
-            <h2 id="indhold" className="mb-3 font-serif text-[1.5rem] leading-8 font-medium text-navy">
+          <nav aria-labelledby="indholdsfortegnelse" className="border-t-2 border-gold bg-white p-6">
+            <h2 id="indholdsfortegnelse" className="mb-3 font-serif text-[1.5rem] leading-8 font-medium text-navy">
               {c.tocTitle}
             </h2>
             <ol className="grid list-decimal gap-x-8 gap-y-1.5 pl-5 sm:grid-cols-2">
