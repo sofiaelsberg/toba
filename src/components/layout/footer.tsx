@@ -30,7 +30,7 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
-                {col.title === footer.columns[2].title && (
+                {"cookieSettings" in col && col.cookieSettings && (
                   <li>
                     <CookieSettingsButton className={linkCls}>{footer.cookieSettingsLabel}</CookieSettingsButton>
                   </li>

@@ -95,6 +95,8 @@ export const footer = {
     },
     {
       title: "Politikker",
+      /** Knappen "Cookieindstillinger" står nederst i denne kolonne. */
+      cookieSettings: true,
       links: [
         { label: "Finanstilsynet", href: routes.fsa },
         { label: "Politikker", href: routes.policies },
@@ -104,7 +106,7 @@ export const footer = {
         { label: "Privatlivspolitik", href: routes.privacy },
       ],
     },
-  ] satisfies { title: string; links: LinkItem[] }[],
+  ] satisfies { title: string; links: LinkItem[]; cookieSettings?: boolean }[],
   cookieSettingsLabel: "Cookieindstillinger",
   linkedinLabel: "LinkedIn",
   companyLine: `${company.legalName} · CVR ${company.cvr} · Godkendt af Finanstilsynet (FT-nr. ${company.ftNumber})`,

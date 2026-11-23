@@ -136,6 +136,8 @@
   --container-measure: 42.5rem; /* 680px */
 
   --shadow-raised: 0 8px 24px rgba(37, 55, 71, 0.08);
+  --shadow-dialog: 0 8px 24px rgba(37, 55, 71, 0.16);  /* cookiebanneret */
+  --shadow-cover: 0 30px 60px rgba(37, 55, 71, 0.25), 0 8px 24px rgba(37, 55, 71, 0.08);  /* guidens forside på /lagkage */
   --ease-toba: cubic-bezier(0.22, 1, 0.36, 1);
 }
 

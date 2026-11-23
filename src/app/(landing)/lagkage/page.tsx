@@ -82,7 +82,7 @@ export default function GuidePage() {
                 width={c.cover.width}
                 height={c.cover.height}
                 sizes="(min-width: 900px) 400px, 320px"
-                className="h-auto w-full shadow-[0_30px_60px_rgba(37,55,71,0.25),0_8px_24px_rgba(37,55,71,0.08)] transition-transform duration-700 ease-toba [transform:rotateY(-10deg)_rotateX(3deg)] hover:[transform:rotateY(-3deg)_rotateX(1deg)_translateY(-4px)] motion-reduce:[transform:none]"
+                className="h-auto w-full shadow-cover transition-transform duration-700 ease-toba [transform:rotateY(-10deg)_rotateX(3deg)] hover:[transform:rotateY(-3deg)_rotateX(1deg)_translateY(-4px)] motion-reduce:[transform:none]"
               />
             </div>
           </div>
