@@ -1,6 +1,6 @@
 ---
-title: "Vidste du, at det unoterede marked udgør omkring 90 % af alle investeringsmuligheder?"
-description: "Hos TOBA ser vi det som en del af vores mission at gøre gode investeringer tilgængelige for vores kunder – og give adgang til muligheder, som normalt er …"
+title: "Det unoterede marked udgør omkring 90 % af investeringsmulighederne"
+description: "Kun omkring 10 % af verdens investeringer er børsnoterede. Sådan giver vi kunderne adgang til muligheder, der ellers er forbeholdt institutioner."
 date: "2025-10-23T13:05:33.781Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7387111944178200576/"

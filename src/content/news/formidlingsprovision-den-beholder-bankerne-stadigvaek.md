@@ -1,6 +1,6 @@
 ---
-title: "Formidlingsprovision - den beholder bankerne - STADIGVÆK"
-description: "For et par uger siden skrev vi om formidlingsprovisioner. At de penge tilhører investorerne og ikke bankerne. Og efter responsen at dømme, var vi ikke …"
+title: "Formidlingsprovision: Bankerne beholder den – stadigvæk"
+description: "Europa-Parlamentet har stemt kernen i EU's pakke for småinvestorer ned. Derfor kan bankerne fortsat beholde formidlingsprovisionen."
 date: "2026-11-19T12:13:48.889Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7529154965546762240/"

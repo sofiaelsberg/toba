@@ -1,6 +1,6 @@
 ---
-title: "Invitation til Webinar om Alternative Investeringer!"
-description: "Vi hos TOBA Advice er glade for at invitere til et spændende webinar, hvor vi sammen med vores partner ROYC vil udforske mulighederne inden for …"
+title: "Invitation: Webinar om alternative investeringer"
+description: "Webinar med TOBA Advice og ROYC om alternative investeringer, vores investeringsfilosofi og kapitalfonden Vista Foundation V."
 date: "2025-02-13T16:04:15.965Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7295835174951432194/"

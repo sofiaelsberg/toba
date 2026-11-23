@@ -1,6 +1,6 @@
 ---
-title: "I går var der kage på kontoret!"
-description: "Det var der, fordi TOBA fejrede, at vores investeringsforening nu officielt har skiftet navn fra Selected Investments til TOBA Investments. Det nye navn …"
+title: "Vores investeringsforening hedder nu TOBA Investments"
+description: "Selected Investments hedder nu TOBA Investments – en investeringsforening med en aktie- og en obligationsafdeling bygget på vores investeringsmotor."
 date: "2024-11-29T09:07:23.504Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7268188787258634240/"

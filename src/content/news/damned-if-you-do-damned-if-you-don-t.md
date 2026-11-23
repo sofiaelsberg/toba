@@ -1,6 +1,6 @@
 ---
 title: "Damned if you do – damned if you don’t"
-description: "Koncentrationsrisikoen på aktiemarkedet er højere end nogensinde. I dag udgør de fem største teknologivirksomheder hele 30% af det amerikanske marked og …"
+description: "De fem største teknologiselskaber udgør 30 % af det amerikanske aktiemarked. Hvad betyder den rekordhøje koncentrationsrisiko for din portefølje?"
 date: "2025-10-30T10:04:54.433Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7389603196190625792/"

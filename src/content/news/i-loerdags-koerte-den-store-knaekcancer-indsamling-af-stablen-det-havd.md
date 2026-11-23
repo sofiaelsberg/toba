@@ -1,6 +1,6 @@
 ---
-title: "I lørdags kørte den store KNÆKcancer-indsamling af stablen. Det havde vi glædet os til i Winest og vi …"
-description: "Vores håb og ambition var at mobilisere vores netværk til at rejse omkring 50.000 støttekroner til KNÆKcancer og som billedet viser, så landede vi på …"
+title: "57.100 kr. til KNÆKcancer – tak for støtten"
+description: "Sammen med Winest og 8660 Padel samlede vi 57.100 kr. ind til KNÆKcancer. En stor tak til alle, der bookede baner og donerede."
 date: "2024-10-29T12:42:18.714Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7256572733860286464/"

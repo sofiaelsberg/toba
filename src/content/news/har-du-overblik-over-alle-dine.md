@@ -1,6 +1,6 @@
 ---
 title: "Har du overblik over alle dine investeringer?"
-description: "Mange investorer har midler spredt ud på flere banker og platforme – og det kan gøre det svært at bevare det fulde overblik. Derfor har vi hos TOBA …"
+description: "TOBA Advice samarbejder nu med Performativ, så vores kunder får samlet overblik over hele formuen på tværs af banker og platforme – ét sted."
 date: "2025-10-16T09:18:53.453Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7384518185632428032/"

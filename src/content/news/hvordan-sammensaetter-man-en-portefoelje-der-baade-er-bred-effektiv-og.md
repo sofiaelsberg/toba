@@ -1,6 +1,6 @@
 ---
-title: "Hvordan sammensætter man en portefølje, der både er bred, effektiv og robust – og hvordan vælger man de …"
-description: "Det satte vi fokus på i forgårs, da vi sammen med vores samarbejdspartner Great Dane Invest inviterede investorer til intimt arrangement i Odense. Bertel …"
+title: "Hvordan sammensætter man en bred, effektiv og robust portefølje?"
+description: "Fra vores investorarrangement i Odense med Great Dane Invest: sådan sammensætter vi porteføljen og udvælger forvaltere, bl.a. inden for value-aktier."
 date: "2025-10-02T08:12:31.208Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7379428052398669824/"

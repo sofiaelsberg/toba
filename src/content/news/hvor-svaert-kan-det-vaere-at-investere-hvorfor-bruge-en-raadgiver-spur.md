@@ -1,6 +1,6 @@
 ---
-title: "”Hvor svært kan det være at investere?... Hvorfor bruge en rådgiver?\" - spurgte en potentiel kunde mig …"
-description: "I dag tager det kun få minutter at åbne en konto og købe aktier eller ETF’er. Og på nettet findes kurser, hvor man kan “lære at investere” på en …"
+title: "Hvor svært kan det være at investere – og hvorfor bruge en rådgiver?"
+description: "Det tager få minutter at købe en ETF. Men med en større formue er det et hajfyldt farvand, hvor struktur og overblik gør forskellen."
 date: "2025-09-24T08:18:12.734Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7376530382277644288/"

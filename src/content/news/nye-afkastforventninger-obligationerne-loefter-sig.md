@@ -1,6 +1,6 @@
 ---
-title: "Nye afkastforventninger fra Rådet for Afkastforventninger. Obligationerne løfter sig, men er stadig til …"
-description: "Forventet årligt afkast de næste 10 år: • Stats- og realkreditobligationer: 3,5 % (før 3,1 %) • Investment grade-obligationer: 4,2 % (før 3,8 %) • …"
+title: "Nye afkastforventninger: Obligationerne løfter sig"
+description: "Rådet for Afkastforventninger løfter forventningen til stats- og realkreditobligationer til 3,5 %, mens globale aktier ligger på 7,1 %. Se de nye tal."
 date: "2026-11-02T10:49:27.398Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7522973142571532289/"

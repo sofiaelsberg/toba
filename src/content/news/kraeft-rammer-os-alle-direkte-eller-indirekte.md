@@ -1,6 +1,6 @@
 ---
-title: "Kræft rammer os alle – direkte eller indirekte"
-description: "Hos TOBA Advice vil vi gerne gøre en forskel og inviterer derfor til en dag fyldt med padel, pizza, fællesskab og bidrag til en vigtig sag. Sammen med …"
+title: "Padel for KNÆKcancer: Kræft rammer os alle"
+description: "TOBA Advice og Winest lejede alle baner hos 8660 Padel i Skanderborg og donerede hele omsætningen til KNÆKcancer."
 date: "2024-10-08T08:35:09.794Z"
 author: "TOBA Advice"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7249336507575001088/"
