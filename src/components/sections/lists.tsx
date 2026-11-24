@@ -47,7 +47,7 @@ export function ValueGrid({ items }: { items: ValueItem[] }) {
 /** Ikon + titel + tekst. */
 export function FeatureList({ features, columns = 3, inline }: { features: FeatureContent[]; columns?: 1 | 3; inline?: boolean }) {
   return (
-    <ul className={cn("grid grid-cols-1 gap-x-6 gap-y-10", columns === 3 && "md:grid-cols-3")}>
+    <ul className={cn("grid grid-cols-1 gap-x-12 gap-y-10 lg:gap-x-16", columns === 3 && "md:grid-cols-3")}>
       {features.map((f) => (
         <li key={f.title} className={cn("flex gap-4", !inline && "flex-col gap-3")}>
           <IconBadge name={f.icon} />

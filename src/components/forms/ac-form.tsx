@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 import { useUnlock } from "@/components/interactive/checklists";
-import { activeCampaignForms, contactForm, formAnalyticsName, type FormMicrocopy } from "@/content/forms";
+import { activeCampaignForms, contactForm, formAnalyticsName, newsletterForm, type FormConsent, type FormMicrocopy } from "@/content/forms";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
@@ -20,8 +20,14 @@ type ActiveCampaignFormProps = {
   microcopy?: FormMicrocopy;
   /** Forudfyldte værdier, fx { "field[47]": "Book et møde" }. Sættes, når ActiveCampaign har bygget formularen. */
   prefill?: Record<string, string>;
+  /** Faste værdier, som sættes og hvis felt skjules, fx { "field[45]": "Ja" }. Virker også for radioknapper. */
+  fixed?: Record<string, string>;
+  /** Samtykke-afkrydsning, der sættes ind over knappen. Formularen sendes ikke uden kryds. */
+  consent?: FormConsent;
   /** Kaldes, når ActiveCampaign viser sin tak-besked. */
   onSubmitted?: () => void;
+  /** Uden kort-ramme (hvid flade, guldkant, skygge, luft) – til når formularen står i en boks med sin egen ramme. */
+  bare?: boolean;
   className?: string;
 };
 
@@ -52,6 +58,58 @@ function addLabels(host: HTMLElement) {
   });
 }
 
+/** Sætter en samtykke-afkrydsning ind over knappen (én gang). Afkrydsningen har intet navn og sendes ikke med. */
+function addConsent(host: HTMLElement, id: number, consent: FormConsent) {
+  const form = host.querySelector("form");
+  const button = form?.querySelector("._button-wrapper");
+  if (!form || !button || form.querySelector("[data-consent]")) return;
+  const el = document.createElement("div");
+  el.className = "_form_element toba-consent";
+  el.dataset.consent = "";
+  const row = document.createElement("label");
+  row.className = "toba-consent-row";
+  const box = document.createElement("input");
+  box.type = "checkbox";
+  box.id = `ac-${id}-samtykke`;
+  box.required = true;
+  const text = document.createElement("span");
+  const link = document.createElement("a");
+  link.href = consent.href;
+  link.textContent = consent.linkLabel;
+  text.append(`${consent.text} `, link, consent.after ?? "");
+  row.append(box, text);
+  const error = document.createElement("p");
+  error.id = `ac-${id}-samtykke-fejl`;
+  error.className = "toba-consent-error";
+  error.setAttribute("role", "alert");
+  error.hidden = true;
+  error.textContent = consent.error;
+  el.append(row, error);
+  box.addEventListener("change", () => {
+    if (!box.checked) return;
+    error.hidden = true;
+    box.removeAttribute("aria-invalid");
+    box.removeAttribute("aria-describedby");
+  });
+  button.before(el);
+}
+
+/** Stopper indsendelsen, hvis samtykket mangler. Lytter i capture-fasen, så det sker før ActiveCampaigns eget script. */
+function blockWithoutConsent(event: Event) {
+  const form = event.target instanceof HTMLFormElement ? event.target : null;
+  const box = form?.querySelector<HTMLInputElement>("[data-consent] input[type=checkbox]");
+  if (!box || box.checked) return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  const error = form?.querySelector<HTMLElement>("[data-consent] .toba-consent-error");
+  if (error) {
+    error.hidden = false;
+    box.setAttribute("aria-invalid", "true");
+    box.setAttribute("aria-describedby", error.id);
+  }
+  box.focus();
+}
+
 /** Det valgte emne i kontaktformularen (til GA). */
 function topicOf(host: HTMLElement) {
   return host.querySelector<HTMLSelectElement>(`[name="${CSS.escape(contactForm.topicField)}"]`)?.value || undefined;
@@ -65,6 +123,23 @@ const AUTOCOMPLETE: Record<string, string> = {
   email: "email",
   phone: "tel",
 };
+
+/** Sætter et felts værdi. Ved radioknapper/afkrydsning vælges den knap, der har værdien. */
+function setField(host: HTMLElement, name: string, value: string) {
+  const fields = host.querySelectorAll<HTMLInputElement | HTMLSelectElement>(`[name="${CSS.escape(name)}"]`);
+  for (const field of fields) {
+    if (field instanceof HTMLInputElement && (field.type === "radio" || field.type === "checkbox")) {
+      if (field.value === value) {
+        field.checked = true;
+        return field;
+      }
+    } else {
+      field.value = value;
+      return field;
+    }
+  }
+  return undefined;
+}
 
 /** Kobler ActiveCampaigns fejlbeskeder til felterne, så skærmlæsere læser dem op. */
 function linkErrors(host: HTMLElement) {
@@ -89,15 +164,19 @@ function linkErrors(host: HTMLElement) {
  * Scriptet indsættes ved hver visning, så formularen også kommer frem efter et sideskift i appen.
  * Felter, design, tak-besked og handlinger redigeres i ActiveCampaign.
  */
-export function ActiveCampaignForm({ id, label, title, intro, microcopy, prefill, onSubmitted, className }: ActiveCampaignFormProps) {
+export function ActiveCampaignForm({ id, label, title, intro, microcopy, prefill, fixed, consent, onSubmitted, bare = false, className }: ActiveCampaignFormProps) {
   const hostRef = useRef<HTMLDivElement>(null);
   const submittedRef = useRef(onSubmitted);
   const prefillRef = useRef(prefill);
+  const fixedRef = useRef(fixed);
+  const consentRef = useRef(consent);
 
   useEffect(() => {
     submittedRef.current = onSubmitted;
     prefillRef.current = prefill;
-  }, [onSubmitted, prefill]);
+    fixedRef.current = fixed;
+    consentRef.current = consent;
+  }, [onSubmitted, prefill, fixed, consent]);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -118,12 +197,15 @@ export function ActiveCampaignForm({ id, label, title, intro, microcopy, prefill
     const observer = new MutationObserver(() => {
       removeStrays(id);
       addLabels(host);
+      if (consentRef.current) addConsent(host, id, consentRef.current);
       linkErrors(host);
-      if (!prefilled && prefillRef.current && host.querySelector("form")) {
+      if (!prefilled && (prefillRef.current || fixedRef.current) && host.querySelector("form")) {
         prefilled = true;
-        for (const [name, value] of Object.entries(prefillRef.current)) {
-          const field = host.querySelector<HTMLInputElement | HTMLSelectElement>(`[name="${CSS.escape(name)}"]`);
-          if (field) field.value = value;
+        for (const [name, value] of Object.entries(prefillRef.current ?? {})) setField(host, name, value);
+        for (const [name, value] of Object.entries(fixedRef.current ?? {})) {
+          const field = setField(host, name, value);
+          const element = field?.closest<HTMLElement>("._form_element");
+          if (element) element.hidden = true;
         }
       }
       if (done) return;
@@ -136,16 +218,18 @@ export function ActiveCampaignForm({ id, label, title, intro, microcopy, prefill
       }
     });
     observer.observe(host, { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class"] });
+    host.addEventListener("submit", blockWithoutConsent, true);
 
     return () => {
       observer.disconnect();
+      host.removeEventListener("submit", blockWithoutConsent, true);
       host.replaceChildren();
       removeStrays(id);
     };
   }, [id]);
 
   return (
-    <div className={cn("flex flex-col gap-4 border-t-2 border-gold bg-white p-8 shadow-raised md:p-10", className)}>
+    <div className={cn("flex flex-col gap-4", !bare && "border-t-2 border-gold bg-white p-8 shadow-raised md:p-10", className)}>
       {(title || intro) && (
         <div className="flex flex-col gap-2">
           {title && <h2 className="font-serif text-h3 font-medium text-navy">{title}</h2>}
@@ -187,6 +271,22 @@ function ContactEmbed({ topic }: { topic: string | null }) {
       title={contactForm.title}
       microcopy={contactForm.microcopy}
       prefill={value ? { [contactForm.topicField]: value } : undefined}
+    />
+  );
+}
+
+/** Nyhedsbrevsformularen (#11): e-mail, samtykke og knap. Feltet "Nyhedsbrev" sættes til "Ja" og skjules.
+ *  `bare`: uden egen overskrift og kort-ramme – til når den står i en boks med sin egen overskrift. */
+export function NewsletterEmbedForm({ className, bare = false }: { className?: string; bare?: boolean }) {
+  return (
+    <ActiveCampaignForm
+      id={activeCampaignForms.newsletter}
+      label={newsletterForm.label}
+      title={bare ? undefined : newsletterForm.title}
+      consent={newsletterForm.consent}
+      fixed={newsletterForm.fixed}
+      bare={bare}
+      className={className}
     />
   );
 }

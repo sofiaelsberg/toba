@@ -1,8 +1,7 @@
 import Link from "next/link";
 
 import { eyebrowClass } from "@/components/blocks/typography";
-import { ButtonLink } from "@/components/blocks/links";
-import { bookMeeting, company, footer, landingChrome } from "@/content/site";
+import { company, footer, landingChrome } from "@/content/site";
 import { telHref } from "@/lib/format";
 import { Logo } from "./logo";
 import { CookieSettingsButton } from "./cookie-banner";
@@ -17,7 +16,6 @@ export function Footer() {
           <div className="col-span-2 flex flex-col items-start gap-5 md:col-span-1">
             <Logo tone="light" />
             <p className="max-w-90 text-small text-on-navy-muted">{footer.about}</p>
-            <ButtonLink action={{ ...bookMeeting, variant: "light" }} />
           </div>
           {footer.columns.map((col) => (
             <div key={col.title}>

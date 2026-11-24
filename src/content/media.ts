@@ -17,7 +17,7 @@ export const videos = {
 } satisfies Record<string, VideoRef>;
 
 /** Stemningsvideo fra kontoret (TOBA/kommunikation/utils/video/stemning), beskåret til 4:5 pr. klip.
- *  Klippene med kundeliste (12,8–15,8 s) og fondsnavne (29,7 s–) er klippet fra. */
+ *  Klippene med kundeliste (12,8–15,8 s) og fondsnavne (29,7 s–) er klippet fra, og det første klip (Tonny ved vinduet) er fjernet. */
 export const ambient = {
   office: { src: "/media/stemning/kontoret-loop.mp4", poster: "/media/stemning/kontoret-loop.jpg", aspect: "4/5" },
 } satisfies Record<string, AmbientVideoRef>;

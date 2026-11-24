@@ -7,7 +7,7 @@ import { useState } from "react";
 
 import { ButtonLink } from "@/components/blocks/links";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { bookMeeting, clientPortalLink, mainNav, navLabels } from "@/content/site";
+import { clientPortalLink, headerContact, mainNav, navLabels } from "@/content/site";
 import type { Action, LinkItem } from "@/content/types";
 import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
@@ -31,10 +31,10 @@ function NavLink({ item, active, onClick, className }: { item: LinkItem; active:
 }
 
 /**
- * Sticky header med logo, menu, Kundeportal og "Book et møde". Burgermenu under 1120 px (7 menupunkter).
- * Kampagnesiderne bruger samme header, men med sidens egen knap (fx "Hent guiden gratis") i stedet for "Book et møde".
+ * Sticky header med logo, menu, Kundeportal og "Kontakt". Burgermenu under 1120 px (7 menupunkter).
+ * Kampagnesiderne bruger samme header, men med sidens egen knap (fx "Hent guiden gratis") i stedet for "Kontakt".
  */
-export function Header({ action = bookMeeting }: { action?: Action }) {
+export function Header({ action = headerContact }: { action?: Action }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const items = [...mainNav, clientPortalLink];
@@ -69,7 +69,7 @@ export function Header({ action = bookMeeting }: { action?: Action }) {
               ))}
               {/* Lukker menuen, når knappen bruges. */}
               <div className="mt-4 min-[380px]:hidden" onClick={() => setOpen(false)}>
-                <ButtonLink action={bookMeeting} />
+                <ButtonLink action={headerContact} />
               </div>
             </nav>
           </SheetContent>

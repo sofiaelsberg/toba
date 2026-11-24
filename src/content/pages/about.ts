@@ -1,6 +1,6 @@
 import { facts } from "../facts";
-import { images, linkedin, videos } from "../media";
-import { company, routes, bookMeeting, trustline } from "../site";
+import { images, videos } from "../media";
+import { routes, bookMeeting, trustline } from "../site";
 import type { FeatureContent, HeroContent, Seo, Stat } from "../types";
 
 export const about = {
@@ -21,16 +21,11 @@ export const about = {
 
   name: {
     eyebrow: "Navnet",
-    title: "Hvorfor hedder vi *TOBA*?",
-    stages: [
-      { title: "Udbruddet", text: "alt lægges øde" },
-      { title: "Bagefter", text: "naturen vender tilbage" },
-      { title: "En ny start", text: "A’et i vores logo" },
-    ],
-    illustrationLabel: "Illustration: en vulkan, der bryder ud, og et nyt landskab, der vokser frem – ligesom A’et i logoet.",
+    /** Overskriften vises som "Hvorfor hedder vi [logo]?" – logoet står i stedet for ordet TOBA. */
+    title: { before: "Hvorfor hedder vi", logoAlt: "TOBA", after: "?" },
     text: [
-      "Toba er navnet på en supervulkan på øen Sumatra i Indonesien. For 74.000 år siden var den i udbrud og det var så voldsomt at den lagde alt omkring sig øde. Efter udbruddet begyndte naturen langsomt at vende tilbage. For os symboliserer det en ny begyndelse – en ny start.",
-      "Det er det vi gerne vil symbolisere med navnet TOBA: en ny tilgang til investeringsrådgivning, hvor vi tager udgangspunkt i dine behov. Derfor er A’et i vores logo en vulkan.",
+      "Vores navn er inspireret af vulkanen Toba på Sumatra, hvor naturen voksede frem igen efter et stort udbrud. For os symboliserer det en ny begyndelse.",
+      "Den tanke ligger bag TOBA Advice: en tilgang til investeringsrådgivning med dine behov som udgangspunkt. Vulkanen går igen i A’et i vores logo.",
     ],
     video: videos.v11,
   },
@@ -102,18 +97,20 @@ export const about = {
     link: { label: "Se hele vores team →", href: routes.team },
   },
 
-  linkedin: {
+  /** Kortet til højre er altid det nyeste indlæg under Nyheder. */
+  latestNews: {
     title: "Følg med i vores perspektiver på investering",
-    link: { label: "Følg TOBA Advice på LinkedIn →", href: company.linkedin },
-    post: linkedin.latestPost,
+    lead: "Vi deler løbende vores syn på markederne og på, hvordan vi investerer for vores kunder.",
+    link: { label: "Se alle nyheder →", href: routes.news },
+    newsletter: { label: "Tilmeld nyhedsbrev", href: routes.newsletter, variant: "primary" as const },
   },
 
   closing: {
     title: "Lad os starte med en samtale",
     lead: "Vil du vide, om din formue arbejder for dig – eller for andre? Book et uforpligtende møde, eller start med et gratis omkostningsoverblik.",
     actions: [
-      { ...bookMeeting, variant: "light" as const },
-      { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "ghost-light" as const },
+      bookMeeting,
+      { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "secondary" as const },
     ],
   },
 };

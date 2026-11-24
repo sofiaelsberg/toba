@@ -34,7 +34,7 @@ declare global {
  * som GA4's "forbedret måling" klarer selv). Navnene skal også oprettes som "nøglebegivenheder" i GA.
  */
 export type AnalyticsEvent =
-  | { name: "generate_lead"; params: { form: "kontakt" | "guide" | "omkostningsoverblik"; topic?: string } }
+  | { name: "generate_lead"; params: { form: "kontakt" | "guide" | "omkostningsoverblik" | "nyhedsbrev"; topic?: string } }
   | { name: "book_meeting_click"; params: { location: string } }
   /** Alle knapper, tekstlinks, kort og nyhedskort (elementer med data-cta). */
   | { name: "cta_click"; params: { cta_type: string; cta_label: string; cta_section: string; location: string; destination: string } }

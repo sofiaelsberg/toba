@@ -12,8 +12,11 @@ export const news = {
   hero: {
     eyebrow: "Nyheder",
     title: "Nyheder og *indsigt*",
-    lead: "Analyser, holdninger og nyheder fra os om investering, omkostninger og risiko. Alle indlæg er også delt på vores LinkedIn-side.",
-    actions: [{ label: "Følg TOBA på LinkedIn", href: company.linkedin, variant: "primary" }],
+    lead: "Vi deler vores analyser, holdninger og perspektiver på investering, omkostninger og risiko her på siden, på LinkedIn og i vores nyhedsbrev.",
+    actions: [
+      { label: "Tilmeld dig nyhedsbrevet ↓", href: "#nyhedsbrev", variant: "primary" },
+      { label: "Følg os på LinkedIn →", href: company.linkedin, variant: "secondary" },
+    ],
   } satisfies HeroContent,
 
   readMore: "Læs indlægget",
@@ -44,7 +47,16 @@ export const news = {
   },
   moreTitle: "Flere indlæg",
   allLink: "Alle nyheder →",
+  /** Knappen ved "Alle nyheder →" i nyhedsteaseren (fx på forsiden). */
+  newsletterButton: { label: "Tilmeld nyhedsbrev", href: routes.newsletter, variant: "secondary" as const },
   empty: "Der er ingen indlæg endnu.",
+
+  /** Tilmelding til nyhedsbrevet under indlæggene (#nyhedsbrev). Selve formularen er ActiveCampaign #11. */
+  newsletter: {
+    id: "nyhedsbrev",
+    title: "Få vores perspektiver direkte i indbakken",
+    lead: "Tilmeld dig vores nyhedsbrev, så sender vi dig vores nyeste analyser og holdninger om investering.",
+  },
 
   cta: {
     title: "Vil du vide, hvad det betyder for din formue?",

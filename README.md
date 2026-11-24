@@ -24,7 +24,7 @@ Kopiér `.env.example` til `.env.local`. Formularerne er ActiveCampaign-formular
 | `src/components/ui/` | shadcn-primitiver (button, input, checkbox, switch, accordion, sheet …) i TOBA-stil. |
 | `src/components/sections/` | Sektioner, der går igen: `Section`, `SectionHeading`, `Hero`, `CtaCards`, `CtaBand`, `StatsRow`, `PointList`, `PeopleGrid`, `TeamDirectory` … |
 | `src/components/blocks/` | Små byggeklodser: `RichText`, `ButtonLink`, `TextLink`, `Media`, `VideoBlock`, `IconBadge`. |
-| `src/components/interactive/` | Signatur-elementerne: `LayerCake`, `CostCalculator`, `ShareBar`, `ReturnComparison`, `DepotExample`, `StepTimeline`, tjeklister, `MoneyFlow`, `VolcanoStory`, `AnchorNav`, `SegmentTabs`. |
+| `src/components/interactive/` | Signatur-elementerne: `LayerCake`, `CostCalculator`, `ShareBar`, `ReturnComparison`, `DepotExample`, `StepTimeline`, tjeklister, `MoneyFlow`, `AnchorNav`, `SegmentTabs`. |
 | `src/components/forms/` | `ActiveCampaignForm` indlejrer ActiveCampaigns formularer (`ContactEmbedForm`, `GuideEmbedForm`). |
 | `src/components/motion/` | `Reveal`, `CountUp`, `useProgressInView` og bevægelsestokens. |
 | `src/app/(site)/` | Sider med fuld header/sidefod. |

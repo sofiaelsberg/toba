@@ -1,25 +1,27 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
-import { LinkedInPost } from "@/components/blocks/linkedin-post";
-import { TextLink } from "@/components/blocks/links";
+import { ButtonLink, TextLink } from "@/components/blocks/links";
+import { Eyebrow, headingClass } from "@/components/blocks/typography";
 import { Media } from "@/components/blocks/media";
 import { VideoBlock } from "@/components/blocks/video-block";
-import { VolcanoStory } from "@/components/interactive/volcano-story";
+import { NewsCard } from "@/components/news/news-card";
 import { CtaBand } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
-import { Disclaimer } from "@/components/sections/legal";
 import { FeatureList } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
 import { PersonQuote } from "@/components/sections/person-quote";
 import { HeadingRow, Section, SectionHeading, Split } from "@/components/sections/section";
 import { about as c } from "@/content/pages/about";
 import { advisers, people } from "@/content/people";
-import { disclaimers, routes } from "@/content/site";
+import { brand, routes } from "@/content/site";
+import { getAllPosts } from "@/lib/news";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.about, c.seo);
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const [latestPost] = await getAllPosts();
   const quotePerson = people.find((p) => p.slug === c.ownerQuote.personSlug);
   return (
     <>
@@ -38,10 +40,30 @@ export default function AboutPage() {
       />
 
       <Section surface="white">
+        <div className="flex flex-col gap-10">
+          <HeadingRow title={c.advisers.title} lead={c.advisers.lead} link={c.advisers.link} />
+          <PeopleGrid people={advisers} />
+          {quotePerson && <PersonQuote text={c.ownerQuote.text} person={quotePerson} className="mt-6 border-t border-line pt-12" />}
+        </div>
+      </Section>
+
+      <Section>
         <Split align="start">
           <div className="flex flex-col gap-6">
-            <SectionHeading eyebrow={c.name.eyebrow} title={c.name.title} />
-            <VolcanoStory stages={c.name.stages} label={c.name.illustrationLabel} />
+            <div className="flex flex-col gap-4 md:gap-5">
+              <Eyebrow>{c.name.eyebrow}</Eyebrow>
+              <h2 className={headingClass}>
+                {c.name.title.before}{" "}
+                <Image
+                  src={brand.logoDark.src}
+                  width={brand.logoDark.width}
+                  height={brand.logoDark.height}
+                  alt={c.name.title.logoAlt}
+                  className="inline-block h-[1.1em] w-auto align-[-0.21em]"
+                />
+                {c.name.title.after}
+              </h2>
+            </div>
             {c.name.text.map((t) => (
               <p key={t}>{t}</p>
             ))}
@@ -50,25 +72,21 @@ export default function AboutPage() {
         </Split>
       </Section>
 
-      <Section>
-        <div className="flex flex-col gap-10">
-          <HeadingRow title={c.advisers.title} lead={c.advisers.lead} link={c.advisers.link} />
-          <PeopleGrid people={advisers} />
-          {quotePerson && <PersonQuote text={c.ownerQuote.text} person={quotePerson} className="mt-6 border-t border-line pt-12" />}
-        </div>
-      </Section>
-
       <Section surface="white">
-        <Split>
+        <Split align="center">
           <div className="flex flex-col gap-4">
-            <h2 className="font-serif text-h3 font-medium text-navy">{c.linkedin.title}</h2>
-            {c.linkedin.link.href && (
-              <TextLink href={c.linkedin.link.href} className="self-start">
-                {c.linkedin.link.label}
-              </TextLink>
-            )}
+            <h2 className="font-serif text-h3 font-medium text-navy">{c.latestNews.title}</h2>
+            <p className="max-w-measure">{c.latestNews.lead}</p>
+            <TextLink href={c.latestNews.link.href} className="self-start">
+              {c.latestNews.link.label}
+            </TextLink>
+            <ButtonLink action={c.latestNews.newsletter} className="mt-4 self-start" />
           </div>
-          <LinkedInPost post={c.linkedin.post} className="justify-self-center md:justify-self-end" />
+          {latestPost && (
+            <div className="w-full max-w-md justify-self-center border-x border-b border-line md:justify-self-end">
+              <NewsCard post={latestPost} headingLevel="h3" />
+            </div>
+          )}
         </Split>
       </Section>
 
@@ -95,8 +113,7 @@ export default function AboutPage() {
         </Split>
       </Section>
 
-      <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} />
-      <Disclaimer content={disclaimers.short} />
+      <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} tone="cream" />
     </>
   );
 }

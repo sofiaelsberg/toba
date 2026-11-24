@@ -34,6 +34,9 @@ const sizes = {
 };
 
 /** Serif-overskrift i Playfair Display 500. Titlen kan indeholde *fremhævede* ord. */
+/** Klasserne bag Heading – til overskrifter, der ikke kun er tekst (fx med logoet indsat). */
+export const headingClass = cn("font-serif font-medium text-balance hyphens-auto break-words text-navy [.on-navy_&]:text-white", sizes.h2);
+
 export function Heading({ title, as: Tag = "h2", size = "h2", className, id }: HeadingProps) {
   return (
     <Tag id={id} className={cn("font-serif font-medium text-balance hyphens-auto break-words text-navy [.on-navy_&]:text-white", sizes[size], className)}>

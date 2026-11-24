@@ -18,6 +18,7 @@ export const routes = {
   accessibility: "/tilgaengelighed",
   privacy: "/privatlivspolitik",
   news: "/nyheder",
+  newsletter: "/nyheder#nyhedsbrev",
   clientPortal: "https://client.tobaadvice.onperformativ.com",
 } as const;
 
@@ -60,6 +61,9 @@ export const brand = {
 export const trustline = `Uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet · Etableret ${facts.founded} · Medarbejderejet siden ${facts.employeeOwnedSince}`;
 
 export const bookMeeting: Action = { label: "Book et møde", href: routes.bookMeeting, variant: "primary" };
+
+/** Knappen øverst til højre i headeren (og i mobilmenuen). */
+export const headerContact: Action = { label: "Kontakt", href: routes.contact, variant: "primary" };
 
 export const mainNav: LinkItem[] = [
   { label: "Sådan investerer vi", href: routes.howWeInvest },

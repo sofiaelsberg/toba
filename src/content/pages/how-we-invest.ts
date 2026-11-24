@@ -37,7 +37,7 @@ export const howWeInvest = {
     actions: [bookMeeting, { label: "Se hvordan", href: "#strategi", variant: "secondary" }],
     trustline,
   } satisfies HeroContent,
-  heroMedia: images.meetingTable,
+  heroMedia: images.clientPortal,
 
   strategy: {
     title: "En plan, du kan holde fast i – også i modvind",
@@ -133,7 +133,6 @@ export const howWeInvest = {
       ],
       managerSingular: "forvalter",
       managerPlural: "forvaltere",
-      listLabel: "Se alle forvaltere og byer",
       caption: "Forvalternes hovedkontorer. Peg på eller tryk på en prik for at se, hvem der sidder hvor.",
     } satisfies ManagerMapContent,
     link: { label: "Læs om uafhængig rådgivning →", href: routes.independent },
