@@ -47,6 +47,8 @@ export const news = {
   },
   moreTitle: "Flere indlæg",
   allLink: "Alle nyheder →",
+  /** Knappen ved "Alle nyheder →" i nyhedsteaseren (fx på forsiden). */
+  newsletterButton: { label: "Tilmeld nyhedsbrev", href: routes.newsletter, variant: "secondary" as const },
   empty: "Der er ingen indlæg endnu.",
 
   /** Tilmelding til nyhedsbrevet under indlæggene (#nyhedsbrev). Selve formularen er ActiveCampaign #11. */

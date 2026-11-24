@@ -20,7 +20,7 @@ export async function NewsTeaser({ content, surface = "cream", id }: { content: 
   return (
     <Section surface={surface} id={id}>
       <div className="flex flex-col gap-10">
-        <HeadingRow title={content.title} lead={content.lead} link={{ href: routes.news, label: news.allLink }} />
+        <HeadingRow title={content.title} lead={content.lead} link={{ href: routes.news, label: news.allLink }} action={news.newsletterButton} />
         <NewsGrid posts={posts} headingLevel="h3" />
       </div>
     </Section>
