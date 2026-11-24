@@ -4,7 +4,6 @@ import { LinkedInPost } from "@/components/blocks/linkedin-post";
 import { TextLink } from "@/components/blocks/links";
 import { Media } from "@/components/blocks/media";
 import { VideoBlock } from "@/components/blocks/video-block";
-import { VolcanoStory } from "@/components/interactive/volcano-story";
 import { CtaBand } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
@@ -38,24 +37,23 @@ export default function AboutPage() {
       />
 
       <Section surface="white">
+        <div className="flex flex-col gap-10">
+          <HeadingRow title={c.advisers.title} lead={c.advisers.lead} link={c.advisers.link} />
+          <PeopleGrid people={advisers} />
+          {quotePerson && <PersonQuote text={c.ownerQuote.text} person={quotePerson} className="mt-6 border-t border-line pt-12" />}
+        </div>
+      </Section>
+
+      <Section>
         <Split align="start">
           <div className="flex flex-col gap-6">
             <SectionHeading eyebrow={c.name.eyebrow} title={c.name.title} />
-            <VolcanoStory stages={c.name.stages} label={c.name.illustrationLabel} />
             {c.name.text.map((t) => (
               <p key={t}>{t}</p>
             ))}
           </div>
           <VideoBlock video={c.name.video} />
         </Split>
-      </Section>
-
-      <Section>
-        <div className="flex flex-col gap-10">
-          <HeadingRow title={c.advisers.title} lead={c.advisers.lead} link={c.advisers.link} />
-          <PeopleGrid people={advisers} />
-          {quotePerson && <PersonQuote text={c.ownerQuote.text} person={quotePerson} className="mt-6 border-t border-line pt-12" />}
-        </div>
       </Section>
 
       <Section surface="white">

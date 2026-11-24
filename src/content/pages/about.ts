@@ -22,15 +22,9 @@ export const about = {
   name: {
     eyebrow: "Navnet",
     title: "Hvorfor hedder vi *TOBA*?",
-    stages: [
-      { title: "Udbruddet", text: "alt lægges øde" },
-      { title: "Bagefter", text: "naturen vender tilbage" },
-      { title: "En ny start", text: "A’et i vores logo" },
-    ],
-    illustrationLabel: "Illustration: en vulkan, der bryder ud, og et nyt landskab, der vokser frem – ligesom A’et i logoet.",
     text: [
-      "Toba er navnet på en supervulkan på øen Sumatra i Indonesien. For 74.000 år siden var den i udbrud og det var så voldsomt at den lagde alt omkring sig øde. Efter udbruddet begyndte naturen langsomt at vende tilbage. For os symboliserer det en ny begyndelse – en ny start.",
-      "Det er det vi gerne vil symbolisere med navnet TOBA: en ny tilgang til investeringsrådgivning, hvor vi tager udgangspunkt i dine behov. Derfor er A’et i vores logo en vulkan.",
+      "Vores navn er inspireret af vulkanen Toba på Sumatra, hvor naturen voksede frem igen efter et stort udbrud. For os symboliserer det en ny begyndelse.",
+      "Den tanke ligger bag TOBA Advice: en tilgang til investeringsrådgivning med dine behov som udgangspunkt. Vulkanen går igen i A’et i vores logo.",
     ],
     video: videos.v11,
   },
