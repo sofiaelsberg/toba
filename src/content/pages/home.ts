@@ -1,7 +1,7 @@
 import { calculatorConfig, facts } from "../facts";
 import { ambient, videos } from "../media";
 import { routes, bookMeeting, trustline } from "../site";
-import type { CtaCardContent, StepContent, FactContent, FaqItem, HeroContent, NewsTeaserContent, Point, Seo, Stat, WealthMapContent } from "../types";
+import type { CtaCardContent, StepContent, FactContent, FaqItem, FeatureContent, HeroContent, NewsTeaserContent, Seo, Stat, WealthMapContent } from "../types";
 
 export const home = {
   seo: {
@@ -49,22 +49,34 @@ export const home = {
 
   sameSide: {
     title: "Vi sidder på *samme side* af bordet",
-    lead: "Hos TOBA Advice arbejder vi for at sikre dig attraktive og fair vilkår for dine investeringer. Vi har ingen økonomisk interesse i at anbefale bestemte investeringsprodukter.",
-    points: [
-      {
-        title: "En strategi, der passer til dig.",
-        text: "Vi tager udgangspunkt i dine mål og behov og justerer, når din situation ændrer sig.",
-      },
-      {
-        title: "Direkte adgang til din rådgiver.",
-        text: "Du har en fast rådgiver, der kender dig og din formue – i både gode og dårlige tider.",
-      },
-      {
-        title: "Overblik, når det passer dig.",
-        text: "Følg din formue på web og i app, og få en rapport hvert kvartal.",
-      },
-    ] satisfies Point[],
+    text: [
+      "Hos TOBA Advice arbejder vi for at sikre dig attraktive og fair vilkår for dine investeringer. Vi har ingen egne investeringsprodukter og ingen økonomisk interesse i at anbefale bestemte produkter.",
+      "Du får en sparringspartner, der tager udgangspunkt i dig og dine behov.",
+      "For værdi handler om mere end et godt afkast. Det handler om tillid og ordentlighed.",
+    ],
     video: videos.v03,
+  },
+
+  /** De tre bærende værdier (Frihed, Tryghed, Transparens) – lige efter "Vi sidder på samme side af bordet". */
+  values: {
+    title: "Det bygger vores rådgivning på",
+    features: [
+      {
+        icon: "shelves",
+        title: "Frihed",
+        text: "Du får adgang til investeringer på tværs af markedet – også udvalgte alternative fonde, der normalt er forbeholdt professionelle investorer. Du bestemmer selv, hvor meget du vil involveres.",
+      },
+      {
+        icon: "shield",
+        title: "Tryghed",
+        text: "Du har en fast rådgiver, der kender dig og din økonomi. Og du kan følge din formue i app og på web, når det passer dig.",
+      },
+      {
+        icon: "rebate",
+        title: "Transparens",
+        text: "Du ved, hvad du betaler, og hvad du betaler for. De rabatter, vi forhandler hjem på dine investeringer, går ubeskåret videre til dig.",
+      },
+    ] satisfies FeatureContent[],
   },
 
   wholeWealth: {

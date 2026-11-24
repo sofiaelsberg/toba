@@ -3,7 +3,7 @@ import { ButtonLink, ButtonRow, TextLink } from "@/components/blocks/links";
 import { GoldRule, Heading } from "@/components/blocks/typography";
 import { CtaCards } from "@/components/sections/cta";
 import { FactBox, StatsRow } from "@/components/sections/stats";
-import { FaqSection, NumberedSteps, PointList } from "@/components/sections/lists";
+import { FaqSection, FeatureList, NumberedSteps } from "@/components/sections/lists";
 import { NewsTeaser } from "@/components/news/news-teaser";
 import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
@@ -38,15 +38,26 @@ export default function HomePage() {
 
       <Section surface="white">
         <Split>
-          <div className="flex flex-col gap-6">
-            <SectionHeading rule title={c.sameSide.title} lead={c.sameSide.lead} />
-            <PointList points={c.sameSide.points} />
+          <div className="flex flex-col gap-5">
+            <SectionHeading rule title={c.sameSide.title} />
+            {c.sameSide.text.map((t) => (
+              <p key={t} className="max-w-measure">
+                {t}
+              </p>
+            ))}
           </div>
           <VideoBlock video={c.sameSide.video} />
         </Split>
       </Section>
 
       <Section>
+        <div className="flex flex-col gap-10 md:gap-12">
+          <SectionHeading rule title={c.values.title} />
+          <FeatureList features={c.values.features} />
+        </div>
+      </Section>
+
+      <Section surface="white">
         <Split ratio="5-7" align="center">
           <SectionHeading rule title={c.wholeWealth.title} lead={c.wholeWealth.lead} />
           <WealthMap content={c.wholeWealth.map} />
