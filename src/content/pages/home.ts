@@ -82,6 +82,7 @@ export const home = {
   wholeWealth: {
     title: "Én strategi for *hele* din formue",
     lead: "De fleste har formuen fordelt flere steder. Vi rådgiver om investeringerne på tværs af alle dine skattemiljøer, så det hele hænger sammen.",
+    actions: [{ label: "Sådan investerer vi", href: routes.howWeInvest, variant: "primary" as const }],
     map: {
       label: "Én samlet strategi",
       areas: ["Frie midler", "Pensionsmidler", "Virksomheds\u00adskatteordningen", "Holding- og driftsselskab"],

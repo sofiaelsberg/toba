@@ -59,7 +59,7 @@ export default function HomePage() {
 
       <Section surface="white">
         <Split ratio="5-7" align="center">
-          <SectionHeading rule title={c.wholeWealth.title} lead={c.wholeWealth.lead} />
+          <SectionHeading rule title={c.wholeWealth.title} lead={c.wholeWealth.lead} actions={c.wholeWealth.actions} />
           <WealthMap content={c.wholeWealth.map} />
         </Split>
       </Section>
