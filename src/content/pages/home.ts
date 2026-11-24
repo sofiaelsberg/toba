@@ -105,7 +105,7 @@ export const home = {
       value: facts.rebatesPaid.amountMio,
       decimals: 1,
       suffix: " mio. kr.",
-      label: `i forvalterrabatter for ${facts.rebatesPaid.investmentYear} udbetalt til vore kunder i ${facts.rebatesPaid.paidYear}.`,
+      label: `i forvalterrabatter for ${facts.rebatesPaid.investmentYear} udbetalt til vores kunder i ${facts.rebatesPaid.paidYear}.`,
     } satisfies FactContent,
     video: videos.v05,
     text: "Vil du vide, hvad dine investeringer samlet koster? Vi gennemgår dine omkostninger og giver dig et overblik i kroner og procent – gratis og uforpligtende.",
