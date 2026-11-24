@@ -26,6 +26,8 @@ type ActiveCampaignFormProps = {
   consent?: FormConsent;
   /** Kaldes, når ActiveCampaign viser sin tak-besked. */
   onSubmitted?: () => void;
+  /** Uden kort-ramme (hvid flade, guldkant, skygge, luft) – til når formularen står i en boks med sin egen ramme. */
+  bare?: boolean;
   className?: string;
 };
 
@@ -162,7 +164,7 @@ function linkErrors(host: HTMLElement) {
  * Scriptet indsættes ved hver visning, så formularen også kommer frem efter et sideskift i appen.
  * Felter, design, tak-besked og handlinger redigeres i ActiveCampaign.
  */
-export function ActiveCampaignForm({ id, label, title, intro, microcopy, prefill, fixed, consent, onSubmitted, className }: ActiveCampaignFormProps) {
+export function ActiveCampaignForm({ id, label, title, intro, microcopy, prefill, fixed, consent, onSubmitted, bare = false, className }: ActiveCampaignFormProps) {
   const hostRef = useRef<HTMLDivElement>(null);
   const submittedRef = useRef(onSubmitted);
   const prefillRef = useRef(prefill);
@@ -227,7 +229,7 @@ export function ActiveCampaignForm({ id, label, title, intro, microcopy, prefill
   }, [id]);
 
   return (
-    <div className={cn("flex flex-col gap-4 border-t-2 border-gold bg-white p-8 shadow-raised md:p-10", className)}>
+    <div className={cn("flex flex-col gap-4", !bare && "border-t-2 border-gold bg-white p-8 shadow-raised md:p-10", className)}>
       {(title || intro) && (
         <div className="flex flex-col gap-2">
           {title && <h2 className="font-serif text-h3 font-medium text-navy">{title}</h2>}
@@ -283,7 +285,8 @@ export function NewsletterEmbedForm({ className, bare = false }: { className?: s
       title={bare ? undefined : newsletterForm.title}
       consent={newsletterForm.consent}
       fixed={newsletterForm.fixed}
-      className={cn(bare && "border-t-0 p-0 shadow-none md:p-0", className)}
+      bare={bare}
+      className={className}
     />
   );
 }
