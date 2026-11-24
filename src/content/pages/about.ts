@@ -21,7 +21,8 @@ export const about = {
 
   name: {
     eyebrow: "Navnet",
-    title: "Hvorfor hedder vi *TOBA*?",
+    /** Overskriften vises som "Hvorfor hedder vi [logo]?" – logoet står i stedet for ordet TOBA. */
+    title: { before: "Hvorfor hedder vi", logoAlt: "TOBA", after: "?" },
     text: [
       "Vores navn er inspireret af vulkanen Toba på Sumatra, hvor naturen voksede frem igen efter et stort udbrud. For os symboliserer det en ny begyndelse.",
       "Den tanke ligger bag TOBA Advice: en tilgang til investeringsrådgivning med dine behov som udgangspunkt. Vulkanen går igen i A’et i vores logo.",

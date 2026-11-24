@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { LinkedInPost } from "@/components/blocks/linkedin-post";
 import { TextLink } from "@/components/blocks/links";
+import { Eyebrow, headingClass } from "@/components/blocks/typography";
 import { Media } from "@/components/blocks/media";
 import { VideoBlock } from "@/components/blocks/video-block";
 import { CtaBand } from "@/components/sections/cta";
@@ -12,7 +14,7 @@ import { PersonQuote } from "@/components/sections/person-quote";
 import { HeadingRow, Section, SectionHeading, Split } from "@/components/sections/section";
 import { about as c } from "@/content/pages/about";
 import { advisers, people } from "@/content/people";
-import { routes } from "@/content/site";
+import { brand, routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.about, c.seo);
@@ -46,7 +48,20 @@ export default function AboutPage() {
       <Section>
         <Split align="start">
           <div className="flex flex-col gap-6">
-            <SectionHeading eyebrow={c.name.eyebrow} title={c.name.title} />
+            <div className="flex flex-col gap-4 md:gap-5">
+              <Eyebrow>{c.name.eyebrow}</Eyebrow>
+              <h2 className={headingClass}>
+                {c.name.title.before}{" "}
+                <Image
+                  src={brand.logoDark.src}
+                  width={brand.logoDark.width}
+                  height={brand.logoDark.height}
+                  alt={c.name.title.logoAlt}
+                  className="inline-block h-[1.1em] w-auto align-[-0.21em]"
+                />
+                {c.name.title.after}
+              </h2>
+            </div>
             {c.name.text.map((t) => (
               <p key={t}>{t}</p>
             ))}
