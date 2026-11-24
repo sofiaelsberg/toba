@@ -20,7 +20,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata(routes.about, c.seo);
 
 export default function AboutPage() {
-  const coo = people.find((p) => p.slug === c.cooQuote.personSlug);
+  const quotePerson = people.find((p) => p.slug === c.ownerQuote.personSlug);
   return (
     <>
       <Hero
@@ -54,7 +54,7 @@ export default function AboutPage() {
         <div className="flex flex-col gap-10">
           <HeadingRow title={c.advisers.title} lead={c.advisers.lead} link={c.advisers.link} />
           <PeopleGrid people={advisers} />
-          {coo && <PersonQuote text={c.cooQuote.text} person={coo} className="mt-6 border-t border-line pt-12" />}
+          {quotePerson && <PersonQuote text={c.ownerQuote.text} person={quotePerson} className="mt-6 border-t border-line pt-12" />}
         </div>
       </Section>
 

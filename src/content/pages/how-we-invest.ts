@@ -27,6 +27,7 @@ export const howWeInvest = {
     { id: "forvaltere", label: "Forvaltere" },
     { id: "private", label: "Private markets" },
     { id: "helheden", label: "Helheden" },
+    { id: "samarbejde", label: "Overblik" },
   ],
 
   hero: {
