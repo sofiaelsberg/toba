@@ -1,7 +1,7 @@
 import { calculatorConfig, facts } from "../facts";
 import { ambient, videos } from "../media";
 import { routes, bookMeeting, trustline } from "../site";
-import type { CtaCardContent, StepContent, FactContent, FaqItem, FeatureContent, HeroContent, NewsTeaserContent, Seo, Stat, WealthMapContent } from "../types";
+import type { CtaCardContent, StepContent, FactContent, FaqItem, FeatureContent, HeroContent, NewsTeaserContent, Seo, WealthMapContent } from "../types";
 
 export const home = {
   seo: {
@@ -155,15 +155,6 @@ export const home = {
     ],
     link: { label: "Mød hele teamet →", href: routes.team },
   },
-
-  stats: [
-    { value: facts.assetsUnderAdviceMia, suffix: " mia. kr.", label: "under rådgivning" },
-    { display: String(facts.founded), label: "etableret" },
-    { value: facts.employeesPlus, suffix: "+", label: "medarbejdere" },
-    { value: facts.yearsSelectingManagers, suffix: "+ år", label: "med udvælgelse af kapitalforvaltere" },
-  ] satisfies Stat[],
-
-
 
   /** Spørgsmål og svar – vises på forsiden og sendes til Google/AI som FAQ-data. Korte, selvstændige svar. */
   faqTitle: "Spørgsmål og svar om uafhængig investeringsrådgivning",
