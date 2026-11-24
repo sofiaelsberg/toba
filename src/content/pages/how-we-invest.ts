@@ -133,7 +133,6 @@ export const howWeInvest = {
       ],
       managerSingular: "forvalter",
       managerPlural: "forvaltere",
-      listLabel: "Se alle forvaltere og byer",
       caption: "Forvalternes hovedkontorer. Peg på eller tryk på en prik for at se, hvem der sidder hvor.",
     } satisfies ManagerMapContent,
     link: { label: "Læs om uafhængig rådgivning →", href: routes.independent },

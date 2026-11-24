@@ -76,22 +76,6 @@ export function ManagerMap({ content, className }: { content: ManagerMapContent;
           </li>
         ))}
       </ul>
-      <details className="group border-t border-line pt-4">
-        <summary className="inline-flex min-h-11 cursor-pointer items-center gap-2 font-semibold text-navy">
-          {content.listLabel}
-          <span aria-hidden className="transition-transform duration-200 group-open:rotate-180">
-            ▾
-          </span>
-        </summary>
-        <dl className="mt-3 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
-          {content.locations.map((l) => (
-            <div key={l.label}>
-              <dt className={`${eyebrowClass} text-gold-text`}>{l.label}</dt>
-              <dd className="text-small text-ink">{l.managers.join(" · ")}</dd>
-            </div>
-          ))}
-        </dl>
-      </details>
       {content.caption && <figcaption className="text-caption text-ink-muted">{content.caption}</figcaption>}
     </figure>
   );
