@@ -9,7 +9,7 @@ import { MoneyFlow } from "@/components/interactive/money-flow";
 import { CtaCards } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
-import { AccordionList, FaqSection, FeatureList } from "@/components/sections/lists";
+import { FaqSection, FeatureList } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { FactBox } from "@/components/sections/stats";
 import { independent as c } from "@/content/pages/independent";
@@ -115,10 +115,7 @@ export default function IndependentPage() {
           <SectionHeading rule title={c.practice.title} />
           <Split align="start">
             <FeatureList features={c.practice.features} columns={1} inline />
-            <div className="flex flex-col gap-8">
-              <FactBox fact={c.practice.rebate} />
-              <AccordionList items={[{ question: c.practice.taFunds.question, answer: c.practice.taFunds.answer.join("\n\n") }]} />
-            </div>
+            <FactBox fact={c.practice.rebate} />
           </Split>
         </div>
       </Section>

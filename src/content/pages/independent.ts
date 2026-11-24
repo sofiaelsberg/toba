@@ -161,14 +161,6 @@ export const independent = {
       suffix: " mio. kr.",
       label: `udbetalt til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear} for investeringsåret ${facts.rebatesPaid.investmentYear}. Vi forhandler rabatterne hjem for alle kunder samlet – og sender dem ubeskåret videre til dig.`,
     },
-    taFunds: {
-      question: "Hvad med TA Globale Aktier og TA Globale Obligationer?",
-      answer: [
-        "TOBA Advice er investeringsrådgiver for to afdelinger i en investeringsforening: TA Globale Aktier og TA Globale Obligationer. Vores honorar for den rådgivning betales af foreningen.",
-        "Har du de to fonde i din portefølje, indgår de ikke i grundlaget for dit rådgivningshonorar. Du betaler altså kun én gang.",
-        "Satsen er den samme. Den eneste forskel er, hvem der betaler os: foreningen eller dig.",
-      ],
-    },
   },
 
   /** Spørgsmål og svar – vises på siden og sendes til Google/AI som FAQ-data. */
