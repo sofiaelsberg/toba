@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 import { useUnlock } from "@/components/interactive/checklists";
-import { activeCampaignForms, contactForm, formAnalyticsName, type FormMicrocopy } from "@/content/forms";
+import { activeCampaignForms, contactForm, formAnalyticsName, newsletterForm, type FormMicrocopy } from "@/content/forms";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
@@ -20,6 +20,8 @@ type ActiveCampaignFormProps = {
   microcopy?: FormMicrocopy;
   /** Forudfyldte værdier, fx { "field[47]": "Book et møde" }. Sættes, når ActiveCampaign har bygget formularen. */
   prefill?: Record<string, string>;
+  /** Faste værdier, som sættes og hvis felt skjules, fx { "field[45]": "Ja" }. Virker også for radioknapper. */
+  fixed?: Record<string, string>;
   /** Kaldes, når ActiveCampaign viser sin tak-besked. */
   onSubmitted?: () => void;
   className?: string;
@@ -66,6 +68,23 @@ const AUTOCOMPLETE: Record<string, string> = {
   phone: "tel",
 };
 
+/** Sætter et felts værdi. Ved radioknapper/afkrydsning vælges den knap, der har værdien. */
+function setField(host: HTMLElement, name: string, value: string) {
+  const fields = host.querySelectorAll<HTMLInputElement | HTMLSelectElement>(`[name="${CSS.escape(name)}"]`);
+  for (const field of fields) {
+    if (field instanceof HTMLInputElement && (field.type === "radio" || field.type === "checkbox")) {
+      if (field.value === value) {
+        field.checked = true;
+        return field;
+      }
+    } else {
+      field.value = value;
+      return field;
+    }
+  }
+  return undefined;
+}
+
 /** Kobler ActiveCampaigns fejlbeskeder til felterne, så skærmlæsere læser dem op. */
 function linkErrors(host: HTMLElement) {
   host.querySelectorAll<HTMLElement>("._form_element").forEach((el) => {
@@ -89,15 +108,17 @@ function linkErrors(host: HTMLElement) {
  * Scriptet indsættes ved hver visning, så formularen også kommer frem efter et sideskift i appen.
  * Felter, design, tak-besked og handlinger redigeres i ActiveCampaign.
  */
-export function ActiveCampaignForm({ id, label, title, intro, microcopy, prefill, onSubmitted, className }: ActiveCampaignFormProps) {
+export function ActiveCampaignForm({ id, label, title, intro, microcopy, prefill, fixed, onSubmitted, className }: ActiveCampaignFormProps) {
   const hostRef = useRef<HTMLDivElement>(null);
   const submittedRef = useRef(onSubmitted);
   const prefillRef = useRef(prefill);
+  const fixedRef = useRef(fixed);
 
   useEffect(() => {
     submittedRef.current = onSubmitted;
     prefillRef.current = prefill;
-  }, [onSubmitted, prefill]);
+    fixedRef.current = fixed;
+  }, [onSubmitted, prefill, fixed]);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -119,11 +140,13 @@ export function ActiveCampaignForm({ id, label, title, intro, microcopy, prefill
       removeStrays(id);
       addLabels(host);
       linkErrors(host);
-      if (!prefilled && prefillRef.current && host.querySelector("form")) {
+      if (!prefilled && (prefillRef.current || fixedRef.current) && host.querySelector("form")) {
         prefilled = true;
-        for (const [name, value] of Object.entries(prefillRef.current)) {
-          const field = host.querySelector<HTMLInputElement | HTMLSelectElement>(`[name="${CSS.escape(name)}"]`);
-          if (field) field.value = value;
+        for (const [name, value] of Object.entries(prefillRef.current ?? {})) setField(host, name, value);
+        for (const [name, value] of Object.entries(fixedRef.current ?? {})) {
+          const field = setField(host, name, value);
+          const element = field?.closest<HTMLElement>("._form_element");
+          if (element) element.hidden = true;
         }
       }
       if (done) return;
@@ -187,6 +210,20 @@ function ContactEmbed({ topic }: { topic: string | null }) {
       title={contactForm.title}
       microcopy={contactForm.microcopy}
       prefill={value ? { [contactForm.topicField]: value } : undefined}
+    />
+  );
+}
+
+/** Nyhedsbrevsformularen (#11). Feltet "Nyhedsbrev" sættes til "Ja" og skjules. */
+export function NewsletterEmbedForm({ className }: { className?: string }) {
+  return (
+    <ActiveCampaignForm
+      id={activeCampaignForms.newsletter}
+      label={newsletterForm.label}
+      title={newsletterForm.title}
+      microcopy={newsletterForm.microcopy}
+      fixed={newsletterForm.fixed}
+      className={className}
     />
   );
 }

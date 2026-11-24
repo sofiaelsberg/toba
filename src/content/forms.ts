@@ -9,13 +9,14 @@ export type FormMicrocopy = { text: string; linkLabel: string; href: string; aft
 import { routes } from "./site";
 
 /** Formularernes id i ActiveCampaign (Website → Forms). */
-export const activeCampaignForms = { account: "https://tobaadvice24097.activehosted.com", contact: 10, guide: 8, overview: 9 } as const;
+export const activeCampaignForms = { account: "https://tobaadvice24097.activehosted.com", contact: 10, guide: 8, overview: 9, newsletter: 11 } as const;
 
 /** Navnet, der sendes til Google Analytics som `form` ved `generate_lead`. */
-export const formAnalyticsName: Record<number, "kontakt" | "guide" | "omkostningsoverblik"> = {
+export const formAnalyticsName: Record<number, "kontakt" | "guide" | "omkostningsoverblik" | "nyhedsbrev"> = {
   [activeCampaignForms.contact]: "kontakt",
   [activeCampaignForms.guide]: "guide",
   [activeCampaignForms.overview]: "omkostningsoverblik",
+  [activeCampaignForms.newsletter]: "nyhedsbrev",
 };
 
 const privacy = { linkLabel: "privatlivspolitik", href: routes.privacy, after: "." };
@@ -39,4 +40,12 @@ export const overviewForm = {
   title: "Bestil dit gratis omkostningsoverblik",
   intro: "Udfyld formularen, så kontakter vi dig og aftaler det videre forløb.",
   microcopy: { text: "Gratis og uforpligtende. Læs mere i vores", ...privacy } satisfies FormMicrocopy,
+};
+
+export const newsletterForm = {
+  title: "Tilmeld nyhedsbrev",
+  label: "Tilmelding til nyhedsbrev",
+  /** Feltet "Nyhedsbrev" i ActiveCampaign sættes til "Ja" og skjules (formularen spørger ikke). */
+  fixed: { "field[45]": "Ja" } as Record<string, string>,
+  microcopy: { text: "Du kan afmelde dig med ét klik i alle vores e-mails. Læs mere i vores", ...privacy } satisfies FormMicrocopy,
 };

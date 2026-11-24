@@ -5,6 +5,7 @@ import { TextLink } from "@/components/blocks/links";
 import { Eyebrow, headingClass } from "@/components/blocks/typography";
 import { Media } from "@/components/blocks/media";
 import { VideoBlock } from "@/components/blocks/video-block";
+import { NewsletterEmbedForm } from "@/components/forms/ac-form";
 import { NewsCard } from "@/components/news/news-card";
 import { CtaBand } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
@@ -80,6 +81,7 @@ export default async function AboutPage() {
             <TextLink href={c.latestNews.link.href} className="self-start">
               {c.latestNews.link.label}
             </TextLink>
+            <NewsletterEmbedForm className="mt-6" />
           </div>
           {latestPost && (
             <div className="w-full max-w-md justify-self-center border-x border-b border-line md:justify-self-end">

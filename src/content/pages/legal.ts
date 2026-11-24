@@ -262,7 +262,7 @@ export const privacyPage = {
       ],
       after: [
         "Grundlaget er, at du har bedt os om noget, før en eventuel aftale (artikel 6, stk. 1, litra b), og vores legitime interesse i at besvare henvendelser (litra f). Sender vi dig nyhedsbrev eller markedsføring, er grundlaget dit samtykke (litra a).",
-        "Formularerne på kontaktsiden, til guiden og til omkostningsoverblikket hentes fra ActiveCampaign. Derfor modtager ActiveCampaign din IP-adresse, når du åbner de tre sider – også før du udfylder noget. På siderne med guiden og omkostningsoverblikket gælder det også ActiveCampaigns leverandør af skrifttyper (Bunny Fonts).",
+        "Formularerne på kontaktsiden, til nyhedsbrevet (på siden Om TOBA Advice), til guiden og til omkostningsoverblikket hentes fra ActiveCampaign. Derfor modtager ActiveCampaign din IP-adresse, når du åbner de fire sider – også før du udfylder noget. På siderne med guiden og omkostningsoverblikket gælder det også ActiveCampaigns leverandør af skrifttyper (Bunny Fonts).",
       ],
     },
     {
