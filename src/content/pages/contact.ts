@@ -10,7 +10,7 @@ export const contact = {
   hero: {
     eyebrow: "Kontakt",
     title: "Kontakt *os* her",
-    lead: "Vi er altid åbne for en snak om rådgivning og om, hvordan du får mest ud af din formue. Ræk endelig ud, hvis du har spørgsmål eller vil have hjælp til at finde den rigtige løsning.",
+    lead: "Vi er altid åbne for en samtale om rådgivning og om, hvordan du får mest ud af din formue. Ræk endelig ud, hvis du har spørgsmål eller vil have hjælp til at finde den rigtige løsning.",
   } satisfies HeroContent,
 
   details: [

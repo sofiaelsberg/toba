@@ -23,8 +23,8 @@ export const independent = {
     title: "Hvem arbejder din rådgiver *for*?",
     lead: "Når du modtager investeringsrådgivning, bør dine interesser altid komme først. Men ved du, hvordan din rådgiver bliver betalt, og om der er økonomiske interesser knyttet til de produkter, du bliver anbefalet?",
     actions: [
-      { label: "Se forskellen", href: "#tre", variant: "light" },
-      { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "ghost-light" },
+      { label: "Se forskellen", href: "#tre", variant: "primary" },
+      { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "secondary" },
     ],
   } satisfies HeroContent,
   heroText: [
@@ -43,7 +43,6 @@ export const independent = {
 
   kinds: {
     title: "Tre slags rådgivere – tre forskellige interesser",
-    lead: "Ikke alle investeringsrådgivere arbejder efter den samme model. Forskellen handler blandt andet om, hvilke produkter de kan anbefale, hvordan de bliver betalt, og hvilke økonomiske interesser der kan være forbundet med rådgivningen.",
     forYouLabel: "For dig:",
     cards: [
       {
@@ -57,7 +56,6 @@ export const independent = {
           ],
         } satisfies FlowChain,
         flowAria: "Du køber bankens egne fonde, og provisionen fra fondene går til banken.",
-        text: "Rådgivningen er knyttet til et bestemt produktunivers, typisk bankens egne investeringsprodukter.",
         forYou: "Dine valgmuligheder er begrænset til de produkter, rådgiveren tilbyder.",
         highlight: false,
       },
@@ -65,19 +63,19 @@ export const independent = {
         eyebrow: "2 · Ikke uafhængig",
         title: "Ikke uafhængig rådgivning",
         flow: {
-          nodes: [{ label: "Dig", you: true }, { label: "Egne og andres fonde" }, { label: "Bankerne" }],
+          nodes: [{ label: "Dig", you: true }, { label: "Bankens egne & andres fonde" }, { label: "Bankerne" }],
           steps: [
             { label: "køber", tone: "neutral" },
             { label: "provision og rabat går til", tone: "bad" },
           ],
         } satisfies FlowChain,
-        flowAria: "Du køber egne og andres fonde, og provisionen fra fondene går til bankerne.",
-        text: "Rådgivningen kan anbefale både egne og eksterne produkter, men kan have økonomiske interesser knyttet til bestemte anbefalinger.",
-        forYou: "Du bør undersøge, hvordan rådgiveren bliver betalt, og hvilke produkter der indgår i udvalget.",
+        flowAria: "Du køber bankens og andres fonde, og provisionen fra fondene går til bankerne.",
+        forYou: "Udvalget er bredere, men rådgiveren kan have en økonomisk interesse i bestemte anbefalinger.",
         highlight: false,
       },
       {
-        eyebrow: "3 · Uafhængig – sådan er TOBA",
+        eyebrow: "3 · Uafhængig",
+        badge: "Sådan er TOBA",
         title: "Uafhængig rådgivning",
         flow: {
           nodes: [{ label: "Dig", you: true }, { label: "Fonde fra hele markedet" }, { label: "Dig", you: true }],
@@ -89,8 +87,7 @@ export const independent = {
         } satisfies FlowChain,
         flowAria:
           "Du køber fonde fra hele markedet, og provision og rabat fra fondene går til dig. Rådgiveren får kun et fast honorar fra dig.",
-        text: "Rådgivningen bygger på et bredt udvalg af relevante investeringsprodukter og er ikke baseret på provision fra de produkter, der anbefales.",
-        forYou: "Rådgivningen tager kun udgangspunkt i, hvad der er bedst for dig.",
+        forYou: "Rådgiveren kan vælge frit på markedet og tjener ikke på de produkter, du får anbefalet.",
         highlight: true,
       },
     ],
@@ -115,66 +112,54 @@ export const independent = {
       },
     ] satisfies Point[],
     factBox:
-      "**Vidste du det?** Hvis en investeringsrådgiver ikke er uafhængig, skal det fremgå af virksomhedens hjemmeside. Rådgiveren skal også oplyse størrelsen af – eller beregningsgrundlaget for – eventuel provision.",
-    tip: "**Godt råd:** Bruger din rådgiver et ord, der næsten lyder som uafhængig – fx “uvildig” – så spørg, om alle tre krav er opfyldt.",
+      "**Vidste du det?** Hvis en investeringsrådgiver ikke er uafhængig, skal det fremgå af virksomhedens hjemmeside – sammen med størrelsen af eventuel provision. Og ord, der lyder ens – fx “uvildig” – betyder ikke nødvendigvis det samme som uafhængig.",
     source: "Kilde: Lov om investeringsrådgivere og boligkreditformidlere, § 9 og § 10.",
   },
 
   why: {
     title: "Hvorfor betyder uafhængighed noget for dig?",
     text: [
-      "Når du overlader rådgivningen om din formue til andre, skal du kunne stole på, at anbefalingerne tager udgangspunkt i dine interesser.",
-      "Men hvis rådgiveren også tjener penge på bestemte investeringsprodukter, kan der opstå interessekonflikter.",
-      "Uafhængig rådgivning handler om at sikre, at dine interesser er i centrum – uden økonomiske incitamenter til at anbefale bestemte produkter.",
+      "Hvis din rådgiver tjener på de produkter, du får anbefalet, er det ikke kun dine interesser, der styrer anbefalingen. Og det er mere udbredt, end mange tror.",
     ],
     value: facts.ownFundsTop5Pct,
-    lead: `Ifølge Finanstilsynets analyse ligger i gennemsnit ${facts.ownFundsTop5Pct} % af fondsbeholdningerne hos de fem største danske banker i bankernes egne fonde.`,
+    lead: "af fondsbeholdningerne hos de fem største danske banker ligger i gennemsnit i bankernes egne fonde.",
     segments: [
       { label: "bankernes egne fonde", value: facts.ownFundsTop5Pct },
       { label: "andre fonde", value: 100 - facts.ownFundsTop5Pct },
     ],
-    after: [
-      "Det betyder ikke nødvendigvis, at investeringerne er dårlige. Men det understreger, hvorfor det er vigtigt at forstå, hvordan din rådgiver bliver betalt, og hvilke investeringsmuligheder der bliver taget i betragtning.",
-      "Det afgørende er ikke kun, hvad du investerer i – men også hvorfor netop de investeringer er blevet valgt.",
-    ],
+    after: ["Det gør ikke investeringerne dårlige. Men det betyder, at rådgivningen ikke er uafhængig."],
     source: "Kilde: Finanstilsynet, “Bankernes salg af egne fonde”, maj 2026.",
   },
 
   practice: {
     title: "Sådan arbejder vi",
-    lead: "Uafhængighed er fundamentet for TOBA Advice. Vi har ingen egne investeringsprodukter og lever af vores rådgivning – ikke af de fonde, vi anbefaler. Det betyder helt konkret:",
     features: [
       {
         icon: "globe",
         title: "Frit valg på tværs af markedet.",
-        text: `Vi er ikke bundet til én bank eller én bestemt forvalter. Vi udvælger relevante investeringsløsninger på tværs af markedet og samarbejder i dag med ${facts.managers} forvaltere i ${facts.countries} lande.`,
+        text: `Vi samarbejder i dag med ${facts.managers} forvaltere i ${facts.countries} lande.`,
       },
       {
         icon: "no-commission",
         title: "Ingen provision.",
-        text: "Vi modtager ikke formidlingsprovision for at anbefale bestemte fonde eller investeringsprodukter. Vores indtjening afhænger derfor ikke af, hvilke produkter vi anbefaler.",
+        text: "Vores indtjening afhænger ikke af, hvilke produkter vi anbefaler.",
       },
       {
         icon: "fixed-fee",
         title: "Et gennemskueligt honorar.",
-        text: "Du betaler et aftalt rådgivningshonorar, der ikke afhænger af, hvilke investeringer vi vælger til din portefølje.",
-      },
-      {
-        icon: "rebate",
-        title: "Rabatterne går til dig.",
-        text: "Vi forhandler rabatter hjem for alle kunder samlet og sender dem ubeskåret videre.",
+        text: "Du betaler et fast, aftalt honorar – uanset hvad vi investerer i.",
       },
       {
         icon: "owners",
         title: "Ejet af medarbejderne.",
-        text: "TOBA Advice er ejet af medarbejderne selv. Vi arbejder langsigtet og har ingen eksterne ejere, der stiller krav om salg af bestemte investeringsprodukter.",
+        text: "Vi har ingen eksterne ejere, der stiller krav om salg.",
       },
     ] satisfies FeatureContent[],
     rebate: {
       value: facts.rebatesPaid.amountMio,
       decimals: 1,
       suffix: " mio. kr.",
-      label: `udbetalt til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}. Vi sidder på samme side af bordet som vores kunder.`,
+      label: `udbetalt til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear} for investeringsåret ${facts.rebatesPaid.investmentYear}. Vi forhandler rabatterne hjem for alle kunder samlet – og sender dem ubeskåret videre til dig.`,
     },
     taFunds: {
       question: "Hvad med TA Globale Aktier og TA Globale Obligationer?",
@@ -191,19 +176,23 @@ export const independent = {
   faq: [
     {
       question: "Hvad betyder uafhængig investeringsrådgivning?",
-      answer: "Uafhængig er en betegnelse med konkrete krav i lovgivningen. En uafhængig investeringsrådgiver må ikke beholde provision fra de produkter, der anbefales, må ikke have bånd til banker eller kapitalforvaltere, der er uforenelige med uafhængighed, og skal vælge blandt et bredt udvalg af investeringer på markedet (lov om investeringsrådgivere og boligkreditformidlere, § 9 og § 10).",
+      answer:
+        "Uafhængig er en betegnelse med konkrete krav i lovgivningen. En uafhængig investeringsrådgiver må ikke beholde provision fra de produkter, der anbefales, må ikke have bånd til banker eller kapitalforvaltere, der er uforenelige med uafhængighed, og skal vælge blandt et bredt udvalg af investeringer på markedet (lov om investeringsrådgivere og boligkreditformidlere, § 9 og § 10).",
     },
     {
       question: "Er uvildig det samme som uafhængig?",
-      answer: "Nej, ikke nødvendigvis. Kun “uafhængig” er knyttet til lovens krav. Hvis en investeringsrådgiver ikke er uafhængig, skal det fremgå af virksomhedens hjemmeside – sammen med størrelsen af eventuel provision.",
+      answer:
+        "Nej, ikke nødvendigvis. Kun “uafhængig” er knyttet til lovens krav. Hvis en investeringsrådgiver ikke er uafhængig, skal det fremgå af virksomhedens hjemmeside – sammen med størrelsen af eventuel provision.",
     },
     {
       question: "Hvordan finder jeg ud af, om min rådgiver er uafhængig?",
-      answer: "Spørg, hvordan rådgiveren bliver betalt, og om der er provision eller egne produkter involveret i anbefalingerne. Tjek også rådgiverens hjemmeside, som skal oplyse det, hvis rådgivningen ikke er uafhængig. I vores gratis guide “Hvem spiser din lagkage?” finder du 7 spørgsmål, du bør stille din rådgiver.",
+      answer:
+        "Spørg, hvordan rådgiveren bliver betalt, og om der er provision eller egne produkter involveret i anbefalingerne. Tjek også rådgiverens hjemmeside, som skal oplyse det, hvis rådgivningen ikke er uafhængig. I vores gratis guide “Hvem spiser din lagkage?” finder du 7 spørgsmål, du bør stille din rådgiver.",
     },
     {
       question: "Hvorfor koster uafhængig rådgivning et honorar?",
-      answer: "Fordi rådgiveren ikke må tjene på produkterne, betaler du i stedet et fast, aftalt honorar. Det gør omkostningen synlig. Hos TOBA Advice går de rabatter, vi forhandler hjem hos kapitalforvalterne, desuden ubeskåret videre til dig.",
+      answer:
+        "Fordi rådgiveren ikke må tjene på produkterne, betaler du i stedet et fast, aftalt honorar. Det gør omkostningen synlig. Hos TOBA Advice går de rabatter, vi forhandler hjem hos kapitalforvalterne, desuden ubeskåret videre til dig.",
     },
   ] satisfies FaqItem[],
 

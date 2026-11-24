@@ -37,9 +37,8 @@ export const guide = {
   intro: {
     title: "Omkostninger er ikke problemet. *Usynlige* omkostninger er.",
     text: [
-      "Når du investerer, handler det ikke kun om at skabe afkast. Det handler også om, hvor meget du beholder efter omkostninger.",
-      "Nogle omkostninger er synlige, mens andre trækkes løbende fra fondenes afkast. Derudover kan rabatter og økonomiske interessekonflikter have betydning for den samlede værdi af din investeringsløsning.",
-      "Og selv små forskelle i omkostninger kan få stor betydning over tid.",
+      "Det er ikke kun dit afkast, der tæller. Det er, hvor meget af det du beholder.",
+      "Nogle omkostninger kan du se. Andre trækkes løbende inde i fondene, og rabatter kan ende hos andre end dig.",
     ],
     fact: {
       value: facts.cakeExample.extraMio, decimals: 1, suffix: " mio. kr.",
@@ -96,7 +95,7 @@ export const guide = {
       { icon: "rebate", title: "Rabatterne går til dig.", text: "Vi forhandler rabatter hjem på vegne af alle vores kunder samlet – og sender dem ubeskåret videre til dig." },
     ] satisfies FeatureContent[],
     stats: [
-      { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalte vi til vores kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}. Hver krone gik ubeskåret videre.` },
+      { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `i forvalterrabatter for ${facts.rebatesPaid.investmentYear} udbetalt til vores kunder i ${facts.rebatesPaid.paidYear}.` },
       { value: facts.yearsSelectingManagers, suffix: "+ år", label: "med udvælgelse af kapitalforvaltere" },
       { value: facts.assetsUnderAdviceMia, suffix: " mia. kr.", label: "under rådgivning" },
       { display: "Ejet", label: "af medarbejderne" },

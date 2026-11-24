@@ -1,29 +1,26 @@
-import type { Metadata } from "next";
-
-import { ButtonLink, TextLink } from "@/components/blocks/links";
-import { AmbientVideo } from "@/components/blocks/ambient-video";
 import { AdvisersVisual, CakeVisual, OverviewVisual } from "@/components/blocks/card-visuals";
-import { Media } from "@/components/blocks/media";
-import { RichText } from "@/components/blocks/rich-text";
-import { Caption, Eyebrow } from "@/components/blocks/typography";
-import { VideoBlock } from "@/components/blocks/video-block";
-import { ShareBar } from "@/components/interactive/charts";
-import { CostCalculator } from "@/components/interactive/cost-calculator";
-import { LayerCake } from "@/components/interactive/layer-cake";
+import { ButtonLink, ButtonRow, TextLink } from "@/components/blocks/links";
+import { GoldRule, Heading } from "@/components/blocks/typography";
+import { CtaCards } from "@/components/sections/cta";
+import { FactBox, StatsRow } from "@/components/sections/stats";
+import { FaqSection, NumberedSteps, PointList } from "@/components/sections/lists";
 import { NewsTeaser } from "@/components/news/news-teaser";
-import { CtaBand, CtaCards } from "@/components/sections/cta";
-import { Hero } from "@/components/sections/hero";
-import { Disclaimer } from "@/components/sections/legal";
-import { FaqSection, PointList, ValueGrid } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
-import { HeadingRow, Section, SectionHeading, Split } from "@/components/sections/section";
-import { StatsRow } from "@/components/sections/stats";
-import { cake } from "@/content/cake";
-import { home as c } from "@/content/pages/home";
-import { independent } from "@/content/pages/independent";
-import { overview } from "@/content/pages/overview";
+import { Section, SectionHeading, Split } from "@/components/sections/section";
+import { WealthMap } from "@/components/sections/wealth-map";
 import { advisers } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
+
+import { AmbientVideo } from "@/components/blocks/ambient-video";
+import { Disclaimer } from "@/components/sections/legal";
+import { Hero } from "@/components/sections/hero";
+import type { Metadata } from "next";
+import { ShareFact } from "@/components/interactive/charts";
+import { VideoBlock } from "@/components/blocks/video-block";
+import { home as c } from "@/content/pages/home";
+import { cake } from "@/content/cake";
+import { independent } from "@/content/pages/independent";
+import { overview } from "@/content/pages/overview";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.home, c.seo);
@@ -32,17 +29,91 @@ export const metadata: Metadata = pageMetadata(routes.home, c.seo);
 export default function HomePage() {
   return (
     <>
-      <Hero content={c.hero} aside={<AmbientVideo video={c.heroMedia} />} />
+      <Hero
+        content={c.hero}
+        layout="bleed"
+        trustBand
+        aside={<AmbientVideo video={c.heroMedia} className="aspect-4/3 md:absolute md:inset-0 md:aspect-auto" />}
+      />
 
       <Section surface="white">
         <Split>
           <div className="flex flex-col gap-6">
             <SectionHeading rule title={c.sameSide.title} lead={c.sameSide.lead} />
             <PointList points={c.sameSide.points} />
-            <p className="font-serif text-quote font-medium text-navy italic">{c.sameSide.quote}</p>
           </div>
           <VideoBlock video={c.sameSide.video} />
         </Split>
+      </Section>
+
+      <Section>
+        <Split ratio="5-7" align="center">
+          <SectionHeading rule title={c.wholeWealth.title} lead={c.wholeWealth.lead} />
+          <WealthMap content={c.wholeWealth.map} />
+        </Split>
+      </Section>
+
+      <Section surface="navy" id="bank">
+        <Split>
+          <div className="flex flex-col gap-6">
+            <SectionHeading rule title={c.bank.title} />
+            {c.bank.text.map((t) => (
+              <p key={t} className="max-w-measure">
+                {t}
+              </p>
+            ))}
+            <ButtonLink action={c.bank.action} className="self-start" />
+          </div>
+          <VideoBlock video={c.bank.video} />
+        </Split>
+        <ShareFact
+          className="mt-14"
+          value={c.bank.value}
+          label={c.bank.factLabel}
+          text={c.bank.factText}
+          segments={c.bank.segments}
+          source={c.bank.source}
+        />
+      </Section>
+
+      <Section surface="white">
+        <div className="flex flex-col gap-10 md:gap-12">
+          <div className="flex flex-col gap-5">
+            <SectionHeading eyebrow={c.about.eyebrow} title={c.about.title} />
+            {c.about.text.map((t) => (
+              <p key={t} className="max-w-measure">
+                {t}
+              </p>
+            ))}
+            <TextLink href={c.about.link.href} className="self-start">
+              {c.about.link.label}
+            </TextLink>
+          </div>
+          <PeopleGrid people={advisers} />
+        </div>
+      </Section>
+
+      <Section spacing="compact">
+        <StatsRow stats={c.stats} />
+      </Section>
+
+      <Section surface="white" id="vilkaar">
+        <Split>
+          <div className="flex flex-col gap-6">
+            <SectionHeading rule title={c.terms.title} lead={c.terms.lead} />
+            <FactBox fact={c.terms.fact} tone="plain" className="border-t border-line pt-6" />
+          </div>
+          <VideoBlock video={c.terms.video} />
+        </Split>
+        <div className="mt-14 flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between md:gap-12">
+          <p className="max-w-measure">{c.terms.text}</p>
+          <div className="flex shrink-0 flex-col items-start gap-4">
+            <ButtonLink action={c.terms.action} />
+            <TextLink href={c.terms.link.href} className="text-small font-normal">
+              {c.terms.link.label}
+            </TextLink>
+          </div>
+        </div>
       </Section>
 
       <Section>
@@ -60,109 +131,20 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section surface="navy" id="bank">
-        <Split align="start">
-          <div className="flex flex-col gap-5">
-            <Eyebrow>{c.bank.eyebrow}</Eyebrow>
-            <ShareBar value={c.bank.value} lead={c.bank.lead} segments={c.bank.segments} />
-            <p className="max-w-140">{c.bank.text}</p>
-            <Caption>{c.bank.source}</Caption>
-            <TextLink href={c.bank.link.href} className="self-start">
-              {c.bank.link.label}
-            </TextLink>
-          </div>
-          <VideoBlock video={c.bank.video} />
-        </Split>
-      </Section>
-
-      <Section surface="white" id="lagkage">
-        <Split>
-          <div className="flex flex-col gap-6">
-            <SectionHeading rule title={c.cake.title} lead={c.cake.lead} />
-            <ButtonLink action={c.cake.action} className="self-start" />
-          </div>
-          <LayerCake content={cake} withToba showStory />
-        </Split>
-        <div className="mt-16 grid grid-cols-1 gap-6 border-t-2 border-gold-light pt-6 md:grid-cols-3">
-          <StatsRow stats={c.cake.example} className="border-none pt-0 md:col-span-2 md:grid-cols-2" />
-          <Caption className="self-end">{c.cake.exampleNote}</Caption>
-        </div>
-      </Section>
-
-      <Section>
-        <div className="flex flex-col gap-12">
-          <SectionHeading rule title={c.values.title} />
-          <ValueGrid items={c.values.items} />
-          <TextLink href={c.values.link.href} className="self-start">
-            {c.values.link.label}
-          </TextLink>
-        </div>
-      </Section>
-
-      <Section surface="white" id="beregner">
-        <div className="flex flex-col gap-12">
-          <Split align="start">
-            <div className="flex flex-col gap-5">
-              <SectionHeading eyebrow={c.pricing.eyebrow} title={c.pricing.title} />
-              <p>
-                <RichText text={c.pricing.text} />
-              </p>
-            </div>
-            <VideoBlock video={c.pricing.video} className="w-full max-w-95 md:justify-self-end" />
-          </Split>
-          <CostCalculator content={c.calculator} />
-        </div>
-      </Section>
-
-      <Section>
-        <Split>
-          <SectionHeading rule title={c.professional.title} />
+      <section id="kom-i-gang" className="on-navy scroll-mt-24 bg-navy py-16 text-on-navy md:py-24">
+        <div className="wrap flex flex-col gap-12">
           <div className="flex flex-col gap-4">
-            {c.professional.text.map((t) => (
-              <p key={t}>{t}</p>
-            ))}
-            <TextLink href={c.professional.link.href} className="self-start">
-              {c.professional.link.label}
-            </TextLink>
+            <GoldRule />
+            <Heading title={c.getStarted.title} />
           </div>
-        </Split>
-      </Section>
-
-      <Section surface="white">
-        <Split>
-          <Media media={c.about.media} />
-          <div className="flex flex-col gap-5">
-            <SectionHeading eyebrow={c.about.eyebrow} title={c.about.title} />
-            {c.about.text.map((t) => (
-              <p key={t}>{t}</p>
-            ))}
-            <TextLink href={c.about.link.href} className="self-start">
-              {c.about.link.label}
-            </TextLink>
-          </div>
-        </Split>
-      </Section>
-
-      <Section spacing="compact">
-        <StatsRow stats={c.stats} />
-      </Section>
-
-      <Section surface="white">
-        <div className="flex flex-col gap-10">
-          <HeadingRow title={c.advisers.title} lead={c.advisers.lead} link={c.advisers.link} />
-          <PeopleGrid people={advisers} />
-          <div className="flex flex-col items-start gap-5 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
-            <p className="max-w-150">{c.advisers.text}</p>
-            <ButtonLink action={c.advisers.contact} />
-          </div>
+          <NumberedSteps steps={c.getStarted.steps} />
+          <ButtonRow actions={c.getStarted.actions} />
         </div>
-      </Section>
+      </section>
 
       <NewsTeaser content={c.news} id="nyheder" />
 
       <FaqSection id="spoergsmaal" title={c.faqTitle} items={c.faq} />
-
-      <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} />
       <Disclaimer content={disclaimers.standard} />
     </>
   );

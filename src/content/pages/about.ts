@@ -1,6 +1,6 @@
 import { facts } from "../facts";
 import { images, linkedin, videos } from "../media";
-import { company, routes, bookMeeting } from "../site";
+import { company, routes, bookMeeting, trustline } from "../site";
 import type { FeatureContent, HeroContent, Seo, Stat } from "../types";
 
 export const about = {
@@ -12,9 +12,10 @@ export const about = {
 
   hero: {
     eyebrow: "Om TOBA Advice",
-    title: "Vi tager os af dine investeringer, så du kan tage dig af *livet*",
-    lead: "TOBA Advice er en uafhængig investeringsrådgiver, ejet af medarbejderne. Vi har ingen egne investeringsprodukter – så rådgivningen tager altid udgangspunkt i dig og dine ønsker.",
+    title: "Vi er uafhængige, ejet af medarbejderne – og på *din side*",
+    lead: "Fra vores kontor i Aarhus rådgiver vi kunder i hele Danmark – og vi kommer gerne ud til dig.",
     actions: [bookMeeting],
+    trustline,
   } satisfies HeroContent,
   heroMedia: images.officeWindow,
 
@@ -28,8 +29,8 @@ export const about = {
     ],
     illustrationLabel: "Illustration: en vulkan, der bryder ud, og et nyt landskab, der vokser frem – ligesom A’et i logoet.",
     text: [
-      "Toba er navnet på en vulkan på Sumatra. For mange tusinde år siden havde den et kæmpe udbrud, der lagde alt omkring sig øde. Efter udbruddet begyndte naturen langsomt at vende tilbage. For os symboliserer det en ny begyndelse – en ny start.",
-      "Det er det, vi vil symbolisere med navnet: en ny måde at lave investeringsrådgivning på, hvor vi tager udgangspunkt i dine behov. Derfor er A’et i vores logo en vulkan.",
+      "Toba er navnet på en supervulkan på øen Sumatra i Indonesien. For 74.000 år siden var den i udbrud og det var så voldsomt at den lagde alt omkring sig øde. Efter udbruddet begyndte naturen langsomt at vende tilbage. For os symboliserer det en ny begyndelse – en ny start.",
+      "Det er det vi gerne vil symbolisere med navnet TOBA: en ny tilgang til investeringsrådgivning, hvor vi tager udgangspunkt i dine behov. Derfor er A’et i vores logo en vulkan.",
     ],
     video: videos.v11,
   },
@@ -89,6 +90,12 @@ export const about = {
     { value: facts.yearsSelectingManagers, suffix: "+ år", label: "med udvælgelse af kapitalforvaltere" },
   ] satisfies Stat[],
 
+  /** OBS: Udkast fra Anders' version – citatet skal godkendes af Anders før lancering. */
+  ownerQuote: {
+    personSlug: "anders-bentholm",
+    text: "“Fordi vi selv ejer virksomheden, træffer vi beslutninger med et langt perspektiv. Vi skal kunne se vores kunder i øjnene om ti år – og det er det, der styrer, hvordan vi arbejder i dag.”",
+  },
+
   advisers: {
     title: "Mød dine rådgivere",
     lead: "Har du spørgsmål, eller vil du have din investeringsopsætning gennemgået? Tag fat i en af os – vi tager gerne en uforpligtende snak.",
@@ -102,7 +109,7 @@ export const about = {
   },
 
   closing: {
-    title: "Lad os tage en snak",
+    title: "Lad os starte med en samtale",
     lead: "Vil du vide, om din formue arbejder for dig – eller for andre? Book et uforpligtende møde, eller start med et gratis omkostningsoverblik.",
     actions: [
       { ...bookMeeting, variant: "light" as const },

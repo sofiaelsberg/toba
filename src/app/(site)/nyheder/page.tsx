@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { TextLink } from "@/components/blocks/links";
-import { Media } from "@/components/blocks/media";
 import { NewsGrid } from "@/components/news/news-card";
 import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
@@ -19,7 +18,7 @@ export default async function NewsPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(newsListJsonLd(posts))} />
-      <Hero content={c.hero} aside={<Media media={c.heroMedia} priority />} />
+      <Hero content={c.hero} />
       <Section spacing="none" className="pb-16 md:pb-24">
         <div className="flex flex-col gap-10">
           {posts.length ? (

@@ -110,10 +110,10 @@ export function AccordionList({ items, defaultOpen }: { items: FaqItem[]; defaul
   );
 }
 
-/** Hvid sektion med spørgsmål og svar – også som FAQPage-data til Google. */
-export function FaqSection({ title, items, id }: { title: string; items: FaqItem[]; id?: string }) {
+/** Sektion med spørgsmål og svar – også som FAQPage-data til Google. */
+export function FaqSection({ title, items, id, surface = "white" }: { title: string; items: FaqItem[]; id?: string; surface?: "white" | "cream" }) {
   return (
-    <Section surface="white" id={id}>
+    <Section surface={surface} id={id}>
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
         <SectionHeading rule title={title} />
         <AccordionList items={items} />

@@ -56,15 +56,16 @@ export const brand = {
   homeLabel: "TOBA Advice – forside",
 } as const;
 
+/** Tillidslinjen i hero'ens mørke bånd (forsiden, Sådan investerer vi). Punkterne adskilles af " · ". */
+export const trustline = `Uafhængig investeringsrådgiver med tilladelse fra Finanstilsynet · Etableret ${facts.founded} · Medarbejderejet siden ${facts.employeeOwnedSince}`;
+
 export const bookMeeting: Action = { label: "Book et møde", href: routes.bookMeeting, variant: "primary" };
 
 export const mainNav: LinkItem[] = [
   { label: "Sådan investerer vi", href: routes.howWeInvest },
   { label: "Uafhængig rådgivning", href: routes.independent },
   { label: "Om TOBA", href: routes.about },
-  { label: "Team", href: routes.team },
   { label: "Nyheder", href: routes.news },
-  { label: "Kontakt", href: routes.contact },
 ];
 
 export const clientPortalLink: LinkItem = { label: "Kundeportal", href: routes.clientPortal, external: true };
@@ -83,8 +84,14 @@ export const footer = {
   columns: [
     {
       title: "Om TOBA",
-      // Samme sider som topmenuen.
-      links: mainNav,
+      links: [
+        { label: "Sådan investerer vi", href: routes.howWeInvest },
+        { label: "Uafhængig rådgivning", href: routes.independent },
+        { label: "Om TOBA", href: routes.about },
+        { label: "Team", href: routes.team },
+        { label: "Nyheder", href: routes.news },
+        { label: "Kontakt", href: routes.contact },
+      ],
     },
     {
       title: "Kom i gang",

@@ -3,15 +3,15 @@
  * Ret her – så opdateres forside, landingssider, Om TOBA m.fl. på én gang.
  */
 export const facts = {
-  /** Forvalterrabatter udbetalt til kunderne (vises som "udbetalt i 2026"). Opdatér, når næste rabat udbetales i foråret 2027. */
-  rebatesPaid: { amountMio: 2.8, paidYear: 2026 },
+  /** Forvalterrabatter udbetalt til kunderne i paidYear for investeringsåret investmentYear. Opdatér, når næste rabat udbetales i foråret 2027. */
+  rebatesPaid: { amountMio: 2.8, paidYear: 2026, investmentYear: 2025 },
   assetsUnderAdviceMia: 3,
   founded: 2016,
   /** Året, hvor medarbejderne overtog ejerskabet. */
   employeeOwnedSince: 2024,
   employeesPlus: 10,
   managers: 19,
-  countries: 9,
+  countries: 6,
   yearsSelectingManagers: 20,
   minimumWealthMio: 5,
 

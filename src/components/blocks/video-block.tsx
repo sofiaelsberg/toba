@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 export function VideoBlock({ video, className, compact }: { video: VideoRef; className?: string; compact?: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
-  const label = [ui.video.play, video.durationLabel].filter(Boolean).join(" · ");
+  const label = `${ui.video.play}: ${video.title}`;
 
   function play() {
     if (!ref.current) return;
@@ -36,13 +36,17 @@ export function VideoBlock({ video, className, compact }: { video: VideoRef; cla
           <button
             type="button"
             onClick={play}
-            className={cn(
-              "absolute bottom-6 left-6 inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-sm bg-cream px-4 py-2.5 text-[0.9375rem] font-semibold text-navy",
-              compact && "bottom-2 left-2 px-2.5 text-caption",
-            )}
+            aria-label={label}
+            className="absolute inset-0 flex cursor-pointer items-center justify-center"
           >
-            <Play aria-hidden className="size-4 fill-current" />
-            {label}
+            <span
+              className={cn(
+                "flex size-16 items-center justify-center rounded-full bg-cream/90 text-navy shadow-lg transition-transform duration-300 ease-toba group-hover:scale-110 md:size-20",
+                compact && "size-11 md:size-12",
+              )}
+            >
+              <Play aria-hidden className={cn("ml-1 size-6 fill-current md:size-7", compact && "ml-0.5 size-4 md:size-4")} />
+            </span>
           </button>
         )}
       </div>

@@ -10,21 +10,34 @@ import { Hero } from "@/components/sections/hero";
 import { Disclaimer } from "@/components/sections/legal";
 import { FeatureList } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
+import { PersonQuote } from "@/components/sections/person-quote";
 import { HeadingRow, Section, SectionHeading, Split } from "@/components/sections/section";
-import { StatsRow } from "@/components/sections/stats";
 import { about as c } from "@/content/pages/about";
-import { advisers } from "@/content/people";
+import { advisers, people } from "@/content/people";
 import { disclaimers, routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.about, c.seo);
 
 export default function AboutPage() {
+  const quotePerson = people.find((p) => p.slug === c.ownerQuote.personSlug);
   return (
     <>
-      <Hero content={c.hero} aside={<Media media={c.heroMedia} priority />} />
+      <Hero
+        content={c.hero}
+        layout="bleed"
+        trustBand
+        aside={
+          <Media
+            media={c.heroMedia}
+            priority
+            sizes="(min-width: 768px) 45vw, 100vw"
+            className="aspect-4/3 object-cover md:absolute md:inset-0 md:aspect-auto md:size-full"
+          />
+        }
+      />
 
-      <Section surface="navy">
+      <Section surface="white">
         <Split align="start">
           <div className="flex flex-col gap-6">
             <SectionHeading eyebrow={c.name.eyebrow} title={c.name.title} />
@@ -37,21 +50,11 @@ export default function AboutPage() {
         </Split>
       </Section>
 
-      <Section surface="white">
-        <Split align="start">
-          <SectionHeading rule title={c.owned.title} />
-          <div className="flex flex-col gap-4">
-            {c.owned.text.map((t) => (
-              <p key={t}>{t}</p>
-            ))}
-          </div>
-        </Split>
-      </Section>
-
       <Section>
         <div className="flex flex-col gap-10">
           <HeadingRow title={c.advisers.title} lead={c.advisers.lead} link={c.advisers.link} />
           <PeopleGrid people={advisers} />
+          {quotePerson && <PersonQuote text={c.ownerQuote.text} person={quotePerson} className="mt-6 border-t border-line pt-12" />}
         </div>
       </Section>
 
@@ -77,10 +80,6 @@ export default function AboutPage() {
             {c.benefits.link.label}
           </TextLink>
         </div>
-      </Section>
-
-      <Section spacing="compact">
-        <StatsRow stats={c.stats} />
       </Section>
 
       <Section surface="white">

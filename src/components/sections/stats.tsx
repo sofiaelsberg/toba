@@ -26,7 +26,7 @@ export function StatsRow({ stats, className }: { stats: Stat[]; className?: stri
       )}
     >
       {stats.map((s) => (
-        <div key={s.label} className="flex flex-col-reverse gap-2">
+        <div key={s.label} className="flex flex-col-reverse justify-end gap-2">
           <dt className="text-small text-ink-muted [.on-navy_&]:text-on-navy-muted">{s.label}</dt>
           <dd>
             <StatValue stat={s} className="text-[2.25rem] leading-10 text-navy md:text-stat [.on-navy_&]:text-white" />

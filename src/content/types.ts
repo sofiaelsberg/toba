@@ -165,3 +165,10 @@ export type NewsTeaserContent = {
   /** Udvalgte indlæg (filnavne i src/content/news uden .md) i den viste rækkefølge. Fyldes op med de nyeste. Kladder springes over. */
   slugs?: string[];
 };
+
+/** "Én strategi for hele din formue": skattemiljøer + familieplanen. */
+export type WealthMapContent = {
+  label: string;
+  areas: string[];
+  family: { title: string; text: string };
+};
