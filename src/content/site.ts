@@ -18,6 +18,7 @@ export const routes = {
   accessibility: "/tilgaengelighed",
   privacy: "/privatlivspolitik",
   news: "/nyheder",
+  newsletter: "/nyheder#nyhedsbrev",
   clientPortal: "https://client.tobaadvice.onperformativ.com",
 } as const;
 

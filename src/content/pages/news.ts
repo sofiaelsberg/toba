@@ -46,6 +46,13 @@ export const news = {
   allLink: "Alle nyheder →",
   empty: "Der er ingen indlæg endnu.",
 
+  /** Tilmelding til nyhedsbrevet under indlæggene (#nyhedsbrev). Selve formularen er ActiveCampaign #11. */
+  newsletter: {
+    id: "nyhedsbrev",
+    title: "Få vores perspektiver direkte i indbakken",
+    lead: "Tilmeld dig vores nyhedsbrev, så sender vi dig vores nyeste analyser og holdninger om investering.",
+  },
+
   cta: {
     title: "Vil du vide, hvad det betyder for din formue?",
     lead: "Book et uforpligtende møde med en af vores rådgivere – eller start med et gratis omkostningsoverblik.",

@@ -102,6 +102,7 @@ export const about = {
     title: "Følg med i vores perspektiver på investering",
     lead: "Vi deler løbende vores syn på markederne og på, hvordan vi investerer for vores kunder.",
     link: { label: "Se alle nyheder →", href: routes.news },
+    newsletter: { label: "Tilmeld nyhedsbrev", href: routes.newsletter, variant: "primary" as const },
   },
 
   closing: {
