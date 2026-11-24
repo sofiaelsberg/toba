@@ -65,7 +65,7 @@ function addConsent(host: HTMLElement, id: number, consent: FormConsent) {
   el.className = "_form_element toba-consent";
   el.dataset.consent = "";
   const row = document.createElement("label");
-  row.className = "_checkbox-radio";
+  row.className = "toba-consent-row";
   const box = document.createElement("input");
   box.type = "checkbox";
   box.id = `ac-${id}-samtykke`;
@@ -78,7 +78,7 @@ function addConsent(host: HTMLElement, id: number, consent: FormConsent) {
   row.append(box, text);
   const error = document.createElement("p");
   error.id = `ac-${id}-samtykke-fejl`;
-  error.className = "_error-inner";
+  error.className = "toba-consent-error";
   error.setAttribute("role", "alert");
   error.hidden = true;
   error.textContent = consent.error;
@@ -99,7 +99,7 @@ function blockWithoutConsent(event: Event) {
   if (!box || box.checked) return;
   event.preventDefault();
   event.stopImmediatePropagation();
-  const error = form?.querySelector<HTMLElement>("[data-consent] ._error-inner");
+  const error = form?.querySelector<HTMLElement>("[data-consent] .toba-consent-error");
   if (error) {
     error.hidden = false;
     box.setAttribute("aria-invalid", "true");
