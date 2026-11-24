@@ -1,6 +1,6 @@
 import { facts } from "../facts";
-import { images, linkedin, videos } from "../media";
-import { company, routes, bookMeeting, trustline } from "../site";
+import { images, videos } from "../media";
+import { routes, bookMeeting, trustline } from "../site";
 import type { FeatureContent, HeroContent, Seo, Stat } from "../types";
 
 export const about = {
@@ -97,10 +97,11 @@ export const about = {
     link: { label: "Se hele vores team →", href: routes.team },
   },
 
-  linkedin: {
+  /** Kortet til højre er altid det nyeste indlæg under Nyheder. */
+  latestNews: {
     title: "Følg med i vores perspektiver på investering",
-    link: { label: "Følg TOBA Advice på LinkedIn →", href: company.linkedin },
-    post: linkedin.latestPost,
+    lead: "Vi deler løbende vores syn på markederne og på, hvordan vi investerer for vores kunder.",
+    link: { label: "Se alle nyheder →", href: routes.news },
   },
 
   closing: {

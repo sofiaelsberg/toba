@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import { LinkedInPost } from "@/components/blocks/linkedin-post";
 import { TextLink } from "@/components/blocks/links";
 import { Eyebrow, headingClass } from "@/components/blocks/typography";
 import { Media } from "@/components/blocks/media";
 import { VideoBlock } from "@/components/blocks/video-block";
+import { NewsCard } from "@/components/news/news-card";
 import { CtaBand } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { FeatureList } from "@/components/sections/lists";
@@ -15,11 +15,13 @@ import { HeadingRow, Section, SectionHeading, Split } from "@/components/section
 import { about as c } from "@/content/pages/about";
 import { advisers, people } from "@/content/people";
 import { brand, routes } from "@/content/site";
+import { getAllPosts } from "@/lib/news";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.about, c.seo);
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const [latestPost] = await getAllPosts();
   const quotePerson = people.find((p) => p.slug === c.ownerQuote.personSlug);
   return (
     <>
@@ -71,16 +73,19 @@ export default function AboutPage() {
       </Section>
 
       <Section surface="white">
-        <Split>
+        <Split align="center">
           <div className="flex flex-col gap-4">
-            <h2 className="font-serif text-h3 font-medium text-navy">{c.linkedin.title}</h2>
-            {c.linkedin.link.href && (
-              <TextLink href={c.linkedin.link.href} className="self-start">
-                {c.linkedin.link.label}
-              </TextLink>
-            )}
+            <h2 className="font-serif text-h3 font-medium text-navy">{c.latestNews.title}</h2>
+            <p className="max-w-measure">{c.latestNews.lead}</p>
+            <TextLink href={c.latestNews.link.href} className="self-start">
+              {c.latestNews.link.label}
+            </TextLink>
           </div>
-          <LinkedInPost post={c.linkedin.post} className="justify-self-center md:justify-self-end" />
+          {latestPost && (
+            <div className="w-full max-w-md justify-self-center border-x border-b border-line md:justify-self-end">
+              <NewsCard post={latestPost} headingLevel="h3" />
+            </div>
+          )}
         </Split>
       </Section>
 
