@@ -37,7 +37,7 @@ export const howWeInvest = {
     actions: [bookMeeting, { label: "Se hvordan", href: "#strategi", variant: "secondary" }],
     trustline,
   } satisfies HeroContent,
-  heroMedia: images.meetingTable,
+  heroMedia: images.clientPortal,
 
   strategy: {
     title: "En plan, du kan holde fast i – også i modvind",
