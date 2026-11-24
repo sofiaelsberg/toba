@@ -12,8 +12,11 @@ export const news = {
   hero: {
     eyebrow: "Nyheder",
     title: "Nyheder og *indsigt*",
-    lead: "Analyser, holdninger og nyheder fra os om investering, omkostninger og risiko. Alle indlæg er også delt på vores LinkedIn-side.",
-    actions: [{ label: "Følg TOBA på LinkedIn", href: company.linkedin, variant: "primary" }],
+    lead: "Vi deler vores analyser, holdninger og perspektiver på investering, omkostninger og risiko her på siden, på LinkedIn og i vores nyhedsbrev.",
+    actions: [
+      { label: "Tilmeld dig nyhedsbrevet ↓", href: "#nyhedsbrev", variant: "primary" },
+      { label: "Følg os på LinkedIn →", href: company.linkedin, variant: "secondary" },
+    ],
   } satisfies HeroContent,
 
   readMore: "Læs indlægget",
