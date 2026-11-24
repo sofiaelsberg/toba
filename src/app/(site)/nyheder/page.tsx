@@ -22,21 +22,19 @@ export default async function NewsPage() {
       <Hero content={c.hero} />
       <Section spacing="none" className="pb-16 md:pb-24">
         <div className="flex flex-col gap-10">
-          {posts.length ? (
-            <NewsGrid posts={posts} priority={3} />
-          ) : (
-            <p>{c.empty}</p>
-          )}
+          {posts.length ? <NewsGrid posts={posts.slice(0, 3)} priority={3} /> : <p>{c.empty}</p>}
+          {/* Nyhedsbrevet står mellem de tre nyeste indlæg og resten. */}
+          <div id={c.newsletter.id} className="scroll-mt-24 border-t-2 border-gold bg-white p-8 md:p-12">
+            <Split align="center">
+              <SectionHeading title={c.newsletter.title} lead={c.newsletter.lead} />
+              <NewsletterEmbedForm bare />
+            </Split>
+          </div>
+          {posts.length > 3 && <NewsGrid posts={posts.slice(3)} />}
           <TextLink href={company.linkedin} className="self-start">
             {c.follow.label}
           </TextLink>
         </div>
-      </Section>
-      <Section surface="white" id={c.newsletter.id}>
-        <Split align="center">
-          <SectionHeading rule title={c.newsletter.title} lead={c.newsletter.lead} />
-          <NewsletterEmbedForm />
-        </Split>
       </Section>
       <Disclaimer content={disclaimers.short} />
     </>

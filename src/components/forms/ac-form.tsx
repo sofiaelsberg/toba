@@ -214,16 +214,17 @@ function ContactEmbed({ topic }: { topic: string | null }) {
   );
 }
 
-/** Nyhedsbrevsformularen (#11). Feltet "Nyhedsbrev" sættes til "Ja" og skjules. */
-export function NewsletterEmbedForm({ className }: { className?: string }) {
+/** Nyhedsbrevsformularen (#11). Feltet "Nyhedsbrev" sættes til "Ja" og skjules.
+ *  `bare`: uden egen overskrift og kort-ramme – til når den står i en boks med sin egen overskrift. */
+export function NewsletterEmbedForm({ className, bare = false }: { className?: string; bare?: boolean }) {
   return (
     <ActiveCampaignForm
       id={activeCampaignForms.newsletter}
       label={newsletterForm.label}
-      title={newsletterForm.title}
+      title={bare ? undefined : newsletterForm.title}
       microcopy={newsletterForm.microcopy}
       fixed={newsletterForm.fixed}
-      className={className}
+      className={cn(bare && "border-t-0 p-0 shadow-none md:p-0", className)}
     />
   );
 }
