@@ -313,6 +313,18 @@
   color: var(--ink) !important;
   cursor: pointer !important;
 }
+:is(#ac-form-8, #ac-form-9, #ac-form-10, #ac-form-11) ._form._form._form .toba-consent ._checkbox-radio {
+  align-items: flex-start !important;
+}
+:is(#ac-form-8, #ac-form-9, #ac-form-10, #ac-form-11) ._form._form._form .toba-consent input[type="checkbox"] {
+  margin-top: 0.2rem !important;
+}
+:is(#ac-form-8, #ac-form-9, #ac-form-10, #ac-form-11) ._form._form._form .toba-consent ._error-inner[hidden] {
+  display: none !important;
+}
+:is(#ac-form-8, #ac-form-9, #ac-form-10, #ac-form-11) ._form._form._form .toba-consent ._error-inner {
+  margin-top: 0.375rem !important;
+}
 :is(#ac-form-8, #ac-form-9, #ac-form-10, #ac-form-11) ._form._form._form ._button-wrapper {
   margin: 0.5rem 0 0 !important;
   padding: 0 !important;

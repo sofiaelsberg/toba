@@ -5,6 +5,7 @@
  */
 
 export type FormMicrocopy = { text: string; linkLabel: string; href: string; after?: string };
+export type FormConsent = FormMicrocopy & { error: string };
 
 import { routes } from "./site";
 
@@ -47,5 +48,13 @@ export const newsletterForm = {
   label: "Tilmelding til nyhedsbrev",
   /** Feltet "Nyhedsbrev" i ActiveCampaign sættes til "Ja" og skjules (formularen spørger ikke). */
   fixed: { "field[45]": "Ja" } as Record<string, string>,
-  microcopy: { text: "Du kan afmelde dig med ét klik i alle vores e-mails. Læs mere i vores", ...privacy } satisfies FormMicrocopy,
+  /** Samtykke-afkrydsning over knappen. Formularen kan først sendes, når der er sat kryds.
+   *  Felter og knaptekst ("Tilmeld mig nyhedsbrevet") redigeres i ActiveCampaign. */
+  consent: {
+    text: "Ja tak, jeg vil modtage nyhedsbreve fra TOBA Advice på e-mail. Jeg kan altid afmelde mig. Se",
+    linkLabel: "privatlivspolitikken",
+    href: routes.privacy,
+    after: ".",
+    error: "Sæt kryds for at tilmelde dig nyhedsbrevet.",
+  } satisfies FormConsent,
 };
