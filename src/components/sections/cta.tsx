@@ -51,9 +51,25 @@ export function CtaCards({
 }
 
 /** Navy afslutning: titel, indledning, to knapper. */
-export function CtaBand({ title, lead, actions, id }: { title: string; lead?: string; actions: Action[]; id?: string }) {
+export function CtaBand({
+  title,
+  lead,
+  actions,
+  id,
+  tone = "navy",
+}: {
+  title: string;
+  lead?: string;
+  actions: Action[];
+  id?: string;
+  /** "cream" = beige bånd med mørk tekst (brug knapvarianterne primary/secondary). */
+  tone?: "navy" | "cream";
+}) {
   return (
-    <section id={id} className="on-navy scroll-mt-24 bg-navy py-16 text-on-navy md:py-24">
+    <section
+      id={id}
+      className={cn("scroll-mt-24 py-16 md:py-24", tone === "navy" ? "on-navy bg-navy text-on-navy" : "bg-cream")}
+    >
       <Reveal className="wrap flex flex-col items-start gap-6">
         <GoldRule />
         <Heading title={title} />

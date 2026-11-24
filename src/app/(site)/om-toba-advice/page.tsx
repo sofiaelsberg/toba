@@ -6,14 +6,13 @@ import { Media } from "@/components/blocks/media";
 import { VideoBlock } from "@/components/blocks/video-block";
 import { CtaBand } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
-import { Disclaimer } from "@/components/sections/legal";
 import { FeatureList } from "@/components/sections/lists";
 import { PeopleGrid } from "@/components/sections/people";
 import { PersonQuote } from "@/components/sections/person-quote";
 import { HeadingRow, Section, SectionHeading, Split } from "@/components/sections/section";
 import { about as c } from "@/content/pages/about";
 import { advisers, people } from "@/content/people";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.about, c.seo);
@@ -93,8 +92,7 @@ export default function AboutPage() {
         </Split>
       </Section>
 
-      <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} />
-      <Disclaimer content={disclaimers.short} />
+      <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} tone="cream" />
     </>
   );
 }

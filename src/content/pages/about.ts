@@ -106,8 +106,8 @@ export const about = {
     title: "Lad os starte med en samtale",
     lead: "Vil du vide, om din formue arbejder for dig – eller for andre? Book et uforpligtende møde, eller start med et gratis omkostningsoverblik.",
     actions: [
-      { ...bookMeeting, variant: "light" as const },
-      { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "ghost-light" as const },
+      bookMeeting,
+      { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "secondary" as const },
     ],
   },
 };
