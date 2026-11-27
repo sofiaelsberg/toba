@@ -74,10 +74,7 @@ export default function HowWeInvestPage() {
 
       <Section id="forvaltere">
         <div className="flex flex-col gap-12">
-          <Split align="end">
-            <SectionHeading rule title={c.managers.title} />
-            <p>{c.managers.lead}</p>
-          </Split>
+          <SectionHeading rule title={c.managers.title} />
           <div aria-hidden className="border-t-2 border-gold-light" />
           <Split align="start">
             <AccordionList items={c.managers.process} defaultOpen={0} />
