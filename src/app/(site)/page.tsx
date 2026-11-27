@@ -5,10 +5,8 @@ import { CtaCards } from "@/components/sections/cta";
 import { FactBox } from "@/components/sections/stats";
 import { FaqSection, FeatureList, NumberedSteps } from "@/components/sections/lists";
 import { NewsTeaser } from "@/components/news/news-teaser";
-import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { WealthMap } from "@/components/sections/wealth-map";
-import { advisers } from "@/content/people";
 import { routes } from "@/content/site";
 
 import { AmbientVideo } from "@/components/blocks/ambient-video";
@@ -87,23 +85,6 @@ export default function HomePage() {
           segments={c.bank.segments}
           source={c.bank.source}
         />
-      </Section>
-
-      <Section surface="white">
-        <div className="flex flex-col gap-10 md:gap-12">
-          <div className="flex flex-col gap-5">
-            <SectionHeading eyebrow={c.about.eyebrow} title={c.about.title} />
-            {c.about.text.map((t) => (
-              <p key={t} className="max-w-measure">
-                {t}
-              </p>
-            ))}
-            <TextLink href={c.about.link.href} className="self-start">
-              {c.about.link.label}
-            </TextLink>
-          </div>
-          <PeopleGrid people={advisers} />
-        </div>
       </Section>
 
       <Section id="vilkaar">

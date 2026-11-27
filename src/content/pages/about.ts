@@ -95,7 +95,7 @@ export const about = {
   },
 
   advisers: {
-    title: "Mød dine rådgivere",
+    title: "Ejet af dem, der rådgiver dig",
     lead: "Har du spørgsmål, eller vil du have din investeringsopsætning gennemgået? Tag fat i en af os – vi tager gerne en uforpligtende snak.",
     link: { label: "Se hele vores team →", href: routes.team },
   },

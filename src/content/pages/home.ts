@@ -158,15 +158,6 @@ export const home = {
       "Eksempel. Portefølje med 35 % aktier, 40 % obligationer og 25 % alternativer, middel risiko. Honorar ekskl. moms. Rabatter udbetales kontant eller som institutionel andelsklasse. Dine faktiske omkostninger afhænger af din portefølje.",
   },
 
-  about: {
-    eyebrow: "Om TOBA",
-    title: "Ejet af dem, der rådgiver dig",
-    text: [
-      `TOBA er en medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver personer med en investerbar formue på mindst ${facts.minimumWealthMio} mio. kr. – med skræddersyet rådgivning og frit valg på alle hylder.`,
-    ],
-    link: { label: "Mød hele teamet →", href: routes.team },
-  },
-
   /** Spørgsmål og svar – vises på forsiden og sendes til Google/AI som FAQ-data. Korte, selvstændige svar. */
   faqTitle: "Spørgsmål og svar om uafhængig investeringsrådgivning",
   faq: [
