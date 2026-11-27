@@ -31,27 +31,27 @@ export const howWeInvest = {
   ],
 
   hero: {
-    eyebrow: "Vores investeringsproces",
+    eyebrow: "Sådan Investerer vi",
     title: "De rigtige *byggesten* afgør afkastet",
     lead: "Det er ikke det enkelte aktievalg eller den perfekte timing, der afgør dit afkast på den lange bane. Det er strategien – hvordan din formue er fordelt på aktier, obligationer og alternative investeringer. Og den bygger vi fra bunden, sammen med dig.",
-    actions: [bookMeeting, { label: "Se hvordan", href: "#strategi", variant: "secondary" }],
+    actions: [bookMeeting],
     trustline,
   } satisfies HeroContent,
   heroMedia: images.clientPortal,
 
   strategy: {
-    title: "En plan, du kan holde fast i – også i modvind",
+    title: "En strategi, du kan holde fast i – også i modvind",
     steps: [
       { title: "Blankt papir", text: "Vi starter uden færdige porteføljer. Hele markedet er i spil." },
       {
         title: "Rammerne",
         text: "Vi aftaler dem sammen: din tidshorisont, hvor store udsving du kan leve med, og hvad du forventer af afkast.",
       },
-      { title: "Byggeklodserne", text: "Vi vælger frit på hele markedet. Det er sammensætningen, der afgør dit afkast." },
+      { title: "Byggestenene", text: "Vi vælger frit på hele markedet. Det er sammensætningen, der afgør dit afkast." },
       { title: "Opfølgning", text: "Vi aftaler, hvor tit vi mødes, hvordan vi overvåger porteføljen, og hvornår vi justerer." },
     ] satisfies StepContent[],
     quote: {
-      text: "“Over 90 % af udsvingene i en porteføljes afkast forklares af strategien – ikke af timing eller aktievalg.”",
+      text: "“Over 90% af udsvingene i en porteføljes afkast forklares af strategien – ikke af timing eller aktievalg.”",
       source: "Brinson, Hood & Beebower, Financial Analysts Journal, 1986",
     } satisfies QuoteContent,
   },
@@ -78,12 +78,11 @@ export const howWeInvest = {
     valueSuffix: " mio.",
     volatility: "Udsving (standardafvigelse): **8,48 %** i begge",
     footnote:
-      "Regneeksempel baseret på forventede afkast fra Rådet for Afkastforventninger. Forventede afkast er ingen garanti for fremtidige afkast.",
+      "Eksemplet er lavet på en middelrisiko portefølje bestående af aktier, obligationer og alternativer.\nRegneeksempel baseret på forventede afkast fra Rådet for Afkastforventninger. Forventede afkast er ingen garanti for fremtidige afkast.",
   },
 
   managers: {
     title: "Sådan vælger vi forvaltere – og holder dem i kort snor",
-    lead: "Vi bygger din portefølje af fonde fra nogle af de bedste kapitalforvaltere i verden. Hver forvalter er valgt, fordi de hører til de bedste inden for netop deres område.",
     stats: [
       { value: facts.managers, label: "forvaltere" },
       { value: facts.countries, label: "lande" },
@@ -131,9 +130,8 @@ export const howWeInvest = {
         { label: "Texas", lat: 30.27, lon: -97.74, managers: ["Vista"] },
         { label: "Californien", lat: 33.54, lon: -117.78, managers: ["WCM"] },
       ],
-      managerSingular: "forvalter",
-      managerPlural: "forvaltere",
-      caption: "Forvalternes hovedkontorer. Peg på eller tryk på en prik for at se, hvem der sidder hvor.",
+      caption:
+        "Vi bygger din portefølje af fonde fra nogle af de bedste kapitalforvaltere i verden. Hver forvalter er valgt, fordi de hører til de bedste inden for netop deres område.",
     } satisfies ManagerMapContent,
     link: { label: "Læs om uafhængig rådgivning →", href: routes.independent },
   },
@@ -180,8 +178,14 @@ export const howWeInvest = {
     note: "Vi sørger for, at tingene hænger sammen, og koordinerer med din advokat og revisor. Har du ikke en, henviser vi dig til nogen, vi kender og stoler på. Vi får ingen betaling for at henvise.",
     areas: [
       { title: "Familie", text: "Hvordan formuen skal række – også til børn og børnebørn." },
-      { title: "Jura", text: "Ægtepagt, testamente og fremtidsfuldmagt skal passe til din investeringsstrategi." },
-      { title: "Virksomhed", text: "Lønudtræk, ejeraftale og generationsskifte påvirker, hvordan din formue skal investeres." },
+      {
+        title: "Jura",
+        text: "Ægtepagt, testamente og fremtidsfuldmagt – så formuen er beskyttet og fordeles, som du ønsker det.",
+      },
+      {
+        title: "Virksomhed",
+        text: "Lønudtræk, ejeraftale og generationsskifte – vi sparrer og koordinerer med din revisor og advokat.",
+      },
     ] satisfies Point[],
   },
 
@@ -194,7 +198,7 @@ export const howWeInvest = {
       { title: "Afkastanalyse.", text: "Forstå, hvad der har drevet dit afkast." },
       { title: "Rapport hvert kvartal", text: "– og faste møder med din rådgiver." },
     ] satisfies Point[],
-    noBankSwitch: "**Du behøver ikke skifte bank.** Vi er ikke en bank. Vi bruger dit eksisterende depot.",
+    noBankSwitch: "**Du behøver ikke skifte bank.** Vi kan anvende dit eksisterende depot.",
     media: images.clientPortal,
     caption: "Illustrativt skærmbillede. Tallene er eksempler og ikke en faktisk kundeportefølje.",
     price: {

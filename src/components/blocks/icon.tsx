@@ -12,6 +12,8 @@ import {
   Smartphone,
   Users,
   Cookie,
+  Eye,
+  HeartHandshake,
   type LucideIcon,
 } from "lucide-react";
 
@@ -44,6 +46,8 @@ const map: Record<IconName, LucideIcon | typeof LinkedinMark> = {
   linkedin: LinkedinMark,
   document: FileText,
   cookie: Cookie,
+  handshake: HeartHandshake,
+  eye: Eye,
 };
 
 /** Guldikon i navy felt (48 px) – på navy flader en lys, gennemsigtig variant. */

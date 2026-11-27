@@ -45,6 +45,9 @@ export default function HomePage() {
                 {t}
               </p>
             ))}
+            <blockquote className="mt-2 max-w-measure border-l-2 border-gold pl-6">
+              <p className="font-serif text-quote font-normal text-navy italic">{c.sameSide.quote}</p>
+            </blockquote>
           </div>
           <VideoBlock video={c.sameSide.video} />
         </Split>

@@ -171,7 +171,11 @@ export function ReturnComparison({
         <p className="border-t border-gold-light pt-4 text-small text-on-navy-muted">
           <RichText text={volatility} />
         </p>
-        <p className="text-caption text-on-navy-muted">{footnote}</p>
+        <div className="flex flex-col gap-3 text-caption text-on-navy-muted">
+          {footnote.split("\n").map((line) => (
+            <p key={line}>{line}</p>
+          ))}
+        </div>
       </div>
     </div>
   );

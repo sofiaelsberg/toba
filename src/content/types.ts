@@ -37,8 +37,6 @@ export type ManagerMapContent = {
   label: string;
   regions: { label: string; managers: number }[];
   locations: { label: string; lat: number; lon: number; managers: string[] }[];
-  managerSingular: string;
-  managerPlural: string;
   caption?: string;
 };
 
@@ -121,7 +119,9 @@ export type IconName =
   | "pin"
   | "linkedin"
   | "document"
-  | "cookie";
+  | "cookie"
+  | "handshake"
+  | "eye";
 
 export type FeatureContent = { icon: IconName; title: string; text: string };
 

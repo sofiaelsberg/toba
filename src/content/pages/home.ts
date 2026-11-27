@@ -1,7 +1,17 @@
 import { calculatorConfig, facts } from "../facts";
 import { ambient, videos } from "../media";
 import { routes, bookMeeting, trustline } from "../site";
-import type { CtaCardContent, StepContent, FactContent, FaqItem, FeatureContent, HeroContent, NewsTeaserContent, Seo, WealthMapContent } from "../types";
+import type {
+  CtaCardContent,
+  StepContent,
+  FactContent,
+  FaqItem,
+  FeatureContent,
+  HeroContent,
+  NewsTeaserContent,
+  Seo,
+  WealthMapContent,
+} from "../types";
 
 export const home = {
   seo: {
@@ -13,7 +23,7 @@ export const home = {
   hero: {
     eyebrow: "Uafhængig investeringsrådgivning",
     title: "Vi tager os af dine investeringer, så du kan tage dig af *livet*",
-    lead: "Uafhængig rådgivning om din samlede formue – for selskaber, privatpersoner, virksomhedsejere og familier.",
+    lead: "Investeringsrådgivning som den bør være – ingen uigennemsigtige gebyrer, kun ærlig og ansvarlig rådgivning.",
     actions: [bookMeeting, { label: "Hvem spiser din lagkage?", href: routes.guide, variant: "secondary" }],
     trustline,
   } satisfies HeroContent,
@@ -52,8 +62,9 @@ export const home = {
     text: [
       "Hos TOBA Advice arbejder vi for at sikre dig attraktive og fair vilkår for dine investeringer. Vi har ingen egne investeringsprodukter og ingen økonomisk interesse i at anbefale bestemte produkter.",
       "Du får en sparringspartner, der tager udgangspunkt i dig og dine behov.",
-      "For værdi handler om mere end et godt afkast. Det handler om tillid og ordentlighed.",
     ],
+    /** Fremhævet som citat under brødteksten. */
+    quote: "For værdi handler om mere end et godt afkast. Det handler om tillid og ordentlighed.",
     video: videos.v03,
   },
 
@@ -62,19 +73,19 @@ export const home = {
     title: "Det bygger vores rådgivning på",
     features: [
       {
-        icon: "shelves",
+        icon: "globe",
         title: "Frihed",
-        text: "Du får adgang til investeringer på tværs af markedet – også udvalgte alternative fonde, der normalt er forbeholdt professionelle investorer. Du bestemmer selv, hvor meget du vil involveres.",
+        text: "Vi har ingen egne produkter, så vi kan frit vælge det, der passer bedst til dig – på hele markedet",
       },
       {
-        icon: "shield",
+        icon: "handshake",
         title: "Tryghed",
-        text: "Du har en fast rådgiver, der kender dig og din økonomi. Og du kan følge din formue i app og på web, når det passer dig.",
+        text: "Din faste rådgiver kender dig og din økonomi. Vores anbefalinger bygger på grundig analyse, og vi forklarer altid hvorfor – så du kan beslutte på et solidt grundlag.",
       },
       {
-        icon: "rebate",
+        icon: "eye",
         title: "Transparens",
-        text: "Du ved, hvad du betaler, og hvad du betaler for. De rabatter, vi forhandler hjem på dine investeringer, går ubeskåret videre til dig.",
+        text: "Du ved altid hvad du betaler og hvad du betaler for. Rabatter og provisioner går altid ubeskåret til dig.",
       },
     ] satisfies FeatureContent[],
   },
@@ -125,7 +136,6 @@ export const home = {
     action: { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "primary" as const },
     link: { label: "Hent guiden “Hvem spiser din lagkage?” →", href: routes.guide },
   },
-
 
   calculator: {
     title: "Hvad koster rådgivningen – når rabatterne er trukket fra?",

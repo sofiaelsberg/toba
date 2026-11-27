@@ -126,7 +126,7 @@ export function FaqSection({ title, items, id, surface = "white" }: { title: str
 export function QuoteBlock({ quote }: { quote: QuoteContent }) {
   return (
     <blockquote className="max-w-[51rem] border-l-2 border-gold pl-6">
-      <p className="font-serif text-quote font-medium text-navy italic">{quote.text}</p>
+      <p className="font-serif text-quote font-normal text-navy italic">{quote.text}</p>
       <footer className="mt-3 text-small text-ink-muted">{quote.source}</footer>
     </blockquote>
   );
