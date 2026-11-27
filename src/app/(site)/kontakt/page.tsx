@@ -5,12 +5,11 @@ import { IconBadge } from "@/components/blocks/icon";
 import { TextLink } from "@/components/blocks/links";
 import { Eyebrow } from "@/components/blocks/typography";
 import { ContactEmbedForm } from "@/components/forms/ac-form";
-import { Disclaimer } from "@/components/sections/legal";
 import { PeopleGrid } from "@/components/sections/people";
 import { HeadingRow, Section, SectionHeading } from "@/components/sections/section";
 import { contact as c } from "@/content/pages/contact";
 import { advisers } from "@/content/people";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.contact, c.seo);
@@ -70,7 +69,6 @@ export default function ContactPage() {
         </div>
       </Section>
 
-      <Disclaimer content={disclaimers.short} />
     </>
   );
 }

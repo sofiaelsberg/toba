@@ -3,11 +3,10 @@ import type { Metadata } from "next";
 import { TextLink } from "@/components/blocks/links";
 import { RichText } from "@/components/blocks/rich-text";
 import { Caption } from "@/components/blocks/typography";
-import { Disclaimer } from "@/components/sections/legal";
 import { PointList } from "@/components/sections/lists";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { privacyPage as c } from "@/content/pages/legal";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.privacy, c.seo);
@@ -63,7 +62,6 @@ export default function PrivacyPage() {
           <Caption>{c.version}</Caption>
         </NarrowBlock>
       </NarrowPage>
-      <Disclaimer content={disclaimers.short} />
     </>
   );
 }

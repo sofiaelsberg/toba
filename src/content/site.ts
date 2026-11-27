@@ -1,5 +1,5 @@
 import { facts } from "./facts";
-import type { Action, DisclaimerContent, LinkItem } from "./types";
+import type { Action, LinkItem } from "./types";
 
 export const routes = {
   home: "/",
@@ -131,22 +131,3 @@ export const landingChrome = {
     { label: "tobaadvice.com", href: routes.home },
   ] satisfies LinkItem[],
 } as const;
-
-export const disclaimers = {
-  standard: {
-    label: "Vigtig information.",
-    text: "Indholdet på denne side er generel information og ikke individuel investeringsrådgivning. Investering indebærer risiko for tab. Historiske og forventede afkast er ingen garanti for fremtidige afkast.",
-  },
-  short: {
-    label: "Vigtig information.",
-    text: "Indholdet på denne side er generel information og ikke individuel investeringsrådgivning. Investering indebærer risiko for tab.",
-  },
-  guide: {
-    label: "Vigtig information.",
-    text: "Indholdet på denne side er generel information og ikke individuel investeringsrådgivning. Tal og eksempler er illustrative og bygger på de angivne forudsætninger. Historiske afkast er ingen garanti for fremtidige afkast. Investering indebærer risiko for tab.",
-  },
-  overview: {
-    label: "Vigtig information.",
-    text: "Indholdet på denne side er generel information og ikke individuel investeringsrådgivning. Eksemplet er anonymiseret og kun til illustration. Historiske afkast er ingen garanti for fremtidige afkast. Investering indebærer risiko for tab.",
-  },
-} satisfies Record<string, DisclaimerContent>;

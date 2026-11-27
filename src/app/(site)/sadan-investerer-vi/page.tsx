@@ -10,14 +10,13 @@ import { ManagerMap } from "@/components/interactive/manager-map";
 import { AnchorNav } from "@/components/interactive/navigation";
 import { StepTimeline } from "@/components/interactive/step-timeline";
 import { Hero } from "@/components/sections/hero";
-import { Disclaimer } from "@/components/sections/legal";
 import { AccordionList, QuoteBlock } from "@/components/sections/lists";
 import { PersonQuote } from "@/components/sections/person-quote";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { facts } from "@/content/facts";
 import { howWeInvest as c } from "@/content/pages/how-we-invest";
 import { people } from "@/content/people";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.howWeInvest, c.seo);
@@ -168,7 +167,6 @@ export default function HowWeInvestPage() {
         </div>
       </Section>
 
-      <Disclaimer content={disclaimers.standard} />
     </>
   );
 }

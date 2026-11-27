@@ -4,10 +4,9 @@ import { TextLink } from "@/components/blocks/links";
 import { NewsletterEmbedForm } from "@/components/forms/ac-form";
 import { NewsGrid } from "@/components/news/news-card";
 import { Hero } from "@/components/sections/hero";
-import { Disclaimer } from "@/components/sections/legal";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { news as c } from "@/content/pages/news";
-import { company, disclaimers, routes } from "@/content/site";
+import { company, routes } from "@/content/site";
 import { getAllPosts } from "@/lib/news";
 import { pageMetadata } from "@/lib/seo";
 import { jsonLd, newsListJsonLd } from "@/lib/structured-data";
@@ -36,7 +35,6 @@ export default async function NewsPage() {
           </TextLink>
         </div>
       </Section>
-      <Disclaimer content={disclaimers.short} />
     </>
   );
 }

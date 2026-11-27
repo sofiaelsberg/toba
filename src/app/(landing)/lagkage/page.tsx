@@ -8,13 +8,12 @@ import { GuideEmbedForm } from "@/components/forms/ac-form";
 import { LockedChecklist, LockedChecklistIntro, UnlockProvider } from "@/components/interactive/checklists";
 import { LayerCake } from "@/components/interactive/layer-cake";
 import { LandingShell } from "@/components/layout/landing-shell";
-import { Disclaimer } from "@/components/sections/legal";
 import { FeatureList, PointList } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { FactBox, StatsRow } from "@/components/sections/stats";
 import { cake } from "@/content/cake";
 import { guide as c } from "@/content/pages/guide";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.guide, c.seo, { ownShareImage: true });
@@ -118,7 +117,6 @@ export default function GuidePage() {
           </Split>
         </Section>
 
-        <Disclaimer content={disclaimers.guide} />
       </LandingShell>
     </UnlockProvider>
   );

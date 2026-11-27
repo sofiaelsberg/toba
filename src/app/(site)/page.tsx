@@ -9,10 +9,9 @@ import { PeopleGrid } from "@/components/sections/people";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { WealthMap } from "@/components/sections/wealth-map";
 import { advisers } from "@/content/people";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 
 import { AmbientVideo } from "@/components/blocks/ambient-video";
-import { Disclaimer } from "@/components/sections/legal";
 import { Hero } from "@/components/sections/hero";
 import type { Metadata } from "next";
 import { ShareFact } from "@/components/interactive/charts";
@@ -156,7 +155,6 @@ export default function HomePage() {
       <NewsTeaser content={c.news} id="nyheder" />
 
       <FaqSection id="spoergsmaal" title={c.faqTitle} items={c.faq} />
-      <Disclaimer content={disclaimers.standard} />
     </>
   );
 }

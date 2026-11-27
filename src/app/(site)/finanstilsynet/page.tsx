@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 import { ButtonLink, TextLink } from "@/components/blocks/links";
-import { Disclaimer, KeyValueTable } from "@/components/sections/legal";
+import { KeyValueTable } from "@/components/sections/legal";
 import { PointList } from "@/components/sections/lists";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { fsa as c } from "@/content/pages/legal";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.fsa, c.seo);
@@ -26,7 +26,6 @@ export default function FsaPage() {
           </TextLink>
         </NarrowBlock>
       </NarrowPage>
-      <Disclaimer content={disclaimers.short} />
     </>
   );
 }

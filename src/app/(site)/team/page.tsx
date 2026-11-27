@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 
 import { CtaBand } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
-import { Disclaimer } from "@/components/sections/legal";
 import { Section } from "@/components/sections/section";
 import { TeamDirectory } from "@/components/sections/team-directory";
 import { team as c } from "@/content/pages/team";
 import { groups, people } from "@/content/people";
-import { disclaimers, newsPath, routes } from "@/content/site";
+import { newsPath, routes } from "@/content/site";
 import { authorPerson } from "@/lib/authors";
 import { getAllPosts } from "@/lib/news";
 import { pageMetadata } from "@/lib/seo";
@@ -32,7 +31,6 @@ export default async function TeamPage() {
         <TeamDirectory people={people} groups={groups} allLabel={c.filterAll} profileUrlPrefix={c.profileUrlPrefix} bookHref={routes.bookMeeting} articles={articles} newsHref={routes.news} />
       </Section>
       <CtaBand title={c.closing.title} lead={c.closing.lead} actions={c.closing.actions} />
-      <Disclaimer content={disclaimers.short} />
     </>
   );
 }

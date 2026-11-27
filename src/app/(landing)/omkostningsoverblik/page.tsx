@@ -10,12 +10,11 @@ import { DepotExample } from "@/components/interactive/depot-example";
 import { StepTimeline } from "@/components/interactive/step-timeline";
 import { LandingShell } from "@/components/layout/landing-shell";
 import { CtaStrip } from "@/components/sections/cta";
-import { Disclaimer } from "@/components/sections/legal";
 import { AccordionList, PointList } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { FactBox, StatsRow } from "@/components/sections/stats";
 import { overview as c } from "@/content/pages/overview";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { faqJsonLd, jsonLd } from "@/lib/structured-data";
 
@@ -145,7 +144,6 @@ export default function OverviewPage() {
         </div>
       </section>
 
-      <Disclaimer content={disclaimers.overview} />
     </LandingShell>
   );
 }

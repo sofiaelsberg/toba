@@ -3,10 +3,9 @@ import Link from "next/link";
 
 import { CookieSettingsButton } from "@/components/layout/cookie-banner";
 import { buttonVariants } from "@/components/ui/button";
-import { Disclaimer } from "@/components/sections/legal";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { cookieConsent, cookiesPage as c } from "@/content/pages/legal";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.cookies, c.seo);
@@ -65,7 +64,6 @@ export default function CookiesPage() {
           </div>
         </NarrowBlock>
       </NarrowPage>
-      <Disclaimer content={disclaimers.short} />
     </>
   );
 }

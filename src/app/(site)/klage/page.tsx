@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import { AddressCard, Disclaimer } from "@/components/sections/legal";
+import { AddressCard } from "@/components/sections/legal";
 import { NumberedSteps } from "@/components/sections/lists";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { complaints as c } from "@/content/pages/legal";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.complaints, c.seo);
@@ -28,7 +28,6 @@ export default function ComplaintsPage() {
           </div>
         </NarrowBlock>
       </NarrowPage>
-      <Disclaimer content={disclaimers.short} />
     </>
   );
 }

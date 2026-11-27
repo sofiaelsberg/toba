@@ -8,12 +8,11 @@ import { ChecklistReveal } from "@/components/interactive/checklists";
 import { MoneyFlow } from "@/components/interactive/money-flow";
 import { CtaCards } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
-import { Disclaimer } from "@/components/sections/legal";
 import { FaqSection, FeatureList } from "@/components/sections/lists";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { FactBox } from "@/components/sections/stats";
 import { independent as c } from "@/content/pages/independent";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { cn } from "@/lib/utils";
 import { pageMetadata } from "@/lib/seo";
 
@@ -129,7 +128,6 @@ export default function IndependentPage() {
 
       <FaqSection id="spoergsmaal" surface="cream" title={c.faqTitle} items={c.faq} />
 
-      <Disclaimer content={disclaimers.short} />
     </>
   );
 }

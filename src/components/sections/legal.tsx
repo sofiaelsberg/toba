@@ -1,20 +1,5 @@
 import { IconBadge } from "@/components/blocks/icon";
 import { Button } from "@/components/ui/button";
-import type { DisclaimerContent } from "@/content/types";
-import { cn } from "@/lib/utils";
-
-/** "Vigtig information" over sidefoden. */
-export function Disclaimer({ content, className }: { content: DisclaimerContent; className?: string }) {
-  return (
-    <div className={cn("bg-cream py-8", className)}>
-      <div className="wrap">
-        <p className="max-w-[47.5rem] border-t border-line pt-3 text-caption text-ink-muted">
-          <strong className="font-semibold">{content.label}</strong> {content.text}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 type Doc = { title: string; text: string; date?: string; href: string; cta: string };
 

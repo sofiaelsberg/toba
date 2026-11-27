@@ -3,10 +3,10 @@ import Link from "next/link";
 
 import { IconBadge } from "@/components/blocks/icon";
 import { TextLink } from "@/components/blocks/links";
-import { Disclaimer, DocumentList } from "@/components/sections/legal";
+import { DocumentList } from "@/components/sections/legal";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { policies as c } from "@/content/pages/legal";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.policies, c.seo);
@@ -37,7 +37,6 @@ export default function PoliciesPage() {
           </div>
         </NarrowBlock>
       </NarrowPage>
-      <Disclaimer content={disclaimers.short} />
     </>
   );
 }

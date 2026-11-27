@@ -6,8 +6,7 @@ import type { FeatureContent, HeroContent, Seo, Stat } from "../types";
 export const about = {
   seo: {
     title: "Om TOBA – uafhængig, medarbejderejet investeringsrådgiver",
-    description:
-      `TOBA er en uafhængig, medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver formuer fra ${facts.minimumWealthMio} mio. kr. i hele Danmark.`,
+    description: `TOBA er en uafhængig, medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver formuer fra ${facts.minimumWealthMio} mio. kr. i hele Danmark.`,
   } satisfies Seo,
 
   hero: {
@@ -39,7 +38,7 @@ export const about = {
         text: "Din strategi bliver skræddersyet til din formue, dine mål og den risiko, du er villig til at tage.",
       },
       {
-        icon: "shelves",
+        icon: "globe",
         title: "Frit valg på alle hylder",
         text: `Vi tjener ikke penge på egen forvaltning eller handel. Derfor kan vi vælge frit – i dag blandt ${facts.managers} forvaltere i ${facts.countries} lande.`,
       },
@@ -58,7 +57,11 @@ export const about = {
         title: "Overblik, når det passer dig",
         text: "Følg din formue online – på web og i app – og få en rapport hvert kvartal.",
       },
-      { icon: "shield", title: "Tryghed", text: `Vi har tilladelse fra Finanstilsynet og har rådgivet siden ${facts.founded}.` },
+      {
+        icon: "handshake",
+        title: "Tryghed",
+        text: `Din faste rådgiver kender dig og din økonomi. Vores anbefalinger bygger på grundig analyse, og vi forklarer altid hvorfor – så du kan beslutte på et solidt grundlag.`,
+      },
     ] satisfies FeatureContent[],
     link: { label: "Læs om uafhængig rådgivning →", href: routes.independent },
   },
@@ -108,9 +111,6 @@ export const about = {
   closing: {
     title: "Lad os starte med en samtale",
     lead: "Vil du vide, om din formue arbejder for dig – eller for andre? Book et uforpligtende møde, eller start med et gratis omkostningsoverblik.",
-    actions: [
-      bookMeeting,
-      { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "secondary" as const },
-    ],
+    actions: [bookMeeting, { label: "Få gratis omkostningsoverblik", href: routes.overview, variant: "secondary" as const }],
   },
 };

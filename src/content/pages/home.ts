@@ -143,9 +143,10 @@ export const home = {
     unitMio: "mio. kr.",
     rangeMinLabel: `${calculatorConfig.minMio} mio.`,
     rangeMaxLabel: `${calculatorConfig.maxMio} mio.`,
-    todayLabel: "Valgfrit: Hvad betaler du i dag? (% om året)",
-    todayPlaceholder: "fx 1,2",
-    todayHint: "Ved du det ikke? Det finder vi ud af for dig i omkostningsoverblikket.",
+    todayLabel: "Hvad betaler du i alt i dag? (valgfrit)",
+    todayPlaceholder: "fx 1,2 %",
+    todayHint:
+      "Skriv dine samlede årlige omkostninger i procent af formuen – rådgivning, fonde og depot (f.eks. 1,2%). Ved du det ikke? Så finder vi det for dig i omkostningsoverblikket.",
     feeLabel: "Rådgivningshonorar",
     rebateLabel: "Rabatter, vi forhandler hjem",
     netLabel: "Du betaler netto",

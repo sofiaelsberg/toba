@@ -11,10 +11,9 @@ import { ArticleBody } from "@/components/news/article-body";
 import { NewsGrid } from "@/components/news/news-card";
 import { SlideViewer } from "@/components/news/slide-viewer";
 import { pickPosts } from "@/components/news/news-teaser";
-import { Disclaimer } from "@/components/sections/legal";
 import { Section, SectionHeading, Split } from "@/components/sections/section";
 import { news as c } from "@/content/pages/news";
-import { disclaimers, newsPath, routes } from "@/content/site";
+import { newsPath, routes } from "@/content/site";
 import { authorHref, authorPerson } from "@/lib/authors";
 import { formatNewsDate, getAllPosts, getPost } from "@/lib/news";
 import { pageMetadata, withBrand } from "@/lib/seo";
@@ -158,7 +157,6 @@ async function NewsArticle({ params }: Props) {
         </Split>
       </Section>
 
-      <Disclaimer content={disclaimers.standard} />
     </>
   );
 }

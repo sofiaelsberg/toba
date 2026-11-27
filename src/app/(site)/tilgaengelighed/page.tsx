@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 
 import { ButtonLink, TextLink } from "@/components/blocks/links";
 import { Caption } from "@/components/blocks/typography";
-import { Disclaimer } from "@/components/sections/legal";
 import { NumberedSteps, PointList } from "@/components/sections/lists";
 import { NarrowBlock, NarrowPage } from "@/components/sections/narrow-page";
 import { accessibilityPage as c } from "@/content/pages/legal";
-import { disclaimers, routes } from "@/content/site";
+import { routes } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(routes.accessibility, c.seo);
@@ -47,7 +46,6 @@ export default function AccessibilityPage() {
           <Caption className="mt-4">{c.updated}</Caption>
         </NarrowBlock>
       </NarrowPage>
-      <Disclaimer content={disclaimers.short} />
     </>
   );
 }

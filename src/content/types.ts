@@ -125,8 +125,6 @@ export type IconName =
 
 export type FeatureContent = { icon: IconName; title: string; text: string };
 
-export type DisclaimerContent = { label: string; text: string };
-
 export type GroupId = "raadgivning" | "analyse" | "administration" | "bestyrelse";
 
 export type Person = {
