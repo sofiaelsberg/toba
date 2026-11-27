@@ -1,14 +1,14 @@
 ---
 title: "Invitation: Webinar om alternative investeringer"
-description: "Webinar med TOBA Advice og ROYC om alternative investeringer, vores investeringsfilosofi og kapitalfonden Vista Foundation V."
+description: "Webinar med TOBA og ROYC om alternative investeringer, vores investeringsfilosofi og kapitalfonden Vista Foundation V."
 date: "2025-02-13T16:04:15.965Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7295835174951432194/"
 linkedinId: "7295835174951432194"
-document: {"title":"TOBA Advice & ROYC Invitation with e-mail","pages":null,"pdf":"https://media.licdn.com/dms/document/media/v2/D561FAQFc3ic1MyeBBg/feedshare-document-pdf-analyzed/B56ZUACWtyGsAc-/0/1739462374595?e=1796040000&v=beta&t=acIinL153jmcSQ02Z_3kRfgtfERprZ1gLKiIK8WnrkY"}
+document: {"title":"TOBA & ROYC Invitation with e-mail","pages":null,"pdf":"https://media.licdn.com/dms/document/media/v2/D561FAQFc3ic1MyeBBg/feedshare-document-pdf-analyzed/B56ZUACWtyGsAc-/0/1739462374595?e=1796040000&v=beta&t=acIinL153jmcSQ02Z_3kRfgtfERprZ1gLKiIK8WnrkY"}
 ---
 
-Vi hos TOBA Advice er glade for at invitere til et spændende webinar, hvor vi sammen med vores partner ROYC vil udforske mulighederne inden for alternative investeringer.
+Vi hos TOBA er glade for at invitere til et spændende webinar, hvor vi sammen med vores partner ROYC vil udforske mulighederne inden for alternative investeringer.
 
 📅 Dato: Torsdag den 6. marts 2025
 🕓 Tidspunkt: 16:00 - 17:00

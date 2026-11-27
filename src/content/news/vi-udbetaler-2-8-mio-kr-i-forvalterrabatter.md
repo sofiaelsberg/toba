@@ -1,20 +1,20 @@
 ---
 title: "I dag udbetaler vi 2,8 mio. kr. i forvalterrabatter til vores kunder"
-description: "TOBA Advice udbetaler 2,8 mio. kr. i forvalterrabatter for 2025 direkte til kunderne. Derfor skal stordriftsfordelene tilfalde investorerne."
+description: "TOBA udbetaler 2,8 mio. kr. i forvalterrabatter for 2025 direkte til kunderne. Derfor skal stordriftsfordelene tilfalde investorerne."
 date: "2026-04-28T06:30:18.290Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7453395324234113024/"
 linkedinId: "7453395324234113024"
 document: {"title":"TOBA-kunder får stordriftsfordelene"}
 tags: ["Toba","Investeringsrådgiver","Uafhængig"]
 ---
 
-Hvert år er der én dag i TOBA Advice, vi virkelig glæder os til — den dag, hvor vi udbetaler de årlige forvalterrabatter vi har forhandlet hjem til vores kunder.
+Hvert år er der én dag i TOBA, vi virkelig glæder os til — den dag, hvor vi udbetaler de årlige forvalterrabatter vi har forhandlet hjem til vores kunder.
 For 2025 er det i alt 2.800.000 kr — der udbetales direkte til kundernes konti.
 
 Hvorfor betyder det så meget for os?
 
-Fordi TOBA Advice som uafhængig rådgiver udelukkende arbejder for vores kunder. Vi tror grundlæggende på, at stordriftsfordelene skal tilfalde investorerne — og det er vores kunder.
+Fordi TOBA som uafhængig rådgiver udelukkende arbejder for vores kunder. Vi tror grundlæggende på, at stordriftsfordelene skal tilfalde investorerne — og det er vores kunder.
 
 Inden for kapitalforvaltning er der betragtelige stordriftsfordele - Jo større volumen du kan forhandle ud fra, jo større fordele kan der opnås.
 

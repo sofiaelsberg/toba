@@ -8,7 +8,7 @@ import { absoluteUrl as abs, SITE_URL } from "@/lib/seo";
 
 /*
  * Schema.org-data (JSON-LD). Bruges af Google til søgeresultater og af AI-tjenester til at svare
- * korrekt på spørgsmål om TOBA Advice. Alt bygges ud fra indholdsfilerne – ret teksterne dér.
+ * korrekt på spørgsmål om TOBA. Alt bygges ud fra indholdsfilerne – ret teksterne dér.
  */
 
 const ORG_ID = `${SITE_URL}/#organisation`;
@@ -21,7 +21,7 @@ export const siteJsonLd = {
       "@type": "FinancialService",
       "@id": ORG_ID,
       name: company.name,
-      alternateName: [company.legalName, "TOBA"],
+      alternateName: [company.legalName, "TOBA Advice"],
       legalName: company.legalName,
       description: footer.about,
       disambiguatingDescription: company.disambiguation,
@@ -170,7 +170,7 @@ export function newsListJsonLd(posts: NewsPost[]) {
     "@context": "https://schema.org",
     "@type": "Blog",
     "@id": abs(`${routes.news}#blog`),
-    name: "Nyheder og indsigt fra TOBA Advice",
+    name: "Nyheder og indsigt fra TOBA",
     url: abs(routes.news),
     inLanguage: "da-DK",
     publisher: { "@id": ORG_ID },
@@ -189,7 +189,7 @@ export function articleJsonLd(p: NewsPost) {
   const person = authorPerson(p.author);
   const author = person
     ? { "@type": "Person", "@id": abs(authorHref(person)), name: person.name, jobTitle: person.title, url: abs(authorHref(person)), worksFor: { "@id": ORG_ID } }
-    : p.author === "TOBA Advice"
+    : p.author === "TOBA"
       ? { "@id": ORG_ID }
       : { "@type": "Person", name: p.author, worksFor: { "@id": ORG_ID } };
   return {

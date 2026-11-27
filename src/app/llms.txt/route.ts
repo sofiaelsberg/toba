@@ -19,7 +19,7 @@ import { absoluteUrl, SITE_URL } from "@/lib/seo";
  * /llms.txt – en kort, maskinlæsbar oversigt til AI-tjenester (llmstxt.org).
  * Bygges ud fra indholdsfilerne, så den altid følger siden. Bruger ingen request-data, så Next bygger den statisk.
  */
-const link = (path: string, title: string, description: string) => `- [${plain(title).replace(/ \| TOBA Advice$/, "")}](${absoluteUrl(path)}): ${plain(description)}`;
+const link = (path: string, title: string, description: string) => `- [${plain(title).replace(/ \| TOBA$/, "")}](${absoluteUrl(path)}): ${plain(description)}`;
 
 export async function GET() {
   const posts = await getAllPosts();
@@ -36,7 +36,7 @@ Nøglefakta:
 - Uafhængig: ingen provision fra fonde eller forvaltere og ingen indtægter fra egen forvaltning eller handel. Kunden betaler et aftalt rådgivningshonorar.
 - Forvalterrabatter sendes ubeskåret videre til kunderne – ${rebate} mio. kr. udbetalt i ${facts.rebatesPaid.paidYear}.
 - Vi samarbejder med ${facts.managers} kapitalforvaltere i ${facts.countries} lande og har ${facts.yearsSelectingManagers}+ års erfaring med at udvælge forvaltere.
-- Kunden beholder sit depot i sin egen bank; TOBA Advice opbevarer ikke værdipapirer.
+- Kunden beholder sit depot i sin egen bank; TOBA opbevarer ikke værdipapirer.
 - Målgruppe: personer, familier og virksomhedsejere med en investerbar formue på mindst ${facts.minimumWealthMio} mio. kr.
 - Kontakt: ${company.phone} · ${absoluteUrl(routes.contact)}
 
@@ -60,11 +60,11 @@ ${posts.slice(0, 10).map((p) => link(newsPath(p.slug), p.title, p.description)).
 
 ${advisers.map((p) => `- ${p.name}, ${p.title}`).join("\n")}
 
-## TOBA Advice i medierne
+## TOBA i medierne
 
 ${people.flatMap((p) => (p.press ?? []).map((a) => `- ${a.outlet}, ${a.date}: "${a.headline}" – med bidrag fra ${p.name}, ${p.title}. ${a.url}`)).join("\n")}
 
-## Spørgsmål og svar om TOBA Advice
+## Spørgsmål og svar om TOBA
 
 ${home.faq.map((f) => `- ${f.question} ${plain(f.answer)}`).join("\n")}
 

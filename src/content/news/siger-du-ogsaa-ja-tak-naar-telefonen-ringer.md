@@ -2,14 +2,14 @@
 title: "Siger du også ja tak, når telefonen ringer? Så pas på"
 description: "Komplekse, illikvide investeringer sælges ofte over telefonen – med optimistiske afkast og flere lag gebyrer. Det skal du tjekke, før du siger ja."
 date: "2025-11-24T09:53:47.000Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7398660093199851521/"
 linkedinId: "7398660093199851521"
 image: "/nyheder/siger-du-ogsaa-ja-tak-naar-telefonen-ringer-hd.jpg"
 imageAlt: "Se billede"
 ---
 
-I TOBA Advice gennemgår vi dagligt mange forskellige investeringsporteføljer. I nogle af dem ser vi et meget tydeligt aftryk fra bestemte udbydere af alternative investeringsprodukter. Det er typisk kunder, der er blevet præsenteret for en ny alternativ aktivklasse eller et spændende koncept – og som er endt med at sige ja tak til en illikvid eller kompleks løsning.
+I TOBA gennemgår vi dagligt mange forskellige investeringsporteføljer. I nogle af dem ser vi et meget tydeligt aftryk fra bestemte udbydere af alternative investeringsprodukter. Det er typisk kunder, der er blevet præsenteret for en ny alternativ aktivklasse eller et spændende koncept – og som er endt med at sige ja tak til en illikvid eller kompleks løsning.
 
 Vi har endda mødt investorer, der sagde: “Jeg sagde ja tak bare for at få dem til at holde op med at ringe.”
 
@@ -28,5 +28,5 @@ Men hvordan finder du så de gode alternativer?
 Det kan f.eks. ske gennem uafhængige rådgivere med internationalt netværk og adgang til forvaltere inden for kapitalfonde – som @TOBA. Med grundige søgeprocesser, den rette ekspertise og de rigtige kontakter kan vi identificere og skabe adgang til attraktive kapitalfonde, som normalt er forbeholdt professionelle investorer.
 
 Når investeringen er fundet, handler det også om at minimere omkostningerne i alle led.
- Hos TOBA Advice bruger vi f.eks. en simpel tommelfingerregel: En feeder-fond til en stærk udenlandsk kapitalfond må maksimalt koste 0,5 % p.a.
+ Hos TOBA bruger vi f.eks. en simpel tommelfingerregel: En feeder-fond til en stærk udenlandsk kapitalfond må maksimalt koste 0,5 % p.a.
 Ellers bliver din del af kagen for lille.

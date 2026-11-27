@@ -2,7 +2,7 @@
 title: "Formidlingsprovision: Bankerne beholder den – stadigvæk"
 description: "Europa-Parlamentet har stemt kernen i EU's pakke for småinvestorer ned. Derfor kan bankerne fortsat beholde formidlingsprovisionen."
 date: "2026-11-19T12:13:48.889Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7529154965546762240/"
 linkedinId: "7529154965546762240"
 tags: ["Formidlingsprovision","Toba"]
@@ -27,9 +27,9 @@ Så hvad gør man som investor i mellemtiden?
 Man kan betale provisionen og tænke, at sådan er det bare.
 Eller man kan se sig om efter en uafhængig investeringsrådgiver, der ikke selv beholder hverken provisioner eller rabatter – men sender dem ubeskåret videre til kunderne.
 
-Det er sådan vi gør i TOBA Advice. Vi modtager ikke formidlingsprovisioner fra nogen for at sælge deres produkter, og de rabatter vi forhandler hjem går ubeskåret til kunderne. Det kræver ingen lov.
+Det er sådan vi gør i TOBA. Vi modtager ikke formidlingsprovisioner fra nogen for at sælge deres produkter, og de rabatter vi forhandler hjem går ubeskåret til kunderne. Det kræver ingen lov.
 
 Man behøver ikke vente på Bruxelles for at få det, der er ens eget.
 
-TOBA Advice
+TOBA
 Investeringsrådgivning som den bør være. Ingen uigennemsigtige gebyrer, ingen skjulte interesser - kun ærlig og ansvarlig rådgivning.

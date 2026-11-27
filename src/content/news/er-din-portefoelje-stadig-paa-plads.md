@@ -33,6 +33,6 @@ Rebalancering handler ikke om at time markedet. Det handler om disciplin – om 
 
 En god tommelfingerregel: overvåg løbende, og reagér når aktivklasser afviger mere end +/- 5% fra målvægt – eller når den interne faktoreksponering er gledet mere end 10% fra den strategiske profil.
 
-Hos TOBA Advice hjælper vi vores kunder med netop det – løbende overvågning på alle niveauer, konstruktiv dialog og konkrete anbefalinger, når porteføljen er gledet væk fra strategien.
+Hos TOBA hjælper vi vores kunder med netop det – løbende overvågning på alle niveauer, konstruktiv dialog og konkrete anbefalinger, når porteføljen er gledet væk fra strategien.
 
 Har du tjekket din portefølje – og dens interne sammensætning – for nylig?

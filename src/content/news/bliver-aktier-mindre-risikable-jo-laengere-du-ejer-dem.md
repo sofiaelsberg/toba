@@ -2,7 +2,7 @@
 title: "Bliver aktier mindre risikable, jo længere du ejer dem?"
 description: "56 års data for globale aktier: ingen periode på 14 år eller mere har givet tab. Men tid fjerner ikke al usikkerhed – her er hvorfor."
 date: "2026-10-09T07:37:41.843Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7512790864038146048/"
 linkedinId: "7514227575842291712"
 document: {"title":"Bliver aktier mindre risikable?","pages":5}
@@ -36,4 +36,4 @@ Se grafer og tal i karrusellen.
 
 Kilder: MSCI, Danmarks Statistik, FRED, Damodaran (NYU Stern). Nominelle afkast før skat og omkostninger – målt i købekraft ligger bunden lavere. Historiske afkast er ikke en pålidelig indikator for fremtidige afkast. Indholdet er generel information og ikke investeringsrådgivning.
 
-TOBA Advice aktier risiko formue langsigtet
+TOBA aktier risiko formue langsigtet

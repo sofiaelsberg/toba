@@ -2,7 +2,7 @@
 title: "Betaler du også for en vare, du sjældent modtager?"
 description: "Omkring halvdelen af dine fondsomkostninger kan gå til distribution og provision til banken. Se, hvad ESMA's rapport viser – og hvad det betyder for dig."
 date: "2025-11-18T09:15:31.774Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7396476139315118080/"
 linkedinId: "7396476139315118080"
 image: "/nyheder/betaler-du-for-en-vare-du-sjaeldent-modtager-hd.jpg"

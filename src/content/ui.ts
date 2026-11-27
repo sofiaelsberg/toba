@@ -4,7 +4,7 @@ export const ui = {
     play: "Se video",
   },
   linkedinPost: {
-    iframeTitle: "Seneste opslag fra TOBA Advice på LinkedIn",
+    iframeTitle: "Seneste opslag fra TOBA på LinkedIn",
     consentTitle: "Se vores seneste opslag",
     consentText: "Opslaget hentes fra LinkedIn, som sætter cookies. Det vises, når du siger ja til marketing-cookies.",
     consentButton: "Tilpas cookies",

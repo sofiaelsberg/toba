@@ -1,8 +1,8 @@
 ---
 title: "Er USA godt eller dårligt for din portefølje?"
-description: "Koncentrationsrisiko og stigende statsgæld: Derfor undervægter TOBA Advice amerikanske aktier i porteføljerne. Læs vores argumenter."
+description: "Koncentrationsrisiko og stigende statsgæld: Derfor undervægter TOBA amerikanske aktier i porteføljerne. Læs vores argumenter."
 date: "2026-09-17T07:17:25.659Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7506249940982046720/"
 linkedinId: "7506249940982046720"
 document: {"title":"Er USA godt eller dårligt for din portefølje?"}
@@ -12,7 +12,7 @@ Der har længe været bekymring for, om koncentrationsrisikoen i det amerikanske
 
 Nu er der kommet endnu en bekymring oveni: den stigende amerikanske statsgæld – og ingen politisk vilje til at nedbringe underskuddet.
 
-TOBA Advice's konklusion: vi synes, der er for meget risiko i USA. Derfor undervægter vi USA i porteføljerne.
+TOBAs konklusion: vi synes, der er for meget risiko i USA. Derfor undervægter vi USA i porteføljerne.
 
 1. Markedet er farligt koncentreret
 AI Big10 udgør nu 41% af S&P 500 – de 10 største AI-relaterede megacap-aktier, udgør nu lige så stor en andel som ved tidligere markedstoppe. Historisk er den slags toppe altid blevet afløst af nye vindere. Skuffer de største rammer det ofte bredt.
@@ -33,4 +33,4 @@ Den risiko for at underperforme er en pris, vi gerne betaler for at forsikre os 
 
 Er du bekymret for USA-eksponeringen i din portefølje?
 
-Dette opslag er udtryk for TOBA Advice's egen holdning og analyse af markedet. Det er ikke individuel investeringsrådgivning og bør ikke stå alene som grundlag for investeringsbeslutninger.
+Dette opslag er udtryk for TOBAs egen holdning og analyse af markedet. Det er ikke individuel investeringsrådgivning og bør ikke stå alene som grundlag for investeringsbeslutninger.

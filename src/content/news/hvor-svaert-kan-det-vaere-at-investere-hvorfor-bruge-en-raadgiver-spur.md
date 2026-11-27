@@ -2,7 +2,7 @@
 title: "Hvor svært kan det være at investere – og hvorfor bruge en rådgiver?"
 description: "Det tager få minutter at købe en ETF. Men med en større formue er det et hajfyldt farvand, hvor struktur og overblik gør forskellen."
 date: "2025-09-24T08:18:12.734Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7376530382277644288/"
 linkedinId: "7376530382277644288"
 image: "/nyheder/hvor-svaert-kan-det-vaere-at-investere-hvorfor-bruge-en-raadgiver-spur.jpg"

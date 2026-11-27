@@ -5,13 +5,13 @@ import type { FeatureContent, HeroContent, Seo, Stat } from "../types";
 
 export const about = {
   seo: {
-    title: "Om TOBA Advice – uafhængig, medarbejderejet investeringsrådgiver",
+    title: "Om TOBA – uafhængig, medarbejderejet investeringsrådgiver",
     description:
-      `TOBA Advice er en uafhængig, medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver formuer fra ${facts.minimumWealthMio} mio. kr. i hele Danmark.`,
+      `TOBA er en uafhængig, medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver formuer fra ${facts.minimumWealthMio} mio. kr. i hele Danmark.`,
   } satisfies Seo,
 
   hero: {
-    eyebrow: "Om TOBA Advice",
+    eyebrow: "Om TOBA",
     title: "Vi er uafhængige, ejet af medarbejderne – og på *din side*",
     lead: "Fra vores kontor i Aarhus rådgiver vi kunder i hele Danmark – og vi kommer gerne ud til dig.",
     actions: [bookMeeting],
@@ -25,13 +25,13 @@ export const about = {
     title: { before: "Hvorfor hedder vi", logoAlt: "TOBA", after: "?" },
     text: [
       "Vores navn er inspireret af vulkanen Toba på Sumatra, hvor naturen voksede frem igen efter et stort udbrud. For os symboliserer det en ny begyndelse.",
-      "Den tanke ligger bag TOBA Advice: en tilgang til investeringsrådgivning med dine behov som udgangspunkt. Vulkanen går igen i A’et i vores logo.",
+      "Den tanke ligger bag TOBA: en tilgang til investeringsrådgivning med dine behov som udgangspunkt. Vulkanen går igen i A’et i vores logo.",
     ],
     video: videos.v11,
   },
 
   benefits: {
-    title: "Det får du hos TOBA Advice",
+    title: "Det får du hos TOBA",
     features: [
       {
         icon: "person",
@@ -66,13 +66,13 @@ export const about = {
   owned: {
     title: "Ejet af dem, der *rådgiver* dig",
     text: [
-      "TOBA Advice er ejet af medarbejderne. Det betyder, at de mennesker, du taler med, også er dem, der står bag virksomheden.",
+      "TOBA er ejet af medarbejderne. Det betyder, at de mennesker, du taler med, også er dem, der står bag virksomheden.",
       "Vi har ingen ejere, der kræver, at vi sælger bestemte produkter. Vores interesse er den samme som din: at din formue bliver passet godt på i mange år.",
     ],
   },
 
   forYou: {
-    title: "Er TOBA Advice noget for dig?",
+    title: "Er TOBA noget for dig?",
     highlight: `Fra ${facts.minimumWealthMio} mio. kr.`,
     highlightLabel: "i investérbar formue",
     text: `Vi rådgiver kunder med en investérbar formue på mindst ${facts.minimumWealthMio} mio. kr. Mange af vores kunder er virksomhedsejere, selvstændige og familier, der vil have ro om en formue, de har arbejdet hårdt for – og en rådgiver, der siger tingene, som de er.`,

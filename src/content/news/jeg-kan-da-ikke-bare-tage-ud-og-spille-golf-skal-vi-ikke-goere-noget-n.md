@@ -2,7 +2,7 @@
 title: "Skal vi ikke gøre noget nu? Hold hovedet koldt i urolige markeder"
 description: "Når markederne er turbulente, er det fristende at handle hurtigt. Men i usikre tider er en langsigtet strategi og et koldt hoved det vigtigste."
 date: "2025-04-10T13:22:07.463Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7316088090744229889/"
 linkedinId: "7316088090744229889"
 image: "/nyheder/jeg-kan-da-ikke-bare-tage-ud-og-spille-golf-skal-vi-ikke-goere-noget-n.jpg"

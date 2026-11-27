@@ -1,8 +1,8 @@
 ---
 title: "Har du overblik over alle dine investeringer?"
-description: "TOBA Advice samarbejder nu med Performativ, så vores kunder får samlet overblik over hele formuen på tværs af banker og platforme – ét sted."
+description: "TOBA samarbejder nu med Performativ, så vores kunder får samlet overblik over hele formuen på tværs af banker og platforme – ét sted."
 date: "2025-10-16T09:18:53.453Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7384518185632428032/"
 linkedinId: "7384518185632428032"
 image: "/nyheder/har-du-overblik-over-alle-dine.jpg"
@@ -11,7 +11,7 @@ imageAlt: ""
 
 Mange investorer har midler spredt ud på flere banker og platforme – og det kan gøre det svært at bevare det fulde overblik.
 
-Derfor har vi hos TOBA Advice – og det er vi ret begejstrede for – indgået et samarbejde med Performativ - Wealth Management Software – en af de førende platforme til formueoverblik og investeringsrapportering.
+Derfor har vi hos TOBA – og det er vi ret begejstrede for – indgået et samarbejde med Performativ - Wealth Management Software – en af de førende platforme til formueoverblik og investeringsrapportering.
 
 Det betyder, at vores kunder fremadrettet får et endnu bedre samlet overblik over hele deres formue – et sted.
 

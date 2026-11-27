@@ -2,7 +2,7 @@
 title: "Indeksfonde – er de virkelig så billige, som du tror?"
 description: "Når en indeksfond skal ramme indekset præcist, kan det give skjulte handelsomkostninger, der ikke står i det officielle omkostningsniveau."
 date: "2025-10-08T08:00:15.793Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7381279557141618688/"
 linkedinId: "7381279557141618688"
 image: "/nyheder/indeksfonde-er-de-virkelig-saa-billige-som-du-tror.jpg"

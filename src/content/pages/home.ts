@@ -15,7 +15,7 @@ import type {
 
 export const home = {
   seo: {
-    title: "Uafhængig investeringsrådgiver i Aarhus og hele Danmark | TOBA Advice",
+    title: "Uafhængig investeringsrådgiver i Aarhus og hele Danmark | TOBA",
     description:
       "Uafhængig investerings- og formuerådgivning med fast honorar, ingen provision og frit valg blandt kapitalforvaltere. Rabatterne går ubeskåret til dig.",
   } satisfies Seo,
@@ -60,7 +60,7 @@ export const home = {
   sameSide: {
     title: "Vi sidder på *samme side* af bordet",
     text: [
-      "Hos TOBA Advice arbejder vi for at sikre dig attraktive og fair vilkår for dine investeringer. Vi har ingen egne investeringsprodukter og ingen økonomisk interesse i at anbefale bestemte produkter.",
+      "Hos TOBA arbejder vi for at sikre dig attraktive og fair vilkår for dine investeringer. Vi har ingen egne investeringsprodukter og ingen økonomisk interesse i at anbefale bestemte produkter.",
       "Du får en sparringspartner, der tager udgangspunkt i dig og dine behov.",
     ],
     /** Fremhævet som citat under brødteksten. */
@@ -108,7 +108,7 @@ export const home = {
     title: "Hvem arbejder din rådgiver *for*?",
     text: [
       "Når din rådgiver også tjener på de produkter, du bliver anbefalet, kan der være andre interesser end dine på spil.",
-      "Hos TOBA Advice har vi ingen egne investeringsprodukter og modtager ingen formidlingsprovision. Du betaler os for rådgivningen – og de rabatter, vi forhandler hjem, går ubeskåret til dig.",
+      "Hos TOBA har vi ingen egne investeringsprodukter og modtager ingen formidlingsprovision. Du betaler os for rådgivningen – og de rabatter, vi forhandler hjem, går ubeskåret til dig.",
     ],
     action: { label: "Læs mere om uafhængig investeringsrådgivning", href: routes.independent, variant: "light" as const },
     value: facts.ownFundsTop5Pct,
@@ -158,10 +158,10 @@ export const home = {
   },
 
   about: {
-    eyebrow: "Om TOBA Advice",
+    eyebrow: "Om TOBA",
     title: "Ejet af dem, der rådgiver dig",
     text: [
-      `TOBA Advice er en medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver personer med en investerbar formue på mindst ${facts.minimumWealthMio} mio. kr. – med skræddersyet rådgivning og frit valg på alle hylder.`,
+      `TOBA er en medarbejderejet investeringsrådgiver med tilladelse fra Finanstilsynet. Vi rådgiver personer med en investerbar formue på mindst ${facts.minimumWealthMio} mio. kr. – med skræddersyet rådgivning og frit valg på alle hylder.`,
     ],
     link: { label: "Mød hele teamet →", href: routes.team },
   },
@@ -171,27 +171,27 @@ export const home = {
   faq: [
     {
       question: "Hvad laver en uafhængig investeringsrådgiver?",
-      answer: `En uafhængig investeringsrådgiver hjælper dig med at sammensætte og følge din investeringsportefølje uden at tjene på de produkter, du bliver anbefalet. TOBA Advice har tilladelse fra Finanstilsynet som investeringsrådgiver, modtager ingen provision og har ingen egne investeringsprodukter. Vi rådgiver om hele din formue – frie midler, pension, virksomhedsskatteordningen og holdingselskab – så det hænger sammen i én strategi.`,
+      answer: `En uafhængig investeringsrådgiver hjælper dig med at sammensætte og følge din investeringsportefølje uden at tjene på de produkter, du bliver anbefalet. TOBA har tilladelse fra Finanstilsynet som investeringsrådgiver, modtager ingen provision og har ingen egne investeringsprodukter. Vi rådgiver om hele din formue – frie midler, pension, virksomhedsskatteordningen og holdingselskab – så det hænger sammen i én strategi.`,
     },
     {
       question: "Hvad er forskellen på en investeringsrådgiver, en bank og en kapitalforvalter?",
-      answer: `En kapitalforvalter forvalter fonde og porteføljer. En bank rådgiver typisk også om sine egne fonde – hos de fem største danske banker ligger i gennemsnit ${facts.ownFundsTop5Pct} % af fondsbeholdningerne i bankernes egne fonde (Finanstilsynet, maj 2026). TOBA Advice er hverken bank eller kapitalforvalter: Vi er en uafhængig investeringsrådgiver, der vælger frit blandt kapitalforvaltere på tværs af markedet. I dag samarbejder vi med ${facts.managers} forvaltere i ${facts.countries} lande.`,
+      answer: `En kapitalforvalter forvalter fonde og porteføljer. En bank rådgiver typisk også om sine egne fonde – hos de fem største danske banker ligger i gennemsnit ${facts.ownFundsTop5Pct} % af fondsbeholdningerne i bankernes egne fonde (Finanstilsynet, maj 2026). TOBA er hverken bank eller kapitalforvalter: Vi er en uafhængig investeringsrådgiver, der vælger frit blandt kapitalforvaltere på tværs af markedet. I dag samarbejder vi med ${facts.managers} forvaltere i ${facts.countries} lande.`,
     },
     {
       question: "Hvad koster uafhængig investeringsrådgivning?",
       answer: `Du betaler et fast, aftalt rådgivningshonorar – uanset hvad vi investerer i. Vi modtager ingen provision, og de rabatter, vi forhandler hjem hos kapitalforvalterne, går ubeskåret videre til dig. I ${facts.rebatesPaid.paidYear} udbetalte vi ${String(facts.rebatesPaid.amountMio).replace(".", ",")} mio. kr. i forvalterrabatter til vores kunder. Vil du vide, hvad din nuværende løsning koster, kan du få et gratis omkostningsoverblik.`,
     },
     {
-      question: "Hvem kan blive kunde hos TOBA Advice?",
+      question: "Hvem kan blive kunde hos TOBA?",
       answer: `Vi rådgiver privatpersoner, familier, virksomhedsejere og selskaber med en investerbar formue på mindst ${facts.minimumWealthMio} mio. kr.`,
     },
     {
-      question: "Er TOBA Advice et alternativ til private banking og formueforvaltning i banken?",
+      question: "Er TOBA et alternativ til private banking og formueforvaltning i banken?",
       answer: `Ja. Vi rådgiver om hele din formue, men uden egne produkter at sælge og uden at tjene på dine investeringer. Du har en fast rådgiver, får en rapport hvert kvartal og kan følge din formue på web og i app.`,
     },
     {
       question: "Skal jeg flytte min bank for at blive kunde?",
-      answer: "Nej. Du beholder dit depot i din egen bank. TOBA Advice opbevarer ikke værdipapirer.",
+      answer: "Nej. Du beholder dit depot i din egen bank. TOBA opbevarer ikke værdipapirer.",
     },
     {
       question: "Hvor holder I til?",

@@ -111,7 +111,7 @@ async function NewsArticle({ params }: Props) {
               </aside>
             )}
 
-            {/* Ved delinger: TOBA Advices egen tekst fra delingen. */}
+            {/* Ved delinger: TOBAs egen tekst fra delingen. */}
             {post.lead && (
               <aside aria-labelledby="deling" className="flex flex-col gap-2 border-l-2 border-gold bg-cream px-6 py-5">
                 <h2 id="deling" className={`${eyebrowClass} text-gold-text`}>

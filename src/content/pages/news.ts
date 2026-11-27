@@ -2,11 +2,11 @@ import { images } from "../media";
 import { bookMeeting, company, routes } from "../site";
 import type { HeroContent, Seo } from "../types";
 
-/** /nyheder – artikler bygget på TOBA Advices LinkedIn-opslag (selve artiklerne ligger i src/content/news/). */
+/** /nyheder – artikler bygget på TOBAs LinkedIn-opslag (selve artiklerne ligger i src/content/news/). */
 export const news = {
   seo: {
-    title: "Nyheder og indsigt om investering | TOBA Advice",
-    description: "Analyser, holdninger og nyheder fra TOBA Advice om investering, omkostninger, risiko og uafhængig rådgivning.",
+    title: "Nyheder og indsigt om investering | TOBA",
+    description: "Analyser, holdninger og nyheder fra TOBA om investering, omkostninger, risiko og uafhængig rådgivning.",
   } satisfies Seo,
 
   hero: {
@@ -23,12 +23,12 @@ export const news = {
   slidesBadge: "Med slides",
   back: "← Alle nyheder",
   by: "Af",
-  sharedBy: "TOBA Advice skrev, da vi delte indlægget",
+  sharedBy: "TOBA skrev, da vi delte indlægget",
   aboutAuthor: (name: string) => `Om ${name}`,
   authorProfile: (first: string) => `Mød ${first} og resten af teamet →`,
   publishedOnLinkedIn: "Indlægget blev først bragt på LinkedIn.",
   linkedinLink: "Se og kommentér på LinkedIn →",
-  follow: { label: "Følg TOBA Advice på LinkedIn →" },
+  follow: { label: "Følg TOBA på LinkedIn →" },
   tagsLabel: "Emner",
   document: {
     title: "Grafer og tal",

@@ -28,7 +28,7 @@ export const newsPath = (slug: string) => `${routes.news}/${slug}`;
 const linkedinUrl = "https://www.linkedin.com/company/toba-advice";
 
 export const company = {
-  name: "TOBA Advice",
+  name: "TOBA",
   legalName: "TOBA Advice A/S",
   cvr: "37424277",
   ftNumber: "34150",
@@ -43,18 +43,18 @@ export const company = {
     "https://www.proff.dk/firma/toba-advice-as/-/-/37424277",
   ],
   /**
-   * Adskiller TOBA Advice fra navnefæller og forklarer forholdet til TOBA Investments.
+   * Adskiller TOBA fra navnefæller og forklarer forholdet til TOBA Investments.
    * Vises ikke på siden – bruges i schema.org-data og /llms.txt til søgemaskiner og AI.
    */
   disambiguation:
-    "TOBA Advice A/S er en dansk, uafhængig investeringsrådgiver i Aarhus med tilladelse fra Finanstilsynet. TOBA Advice er investeringsrådgiver for fondsafdelingerne TA Globale Aktier og TA Globale Obligationer, som udbydes under navnet TOBA Investments. TOBA Advice har ingen forbindelse til de amerikanske virksomheder Toba Financial og Toba Capital.",
+    "TOBA Advice A/S er en dansk, uafhængig investeringsrådgiver i Aarhus med tilladelse fra Finanstilsynet. TOBA er investeringsrådgiver for fondsafdelingerne TA Globale Aktier og TA Globale Obligationer, som udbydes under navnet TOBA Investments. TOBA har ingen forbindelse til de amerikanske virksomheder Toba Financial og Toba Capital.",
 } as const;
 
 export const brand = {
   logoDark: { src: "/brand/toba-logo-dark.svg", width: 1285, height: 453 },
   logoLight: { src: "/brand/toba-logo-light.svg", width: 100, height: 36 },
-  logoAlt: "TOBA Advice",
-  homeLabel: "TOBA Advice – forside",
+  logoAlt: "TOBA",
+  homeLabel: "TOBA – forside",
 } as const;
 
 /** Tillidslinjen i hero'ens mørke bånd (forsiden, Sådan investerer vi). Punkterne adskilles af " · ". */
@@ -84,7 +84,7 @@ export const navLabels = {
 
 export const footer = {
   about:
-    `TOBA Advice leverer uafhængig, individuel og gennemsigtig investeringsrådgivning og henvender sig til personer med en investérbar formue på minimum ${facts.minimumWealthMio} mio. kr.`,
+    `TOBA leverer uafhængig, individuel og gennemsigtig investeringsrådgivning og henvender sig til personer med en investérbar formue på minimum ${facts.minimumWealthMio} mio. kr.`,
   columns: [
     {
       title: "Om TOBA",

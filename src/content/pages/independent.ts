@@ -12,7 +12,7 @@ export type FlowChain = {
 
 export const independent = {
   seo: {
-    title: "Uafhængig investeringsrådgivning – hvad betyder det? | TOBA Advice",
+    title: "Uafhængig investeringsrådgivning – hvad betyder det? | TOBA",
     description:
       "Der findes tre slags investeringsrådgivere: afhængige, ikke uafhængige og uafhængige. Se forskellen – og hvad den betyder for dig og dine penge.",
     ogDescription: "Ved du, hvilken slags rådgiver du har? Se forskellen på afhængig og uafhængig rådgivning.",
@@ -184,7 +184,7 @@ export const independent = {
     {
       question: "Hvorfor koster uafhængig rådgivning et honorar?",
       answer:
-        "Fordi rådgiveren ikke må tjene på produkterne, betaler du i stedet et fast, aftalt honorar. Det gør omkostningen synlig. Hos TOBA Advice går de rabatter, vi forhandler hjem hos kapitalforvalterne, desuden ubeskåret videre til dig.",
+        "Fordi rådgiveren ikke må tjene på produkterne, betaler du i stedet et fast, aftalt honorar. Det gør omkostningen synlig. Hos TOBA går de rabatter, vi forhandler hjem hos kapitalforvalterne, desuden ubeskåret videre til dig.",
     },
   ] satisfies FaqItem[],
 

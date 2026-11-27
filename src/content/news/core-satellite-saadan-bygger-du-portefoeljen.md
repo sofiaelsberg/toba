@@ -6,7 +6,7 @@ author: "Tonny Elsberg"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7511684162416885760/"
 linkedinId: "7511693618102005760"
 linkedinShare: "https://www.linkedin.com/feed/update/urn:li:activity:7511693619037216770/"
-lead: "Hos TOBA Advice har vi stor fokus på den overordnede sammensætning af vore kunders porteføljer, så vi altid bygger en portefølje, der giver det bedste risikojusterede afkast. Det indebærer ofte en sammensætning, hvor der er en kerne af omkostningseffektive værdipapirer, kombineret med en række tilføjelser og samlet set giver en portefølje med de ønskede egenskaber. Sagt kort en \"Core-Satellite\" strategi. Og hvad er det så og hvad er tankerne bag dette? Det har Tonny Elsberg lavet et opslag om, der fortæller lidt mere om hvad det egentlig betyder."
+lead: "Hos TOBA har vi stor fokus på den overordnede sammensætning af vore kunders porteføljer, så vi altid bygger en portefølje, der giver det bedste risikojusterede afkast. Det indebærer ofte en sammensætning, hvor der er en kerne af omkostningseffektive værdipapirer, kombineret med en række tilføjelser og samlet set giver en portefølje med de ønskede egenskaber. Sagt kort en \"Core-Satellite\" strategi. Og hvad er det så og hvad er tankerne bag dette? Det har Tonny Elsberg lavet et opslag om, der fortæller lidt mere om hvad det egentlig betyder."
 document: {"title":"Core-Satellite – illustration","pages":8}
 ---
 

@@ -2,7 +2,7 @@
 title: "Investering i alternativer: Forvaltervalget er afgørende"
 description: "Ved alternative investeringer er forvaltervalget afgørende. Sådan vurderer vi forvaltere: proces, team, operationel due diligence og rapportering."
 date: "2025-11-21T06:46:05.154Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7397525694311964672/"
 linkedinId: "7397525694311964672"
 image: "/nyheder/investering-i-alternativer-forvaltervalget-er-afgoerende.jpg"

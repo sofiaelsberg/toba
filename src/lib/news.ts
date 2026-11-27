@@ -90,7 +90,7 @@ function parse(file: string): NewsPost {
     description: meta.description as string,
     date: meta.date as string,
     updated: meta.updated as string | undefined,
-    author: (meta.author as string) || "TOBA Advice",
+    author: (meta.author as string) || "TOBA",
     linkedin: meta.linkedin as string,
     linkedinId: meta.linkedinId as string,
     linkedinShare: meta.linkedinShare as string | undefined,

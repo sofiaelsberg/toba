@@ -51,7 +51,7 @@ export const newsletterForm = {
   /** Samtykke-afkrydsning over knappen. Formularen kan først sendes, når der er sat kryds.
    *  Felter og knaptekst ("Tilmeld mig nyhedsbrevet") redigeres i ActiveCampaign. */
   consent: {
-    text: "Ja tak, jeg vil modtage nyhedsbreve fra TOBA Advice på e-mail. Jeg kan altid afmelde mig. Se",
+    text: "Ja tak, jeg vil modtage nyhedsbreve fra TOBA på e-mail. Jeg kan altid afmelde mig. Se",
     linkLabel: "privatlivspolitikken",
     href: routes.privacy,
     after: ".",

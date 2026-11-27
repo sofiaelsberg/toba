@@ -16,7 +16,7 @@ const raw: Omit<Person, "portrait">[] = [
     short: "Leder rådgivergruppen og har mange års erfaring med investerings- og formuerådgivning.",
     linkedin: "https://www.linkedin.com/in/anders-bentholm-79678b27/",
     bio: [
-      "Anders er CEO og har ansvaret for TOBA Advices rådgivergruppe. Han har arbejdet med investerings- og formuerådgivning i mange år og har tidligere været ansat i Nordea Private Banking og Formuepleje A/S.",
+      "Anders er CEO og har ansvaret for TOBAs rådgivergruppe. Han har arbejdet med investerings- og formuerådgivning i mange år og har tidligere været ansat i Nordea Private Banking og Formuepleje A/S.",
     ],
   },
   {
@@ -30,7 +30,7 @@ const raw: Omit<Person, "portrait">[] = [
     short: "Over 36 års erfaring med investeringer.",
     linkedin: "https://www.linkedin.com/in/bent-hym%C3%B8ller-madsen-8470582/",
     bio: [
-      "Bent er HD(F), certificeret investeringsrådgiver og partner i TOBA Advice. Han har over 36 års erfaring med investeringer og rådgiver især kunder med store formuer. Bent har tidligere været Sales Director i BankInvest, teamleder i Nordea Private Banking og investeringsrådgiver i SEB.",
+      "Bent er HD(F), certificeret investeringsrådgiver og partner i TOBA. Han har over 36 års erfaring med investeringer og rådgiver især kunder med store formuer. Bent har tidligere været Sales Director i BankInvest, teamleder i Nordea Private Banking og investeringsrådgiver i SEB.",
     ],
   },
   {
@@ -59,7 +59,7 @@ const raw: Omit<Person, "portrait">[] = [
     short: "Cand.merc. og investeringsrådgiver siden 2006.",
     linkedin: "https://www.linkedin.com/in/martinsvendsen/",
     bio: [
-      "Martin har den daglige kontakt med kunderne. Han er cand.merc. i økonomistyring og har arbejdet med porteføljesammensætning og investeringsrådgivning siden 2006. Før TOBA Advice var han 12 år i Jyske Bank, hvor han rådgav bankens private banking-kunder.",
+      "Martin har den daglige kontakt med kunderne. Han er cand.merc. i økonomistyring og har arbejdet med porteføljesammensætning og investeringsrådgivning siden 2006. Før TOBA var han 12 år i Jyske Bank, hvor han rådgav bankens private banking-kunder.",
       "Martin bor med sin familie lige syd for Aarhus. Fritiden går med familie og venner – gerne omkring et godt måltid, for madlavning er hans store interesse.",
     ],
   },
@@ -97,7 +97,7 @@ const raw: Omit<Person, "portrait">[] = [
     ],
     linkedin: "https://www.linkedin.com/in/bertel-roslev-rasmussen-2710635/",
     bio: [
-      "Bertel står i spidsen for TOBA Advices analyseafdeling. Han har tidligere været partner og chef for investeringsafdelingen i konsulenthuset Kirstein A/S, hvor han rådgav institutionelle investorer om investeringsstrategi og udvælgelse af kapitalforvaltere.",
+      "Bertel står i spidsen for TOBAs analyseafdeling. Han har tidligere været partner og chef for investeringsafdelingen i konsulenthuset Kirstein A/S, hvor han rådgav institutionelle investorer om investeringsstrategi og udvælgelse af kapitalforvaltere.",
     ],
   },
   {
@@ -109,7 +109,7 @@ const raw: Omit<Person, "portrait">[] = [
     email: "antonsorensen@tobaadvice.com",
     linkedin: "https://www.linkedin.com/in/antons%C3%B8rensen/",
     bio: [
-      "Anton arbejder i analyseafdelingen med produkt-, portefølje- og makroøkonomiske analyser og med rapporteringen til kunderne. Han kom til TOBA Advice direkte fra Aarhus Universitet, hvor han læste med speciale i finans. Før det var han Assistant Portfolio Manager hos Markedskraft.",
+      "Anton arbejder i analyseafdelingen med produkt-, portefølje- og makroøkonomiske analyser og med rapporteringen til kunderne. Han kom til TOBA direkte fra Aarhus Universitet, hvor han læste med speciale i finans. Før det var han Assistant Portfolio Manager hos Markedskraft.",
     ],
   },
   {
@@ -132,7 +132,7 @@ const raw: Omit<Person, "portrait">[] = [
     email: "kbl@tobaadvice.com",
     linkedin: "https://www.linkedin.com/in/kristian-bl%C3%A6sbjerg-larsen-97b74b5/",
     bio: [
-      "Kristian er investeringsstrateg og partner i TOBA Advice, hvor han er tilknyttet analyseafdelingen. Han er cand.merc. i finansiering fra Handelshøjskolen i Aarhus og kommer fra en karriere i Nordea, senest som Chief Private Banker i Nordea Wealth Management. Han har desuden undervist som ekstern lektor på Handelshøjskolen / Aarhus Universitet.",
+      "Kristian er investeringsstrateg og partner i TOBA, hvor han er tilknyttet analyseafdelingen. Han er cand.merc. i finansiering fra Handelshøjskolen i Aarhus og kommer fra en karriere i Nordea, senest som Chief Private Banker i Nordea Wealth Management. Han har desuden undervist som ekstern lektor på Handelshøjskolen / Aarhus Universitet.",
     ],
   },
   {
@@ -142,7 +142,7 @@ const raw: Omit<Person, "portrait">[] = [
     group: "analyse",
     email: "holm@tobaadvice.com",
     linkedin: "https://www.linkedin.com/in/alexander-holm-038761260/",
-    bio: ["Alexander er tilknyttet analyseafdelingen i TOBA Advice. Han assisterer ved de fleste opgaver i analyseafdelingen, uanset om det er udarbejdelse af investeringsanalyser, kundeoplæg eller værktøjer, der understøtter afdelingens arbejdsopgaver."],
+    bio: ["Alexander er tilknyttet analyseafdelingen i TOBA. Han assisterer ved de fleste opgaver i analyseafdelingen, uanset om det er udarbejdelse af investeringsanalyser, kundeoplæg eller værktøjer, der understøtter afdelingens arbejdsopgaver."],
   },
   {
     slug: "mathias-braas-skytte",
@@ -151,7 +151,7 @@ const raw: Omit<Person, "portrait">[] = [
     group: "analyse",
     email: "skytte@tobaadvice.com",
     linkedin: "https://www.linkedin.com/in/mathias-braas-skytte/",
-    bio: ["Mathias er tilknyttet analyseafdelingen i TOBA Advice. Han assisterer ved de fleste opgaver i analyseafdelingen, uanset om det er udarbejdelse af investeringsanalyser, kundeoplæg eller værktøjer, der understøtter afdelingens arbejdsopgaver."],
+    bio: ["Mathias er tilknyttet analyseafdelingen i TOBA. Han assisterer ved de fleste opgaver i analyseafdelingen, uanset om det er udarbejdelse af investeringsanalyser, kundeoplæg eller værktøjer, der understøtter afdelingens arbejdsopgaver."],
   },
   // Administration
   {
@@ -160,10 +160,10 @@ const raw: Omit<Person, "portrait">[] = [
     title: "COO / Partner",
     group: "administration",
     email: "elsberg@tobaadvice.com",
-    short: "Medstifter af TOBA Advice med over 25 års erfaring fra den finansielle sektor.",
+    short: "Medstifter af TOBA med over 25 års erfaring fra den finansielle sektor.",
     linkedin: "https://www.linkedin.com/in/tonny-elsberg-86057715/",
     bio: [
-      "Tonny er medstifter af TOBA Advice og COO. Han har over 25 års erfaring fra den finansielle sektor og har tidligere været partner i Clearhaus og finans- og fondschef i Sparekassen Kronjylland.",
+      "Tonny er medstifter af TOBA og COO. Han har over 25 års erfaring fra den finansielle sektor og har tidligere været partner i Clearhaus og finans- og fondschef i Sparekassen Kronjylland.",
     ],
   },
   {
@@ -174,7 +174,7 @@ const raw: Omit<Person, "portrait">[] = [
     phone: "+45 26 83 81 11",
     linkedin: "https://www.linkedin.com/in/mettejosoerensen/",
     bio: [
-      "Mette er CFO i TOBA Advice og holder styr på finanserne – uanset om det er den daglige styring af økonomi og likviditet eller de langsigtede mål og budgetter, TOBA Advice manøvrerer efter. Hun har bred erfaring fra forskellige roller i økonomifunktionen hos tidligere arbejdsgivere.",
+      "Mette er CFO i TOBA og holder styr på finanserne – uanset om det er den daglige styring af økonomi og likviditet eller de langsigtede mål og budgetter, TOBA manøvrerer efter. Hun har bred erfaring fra forskellige roller i økonomifunktionen hos tidligere arbejdsgivere.",
     ],
   },
   {
@@ -183,9 +183,9 @@ const raw: Omit<Person, "portrait">[] = [
     title: "Frontend Developer",
     group: "administration",
     email: "se@tobaadvice.com",
-    short: "Udvikler TOBA Advices hjemmeside.",
+    short: "Udvikler TOBAs hjemmeside.",
     linkedin: "https://www.linkedin.com/in/sofia-elsberg-2019691b6/",
-    bio: ["Sofia står for udviklingen af TOBA Advices hjemmeside. Hun har en baggrund inden for både design og programmering."],
+    bio: ["Sofia står for udviklingen af TOBAs hjemmeside. Hun har en baggrund inden for både design og programmering."],
   },
   // Bestyrelse (formanden først)
   {
@@ -194,7 +194,7 @@ const raw: Omit<Person, "portrait">[] = [
     title: "Bestyrelsesformand",
     group: "bestyrelse",
     linkedin: "https://www.linkedin.com/in/dennis-birkeholm-larsen-691599a/",
-    bio: ["Dennis er formand for bestyrelsen i TOBA Advice. Han er advokat (L) og partner i advokatfirmaet Clemens Law."],
+    bio: ["Dennis er formand for bestyrelsen i TOBA. Han er advokat (L) og partner i advokatfirmaet Clemens Law."],
   },
   {
     slug: "peter-bager",
@@ -204,7 +204,7 @@ const raw: Omit<Person, "portrait">[] = [
     short: "Professionelt bestyrelsesmedlem med baggrund i salg, marketing og digital udvikling.",
     linkedin: "https://www.linkedin.com/in/peter-bager/",
     bio: [
-      "Peter er medlem af bestyrelsen i TOBA Advice. Han er professionelt bestyrelsesmedlem i en række virksomheder – typisk privatejede med en aktiv ejerkreds – og er bl.a. formand i Tvilum A/S og Proshop Europe A/S. Peter har en baggrund inden for salg og marketing og arbejder især med digital udvikling.",
+      "Peter er medlem af bestyrelsen i TOBA. Han er professionelt bestyrelsesmedlem i en række virksomheder – typisk privatejede med en aktiv ejerkreds – og er bl.a. formand i Tvilum A/S og Proshop Europe A/S. Peter har en baggrund inden for salg og marketing og arbejder især med digital udvikling.",
     ],
   },
 ];

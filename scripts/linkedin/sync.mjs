@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Henter TOBA Advices LinkedIn-opslag og gemmer dem som artikler i src/content/news/*.md.
+ * Henter TOBAs LinkedIn-opslag og gemmer dem som artikler i src/content/news/*.md.
  *
  *   node scripts/linkedin/sync.mjs --from-file linkedin-nyheder.json   # fra en eksport (som nu)
  *   node scripts/linkedin/sync.mjs --api                               # fra LinkedIns API (når adgangen er godkendt)
@@ -12,7 +12,7 @@
  * API: LinkedIn Community Management API (scope r_organization_social).
  *   LINKEDIN_ACCESS_TOKEN  – token for en administrator af virksomhedssiden (gyldigt 60 dage), eller:
  *   LINKEDIN_REFRESH_TOKEN + LINKEDIN_CLIENT_ID + LINKEDIN_CLIENT_SECRET – så hentes et frisk token ved hver kørsel
- *   LINKEDIN_ORG_ID        – 104613890 (TOBA Advice)
+ *   LINKEDIN_ORG_ID        – 104613890 (TOBA)
  *   LINKEDIN_VERSION       – valgfri, fx 202611 (ÅÅÅÅMM). Ellers findes den nyeste aktive version automatisk.
  *
  * --draft: nye indlæg gemmes med draft: true, så de først vises efter gennemgang. Det automatiske job bruger det IKKE –
@@ -191,7 +191,7 @@ export async function writePost(p, seen, rejected) {
     title,
     description: excerpt(body || title),
     date,
-    author: p.author || "TOBA Advice",
+    author: p.author || "TOBA",
     linkedin: p.url,
     linkedinId: p.id,
     image,
@@ -302,7 +302,7 @@ async function fromApi() {
     if (e.lifecycleState !== "PUBLISHED" || e.visibility !== "PUBLIC") continue;
     const activity = (e.id || "").split(":").pop();
     let text = fromLittleText(e.commentary || "");
-    const author = "TOBA Advice";
+    const author = "TOBA";
     let url = `https://www.linkedin.com/feed/update/${e.id}/`;
     // Deling af en medarbejders opslag: brug det oprindelige opslag som artikel og TOBA's tekst som intro.
     if (e.reshareContext?.parent) {

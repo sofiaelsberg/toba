@@ -1,7 +1,7 @@
 import { company, routes } from "../site";
 
 export const notFound = {
-  seo: { title: "Siden findes ikke | TOBA Advice" },
+  seo: { title: "Siden findes ikke | TOBA" },
   eyebrow: "Fejl 404",
   title: "Den side findes ikke",
   lead: "Måske er den flyttet, eller også er der en tastefejl i adressen. Vi har lige bygget en ny hjemmeside, så nogle gamle links virker ikke længere.",

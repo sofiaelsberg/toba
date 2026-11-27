@@ -11,7 +11,7 @@ type Depot = { name: string; amount: number; share: string; lines: DepotLine[]; 
 /** Landingsside 2: /omkostningsoverblik */
 export const overview = {
   seo: {
-    title: "Gratis omkostningsoverblik | Se hvad din formue koster | TOBA Advice",
+    title: "Gratis omkostningsoverblik | Se hvad din formue koster | TOBA",
     description:
       "Få ét samlet billede af, hvad din formue koster – og hvem der får pengene. Gratis og uforpligtende. Du behøver ikke skifte bank eller rådgiver.",
     ogDescription: "Ved du, hvad din formue koster om året – alt inklusive? Få et gratis omkostningsoverblik.",
@@ -42,7 +42,7 @@ export const overview = {
     title: "Få hele billedet – ikke kun de synlige omkostninger",
     text: [
       "Din bank udarbejder hvert år en omkostningsopgørelse. Men det kan være vanskeligt at gennemskue den samlede pris, særligt hvis du har investeringer fordelt på flere depoter eller banker.",
-      "Hos TOBA Advice hjælper vi dig med at samle oplysningerne og få overblik over, hvad du reelt betaler.",
+      "Hos TOBA hjælper vi dig med at samle oplysningerne og få overblik over, hvad du reelt betaler.",
     ],
     answersTitle: "Det får du svar på",
     answers: [
@@ -59,7 +59,7 @@ export const overview = {
   example: {
     title: "3 depoter. Én samlet pris",
     text: [
-      "En kunde kom til TOBA Advice med en investeret formue på godt 18 mio. kr. fordelt på tre depoter i en af de store danske banker.",
+      "En kunde kom til TOBA med en investeret formue på godt 18 mio. kr. fordelt på tre depoter i en af de store danske banker.",
       "Kunden kendte sine serviceomkostninger, men manglede det samlede overblik. Især produktomkostningerne inde i fondene var svære at gennemskue, fordi de løbende trækkes fra afkastet.",
       "Først da vi gennemgik både service- og produktomkostninger på tværs af alle tre depoter, blev den samlede pris tydelig.",
     ],
@@ -104,7 +104,7 @@ export const overview = {
   calculator: {
     eyebrow: "Regn selv efter",
     title: "Hvad ville din formue koste hos *os*?",
-    lead: "Vælg din formue – og skriv gerne, hvad du betaler i dag. Så ser du, hvad rådgivning hos TOBA Advice koster, når rabatterne er trukket fra. Omkostningsoverblikket giver dig de præcise tal.",
+    lead: "Vælg din formue – og skriv gerne, hvad du betaler i dag. Så ser du, hvad rådgivning hos TOBA koster, når rabatterne er trukket fra. Omkostningsoverblikket giver dig de præcise tal.",
     content: { ...home.calculator, action: { label: "Bestil dit præcise overblik", href: "#bestil", variant: "primary" as const } },
   },
 
@@ -113,11 +113,11 @@ export const overview = {
     text: [
       "Når banker og rådgivere samler større investeringsbeløb, kan de ofte forhandle bedre vilkår hos kapitalforvalterne.",
       "Men hvem får egentlig glæde af rabatterne?",
-      "Hos TOBA Advice har vi ingen egne investeringsprodukter og modtager ingen formidlingsprovision. De forvalterrabatter, vi forhandler hjem, sender vi ubeskåret videre til kunderne.",
+      "Hos TOBA har vi ingen egne investeringsprodukter og modtager ingen formidlingsprovision. De forvalterrabatter, vi forhandler hjem, sender vi ubeskåret videre til kunderne.",
       "I videoen forklarer Bent Hymøller, hvorfor det er en vigtig del af vores tilgang til uafhængig investeringsrådgivning.",
     ],
     video: videos.v06,
-    fact: { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalt til TOBA Advices kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}.` },
+    fact: { value: facts.rebatesPaid.amountMio, decimals: 1, suffix: " mio. kr.", label: `udbetalt til TOBAs kunder i forvalterrabatter i ${facts.rebatesPaid.paidYear}.` },
   },
 
   how: {

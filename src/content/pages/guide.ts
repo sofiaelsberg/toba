@@ -7,9 +7,9 @@ import type { FeatureContent, HeroContent, Point, Seo, Stat } from "../types";
 /** Landingsside 1: /lagkage */
 export const guide = {
   seo: {
-    title: "Hvem spiser din lagkage? Gratis guide | TOBA Advice",
+    title: "Hvem spiser din lagkage? Gratis guide | TOBA",
     description:
-      "Ved du, hvad din investeringsportefølje egentlig koster? Hent TOBA Advices gratis guide til omkostninger, rabatter og interessekonflikter.",
+      "Ved du, hvad din investeringsportefølje egentlig koster? Hent TOBAs gratis guide til omkostninger, rabatter og interessekonflikter.",
     ogDescription: "Omkostninger er ikke problemet. Usynlige omkostninger er. Hent den gratis guide.",
   } satisfies Seo,
 
@@ -50,7 +50,7 @@ export const guide = {
 
   video: {
     title: "Hvem spiser egentlig af dit afkast?",
-    text: "I videoen forklarer Martin Svendsen fra TOBA Advice, hvorfor det er vigtigt at kende de forskellige omkostninger – og hvad du som investor bør være opmærksom på.",
+    text: "I videoen forklarer Martin Svendsen fra TOBA, hvorfor det er vigtigt at kende de forskellige omkostninger – og hvad du som investor bør være opmærksom på.",
     video: videos.v02,
     action: { label: "Hent guiden gratis", href: "#guide", variant: "primary" as const },
   },
@@ -88,7 +88,7 @@ export const guide = {
 
   about: {
     title: "Uafhængig rådgivning. Uden skjulte interesser",
-    lead: "Hos TOBA Advice er der ingen skjulte interesser. Derfor kan vi vælge frit – og altid ud fra, hvad der er bedst for dig.",
+    lead: "Hos TOBA er der ingen skjulte interesser. Derfor kan vi vælge frit – og altid ud fra, hvad der er bedst for dig.",
     features: [
       { icon: "globe", title: "Uafhængig rådgivning.", text: `Vi vælger frit på tværs af markedet – i dag blandt ${facts.managers} forvaltere i ${facts.countries} lande.` },
       { icon: "no-commission", title: "Ingen egen forvaltning. Ingen provision.", text: "Vi lever af vores rådgivning – ikke af de fonde, vi vælger." },

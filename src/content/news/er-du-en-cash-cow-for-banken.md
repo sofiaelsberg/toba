@@ -2,7 +2,7 @@
 title: "Er du en cash cow for banken?"
 description: "92 % af fondsbeholdningerne hos de fem største banker ligger i bankernes egne fonde (Finanstilsynet, 2026). Hvad betyder det for dig som investor?"
 date: "2026-06-03T07:23:02.265Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7467838239127699456/"
 linkedinId: "7467838239127699456"
 document: {"title":"Illustration af Finanstilsynets undersøgelse"}
@@ -27,7 +27,7 @@ Sådan har det faktisk været i mange år, og det kan undre, at de ”dovne” i
 
 Men det behøver ikke være sådan. Finanstilsynets råd er klart: Tjek omkostningerne og sammenlign med lignende fonde, undersøg alternativer uden for din bank – og overvej en uafhængig rådgiver, der ikke kun må anbefale egne produkter.
 
-Det er præcis sådan, vi arbejder hos TOBA Advice.
+Det er præcis sådan, vi arbejder hos TOBA.
 Investeringsrådgivning, som den bør være. Ingen uigennemsigtige gebyrer, ingen skjulte interesser – kun ærlig og ansvarlig rådgivning.
 
 Kilde: Finanstilsynet, "Bankernes salg af egne fonde", maj 2026.

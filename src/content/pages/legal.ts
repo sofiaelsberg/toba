@@ -5,11 +5,11 @@ import type { HeroContent, Point, Seo, StepContent } from "../types";
 /** Politikker, Finanstilsynet, Klageadgang, Cookies + cookiebanner. Compliance skal læse alt. */
 
 export const policies = {
-  seo: { title: "Politikker | TOBA Advice", description: "Læs TOBA Advices politikker om interessekonflikter, privatliv, løn og bæredygtighed." } satisfies Seo,
+  seo: { title: "Politikker | TOBA", description: "Læs TOBAs politikker om interessekonflikter, privatliv, løn og bæredygtighed." } satisfies Seo,
   hero: {
     eyebrow: "Politikker",
     title: "Vores politikker",
-    lead: "Vi mener, at du skal kunne se, hvordan vi arbejder – også når det handler om regler og ansvar. Her finder du de politikker, der gælder for TOBA Advice.",
+    lead: "Vi mener, at du skal kunne se, hvordan vi arbejder – også når det handler om regler og ansvar. Her finder du de politikker, der gælder for TOBA.",
   } satisfies HeroContent,
   documents: [
     { title: "Håndtering af interessekonflikter", text: "Sådan finder, forebygger og håndterer vi interessekonflikter – så rådgivningen altid tager udgangspunkt i dig.", date: "Gældende fra 1. oktober 2024", href: "/dokumenter/politik-interessekonflikter.pdf", cta: "Hent PDF" },
@@ -28,7 +28,7 @@ export const policies = {
 };
 
 export const fsa = {
-  seo: { title: "Tilladelse fra Finanstilsynet | TOBA Advice", description: "TOBA Advice A/S er registreret hos Finanstilsynet som investeringsrådgiver. Se vores registreringsoplysninger." } satisfies Seo,
+  seo: { title: "Tilladelse fra Finanstilsynet | TOBA", description: "TOBA Advice A/S er registreret hos Finanstilsynet som investeringsrådgiver. Se vores registreringsoplysninger." } satisfies Seo,
   hero: {
     eyebrow: "Finanstilsynet",
     title: "Godkendt af Finanstilsynet",
@@ -56,7 +56,7 @@ export const fsa = {
 };
 
 export const complaints = {
-  seo: { title: "Klageadgang | TOBA Advice", description: "Er du utilfreds med vores rådgivning? Sådan klager du til TOBA Advice – og til Forbrugerklagenævnet, hvis vi ikke bliver enige." } satisfies Seo,
+  seo: { title: "Klageadgang | TOBA", description: "Er du utilfreds med vores rådgivning? Sådan klager du til TOBA – og til Forbrugerklagenævnet, hvis vi ikke bliver enige." } satisfies Seo,
   hero: {
     eyebrow: "Klageadgang",
     title: "Er du utilfreds?",
@@ -83,7 +83,7 @@ export const complaints = {
 };
 
 export const cookiesPage = {
-  seo: { title: "Cookies | TOBA Advice", description: "Sådan bruger TOBA Advice cookies på tobaadvice.com, og sådan ændrer du dit valg." } satisfies Seo,
+  seo: { title: "Cookies | TOBA", description: "Sådan bruger TOBA cookies på tobaadvice.com, og sådan ændrer du dit valg." } satisfies Seo,
   hero: {
     eyebrow: "Cookies",
     title: "Cookies på tobaadvice.com",
@@ -95,7 +95,7 @@ export const cookiesPage = {
     headers: { name: "Navn", provider: "Fra", purpose: "Formål", duration: "Varighed" },
     /** Opdatér listen, hvis der kommer nye værktøjer på siden. */
     items: [
-      { name: "toba_consent", provider: "TOBA Advice", category: "necessary", purpose: "Husker dit cookievalg.", duration: "6 måneder" },
+      { name: "toba_consent", provider: "TOBA", category: "necessary", purpose: "Husker dit cookievalg.", duration: "6 måneder" },
       { name: "_ga", provider: "Google Analytics", category: "statistics", purpose: "Skelner besøgende fra hinanden, så vi kan tælle, hvor mange der bruger siden.", duration: "2 år" },
       { name: "_ga_<id>", provider: "Google Analytics", category: "statistics", purpose: "Husker dit besøg, så sidevisninger kan samles i ét besøg.", duration: "2 år" },
       { name: "bcookie, lidc m.fl.", provider: "LinkedIn", category: "marketing", purpose: "Sættes af LinkedIn, når vi viser et LinkedIn-opslag på siden.", duration: "Op til 1 år" },
@@ -134,7 +134,7 @@ export const cookieConsent = {
  */
 export const accessibilityPage = {
   seo: {
-    title: "Tilgængelighed | TOBA Advice",
+    title: "Tilgængelighed | TOBA",
     description: "Sådan arbejder vi for, at alle kan bruge tobaadvice.com og vores rådgivning – og hvor du kan henvende dig, hvis noget ikke virker for dig.",
   } satisfies Seo,
   hero: {
@@ -211,8 +211,8 @@ export type PrivacySection = {
 
 export const privacyPage = {
   seo: {
-    title: "Privatlivspolitik | TOBA Advice",
-    description: "Sådan behandler TOBA Advice dine personoplysninger – på hjemmesiden, når du kontakter os, får vores nyhedsbrev, og når du er kunde.",
+    title: "Privatlivspolitik | TOBA",
+    description: "Sådan behandler TOBA dine personoplysninger – på hjemmesiden, når du kontakter os, får vores nyhedsbrev, og når du er kunde.",
   } satisfies Seo,
   hero: {
     eyebrow: "Privatlivspolitik",

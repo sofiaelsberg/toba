@@ -1,8 +1,8 @@
 ---
 title: "Formidlingsprovisioner: Pengene tilhører investorerne"
-description: "Formidlingsprovisioner bør tilfalde investorerne – ikke bankerne. Sådan arbejder TOBA Advice uden provision og med rabatter, der går til kunderne."
+description: "Formidlingsprovisioner bør tilfalde investorerne – ikke bankerne. Sådan arbejder TOBA uden provision og med rabatter, der går til kunderne."
 date: "2026-11-03T13:56:59.111Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:share:7523382723332210688/"
 linkedinId: "7523382723332210688"
 tags: ["TOBAADVICE","formidlingsprovision","gennemsigtighed","omkostninger"]
@@ -12,7 +12,7 @@ I dag sætter Børsen fokus på et udspil fra Forbrugerrådet Tænk og Dansk Akt
 
 I dag må bankerne beholde provisionen, hvis de stiller såkaldte "kvalitetsforbedrende services" til rådighed. Det kan være rådgivning – men også webinarer, podcasts og arrangementer.
 
-Hos TOBA Advice er vores holdning enkel: De penge tilhører investorerne – ikke den, der sælger produktet.
+Hos TOBA er vores holdning enkel: De penge tilhører investorerne – ikke den, der sælger produktet.
 
 Sådan arbejder vi:
 • Vi modtager ikke formidlingsprovisioner fra nogen for at sælge deres produkter

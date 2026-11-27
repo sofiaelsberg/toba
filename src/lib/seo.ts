@@ -20,12 +20,12 @@ export const defaultShareImage = {
   url: "/opengraph-image.png",
   width: 1200,
   height: 630,
-  alt: "TOBA Advice – Investeringsrådgivning som den bør være",
+  alt: "TOBA – Investeringsrådgivning som den bør være",
 };
 
-/** "Titel | TOBA Advice" – men uden endelsen, hvis titlen så bliver for lang til Googles visning (ca. 60 tegn). */
+/** "Titel | TOBA" – men uden endelsen, hvis titlen så bliver for lang til Googles visning (ca. 60 tegn). */
 export function withBrand(title: string, max = 60) {
-  const full = `${title} | TOBA Advice`;
+  const full = `${title} | TOBA`;
   return full.length <= max ? full : title;
 }
 

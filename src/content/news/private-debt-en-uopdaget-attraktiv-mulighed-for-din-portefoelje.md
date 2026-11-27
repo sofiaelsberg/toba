@@ -2,7 +2,7 @@
 title: "Private debt – en overset mulighed for din portefølje?"
 description: "Private debt giver adgang til unoterede selskaber med gældskapitalens beskyttelse. Derfor kan det være en del af en alternativ portefølje."
 date: "2025-06-30T09:24:18.646Z"
-author: "TOBA Advice"
+author: "TOBA"
 linkedin: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7345381660445609985/"
 linkedinId: "7345381660445609985"
 document: {"title":"Private Debt Investment Opportunity","pages":null,"pdf":"https://media.licdn.com/dms/document/media/v2/D4D1FAQFCChlpvUSVcQ/feedshare-document-url-metadata-scrapper-pdf/B4DZfAJl_9HkA0-/0/1751275435806?e=1796040000&v=beta&t=9g452qgLwlttPfSlCCsj_34gdzyfhJAUE6_18fGHmXY"}
